@@ -691,3 +691,38 @@ select option { background: #1e2433; color: #e4e7ec; }
 [data-sidebar="right"] .sidebar.collapsed ~ .main-area,
 [data-sidebar="right"] html.sb-collapsed .main-area { margin-left: 0; margin-right: 60px; }
 [data-sidebar="right"] .sidebar-nav li a.active { border-right: none; border-left: 3px solid var(--teal); }
+
+/* --- Extra Mobile Polish ------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Tables — horizontal scroll inside a wrapper */
+  .admin-table, table.admin-table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+  .card { padding: 1rem !important; }
+  .card-header { flex-direction: column; align-items: flex-start; gap: .5rem; }
+  /* Stat cards: stack */
+  .stats-row, .stat-grid { grid-template-columns: 1fr 1fr !important; gap: .8rem !important; }
+  /* Tab bars (settings, notifications) — horizontal scroll */
+  .stab-bar, .ntab-bar {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: nowrap;
+    scrollbar-width: thin;
+  }
+  .stab-bar::-webkit-scrollbar, .ntab-bar::-webkit-scrollbar { height: 4px; }
+  .stab, .ntab { flex-shrink: 0; }
+  /* Inputs full-width */
+  .sf-row, .sf-row.three { grid-template-columns: 1fr !important; }
+  .ch-row { grid-template-columns: 1fr !important; }
+  /* Modal sizing */
+  .modal-content { width: 95vw !important; max-width: 95vw !important; }
+}
+
+@media (max-width: 480px) {
+  .stats-row, .stat-grid { grid-template-columns: 1fr !important; }
+  .topbar h1 { font-size: 1.1rem !important; }
+}

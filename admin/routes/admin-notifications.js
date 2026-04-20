@@ -699,13 +699,37 @@ router.get('/', requireAuth, (req, res) => {
         });
       });
       // Inbox: Mark all read
-      document.getElementById('markAllReadBtn')?.addEventListener('click', function() {
-        fetch('/api/admin/notifications/read-all', { method: 'POST', headers: headers, body: JSON.stringify({ _csrf: csrf }) }).then(function() { location.reload(); });
+      document.getElementById('markAllReadBtn')?.addEventListener('click', async function() {
+        const btn = this;
+        btn.disabled = true;
+        btn.textContent = 'Marking...';
+        try {
+          const r = await fetch('/api/admin/notifications/read-all', { method: 'POST', credentials: 'same-origin', headers: headers, body: JSON.stringify({ _csrf: csrf }) });
+          const data = await r.json().catch(() => ({}));
+          if (!r.ok || !data.success) throw new Error(data.error || 'HTTP ' + r.status);
+          location.reload();
+        } catch (err) {
+          btn.disabled = false;
+          btn.textContent = 'Mark all read';
+          alert('Could not mark all as read: ' + err.message);
+        }
       });
       // Inbox: Clear old
-      document.getElementById('clearOldBtn')?.addEventListener('click', function() {
+      document.getElementById('clearOldBtn')?.addEventListener('click', async function() {
         if (!confirm('Delete all notifications older than 30 days?')) return;
-        fetch('/api/admin/notifications/clear-old', { method: 'POST', headers: headers, body: JSON.stringify({ _csrf: csrf }) }).then(function() { location.reload(); });
+        const btn = this;
+        btn.disabled = true;
+        btn.textContent = 'Clearing...';
+        try {
+          const r = await fetch('/api/admin/notifications/clear-old', { method: 'POST', credentials: 'same-origin', headers: headers, body: JSON.stringify({ _csrf: csrf }) });
+          const data = await r.json().catch(() => ({}));
+          if (!r.ok || !data.success) throw new Error(data.error || 'HTTP ' + r.status);
+          location.reload();
+        } catch (err) {
+          btn.disabled = false;
+          btn.textContent = 'Clear 30+ days';
+          alert('Could not clear old notifications: ' + err.message);
+        }
       });
     })();
     </script>

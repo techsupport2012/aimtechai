@@ -2540,3 +2540,70 @@ footer .footer-links a:hover { color: var(--clr-primary); }
   .page-section { padding: 3rem 1.2rem; }
   .page-hero { padding-top: 8rem; }
 }
+
+/* =============================================================
+   Site-wide mobile responsiveness — overrides inline grid
+   styles in repeated patterns (footer, video columns, etc.)
+   ============================================================= */
+@media (max-width: 900px) {
+  /* Footer outer grid (1fr 2fr → stacked) */
+  #footer > div[style*="grid-template-columns:1fr 2fr"],
+  #footer > div[style*="grid-template-columns: 1fr 2fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    text-align: center !important;
+  }
+  /* Footer columns (4-col → 2-col) */
+  #footer div[style*="grid-template-columns:repeat(4,1fr)"],
+  #footer div[style*="grid-template-columns: repeat(4,1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+    text-align: left !important;
+  }
+  /* About page CEO videos (2-col → stacked) */
+  section[style*="max-width:1300px"] > div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Common about/page-hero grid (about-grid) */
+  .about-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  /* Hero text/chat split (already has 980px rule but also enforce here) */
+  .hero.hero-split { grid-template-columns: 1fr !important; gap: 2rem !important; padding: 6rem 1.5rem 3rem !important; width: 100% !important; max-width: 100% !important; margin: 0 !important; }
+  /* Why-choose 4-col → 2-col */
+  .why-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+@media (max-width: 600px) {
+  /* Footer columns (4-col → 1-col) */
+  #footer div[style*="grid-template-columns:repeat(4,1fr)"],
+  #footer div[style*="grid-template-columns: repeat(4,1fr)"] {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+  /* All 1fr 1fr inline grids stack */
+  div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Hero buttons stack and full-width */
+  .hero-buttons { flex-direction: column !important; align-items: stretch !important; width: 100% !important; }
+  .hero-buttons .gradient-btn { width: 100% !important; justify-content: center !important; }
+  /* Why-choose stacks fully */
+  .why-grid { grid-template-columns: 1fr !important; }
+  /* Hide scroll indicator on tiny screens */
+  .scroll-indicator { display: none !important; }
+}
+
+/* Logo size on mobile */
+@media (max-width: 600px) {
+  .nav-logo img { height: 30px !important; }
+}
+
+/* Hero AI chat on mobile */
+@media (max-width: 980px) {
+  #hero-ai-chat { max-width: 100% !important; margin-left: 0 !important; min-height: 380px !important; max-height: 480px !important; }
+}
+
+/* Tables / wide content scroll on mobile */
+@media (max-width: 768px) {
+  .responsive-scroll, table { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; }
+}

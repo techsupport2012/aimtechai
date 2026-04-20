@@ -345,6 +345,11 @@ app.get('/blog', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'blog.html'));
 });
 
+// Silence Chrome DevTools workspace probe (returns 404 noise otherwise)
+app.get('/.well-known/appspecific/com.chrome.devtools.json', (req, res) => {
+  res.json({});
+});
+
 // Serve static files, auto-resolving .html extensions
 app.use(express.static(path.join(__dirname, 'public'), {
   extensions: ['html'],
@@ -352,11 +357,22 @@ app.use(express.static(path.join(__dirname, 'public'), {
 }));
 
 // Fallback to index.html for any unmatched route
+// Paths that browsers / extensions / DevTools probe for and we don't care about.
+// Returning silently keeps the notifications inbox clean.
+const NOISE_404_PATTERNS = [
+  /^\/\.well-known\//i,
+  /^\/(robots\.txt|sitemap.*\.xml|favicon\.ico|apple-touch-icon.*\.png|manifest\.json|sw\.js|service-worker\.js)$/i,
+  /^\/__/i,                      // various dev-tooling probes
+  /\/wp-(admin|login|content)/i, // wordpress scanner noise
+  /\.(php|asp|aspx|jsp)$/i,      // exploit scanners
+];
+
 app.get('/{*path}', (req, res) => {
-  // Track 404s for paths that look like real assets (not browser scans for /favicon, /robots.txt, etc.)
   const p = req.path || '';
   const isAsset = /\.(html|js|css|png|jpg|jpeg|gif|svg|webp|mp4|pdf|json|xml|txt|ico)$/i.test(p);
-  if (isAsset) {
+  const isNoise = NOISE_404_PATTERNS.some((re) => re.test(p));
+
+  if (isAsset && !isNoise) {
     try {
       const ip = (req.headers['x-forwarded-for'] || req.ip || '').toString().split(',')[0].trim();
       const ref = String(req.headers.referer || '').slice(0, 500);
@@ -366,6 +382,9 @@ app.get('/{*path}', (req, res) => {
       dispatchNotification(title, message, 'error_404');
     } catch {}
     return res.status(404).sendFile(path.join(__dirname, 'public', 'index.html'));
+  }
+  if (isNoise) {
+    return res.status(404).end();
   }
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });

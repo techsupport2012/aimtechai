@@ -1,8 +1,30 @@
 const crypto = require('crypto');
+const fs = require('fs');
+const path = require('path');
 const { get, run } = require('../../db/db');
 
-// Random secret for CSRF HMAC — generated once on process start
-const CSRF_SECRET = crypto.randomBytes(32).toString('hex');
+// CSRF HMAC secret — must persist across server restarts. If it regenerates,
+// every CSRF token already rendered into a page becomes invalid and any
+// subsequent form submit / fetch returns 403 until the user reloads.
+//
+// Resolution order:
+//   1. process.env.CSRF_SECRET (production)
+//   2. data/.csrf-secret  (auto-generated once, persisted across restarts)
+const CSRF_SECRET = (function loadCsrfSecret() {
+  if (process.env.CSRF_SECRET && process.env.CSRF_SECRET.length >= 32) {
+    return process.env.CSRF_SECRET;
+  }
+  const dataDir = path.join(__dirname, '..', '..', 'data');
+  try { fs.mkdirSync(dataDir, { recursive: true }); } catch {}
+  const secretFile = path.join(dataDir, '.csrf-secret');
+  try {
+    const existing = fs.readFileSync(secretFile, 'utf8').trim();
+    if (existing.length >= 32) return existing;
+  } catch {}
+  const fresh = crypto.randomBytes(32).toString('hex');
+  try { fs.writeFileSync(secretFile, fresh, { mode: 0o600 }); } catch {}
+  return fresh;
+})();
 
 // ---------------------------------------------------------------------------
 // DB settings — read fresh on each call (SQLite local reads are sub-ms)
