@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>AI Workflow Automation for Enterprises: Complete Guide | AIM Tech AI</title>
+  <meta name="description" content="Learn how AI workflow automation connects enterprise systems across operations, finance, and HR. Discover implementation steps, ROI benchmarks, and common mistakes to avoid.">
+  <link rel="canonical" href="https://aimtechai.com/blog/ai-workflow-automation">
+  <meta property="og:title" content="AI Workflow Automation for Enterprises: Complete Guide | AIM Tech AI">
+  <meta property="og:description" content="Learn how AI workflow automation connects enterprise systems across operations, finance, and HR. Discover implementation steps, ROI benchmarks, and common mistakes to avoid.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aimtechai.com/blog/ai-workflow-automation">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Workflow Automation for Enterprises: Complete Guide | AIM Tech AI">
+  <meta name="twitter:description" content="Learn how AI workflow automation connects enterprise systems across operations, finance, and HR. Discover implementation steps, ROI benchmarks, and common mistakes to avoid.">
+  <meta name="keywords" content="AI workflow automation, enterprise automation, business process AI, intelligent workflows, AIM Tech AI">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "AI Workflow Automation for Enterprises: Complete Guide",
+    "datePublished": "2026-04-13",
+    "author": {
+      "@type": "Organization",
+      "name": "AIM Tech AI"
+    },
+    "description": "Learn how AI workflow automation connects enterprise systems across operations, finance, and HR. Discover implementation steps, ROI benchmarks, and common mistakes to avoid.",
+    "keywords": ["AI workflow automation", "enterprise automation", "business process AI", "intelligent workflows", "AIM Tech AI"],
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIM Tech AI"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aimtechai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aimtechai.com/blog" },
+      { "@type": "ListItem", "position": 3, "name": "AI Workflow Automation for Enterprises: Complete Guide" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does enterprise AI workflow automation cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Enterprise AI workflow automation projects typically range from $50,000 to $500,000 depending on scope, number of systems being connected, and complexity of business logic. A phased approach starting with a single high-impact workflow keeps initial costs manageable while delivering measurable ROI within the first quarter."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long before AI workflow automation shows ROI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most enterprises see measurable ROI within 60 to 90 days of deploying their first automated workflow. The fastest returns come from high-volume, rules-based processes like invoice processing, employee onboarding, and report generation where manual labor costs are easy to quantify."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can AI workflow automation work with legacy enterprise systems?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Modern AI workflow automation platforms connect to legacy systems through APIs, middleware layers, and robotic process automation bridges. You do not need to replace your ERP, CRM, or HRIS to benefit from AI automation. The integration layer sits on top of existing infrastructure and orchestrates workflows across old and new systems alike."
+        }
+      }
+    ]
+  }
+  </script>
+<script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#values" data-scramble>Values</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+
+  <div class="content">
+  <div class="content blog-article-page">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/blog">Blog</a> &rsaquo; AI Workflow Automation</div>
+      <h1>AI Workflow Automation for Enterprises: Complete Guide</h1>
+      <p class="hero-sub" style="opacity:1;transform:none;">April 13, 2026 &bull; 8 min read</p>
+    </div>
+
+    <div class="glow-divider"></div>
+
+    <!-- ARTICLE -->
+    <section style="max-width:1300px;margin:0 auto;">
+      <a href="/blog" style="color:var(--clr-accent);text-decoration:none;font-size:0.9rem;display:inline-block;margin-bottom:2rem;">&larr; Back to Blog</a>
+
+      <div style="max-width:800px;margin:0 auto;background:linear-gradient(135deg,rgba(255,255,255,0.18),rgba(255,255,255,0.08));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:3rem;box-shadow:0 8px 32px rgba(0,0,0,0.25);">
+
+        <article style="color:var(--clr-text-dim);font-weight:300;font-size:0.95rem;line-height:1.8;">
+
+          <!-- Quick Answer AEO Block -->
+          <div style="background:linear-gradient(135deg,rgba(99,102,241,0.12),rgba(139,92,246,0.08));border-left:4px solid var(--clr-accent);border-radius:0 12px 12px 0;padding:1.5rem;margin-bottom:2rem;">
+            <p style="font-weight:600;color:var(--clr-text);margin-bottom:0.5rem;">Quick Answer</p>
+            <p>AI workflow automation connects enterprise systems across operations, finance, and HR into a single intelligent layer that routes data, triggers actions, and eliminates manual handoffs. Enterprises that implement it correctly see 40 to 70 percent reductions in process cycle times and measurable ROI within 90 days.</p>
+          </div>
+
+          <p>Most enterprises run on disconnected systems. Operations uses one platform, finance uses another, HR has its own stack, and the data flowing between them is held together by spreadsheets, emails, and manual copy-paste. In 2026, this is no longer a minor inconvenience. It is a competitive liability. AI workflow automation is how leading organizations are solving this problem, and the gap between companies that adopt it and those that do not is widening every quarter.</p>
+
+          <p>At <a href="/ai">AIM Tech AI</a>, we build AI-powered workflow automation systems for enterprises that need their departments to operate as a single connected unit. This guide covers what enterprise AI workflow automation actually looks like, how to implement it, where the ROI comes from, and the mistakes that cause most projects to fail.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">What Is AI Workflow Automation?</h2>
+
+          <p><strong>AI workflow automation</strong> uses machine learning, natural language processing, and intelligent orchestration to connect business systems, route information between departments, and execute multi-step processes without manual intervention. Unlike traditional automation that follows rigid if-then rules, AI-driven workflows adapt to context, handle exceptions, and improve over time as they process more data.</p>
+
+          <p>This means an invoice that arrives via email can be automatically extracted, matched against purchase orders, routed to the correct approver based on amount and department, and posted to the general ledger without a human touching it. When the AI encounters an anomaly, like a duplicate or a mismatch, it flags it for review rather than failing silently. The <a href="/consulting">strategic consulting team at AIM Tech AI</a> helps enterprises identify these high-value automation opportunities before a single line of code is written.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">How to Implement AI Workflow Automation: A 5-Step Process</h2>
+
+          <p><strong>Step 1: Map your cross-department workflows.</strong> Document every process that involves data moving between systems or teams. Focus on volume, frequency, and error rates. The workflows with the highest manual touchpoints are your best candidates.</p>
+
+          <p><strong>Step 2: Identify integration points.</strong> Catalog every system involved, including ERPs, CRMs, HRIS platforms, and communication tools. Determine which have APIs, which need middleware, and which require <a href="/cloud">cloud infrastructure</a> upgrades to support real-time data exchange.</p>
+
+          <p><strong>Step 3: Design the AI orchestration layer.</strong> Build the intelligent routing logic that decides how data flows, when actions trigger, and what conditions require human review. This is where the AI lives, sitting between your existing systems and making decisions that previously required people.</p>
+
+          <p><strong>Step 4: Build and test incrementally.</strong> Deploy one workflow at a time. Validate accuracy, measure processing time, and collect feedback before expanding. Our <a href="/blog/ai-agents-guide">guide to AI agents</a> explains how autonomous agents handle the execution layer within these workflows.</p>
+
+          <p><strong>Step 5: Scale and optimize.</strong> Once the first workflow is stable, replicate the pattern across departments. Each new workflow benefits from shared infrastructure, data pipelines, and learned patterns, reducing deployment time significantly.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Enterprise Use Cases for AI Workflow Automation</h2>
+
+          <h3 style="color:var(--clr-text);margin-top:1.5rem;">Finance: Automated Invoice Processing and Reconciliation</h3>
+          <p>AI extracts data from invoices in any format, matches against purchase orders, flags discrepancies, and posts approved transactions to the ERP. Companies using AIM Tech AI for finance automation report 80 percent reductions in processing time and near-zero error rates.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.5rem;">HR: Intelligent Employee Onboarding</h3>
+          <p>New hire workflows that span IT provisioning, benefits enrollment, training assignments, and manager notifications are orchestrated by AI. The system adapts based on role, department, and location, ensuring every step is completed without manual coordination.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.5rem;">Operations: Predictive Supply Chain Management</h3>
+          <p>AI monitors inventory levels, supplier lead times, and demand signals in real time. When thresholds are breached, the system automatically generates purchase orders, adjusts production schedules, and alerts stakeholders. Read more about how <a href="/blog/what-is-ai-automation">AI automation transforms operations</a> at scale.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Common Mistakes That Kill Enterprise AI Automation Projects</h2>
+
+          <p><strong>Automating broken processes.</strong> If the manual workflow is poorly designed, automating it just makes bad decisions faster. Always redesign the process before automating it.</p>
+
+          <p><strong>Ignoring change management.</strong> Employees who do not understand or trust the AI system will work around it. Training, transparency, and gradual rollout are essential.</p>
+
+          <p><strong>Skipping monitoring and feedback loops.</strong> AI systems degrade without ongoing measurement. AIM Tech AI builds real-time monitoring dashboards and alerting into every deployment to catch issues before they compound.</p>
+
+          <p><strong>Choosing tools over strategy.</strong> Buying an automation platform without a clear workflow map is like buying a car without knowing where you need to drive. <a href="/consulting">Strategy comes first</a>, tooling follows.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">AI Workflow Automation Is an Enterprise Imperative</h2>
+
+          <p>The enterprises pulling ahead in 2026 are not the ones with the best individual tools. They are the ones whose systems work together as a unified, intelligent operation. AI workflow automation is the bridge between siloed departments and a connected enterprise.</p>
+
+          <p>At <strong>AIM Tech AI</strong>, we combine <a href="/ai">AI engineering</a>, <a href="/cloud">scalable cloud infrastructure</a>, and deep enterprise experience to deliver automation systems that work in production, not just in demos. Whether you are automating your first workflow or connecting your entire operation, our team delivers results.</p>
+
+          <div style="background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(139,92,246,0.10));border:1px solid rgba(99,102,241,0.3);border-radius:12px;padding:2rem;margin:2rem 0;text-align:center;">
+            <p style="font-size:1.1rem;color:var(--clr-text);font-weight:500;margin-bottom:1rem;">Ready to automate your enterprise workflows with AI?</p>
+            <p style="margin-bottom:1.5rem;">Work with AIM Tech AI to build intelligent automation that connects every department.</p>
+            <a href="/#contact" style="display:inline-block;padding:0.8rem 2rem;background:var(--clr-accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:500;">Get in Touch</a>
+          </div>
+
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Frequently Asked Questions About AI Workflow Automation</h2>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">How much does enterprise AI workflow automation cost?</h3>
+          <p>Enterprise AI workflow automation projects typically range from $50,000 to $500,000 depending on scope, number of systems being connected, and complexity of business logic. A phased approach starting with a single high-impact workflow keeps initial costs manageable while delivering measurable ROI within the first quarter.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">How long before AI workflow automation shows ROI?</h3>
+          <p>Most enterprises see measurable ROI within 60 to 90 days of deploying their first automated workflow. The fastest returns come from high-volume, rules-based processes like invoice processing, employee onboarding, and report generation where manual labor costs are easy to quantify.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">Can AI workflow automation work with legacy enterprise systems?</h3>
+          <p>Yes. Modern AI workflow automation platforms connect to legacy systems through APIs, middleware layers, and robotic process automation bridges. You do not need to replace your ERP, CRM, or HRIS to benefit from AI automation. The integration layer sits on top of existing infrastructure and orchestrates workflows across old and new systems alike.</p>
+
+        
+<style>
+.blog-article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 3rem 0 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.blog-article-nav a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-decoration: none;
+  max-width: 45%;
+  transition: opacity 0.3s;
+}
+.blog-article-nav a:hover { opacity: 0.7; }
+.blog-article-nav .nav-label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--clr-primary);
+  font-weight: 500;
+}
+.blog-article-nav .nav-title {
+  font-size: 0.9rem;
+  color: var(--clr-text);
+  font-weight: 500;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.blog-article-nav .next { text-align: right; margin-left: auto; }
+[data-theme="light"] .blog-article-nav { border-top-color: rgba(0,0,0,0.08); }
+@media (max-width: 600px) {
+  .blog-article-nav { flex-direction: column; gap: 1.5rem; }
+  .blog-article-nav a { max-width: 100%; }
+  .blog-article-nav .next { text-align: left; }
+}
+</style>
+<div class="blog-article-nav"><a href="/blog/ai-vs-automation" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">AI Integration vs Automation: What's the Real Difference?</span></a><a href="/blog/beverly-hills-tech-scene" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Why We Built a Software Company in Beverly Hills</span></a></div>
+
+          <!-- strong-cta-v1 -->
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+          <section class="cta-block" style="margin-top:2.2rem;padding:2rem 1.8rem;background:linear-gradient(135deg,rgba(15,193,183,0.18),rgba(42,53,75,0.25));border:1px solid rgba(15,193,183,0.35);border-radius:16px;text-align:center;">
+            <h2 style="color:var(--clr-text);margin-top:0;font-size:1.5rem;">Build Systems, Not Experiments</h2>
+            <p style="color:var(--clr-text);margin:0.6rem 0 1.3rem;">AIM Tech AI designs and ships AI, cloud, and custom software systems for companies ready to turn technology into real business advantage.</p>
+            <a href="/book" style="display:inline-block;padding:0.95rem 2rem;background:var(--clr-primary);color:#0a0608;border-radius:12px;font-weight:700;text-decoration:none;text-shadow:none;letter-spacing:0.3px;">Book a Strategy Call &rarr;</a>
+            <div style="margin-top:0.9rem;font-size:0.82rem;color:var(--clr-text-dim);">Free 30-min consultation &bull; No obligation</div>
+          </section>
+</article>
+      </div>
+    </section>
+
+    <div class="glow-divider"></div>
+
+  </div>
+
+  <!-- FOOTER -->
+    <!-- FOOTER -->
+  </div><!-- .content -->
+
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <a href="/blog" class="back-link">&larr; Blog</a>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script>if(location.hostname!=="localhost"&&!location.hostname.startsWith("127.")){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";document.head.appendChild(s);}</script>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initBlogVideoBg } from '/js/blog-video-bg.js';
+    // import { initVideoBackground } from '/js/video-bg.js'; // HIDDEN
+    import { initRouter } from '/js/router.js';
+    // const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // initVideoBackground({ reducedMotion }).catch(err => console.warn('[video-bg]', err));
+    initBlogVideoBg();
+    initUI();
+    initRouter();
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

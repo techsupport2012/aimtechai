@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <style>
+    * { margin: 0; padding: 0; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: transparent; }
+    canvas { width: 100%; height: 100%; display: block; }
+    .loader {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 36px; height: 36px;
+      border: 2px solid rgba(107,130,255,0.15);
+      border-top-color: #6b82ff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: translate(-50%,-50%) rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="loader" id="loader"></div>
+  <script type="module">
+    // Detect mobile/low-power devices
+    const isMobile = /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent);
+    const isLowPower = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4;
+
+    // Skip Spline entirely on mobile — too heavy
+    if (isMobile) {
+      document.getElementById('loader')?.remove();
+      document.body.style.display = 'none';
+      window.parent.postMessage({ type: 'spline-scene', isModelScene: false, isMobile: true }, '*');
+    } else {
+      // PC: load Spline with optimizations
+      const { Application } = await import('https://unpkg.com/@splinetool/runtime@1.9.82/build/runtime.js');
+
+      const scenes = [
+        'https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode',
+        'https://prod.spline.design/Nmx4Vyeze9wJ-9zm/scene.splinecode',
+      ];
+
+      const lastIndex = parseInt(localStorage.getItem('spline-scene-index') ?? '-1');
+      const nextIndex = (lastIndex + 1) % scenes.length;
+      localStorage.setItem('spline-scene-index', nextIndex);
+      const sceneUrl = scenes[nextIndex];
+
+      const canvas = document.createElement('canvas');
+      canvas.style.cssText = 'width:100%;height:100%;display:block;';
+      document.body.appendChild(canvas);
+
+      // Lower pixel ratio on weaker machines
+      const dpr = isLowPower ? 1 : Math.min(window.devicePixelRatio, 1.5);
+
+      const app = new Application(canvas);
+
+      try {
+        await app.load(sceneUrl);
+
+        document.getElementById('loader')?.remove();
+
+        const isModelScene = sceneUrl.includes('Nmx4Vyeze9wJ-9zm');
+        window.parent.postMessage({ type: 'spline-scene', isModelScene }, '*');
+
+        // Fade in
+        canvas.style.opacity = '0';
+        let start = performance.now();
+        function materialize(now) {
+          const t = Math.min((now - start) / 5000, 1);
+          canvas.style.opacity = (t * t).toFixed(3);
+          if (t < 1) requestAnimationFrame(materialize);
+        }
+        requestAnimationFrame(materialize);
+
+        // Flip 3D model scene
+        if (isModelScene) {
+          canvas.style.transform = 'scaleX(-1)';
+        }
+
+        // Throttled mouse forwarding — max 30fps instead of every event
+        let lastMouseTime = 0;
+        const mouseInterval = 33; // ~30fps
+
+        window.addEventListener('message', (e) => {
+          if (e.data && e.data.type === 'mousemove') {
+            const now = performance.now();
+            if (now - lastMouseTime < mouseInterval) return;
+            lastMouseTime = now;
+
+            let x = e.data.x;
+            let y = e.data.y;
+
+            if (isModelScene) {
+              const rect = canvas.getBoundingClientRect();
+              x = rect.width - x;
+              const centerX = rect.width / 2;
+              const centerY = rect.height / 2;
+              x = centerX + (x - centerX) * 2.5;
+              y = centerY + (y - centerY) * 2;
+            }
+
+            canvas.dispatchEvent(new PointerEvent('pointermove', {
+              clientX: x, clientY: y, screenX: x, screenY: y,
+              bubbles: true, cancelable: true, pointerId: 1,
+              pointerType: 'mouse', isPrimary: true,
+            }));
+          }
+        });
+
+        canvas.style.pointerEvents = 'auto';
+
+      } catch(err) {
+        console.error('[SplineFrame] Failed:', err);
+        document.getElementById('loader')?.remove();
+        // Fallback to first scene
+        const fallback = scenes[0];
+        if (sceneUrl !== fallback) {
+          try {
+            await app.load(fallback);
+            canvas.style.opacity = '1';
+            canvas.style.pointerEvents = 'auto';
+            window.addEventListener('message', (e) => {
+              if (e.data?.type === 'mousemove') {
+                canvas.dispatchEvent(new PointerEvent('pointermove', {
+                  clientX: e.data.x, clientY: e.data.y,
+                  bubbles: true, pointerId: 1, pointerType: 'mouse', isPrimary: true,
+                }));
+              }
+            });
+          } catch(e2) {}
+        }
+      }
+    }
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>PHP Development Services | AIM Tech AI</title>
+  <meta name="description" content="Professional PHP development services including Laravel, WordPress, custom CMS, and ecommerce solutions. AIM Tech AI builds fast, secure, and scalable PHP applications.">
+  <link rel="canonical" href="https://aimtechai.com/technologies/php">
+  <meta property="og:title" content="PHP Development Services | AIM Tech AI">
+  <meta property="og:description" content="Professional PHP development services including Laravel, WordPress, custom CMS, and ecommerce solutions. AIM Tech AI builds fast, secure, and scalable PHP applications.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aimtechai.com/technologies/php">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PHP Development Services | AIM Tech AI">
+  <meta name="twitter:description" content="Professional PHP development services including Laravel, WordPress, custom CMS, and ecommerce solutions. AIM Tech AI builds fast, secure, and scalable PHP applications.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#values" data-scramble>Values</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="content">
+
+  <!-- HERO -->
+  <section style="max-width:1300px;margin:0 auto;padding:8rem 2rem 4rem;">
+    <div class="reveal">
+      <span class="section-label">Technology</span>
+      <h1 class="section-title" style="font-size:clamp(2.2rem,5vw,3.8rem);">PHP Development</h1>
+      <p style="max-width:720px;margin:1.5rem auto 0;color:var(--clr-text-dim);font-size:1.1rem;line-height:1.8;text-align:center;">
+        Powering over 75% of the web, PHP remains the backbone of modern content platforms, ecommerce stores, and SaaS applications.
+        We build secure, performant PHP solutions with Laravel, WordPress, and custom frameworks.
+      </p>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- WHY PHP -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem;">
+    <div class="reveal">
+      <span class="section-label">Advantages</span>
+      <h2 class="section-title">Why PHP?</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:3rem;">
+      <div class="glass-card reveal" style="padding:2.5rem;">
+        <h3 style="color:var(--clr-primary);font-size:1.25rem;margin-bottom:1rem;">Proven at Scale</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.8;">Facebook, Wikipedia, and Slack all run on PHP. With PHP 8.3's JIT compilation and fiber-based concurrency, modern PHP delivers performance that rivals compiled languages for web workloads.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2.5rem;">
+        <h3 style="color:var(--clr-primary);font-size:1.25rem;margin-bottom:1rem;">Massive Ecosystem</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.8;">From Laravel and Symfony to WordPress and WooCommerce, PHP's ecosystem covers every web use case. Composer's package registry provides over 350,000 reusable libraries and integrations.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2.5rem;">
+        <h3 style="color:var(--clr-primary);font-size:1.25rem;margin-bottom:1rem;">Cost-Effective Hosting</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.8;">PHP runs on virtually every hosting provider with minimal configuration. Shared hosting, VPS, and cloud platforms all offer optimized PHP environments, keeping infrastructure costs predictable and low.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- OUR PHP SERVICES -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem;">
+    <div class="reveal">
+      <span class="section-label">Capabilities</span>
+      <h2 class="section-title">Our PHP Services</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem;">
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Laravel Applications</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Full-stack Laravel development with Eloquent ORM, Livewire, Inertia.js, queues, and event broadcasting for real-time, modern web applications.</p>
+        <span class="service-tag" style="margin-top:1rem;display:inline-block;">Laravel</span>
+        <span class="service-tag">Livewire</span>
+        <span class="service-tag">Inertia.js</span>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg></div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">WordPress &amp; CMS</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Custom WordPress themes, plugin development, headless CMS architectures, and enterprise multisite deployments with advanced ACF and Gutenberg blocks.</p>
+        <span class="service-tag" style="margin-top:1rem;display:inline-block;">WordPress</span>
+        <span class="service-tag">Gutenberg</span>
+        <span class="service-tag">ACF Pro</span>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Ecommerce Solutions</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">WooCommerce storefronts, Magento integrations, custom checkout flows, payment gateway implementations, and subscription billing systems.</p>
+        <span class="service-tag" style="margin-top:1rem;display:inline-block;">WooCommerce</span>
+        <span class="service-tag">Stripe</span>
+        <span class="service-tag">Magento</span>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">API &amp; Integration</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">RESTful API development, third-party integrations, webhook systems, and OAuth implementations connecting your PHP applications to any service.</p>
+        <span class="service-tag" style="margin-top:1rem;display:inline-block;">REST API</span>
+        <span class="service-tag">OAuth</span>
+        <span class="service-tag">Webhooks</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- OUR PROCESS -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem;">
+    <div class="reveal">
+      <span class="section-label">Methodology</span>
+      <h2 class="section-title">Our Process</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-top:3rem;">
+      <div class="glass-card reveal" style="padding:2rem;">
+        <div style="font-family:var(--font-mono);font-size:2rem;color:var(--clr-primary);margin-bottom:1rem;">01</div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Scope &amp; Strategy</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">We define your content strategy, user flows, and technical requirements to select the right PHP framework and hosting architecture for your project.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;">
+        <div style="font-family:var(--font-mono);font-size:2rem;color:var(--clr-primary);margin-bottom:1rem;">02</div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Design &amp; Development</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Pixel-perfect frontend implementation paired with clean, testable PHP backend code. We follow PSR standards and write comprehensive PHPUnit tests.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;">
+        <div style="font-family:var(--font-mono);font-size:2rem;color:var(--clr-primary);margin-bottom:1rem;">03</div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Security Hardening</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">SQL injection prevention, XSS protection, CSRF tokens, rate limiting, and regular dependency audits to keep your PHP application bulletproof.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;">
+        <div style="font-family:var(--font-mono);font-size:2rem;color:var(--clr-primary);margin-bottom:1rem;">04</div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Launch &amp; Maintenance</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Optimized deployment with caching, CDN configuration, and uptime monitoring. Ongoing updates, security patches, and performance tuning post-launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- CTA -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem 6rem;text-align:center;">
+    <div class="reveal">
+      <h2 class="section-title">Ready to Build?</h2>
+      <p style="color:var(--clr-text-dim);max-width:600px;margin:1rem auto 2rem;line-height:1.8;">Whether it is a Laravel SaaS platform or a WordPress-powered content hub, our PHP developers deliver results. Book a free consultation.</p>
+      <a href="/book" class="gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+  </section>
+
+  </div>
+
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <a href="/" class="back-link">&larr; Home</a>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script>if(location.hostname!=="localhost"&&!location.hostname.startsWith("127.")){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";document.head.appendChild(s);}</script>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initParallaxVideoBg } from '/js/parallax-video-bg.js';
+    import { initRouter } from '/js/router.js';
+    initParallaxVideoBg();
+    initUI();
+    initRouter();
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

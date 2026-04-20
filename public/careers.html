@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>Careers at AIM Tech AI | AIM Tech AI</title>
+  <meta name="description" content="Join AIM Tech AI and build the future of technology. Explore open positions in engineering, design, and more. Remote-first culture with offices in Beverly Hills, CA.">
+  <link rel="canonical" href="https://aimtechai.com/careers">
+  <meta property="og:title" content="Careers at AIM Tech AI | AIM Tech AI">
+  <meta property="og:description" content="Join AIM Tech AI and build the future of technology. Explore open positions in engineering, design, and more. Remote-first culture with offices in Beverly Hills, CA.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aimtechai.com/careers">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Careers at AIM Tech AI | AIM Tech AI">
+  <meta name="twitter:description" content="Join AIM Tech AI and build the future of technology. Explore open positions in engineering, design, and more. Remote-first culture with offices in Beverly Hills, CA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#values" data-scramble>Values</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="content">
+
+  <!-- HERO -->
+  <section style="max-width:1300px;margin:0 auto;padding:8rem 2rem 4rem;">
+    <div class="reveal" style="text-align:center;">
+      <small class="section-label">Join Us</small>
+      <h1 class="section-title">Careers at AIM Tech AI</h1>
+      <p style="color:var(--clr-text-dim);max-width:700px;margin:1.5rem auto 0;font-size:1.1rem;line-height:1.8;">
+        We are building the future of technology, and we want you on our team. At AIM Tech AI, every team member plays a critical role in delivering innovative solutions for clients around the world.
+      </p>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- WHY WORK WITH US -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem;">
+    <div class="reveal" style="text-align:center;margin-bottom:3rem;">
+      <small class="section-label">Benefits</small>
+      <h2 class="section-title">Why Work With Us</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;">
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></div>
+        <h4 style="margin-bottom:0.75rem;">Innovation Culture</h4>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Work with cutting-edge technologies including AI, machine learning, and cloud infrastructure. We encourage experimentation and creative problem-solving every day.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h4 style="margin-bottom:0.75rem;">Remote-First</h4>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Work from anywhere in the world. Our distributed team spans multiple time zones, with optional access to our Beverly Hills, CA headquarters.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></div>
+        <h4 style="margin-bottom:0.75rem;">Growth Opportunities</h4>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Advance your career with mentorship programs, learning budgets, conference sponsorships, and clear paths to leadership within a rapidly growing company.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h4 style="margin-bottom:0.75rem;">Diverse Team</h4>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Led by CEO Yasmin Kavandi, a fierce female technology leader with 10+ years of experience, we champion diversity and inclusion at every level of the organization.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- OPEN POSITIONS -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem;">
+    <div class="reveal" style="text-align:center;margin-bottom:3rem;">
+      <small class="section-label">Openings</small>
+      <h2 class="section-title">Open Positions</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:2rem;">
+
+      <div class="glass-card reveal" style="padding:2rem;">
+        <h4 style="margin-bottom:0.5rem;">Senior Full-Stack Developer</h4>
+        <span class="service-tag" style="margin-bottom:0.75rem;display:inline-block;">Engineering</span>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;margin-bottom:0.75rem;">Remote / Beverly Hills, CA</p>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;margin-bottom:1.25rem;">Build and scale web applications using modern frameworks. You will architect solutions, mentor junior developers, and collaborate directly with clients on high-impact projects.</p>
+        <a href="mailto:info@aimtechai.com?subject=Application%20-%20Senior%20Full-Stack%20Developer" class="gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;display:inline-flex;text-decoration:none;"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span class="gbtn-label">Apply Now</span></a>
+      </div>
+
+      <div class="glass-card reveal" style="padding:2rem;">
+        <h4 style="margin-bottom:0.5rem;">AI/ML Engineer</h4>
+        <span class="service-tag" style="margin-bottom:0.75rem;display:inline-block;">AI &amp; Data</span>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;margin-bottom:0.75rem;">Remote / Beverly Hills, CA</p>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;margin-bottom:1.25rem;">Design and deploy machine learning models and AI-powered solutions. Work with large language models, computer vision, and predictive analytics across diverse industries.</p>
+        <a href="mailto:info@aimtechai.com?subject=Application%20-%20AI%2FML%20Engineer" class="gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;display:inline-flex;text-decoration:none;"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span class="gbtn-label">Apply Now</span></a>
+      </div>
+
+      <div class="glass-card reveal" style="padding:2rem;">
+        <h4 style="margin-bottom:0.5rem;">DevOps Engineer</h4>
+        <span class="service-tag" style="margin-bottom:0.75rem;display:inline-block;">Infrastructure</span>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;margin-bottom:0.75rem;">Remote / Beverly Hills, CA</p>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;margin-bottom:1.25rem;">Manage CI/CD pipelines, cloud infrastructure, and container orchestration. Ensure our systems are reliable, scalable, and secure across AWS, Azure, and GCP environments.</p>
+        <a href="mailto:info@aimtechai.com?subject=Application%20-%20DevOps%20Engineer" class="gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;display:inline-flex;text-decoration:none;"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span class="gbtn-label">Apply Now</span></a>
+      </div>
+
+      <div class="glass-card reveal" style="padding:2rem;">
+        <h4 style="margin-bottom:0.5rem;">UI/UX Designer</h4>
+        <span class="service-tag" style="margin-bottom:0.75rem;display:inline-block;">Design</span>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;margin-bottom:0.75rem;">Remote / Beverly Hills, CA</p>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;margin-bottom:1.25rem;">Craft intuitive, beautiful interfaces for web and mobile applications. Conduct user research, create wireframes and prototypes, and collaborate with engineering to bring designs to life.</p>
+        <a href="mailto:info@aimtechai.com?subject=Application%20-%20UI%2FUX%20Designer" class="gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;display:inline-flex;text-decoration:none;"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span class="gbtn-label">Apply Now</span></a>
+      </div>
+
+      <div class="glass-card reveal" style="padding:2rem;">
+        <h4 style="margin-bottom:0.5rem;">Project Manager</h4>
+        <span class="service-tag" style="margin-bottom:0.75rem;display:inline-block;">Operations</span>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;margin-bottom:0.75rem;">Remote / Beverly Hills, CA</p>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;margin-bottom:1.25rem;">Lead cross-functional teams through agile development cycles. Manage timelines, budgets, and stakeholder communication to deliver projects on time and within scope.</p>
+        <a href="mailto:info@aimtechai.com?subject=Application%20-%20Project%20Manager" class="gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;display:inline-flex;text-decoration:none;"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span class="gbtn-label">Apply Now</span></a>
+      </div>
+
+      <div class="glass-card reveal" style="padding:2rem;">
+        <h4 style="margin-bottom:0.5rem;">QA Engineer</h4>
+        <span class="service-tag" style="margin-bottom:0.75rem;display:inline-block;">Quality Assurance</span>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;margin-bottom:0.75rem;">Remote / Beverly Hills, CA</p>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;margin-bottom:1.25rem;">Develop and execute automated test suites for web, mobile, and API applications. Champion quality standards and work closely with developers to ship reliable software.</p>
+        <a href="mailto:info@aimtechai.com?subject=Application%20-%20QA%20Engineer" class="gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;display:inline-flex;text-decoration:none;"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span class="gbtn-label">Apply Now</span></a>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- HIRING PROCESS -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem;">
+    <div class="reveal" style="text-align:center;margin-bottom:3rem;">
+      <small class="section-label">Process</small>
+      <h2 class="section-title">Our Hiring Process</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem;">
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="font-size:2rem;font-weight:700;color:var(--clr-primary);margin-bottom:0.75rem;">01</div>
+        <h4 style="margin-bottom:0.75rem;">Application Review</h4>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Submit your resume and portfolio. Our team reviews every application within five business days and reaches out to qualified candidates.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="font-size:2rem;font-weight:700;color:var(--clr-primary);margin-bottom:0.75rem;">02</div>
+        <h4 style="margin-bottom:0.75rem;">Technical Interview</h4>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">A focused conversation about your skills and experience. Depending on the role, this may include a live coding session or design exercise.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="font-size:2rem;font-weight:700;color:var(--clr-primary);margin-bottom:0.75rem;">03</div>
+        <h4 style="margin-bottom:0.75rem;">Team Fit</h4>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Meet the team you will be working with. We want to make sure the culture and collaboration style are a great match for both sides.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="font-size:2rem;font-weight:700;color:var(--clr-primary);margin-bottom:0.75rem;">04</div>
+        <h4 style="margin-bottom:0.75rem;">Offer</h4>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Receive a competitive offer with benefits, equity options, and a clear onboarding plan. Welcome to the team!</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- CTA -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem 6rem;">
+    <div class="reveal" style="text-align:center;">
+      <h2 class="section-title">Don't See Your Role?</h2>
+      <p style="color:var(--clr-text-dim);max-width:600px;margin:1rem auto 2rem;font-size:1.05rem;line-height:1.8;">
+        We are always looking for talented people. Send us your resume and tell us how you can contribute to AIM Tech AI.
+      </p>
+      <a href="mailto:info@aimtechai.com?subject=General%20Career%20Inquiry" class="gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;display:inline-flex;text-decoration:none;font-size:1.05rem;"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span class="gbtn-label">Get in Touch</span></a>
+    </div>
+  </section>
+
+  </div>
+
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <a href="/" class="back-link">&larr; Home</a>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script>if(location.hostname!=="localhost"&&!location.hostname.startsWith("127.")){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";document.head.appendChild(s);}</script>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initParallaxVideoBg } from '/js/parallax-video-bg.js';
+    import { initRouter } from '/js/router.js';
+    initParallaxVideoBg();
+    initUI();
+    initRouter();
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

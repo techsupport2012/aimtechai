@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>AIM Tech AI | Future-Ready Software & AI Development</title>
+  <meta name="description" content="AIM Tech AI - Advanced custom software & AI development, AI solutions, mobile apps & cloud services. Beverly Hills, CA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/hero-ai-chat.css">
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+<script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+
+  <div class="noise-overlay"></div>
+  <div class="anchor-fade"></div>
+
+  <a href="#hero" class="skip-link">Skip to content</a>
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="#values" data-scramble>Values</a></li>
+      <li><a href="#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="content">
+
+    <!-- ===== SECTION 01: HERO ===== -->
+    <style>
+      .hero.hero-split { display: grid !important; grid-template-columns: 1.1fr 1fr !important; gap: 4rem !important; align-items: center !important; width: 100vw !important; max-width: 100vw !important; margin-left: calc(-50vw + 50%) !important; margin-right: calc(-50vw + 50%) !important; padding: 8rem 4vw 4rem !important; text-align: left !important; box-sizing: border-box !important; }
+      .hero.hero-split > .hero-text-col { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
+      .hero.hero-split .hero-sub-header,
+      .hero.hero-split h1,
+      .hero.hero-split .hero-sub { text-align: left !important; }
+      .hero.hero-split .hero-sub { margin: 0 0 1.2rem !important; max-width: 540px; }
+      .hero.hero-split .hero-buttons { justify-content: flex-start !important; margin-left: 0 !important; }
+      .hero.hero-split { position: relative !important; }
+      @media (max-width: 980px) {
+        .hero.hero-split { grid-template-columns: 1fr !important; gap: 2.5rem !important; padding: 7rem 2rem 4rem !important; }
+      }
+    </style>
+    <section class="page-section hero hero-split" id="hero">
+      <div class="hero-text-col">
+      <div class="hero-sub-header blur-in" data-scramble-reveal>We Are AIM Tech AI</div>
+      <h1 class="blur-in">
+        Empowering<br>
+        <span class="gradient-text">Intelligent</span><br>
+        Software
+      </h1>
+      <p class="hero-sub blur-in">
+        End-to-end custom software & AI development driven by subject matter experts from diverse industries.
+        We deliver AI-powered, future-ready tools that empower businesses to achieve more.
+      </p>
+      <div class="hero-buttons blur-in">
+        <a href="/book" class="gradient-btn" style="--gfrom:#0FC1B7;--gto:#0FC1B7;" aria-label="Start Your Project">
+          <span class="gbtn-glow"></span><span class="gbtn-bg"></span>
+          <span class="gbtn-icon">&rarr;</span>
+          <span class="gbtn-label">Start Project</span>
+        </a>
+        <a href="#services" class="gradient-btn" style="--gfrom:#0FC1B7;--gto:#0FC1B7;" aria-label="Explore Services">
+          <span class="gbtn-glow"></span><span class="gbtn-bg"></span>
+          <span class="gbtn-icon">&#9776;</span>
+          <span class="gbtn-label">Services</span>
+        </a>
+        <a href="/about" class="gradient-btn" style="--gfrom:#0FC1B7;--gto:#0FC1B7;" aria-label="About Us">
+          <span class="gbtn-glow"></span><span class="gbtn-bg"></span>
+          <span class="gbtn-icon">&#9733;</span>
+          <span class="gbtn-label">About Us</span>
+        </a>
+      </div>
+      </div><!-- /.hero-text-col -->
+
+      <div class="hero-chat-col">
+        <div id="hero-ai-chat"></div>
+      </div>
+
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 02: ABOUT ===== -->
+    <section class="snap-section" id="about-section">
+      <div style="max-width:1200px;margin:0 auto;">
+        <div class="section-label blur-in" data-scramble-reveal>// About Us</div>
+        <h2 class="section-title blur-in" style="max-width:800px;">
+          Next Generation Software & AI Development Firm
+        </h2>
+        <p class="section-desc blur-in" style="max-width:650px;margin-bottom:3rem;">
+          AIM Tech AI specializes in advanced software & AI development, offering tailored solutions
+          to enhance existing applications or construct new, custom applications from the ground up.
+          We integrate artificial intelligence to drive efficiency, precision, and innovation.
+        </p>
+
+        <!-- Stats -->
+        <div class="stats-bar reveal">
+          <div class="stat-item">
+            <div class="stat-number" data-target="50">0</div>
+            <div class="stat-label">Experts+</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="10">0</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="100">0</div>
+            <div class="stat-label">% Guarantee</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-target="5">0</div>
+            <div class="stat-label">Star Rating</div>
+          </div>
+        </div>
+
+        <!-- Tech Marquee -->
+        <div class="marquee-wrap" style="margin-top:3rem;">
+          <div class="marquee-track">
+            <span class="marquee-item">React</span>
+            <span class="marquee-item">Node.js</span>
+            <span class="marquee-item">Python</span>
+            <span class="marquee-item">TensorFlow</span>
+            <span class="marquee-item">AWS</span>
+            <span class="marquee-item">Azure</span>
+            <span class="marquee-item">GCP</span>
+            <span class="marquee-item">Kubernetes</span>
+            <span class="marquee-item">Docker</span>
+            <span class="marquee-item">PyTorch</span>
+            <span class="marquee-item">Flutter</span>
+            <span class="marquee-item">React Native</span>
+            <span class="marquee-item">PostgreSQL</span>
+            <span class="marquee-item">MongoDB</span>
+            <span class="marquee-item">GraphQL</span>
+            <span class="marquee-item">Terraform</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 03: SERVICES ===== -->
+    <section class="snap-section" id="services" style="justify-content:flex-start;padding-top:8rem;">
+      <div style="max-width:1300px;margin:0 auto;width:100%;">
+        <div class="section-label blur-in" data-scramble-reveal>// What We Build</div>
+        <h2 class="section-title blur-in">Services & Solutions</h2>
+        <p class="section-desc blur-in" style="margin-bottom:3rem;">
+          Continuously expanding our capabilities across software, AI, cloud, and mobile.
+        </p>
+        <div class="services-grid">
+          <a href="/ai" class="glass-card reveal" style="text-decoration:none;color:inherit;">
+            <div class="section-label" style="margin-bottom:1rem;font-size:0.6rem;">01</div>
+            <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:0.8rem;">AI & Machine Learning</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.9rem;font-weight:300;line-height:1.7;">Custom AI solutions including fraud detection, predictive analytics, NLP, and intelligent automation.</p>
+            <div class="service-tags" style="margin-top:1.2rem;">
+              <span class="service-tag">Deep Learning</span>
+              <span class="service-tag">NLP</span>
+              <span class="service-tag">Fraud Detection</span>
+            </div>
+          </a>
+          <a href="/consulting" class="glass-card reveal" style="text-decoration:none;color:inherit;">
+            <div class="section-label" style="margin-bottom:1rem;font-size:0.6rem;">02</div>
+            <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:0.8rem;">Consulting & Strategy</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.9rem;font-weight:300;line-height:1.7;">Digital transformation, technology assessments, AI strategy, and product consulting.</p>
+            <div class="service-tags" style="margin-top:1.2rem;">
+              <span class="service-tag">Strategy</span>
+              <span class="service-tag">Transformation</span>
+              <span class="service-tag">Roadmaps</span>
+            </div>
+          </a>
+          <a href="/ui-ux" class="glass-card reveal" style="text-decoration:none;color:inherit;">
+            <div class="section-label" style="margin-bottom:1rem;font-size:0.6rem;">03</div>
+            <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:0.8rem;">UI/UX Design</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.9rem;font-weight:300;line-height:1.7;">Research-driven interfaces with user testing, prototyping, and comprehensive design systems.</p>
+            <div class="service-tags" style="margin-top:1.2rem;">
+              <span class="service-tag">Figma</span>
+              <span class="service-tag">Prototyping</span>
+              <span class="service-tag">Systems</span>
+            </div>
+          </a>
+          <a href="/cloud" class="glass-card reveal" style="text-decoration:none;color:inherit;">
+            <div class="section-label" style="margin-bottom:1rem;font-size:0.6rem;">04</div>
+            <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:0.8rem;">Cloud & Infrastructure</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.9rem;font-weight:300;line-height:1.7;">Cloud migration, Kubernetes, CI/CD pipelines, and observability across AWS, Azure, GCP.</p>
+            <div class="service-tags" style="margin-top:1.2rem;">
+              <span class="service-tag">AWS</span>
+              <span class="service-tag">Kubernetes</span>
+              <span class="service-tag">DevOps</span>
+            </div>
+          </a>
+          <div class="glass-card reveal">
+            <div class="section-label" style="margin-bottom:1rem;font-size:0.6rem;">05</div>
+            <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:0.8rem;">Mobile Development</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.9rem;font-weight:300;line-height:1.7;">Native and cross-platform apps for iOS and Android. Messaging, community, enterprise mobility.</p>
+            <div class="service-tags" style="margin-top:1.2rem;">
+              <span class="service-tag">iOS</span>
+              <span class="service-tag">Android</span>
+              <span class="service-tag">React Native</span>
+            </div>
+          </div>
+          <a href="/qa" class="glass-card reveal" style="text-decoration:none;color:inherit;">
+            <div class="section-label" style="margin-bottom:1rem;font-size:0.6rem;">06</div>
+            <h3 style="font-size:1.3rem;font-weight:700;margin-bottom:0.8rem;">QA & Testing</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.9rem;font-weight:300;line-height:1.7;">Automated testing, security audits, performance benchmarks, and CI/CD integration.</p>
+            <div class="service-tags" style="margin-top:1.2rem;">
+              <span class="service-tag">Selenium</span>
+              <span class="service-tag">Security</span>
+              <span class="service-tag">CI/CD</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TECHNOLOGIES ===== -->
+    <section class="snap-section" id="technologies" style="justify-content:flex-start;padding-top:8rem;">
+      <div style="max-width:1300px;margin:0 auto;width:100%;">
+        <div class="section-label blur-in" data-scramble-reveal>// What We Use</div>
+        <h2 class="section-title blur-in">Technologies</h2>
+        <p class="section-desc blur-in" style="margin-bottom:3rem;">
+          We build with the best tools in the industry — from enterprise frameworks to cutting-edge platforms.
+        </p>
+        <div class="services-grid">
+          <a href="/technologies/python" class="glass-card reveal" style="text-decoration:none;color:inherit;">
+            <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">Python</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.6;">AI/ML, data science, Django, Flask, and automation.</p>
+          </a>
+          <a href="/technologies/dotnet" class="glass-card reveal" style="text-decoration:none;color:inherit;">
+            <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">.NET</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.6;">Enterprise apps, C#, Azure, and microservices.</p>
+          </a>
+          <a href="/technologies/php" class="glass-card reveal" style="text-decoration:none;color:inherit;">
+            <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">PHP</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.6;">Laravel, WordPress, custom CMS, and ecommerce.</p>
+          </a>
+          <a href="/technologies/react" class="glass-card reveal" style="text-decoration:none;color:inherit;">
+            <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">React.JS</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.6;">SPAs, Next.js, component libraries, and dashboards.</p>
+          </a>
+          <a href="/technologies/angular" class="glass-card reveal" style="text-decoration:none;color:inherit;">
+            <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">Angular</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.6;">Enterprise SPAs, TypeScript, RxJS, and Material Design.</p>
+          </a>
+          <a href="/technologies/kotlin" class="glass-card reveal" style="text-decoration:none;color:inherit;">
+            <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">Kotlin</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.6;">Android apps, Spring Boot, and multiplatform.</p>
+          </a>
+          <a href="/technologies/swift" class="glass-card reveal" style="text-decoration:none;color:inherit;">
+            <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">Swift</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.6;">iOS, macOS, SwiftUI, watchOS, and tvOS apps.</p>
+          </a>
+          <a href="/technologies/c-languages" class="glass-card reveal" style="text-decoration:none;color:inherit;">
+            <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">C / C# / C++</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.6;">Systems programming, game dev, embedded, and .NET.</p>
+          </a>
+          <a href="/technologies/lamp" class="glass-card reveal" style="text-decoration:none;color:inherit;">
+            <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">L.A.M.P.</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.6;">Linux, Apache, MySQL, PHP full-stack solutions.</p>
+          </a>
+          <a href="/technologies/unity" class="glass-card reveal" style="text-decoration:none;color:inherit;">
+            <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">Unity</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.6;">Game development, AR/VR, and 3D visualization.</p>
+          </a>
+          <a href="/technologies/laravel" class="glass-card reveal" style="text-decoration:none;color:inherit;">
+            <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">Laravel</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.6;">REST APIs, Eloquent ORM, and Blade templates.</p>
+          </a>
+          <a href="/technologies/django" class="glass-card reveal" style="text-decoration:none;color:inherit;">
+            <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">Django</h3>
+            <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.6;">Python web framework, ORM, REST APIs, and admin.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 04: VALUES ===== -->
+    <section class="snap-section" id="values">
+      <div style="max-width:1300px;margin:0 auto;width:100%;">
+        <div class="section-label blur-in" data-scramble-reveal>// Our Principles</div>
+        <h2 class="section-title blur-in" style="margin-bottom:3rem;">Why Trust Us</h2>
+        <div class="values-grid">
+          <div class="value-item reveal">
+            <h3 data-scramble>Integrity</h3>
+            <p>We stand behind every line of code with our 100% work guarantee. Fair practices and honest communication are fundamental to how we operate.</p>
+          </div>
+          <div class="value-item reveal">
+            <h3 data-scramble>Transparency</h3>
+            <p>Empowering partners to make informed decisions. Transparent sprints, open reporting, and honest timelines from discovery through delivery.</p>
+          </div>
+          <div class="value-item reveal">
+            <h3 data-scramble>Partnership</h3>
+            <p>We don't just deliver code &mdash; we become your long-term technical partners. Our clients say "we wish we had found them earlier."</p>
+          </div>
+        </div>
+
+        <!-- Industries Marquee -->
+        <div style="margin-top:4rem;text-align:center;">
+          <div class="section-label" style="margin-bottom:2rem;" data-scramble-reveal>Industries We Serve</div>
+          <div class="marquee-wrap">
+            <div class="marquee-track">
+              <span class="marquee-item">Finance & Banking</span>
+              <span class="marquee-item">Healthcare</span>
+              <span class="marquee-item">Real Estate</span>
+              <span class="marquee-item">Enterprise HR</span>
+              <span class="marquee-item">Media & Content</span>
+              <span class="marquee-item">Social & Community</span>
+              <span class="marquee-item">Legal & Compliance</span>
+              <span class="marquee-item">E-Commerce</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 05: PORTFOLIO PREVIEW ===== -->
+    <section class="snap-section" id="portfolio-preview" style="justify-content:flex-start;padding-top:8rem;">
+      <div style="max-width:1300px;margin:0 auto;width:100%;text-align:center;">
+        <div class="section-label blur-in" data-scramble-reveal style="text-align:center;">// Our Work</div>
+        <h2 class="section-title blur-in" style="text-align:center;">Featured Projects</h2>
+        <p class="section-desc blur-in" style="margin:0 auto 3rem;text-align:center;max-width:620px;">
+          From enterprise HR systems to AI-powered fraud detection.
+        </p>
+        <div class="orbital" id="orbital-root" role="region" aria-label="Featured projects orbital timeline">
+          <div class="orbital-stage" id="orbital-stage">
+            <div class="orbital-ring"></div>
+            <div class="orbital-core"><div class="orbital-core-inner"></div></div>
+            <!-- Nodes populated from data-nodes on orbital-root via inline JS below -->
+          </div>
+          <div class="orbital-hint">Click a node &bull; Auto-rotating</div>
+        </div>
+
+        <script>
+          (function(){
+            const stage = document.getElementById('orbital-stage');
+            if (!stage) return;
+            const nodes = [
+              { id: 'hris', title: 'Enterprise HRIS', icon: '&#9878;', category: 'Financial Institution', status: 'completed', date: '2025 / Q4', energy: 92,
+                content: 'End-to-end custom HR system with Greenhouse integration, custom reporting, and payroll automation.',
+                related: ['fraud'] },
+              { id: 'fraud', title: 'AI Fraud Engine', icon: '&#9889;', category: 'Banking &amp; Payments', status: 'completed', date: '2026 / Q1', energy: 95,
+                content: 'Real-time ML system processing millions of transactions with 95% detection accuracy.',
+                related: ['hris', 'docs'] },
+              { id: 'docs', title: 'Doc Automation', icon: '&#9998;', category: 'Legal &amp; Compliance', status: 'in-progress', date: '2026 / Q2', energy: 72,
+                content: 'AI-powered document processing with OCR, classification, and workflow automation.',
+                related: ['fraud'] },
+              { id: 'portfolio', title: 'Full Portfolio', icon: '&#10148;', category: 'Explore all work', status: 'pending', date: 'Always', energy: 100,
+                content: 'Browse the full catalog of shipped engagements and case studies.',
+                related: [], href: '/portfolio' },
+            ];
+
+            const RADIUS = 310;
+            let rotation = 0;
+            let autoRotate = true;
+            let activeId = null;
+
+            // Build node DOM
+            const nodeEls = {};
+            nodes.forEach((n, i) => {
+              const el = document.createElement('div');
+              el.className = 'orbital-node';
+              el.dataset.id = n.id;
+              el.innerHTML =
+                '<div class="node-dot" aria-label="' + n.title + '">' + n.icon + '</div>' +
+                '<div class="node-label">' + n.title + '</div>' +
+                '<div class="node-card">' +
+                  '<div class="node-card-head">' +
+                    '<span class="node-badge ' + n.status + '">' + (n.status === 'completed' ? 'COMPLETE' : n.status === 'in-progress' ? 'IN PROGRESS' : 'EXPLORE') + '</span>' +
+                    '<span>' + n.date + '</span>' +
+                  '</div>' +
+                  '<h4>' + n.title.replace(/&amp;/g,'&') + '</h4>' +
+                  '<div style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:2px;text-transform:uppercase;opacity:0.55;margin-bottom:0.4rem;">' + n.category + '</div>' +
+                  '<p>' + n.content + '</p>' +
+                  '<div class="node-energy-row"><span>&#9889; Energy</span><span>' + n.energy + '%</span></div>' +
+                  '<div class="node-energy-bar"><div class="node-energy-fill" style="width:' + n.energy + '%;"></div></div>' +
+                  (n.related.length ? (
+                    '<div class="node-links"><div class="node-links-title">&#128279; Connected</div>' +
+                    n.related.map(r => '<button class="node-link-pill" data-goto="' + r + '">' + (nodes.find(x=>x.id===r)||{title:r}).title + ' &rarr;</button>').join('') +
+                    '</div>'
+                  ) : '') +
+                  (n.href ? '<div style="margin-top:0.8rem;"><a href="' + n.href + '" style="color:#0FC1B7;font-weight:600;text-decoration:none;font-size:0.82rem;">Open &rarr;</a></div>' : '') +
+                '</div>';
+              stage.appendChild(el);
+              nodeEls[n.id] = el;
+
+              el.querySelector('.node-dot').addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggle(n.id);
+              });
+              el.querySelectorAll('.node-link-pill').forEach(btn => {
+                btn.addEventListener('click', (e) => { e.stopPropagation(); toggle(btn.dataset.goto); });
+              });
+            });
+
+            function setActive(id) {
+              activeId = id;
+              const active = id ? nodes.find(n => n.id === id) : null;
+              const relSet = new Set(active ? active.related : []);
+              nodes.forEach(n => {
+                const el = nodeEls[n.id];
+                el.classList.toggle('active', n.id === id);
+                el.classList.toggle('related', relSet.has(n.id));
+              });
+              if (id) {
+                // Rotate so active node is at bottom (270°)
+                const idx = nodes.findIndex(n => n.id === id);
+                const target = 270 - (idx / nodes.length) * 360;
+                rotation = target;
+                autoRotate = false;
+              } else {
+                autoRotate = true;
+              }
+            }
+
+            function toggle(id) {
+              if (activeId === id) setActive(null);
+              else setActive(id);
+            }
+
+            document.getElementById('orbital-root').addEventListener('click', (e) => {
+              if (e.target.id === 'orbital-root' || e.target.id === 'orbital-stage' || e.target.classList.contains('orbital-ring')) {
+                setActive(null);
+              }
+            });
+
+            function frame() {
+              if (autoRotate) rotation = (rotation + 0.25) % 360;
+              nodes.forEach((n, i) => {
+                const el = nodeEls[n.id];
+                const angle = ((i / nodes.length) * 360 + rotation) % 360;
+                const rad = angle * Math.PI / 180;
+                const x = RADIUS * Math.cos(rad);
+                const y = RADIUS * Math.sin(rad);
+                const z = Math.round(100 + 50 * Math.cos(rad));
+                const op = Math.max(0.45, Math.min(1, 0.45 + 0.55 * ((1 + Math.sin(rad)) / 2)));
+                el.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+                el.style.opacity = el.classList.contains('active') ? 1 : op;
+                el.style.zIndex = el.classList.contains('active') ? 200 : z;
+              });
+              requestAnimationFrame(frame);
+            }
+            requestAnimationFrame(frame);
+          })();
+        </script>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 06: TESTIMONIAL ===== -->
+    <section class="snap-section" id="testimonial" style="text-align:center;">
+      <div style="max-width:900px;margin:0 auto;">
+        <div class="section-label blur-in" data-scramble-reveal style="text-align:center;">// Client Voices</div>
+        <h2 class="section-title blur-in" style="text-align:center;">Trusted by Industry Leaders</h2>
+        <p class="section-desc blur-in" style="margin:0 auto 1rem;text-align:center;max-width:620px;">
+          What our partners say after shipping production systems together.
+        </p>
+        <div class="tstack-stage" id="tstack-stage" aria-label="Client testimonials — drag front card left to advance"></div>
+        <div class="tstack-controls" id="tstack-dots"></div>
+        <div class="tstack-hint">Drag &larr; or click to advance</div>
+      </div>
+    </section>
+
+    <script>
+      (function(){
+        const stage = document.getElementById('tstack-stage');
+        if (!stage) return;
+        const dots = document.getElementById('tstack-dots');
+        const data = [
+          { quote: "AIM Tech AI is a knowledgeable and reliable group of people. They take on the project and make it theirs until full delivery.", author: "VP of Credit Risk Oversight", role: "Financial Institution • $1M+ Engagement" },
+          { quote: "They shipped our fraud detection pipeline on time and under budget. Two years in production and it still impresses our auditors.", author: "Director of Risk Engineering", role: "Banking & Payments" },
+          { quote: "We evaluated three firms. AIM was the only team that pushed back on our scope and saved us a quarter of engineering time.", author: "CTO", role: "Health-Tech Series B" },
+          { quote: "Their AI agents replaced an entire support tier. Response times dropped 70% and our CSAT went up. Best ROI we've tracked.", author: "Head of Customer Success", role: "SaaS • Enterprise Tier" },
+          { quote: "From discovery to production in eight weeks. Clean handover, real documentation, no hidden tribal knowledge.", author: "VP Engineering", role: "Logistics Platform" },
+          { quote: "Our internal tools had been neglected for years. AIM built a modern portal in one sprint that actually got adopted.", author: "COO", role: "Private Equity Group" },
+          { quote: "They integrated our legacy ERP with three AI workflows in a quarter. We'd been trying to do this in-house for 18 months.", author: "Director of IT", role: "Manufacturing • Fortune 500" },
+          { quote: "I've worked with a lot of consultancies. AIM is the rare team that writes code I would hire them to maintain.", author: "Staff Engineer", role: "Real-Estate Tech" },
+          { quote: "Our compliance audit passed on the first try thanks to the security posture they baked in from day one.", author: "CISO", role: "Fintech • Series C" },
+          { quote: "The AI integration felt like it belonged in the product. Not a bolted-on chatbot, an actual feature our users love.", author: "Chief Product Officer", role: "E-commerce Platform" },
+          { quote: "Transparent every step. When their estimate slipped, they explained why before I had to ask. That kind of honesty is rare.", author: "CEO & Founder", role: "B2B SaaS Startup" },
+          { quote: "They delivered a proof-of-concept in two weeks that unlocked our Series B. The investors specifically mentioned the demo.", author: "Founder", role: "AI-First Startup" },
+        ];
+
+        let front = 0;
+
+        // Build dots
+        data.forEach((_, i) => {
+          const d = document.createElement('button');
+          d.className = 'tstack-dot';
+          d.setAttribute('aria-label', 'Go to testimonial ' + (i+1));
+          d.addEventListener('click', () => { front = i; render(); });
+          dots.appendChild(d);
+        });
+
+        // Build 3 card slots (front, middle, back) — we'll rotate which data each slot shows
+        const POS_CLASS = ['front','middle','back'];
+        const slotEls = POS_CLASS.map((pos) => {
+          const el = document.createElement('div');
+          el.className = 'tstack-card ' + pos;
+          el.innerHTML = '<div class="tstack-avatar"></div><div class="tstack-quote"></div><div><div class="tstack-author"></div><div class="tstack-role"></div></div>';
+          stage.appendChild(el);
+          return el;
+        });
+        // slotOrder[pos] = index into slotEls; pos 0 = front, 1 = middle, 2 = back
+        let slotOrder = [0, 1, 2];
+        const SLOT_COUNT = POS_CLASS.length;
+        function applySlotClasses() {
+          slotOrder.forEach((slotIdx, pos) => {
+            const el = slotEls[slotIdx];
+            el.classList.remove('front','middle','back');
+            el.classList.add(POS_CLASS[pos]);
+          });
+        }
+
+        function initialLetter(name){ const m = name.match(/[A-Za-z]/); return m ? m[0].toUpperCase() : '★'; }
+
+        function populateSlot(pos, dataIdx) {
+          const el = slotEls[slotOrder[pos]];
+          const d = data[dataIdx];
+          el.querySelector('.tstack-avatar').textContent = initialLetter(d.author);
+          el.querySelector('.tstack-quote').textContent = '"' + d.quote + '"';
+          el.querySelector('.tstack-author').textContent = d.author;
+          el.querySelector('.tstack-role').textContent = d.role;
+        }
+
+        function render() {
+          for (let pos = 0; pos < SLOT_COUNT; pos++) {
+            populateSlot(pos, (front + pos) % data.length);
+          }
+          applySlotClasses();
+          [...dots.children].forEach((dot, i) => dot.classList.toggle('active', i === front));
+        }
+
+        function advance() {
+          front = (front + 1) % data.length;
+          render();
+        }
+        // advanceIndexOnly is called inside flyOff to mutate front without re-rendering
+        // (flyOff handles its own targeted populate so the slide animation isn't interrupted)
+        function advanceIndexOnly() { front = (front + 1) % data.length; }
+        function regressIndexOnly() { front = (front - 1 + data.length) % data.length; }
+
+        render();
+
+        // Drag-to-advance on front card — fly off-screen then advance
+        let dragStart = null, dragX = 0, animating = false;
+        function currentFront() { return slotEls[slotOrder[0]]; }
+        function onDown(e) {
+          if (animating) return;
+          const front = currentFront();
+          if (!front.contains(e.target)) return;
+          dragStart = (e.touches ? e.touches[0].clientX : e.clientX);
+          dragX = 0;
+        }
+        function onMove(e) {
+          if (dragStart === null) return;
+          const x = (e.touches ? e.touches[0].clientX : e.clientX);
+          dragX = x - dragStart;
+          const front = currentFront();
+          front.style.transition = 'none';
+          // Front baseline is translate(-30px, -20px) scale(1) rotate(3deg) — preserve it while dragging
+          front.style.transform = 'translate(' + (dragX - 30) + 'px, -20px) scale(1) rotate(' + (3 + dragX * 0.04) + 'deg)';
+          front.style.opacity = String(Math.max(0.3, 1 - Math.abs(dragX) / 600));
+        }
+        function flyOff(direction, onDone) {
+          animating = true;
+          const flownEl = slotEls[slotOrder[0]];
+          const flyClass = direction === 'left' ? 'flying-left' : 'flying-right';
+
+          // 1. Clear any inline drag state and use a keyframe animation for the fly-off
+          flownEl.style.transition = '';
+          flownEl.style.transform = '';
+          flownEl.style.opacity = '';
+          flownEl.classList.add(flyClass);
+
+          // 2. Next frame: rotate slot order. Other cards animate via their class transition.
+          requestAnimationFrame(() => {
+            slotOrder.push(slotOrder.shift());
+            applySlotClasses();
+            // Note: applySlotClasses removed all position classes; re-add the flying class
+            flownEl.classList.add(flyClass);
+            onDone();
+            for (let pos = 0; pos < SLOT_COUNT; pos++) {
+              populateSlot(pos, (front + pos) % data.length);
+            }
+            [...dots.children].forEach((dot, i) => dot.classList.toggle('active', i === front));
+            animating = false;
+          });
+
+          // 3. After the fly-off ends, hide the card via display:none during the class swap.
+          //    Display changes don't transition, so the card can't visually fly back.
+          setTimeout(() => {
+            flownEl.style.display = 'none';
+            flownEl.style.transition = 'none';
+            flownEl.classList.remove(flyClass);
+            // Reflow is irrelevant for display:none, but commit style state
+            void flownEl.offsetWidth;
+            flownEl.style.display = '';
+            void flownEl.offsetWidth;
+            flownEl.style.transition = '';
+          }, 520);
+        }
+        function onUp() {
+          if (dragStart === null) return;
+          const finalX = dragX;
+          dragStart = null; dragX = 0;
+          if (finalX < -150) {
+            flyOff('left', advanceIndexOnly);
+          } else if (finalX > 150) {
+            flyOff('right', regressIndexOnly);
+          } else {
+            // Snap back
+            const front = currentFront();
+            front.style.transition = 'transform 0.3s cubic-bezier(0.16,1,0.3,1), opacity 0.3s';
+            front.style.transform = '';
+            front.style.opacity = '';
+            setTimeout(() => { front.style.transition = ''; }, 320);
+          }
+        }
+        stage.addEventListener('mousedown', onDown);
+        stage.addEventListener('touchstart', onDown, { passive: true });
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('touchmove', onMove, { passive: true });
+        document.addEventListener('mouseup', onUp);
+        document.addEventListener('touchend', onUp);
+
+        // Auto-advance every 7s unless user hovers
+        let autoTimer = setInterval(advance, 7000);
+        stage.addEventListener('mouseenter', () => { clearInterval(autoTimer); });
+        stage.addEventListener('mouseleave', () => { autoTimer = setInterval(advance, 7000); });
+      })();
+    </script>
+
+    <!-- ===== SECTION 07: CONTACT ===== -->
+    <section class="snap-section" id="contact" style="text-align:center;">
+      <div style="max-width:1100px;margin:0 auto;">
+        <div class="section-label blur-in" data-scramble-reveal>// Let's Build Together</div>
+        <div class="contact-card reveal">
+          <h2>Ready to Transform<br>Your Business?</h2>
+          <p>Let's discuss how AI-powered custom software can drive your next breakthrough.</p>
+          <a href="/book" class="arrow-cta" aria-label="Schedule a Consultation"><span class="arrow-label">Schedule a Consultation</span><span class="arrow-icon">&#8599;</span></a>
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-item-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div class="contact-item-text">
+                <small>Headquarters</small>
+                <p>9171 Wilshire Blvd, Suite 500<br>Beverly Hills, CA 90210</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+              <div class="contact-item-text">
+                <small>Phone</small>
+                <p>(310) 421-8638</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+              <div class="contact-item-text">
+                <small>Website</small>
+                <p>www.AIMTechAI.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- .content -->
+
+  <!-- FOOTER -->
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <!-- Hidden Google Translate element -->
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+  </script>
+  <script>if(location.hostname!=="localhost"&&!location.hostname.startsWith("127.")){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";document.head.appendChild(s);}</script>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initParallaxVideoBg } from '/js/parallax-video-bg.js';
+    import { initRouter } from '/js/router.js';
+    // import { initVideoBackground } from '/js/video-bg.js'; // HIDDEN — kept for later
+    // const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // initVideoBackground({ reducedMotion }).catch(err => console.warn('[video-bg]', err));
+    initParallaxVideoBg();
+    initUI();
+    initRouter();
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script type="module">
+    import { initHeroAiChat } from '/js/hero-ai-chat.js';
+    initHeroAiChat();
+  </script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

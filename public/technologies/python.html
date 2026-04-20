@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>Python Development Services | AIM Tech AI</title>
+  <meta name="description" content="Expert Python development services for AI/ML, data science, Django, Flask, and automation. AIM Tech AI builds scalable, intelligent Python solutions for enterprises and startups.">
+  <link rel="canonical" href="https://aimtechai.com/technologies/python">
+  <meta property="og:title" content="Python Development Services | AIM Tech AI">
+  <meta property="og:description" content="Expert Python development services for AI/ML, data science, Django, Flask, and automation. AIM Tech AI builds scalable, intelligent Python solutions for enterprises and startups.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aimtechai.com/technologies/python">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Python Development Services | AIM Tech AI">
+  <meta name="twitter:description" content="Expert Python development services for AI/ML, data science, Django, Flask, and automation. AIM Tech AI builds scalable, intelligent Python solutions for enterprises and startups.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#values" data-scramble>Values</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="content">
+
+  <!-- HERO -->
+  <section style="max-width:1300px;margin:0 auto;padding:8rem 2rem 4rem;">
+    <div class="reveal">
+      <span class="section-label">Technology</span>
+      <h1 class="section-title" style="font-size:clamp(2.2rem,5vw,3.8rem);">Python Development</h1>
+      <p style="max-width:720px;margin:1.5rem auto 0;color:var(--clr-text-dim);font-size:1.1rem;line-height:1.8;text-align:center;">
+        From machine learning pipelines and data science platforms to production-grade web applications,
+        we leverage Python's versatility to build intelligent software that drives measurable business outcomes.
+      </p>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- WHY PYTHON -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem;">
+    <div class="reveal">
+      <span class="section-label">Advantages</span>
+      <h2 class="section-title">Why Python?</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:3rem;">
+      <div class="glass-card reveal" style="padding:2.5rem;">
+        <h3 style="color:var(--clr-primary);font-size:1.25rem;margin-bottom:1rem;">AI &amp; ML Powerhouse</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.8;">Python dominates the artificial intelligence landscape with libraries like TensorFlow, PyTorch, and scikit-learn. Its ecosystem makes building, training, and deploying ML models faster and more accessible than any other language.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2.5rem;">
+        <h3 style="color:var(--clr-primary);font-size:1.25rem;margin-bottom:1rem;">Rapid Development Cycles</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.8;">Python's clean syntax and vast standard library enable teams to prototype and ship production code significantly faster. Frameworks like Django and Flask provide robust foundations for web applications of any scale.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2.5rem;">
+        <h3 style="color:var(--clr-primary);font-size:1.25rem;margin-bottom:1rem;">Enterprise-Grade Scalability</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.8;">Companies like Instagram, Spotify, and Netflix rely on Python at scale. With async frameworks, microservices architecture, and cloud-native tooling, Python applications handle millions of requests with ease.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- OUR PYTHON SERVICES -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem;">
+    <div class="reveal">
+      <span class="section-label">Capabilities</span>
+      <h2 class="section-title">Our Python Services</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem;">
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A5.5 5.5 0 0 0 5 7.5c0 .96.25 1.86.7 2.64L4 12l1.7 1.86A5.47 5.47 0 0 0 5 16.5 5.5 5.5 0 0 0 9.5 22h1V2z"/><path d="M14.5 2A5.5 5.5 0 0 1 19 7.5c0 .96-.25 1.86-.7 2.64L20 12l-1.7 1.86c.45.78.7 1.68.7 2.64a5.5 5.5 0 0 1-4.5 5.5h-1V2z"/></svg></div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">AI &amp; Machine Learning</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Custom ML models, NLP pipelines, computer vision systems, and predictive analytics built with TensorFlow, PyTorch, and Hugging Face.</p>
+        <span class="service-tag" style="margin-top:1rem;display:inline-block;">TensorFlow</span>
+        <span class="service-tag">PyTorch</span>
+        <span class="service-tag">scikit-learn</span>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Web Applications</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Full-stack web development with Django and Flask. RESTful APIs, GraphQL endpoints, admin dashboards, and content management systems.</p>
+        <span class="service-tag" style="margin-top:1rem;display:inline-block;">Django</span>
+        <span class="service-tag">Flask</span>
+        <span class="service-tag">FastAPI</span>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Data Science &amp; Analytics</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Data pipelines, ETL workflows, interactive dashboards, and business intelligence platforms using Pandas, NumPy, and Plotly.</p>
+        <span class="service-tag" style="margin-top:1rem;display:inline-block;">Pandas</span>
+        <span class="service-tag">NumPy</span>
+        <span class="service-tag">Plotly</span>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Automation &amp; Scripting</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Workflow automation, web scraping, task scheduling, CI/CD pipelines, and infrastructure-as-code solutions that eliminate manual bottlenecks.</p>
+        <span class="service-tag" style="margin-top:1rem;display:inline-block;">Celery</span>
+        <span class="service-tag">Selenium</span>
+        <span class="service-tag">Airflow</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- OUR PROCESS -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem;">
+    <div class="reveal">
+      <span class="section-label">Methodology</span>
+      <h2 class="section-title">Our Process</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-top:3rem;">
+      <div class="glass-card reveal" style="padding:2rem;">
+        <div style="font-family:var(--font-mono);font-size:2rem;color:var(--clr-primary);margin-bottom:1rem;">01</div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Discovery &amp; Architecture</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">We analyze your requirements, define the technical stack, and design a scalable architecture tailored to your data and performance needs.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;">
+        <div style="font-family:var(--font-mono);font-size:2rem;color:var(--clr-primary);margin-bottom:1rem;">02</div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Agile Development</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Two-week sprints with continuous integration, code reviews, and automated testing ensure high-quality deliverables at every milestone.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;">
+        <div style="font-family:var(--font-mono);font-size:2rem;color:var(--clr-primary);margin-bottom:1rem;">03</div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Testing &amp; Optimization</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Comprehensive unit, integration, and performance testing. We profile and optimize for speed, memory efficiency, and reliability.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;">
+        <div style="font-family:var(--font-mono);font-size:2rem;color:var(--clr-primary);margin-bottom:1rem;">04</div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Deployment &amp; Support</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Cloud-native deployment with CI/CD pipelines, monitoring, and ongoing maintenance. We ensure your Python applications run flawlessly in production.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- CTA -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem 6rem;text-align:center;">
+    <div class="reveal">
+      <h2 class="section-title">Ready to Build?</h2>
+      <p style="color:var(--clr-text-dim);max-width:600px;margin:1rem auto 2rem;line-height:1.8;">Let our Python experts turn your ideas into production-ready software. Schedule a free consultation to discuss your project.</p>
+      <a href="/book" class="gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+  </section>
+
+  </div>
+
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <a href="/" class="back-link">&larr; Home</a>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script>if(location.hostname!=="localhost"&&!location.hostname.startsWith("127.")){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";document.head.appendChild(s);}</script>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initParallaxVideoBg } from '/js/parallax-video-bg.js';
+    import { initRouter } from '/js/router.js';
+    initParallaxVideoBg();
+    initUI();
+    initRouter();
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

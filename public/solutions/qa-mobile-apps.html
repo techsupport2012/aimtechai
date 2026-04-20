@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>QA Automation for Mobile Apps | AIM Tech AI</title>
+  <meta name="description" content="End-to-end QA automation for iOS and Android apps. AIM Tech AI builds automated testing pipelines that catch regression bugs, speed up releases, and eliminate manual test overhead.">
+  <link rel="canonical" href="https://aimtechai.com/solutions/qa-mobile-apps">
+  <meta property="og:title" content="QA Automation for Mobile Apps | AIM Tech AI">
+  <meta property="og:description" content="End-to-end QA automation for iOS and Android apps. AIM Tech AI builds automated testing pipelines that catch regression bugs, speed up releases, and eliminate manual test overhead.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aimtechai.com/solutions/qa-mobile-apps">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="QA Automation for Mobile Apps | AIM Tech AI">
+  <meta name="twitter:description" content="End-to-end QA automation for iOS and Android apps. AIM Tech AI builds automated testing pipelines that catch regression bugs, speed up releases, and eliminate manual test overhead.">
+  <meta name="keywords" content="QA automation mobile apps, mobile app testing, automated testing mobile, app quality assurance, AIM Tech AI">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "QA Automation for Mobile Apps",
+    "description": "End-to-end QA automation for iOS and Android apps including automated unit tests, integration tests, device farm testing, and performance benchmarks.",
+    "provider": {
+      "@type": "Organization",
+      "name": "AIM Tech AI",
+      "url": "https://aimtechai.com"
+    },
+    "serviceType": "Mobile App QA Automation",
+    "areaServed": "Worldwide"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aimtechai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://aimtechai.com/solutions" },
+      { "@type": "ListItem", "position": 3, "name": "QA Automation for Mobile Apps" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long does it take to set up mobile QA automation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A basic automated testing pipeline for a mobile app can be operational within two to four weeks. This includes unit test frameworks, CI/CD integration, and initial device farm configuration. More comprehensive setups with full regression suites and performance benchmarks typically take six to eight weeks. AIM Tech AI structures the rollout in phases so your team sees results quickly while the full system is built out."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can automated tests handle both iOS and Android from the same codebase?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Tools like Appium allow you to write cross-platform test scripts that run on both iOS and Android devices. For React Native apps, Detox provides native-level testing from a single test suite. AIM Tech AI designs test architectures that maximize code reuse across platforms while still covering platform-specific behaviors."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is device farm testing and why does it matter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Device farm testing runs your automated tests across hundreds of real device and OS combinations in the cloud. Services like BrowserStack provide access to thousands of real devices without your team maintaining physical hardware. This is critical because device fragmentation is the number one source of mobile bugs that reach production. AIM Tech AI integrates device farm testing into every mobile QA pipeline we build."
+        }
+      }
+    ]
+  }
+  </script>
+<script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#values" data-scramble>Values</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="content">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/solutions">Solutions</a> &rsaquo; QA Automation for Mobile Apps</div>
+      <h1>QA Automation for Mobile Apps</h1>
+      <p class="hero-sub" style="opacity:1;transform:none;">Ship faster with fewer bugs across every device and OS version.</p>
+    </div>
+
+    <div class="glow-divider"></div>
+
+    <!-- ARTICLE -->
+    <section style="max-width:1300px;margin:0 auto;">
+
+      <div style="max-width:800px;margin:0 auto;background:linear-gradient(135deg,rgba(255,255,255,0.18),rgba(255,255,255,0.08));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:3rem;box-shadow:0 8px 32px rgba(0,0,0,0.25);">
+
+        <article style="color:var(--clr-text-dim);font-weight:300;font-size:0.95rem;line-height:1.8;">
+
+          <!-- QUICK ANSWER (AEO) -->
+          <div style="background:linear-gradient(135deg,rgba(99,102,241,0.12),rgba(139,92,246,0.08));border:1px solid rgba(99,102,241,0.25);border-radius:12px;padding:1.5rem;margin-bottom:2rem;">
+            <p style="font-size:0.75rem;font-family:var(--font-mono);letter-spacing:2px;text-transform:uppercase;color:var(--clr-accent);margin-bottom:0.5rem;">Quick Answer</p>
+            <p style="color:var(--clr-text);font-weight:400;"><strong>QA automation for mobile apps</strong> replaces manual testing with automated pipelines that run unit tests, integration tests, and device farm tests on every code push. This catches regression bugs before users see them, cuts release cycles from weeks to days, and eliminates device fragmentation surprises. <strong>AIM Tech AI</strong> builds end-to-end mobile QA systems that make shipping reliable code the default.</p>
+          </div>
+
+          <!-- WHO THIS IS FOR -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Who This Is For</h2>
+
+          <p>This solution is built for fintech companies shipping payment and banking apps where a single bug can cost millions. It is built for healthtech teams releasing patient-facing apps that must meet regulatory standards. And it is built for ecommerce companies whose iOS and Android apps drive the majority of revenue. If your mobile app ships to thousands or millions of users and you cannot afford bugs in production, <strong>AIM Tech AI</strong> builds the automated QA infrastructure to prevent them.</p>
+
+          <!-- PROBLEMS THIS SOLVES -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Problems This Solves</h2>
+
+          <p><strong>Regression bugs that slip through manual testing.</strong> Every new feature introduces the risk of breaking something that already works. Manual testers cannot run hundreds of regression checks before every release. Automated test suites can, and they run the same way every time.</p>
+
+          <p><strong>Slow release cycles.</strong> When testing is manual, releases wait for QA. When testing is automated, releases move at the speed of development. Teams working with our <a href="/qa">QA and testing practice</a> ship two to four times faster after automation is in place.</p>
+
+          <p><strong>Device fragmentation chaos.</strong> There are thousands of Android device and OS combinations in the wild. A bug that only appears on Samsung Galaxy S23 running Android 14 will never be caught by a developer testing on a Pixel. Device farm testing solves this completely.</p>
+
+          <p><strong>Manual test overhead draining engineering time.</strong> Engineers writing code and engineers running manual tests are the same people at many startups. Automated testing frees your team to build features instead of clicking through test scripts.</p>
+
+          <!-- HOW THE WORKFLOW WORKS -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">How The Workflow Works</h2>
+
+          <p>The <strong>AIM Tech AI</strong> mobile QA automation workflow follows a six-stage pipeline that runs automatically on every code push:</p>
+
+          <p><strong>1. Code Push.</strong> A developer pushes code to the repository. This triggers the CI/CD pipeline automatically through GitHub Actions. No manual intervention required.</p>
+
+          <p><strong>2. Automated Unit Tests.</strong> The pipeline runs the full unit test suite first. These tests validate individual functions and components in isolation, catching logic errors within seconds.</p>
+
+          <p><strong>3. Integration Tests.</strong> After unit tests pass, integration tests verify that components work together correctly. API calls, database operations, and service interactions are all validated against real or mocked backends.</p>
+
+          <p><strong>4. Device Farm Testing.</strong> The app is deployed to a cloud device farm running hundreds of real device and OS combinations. BrowserStack executes the full UI test suite across iOS and Android devices simultaneously, catching device-specific rendering issues, performance problems, and OS compatibility bugs.</p>
+
+          <p><strong>5. Performance Benchmarks.</strong> Automated performance tests measure app launch time, memory usage, network latency, and frame rates against established baselines. Any regression beyond acceptable thresholds flags the build.</p>
+
+          <p><strong>6. Release Gate.</strong> Only builds that pass every stage are eligible for release. The pipeline produces a clear pass or fail with detailed reports on every test, giving your team confidence that what ships to users works correctly.</p>
+
+          <!-- RECOMMENDED TECH STACK -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Recommended Tech Stack</h2>
+
+          <p><strong>Appium</strong> for cross-platform end-to-end testing that works across iOS and Android with a single test framework. <strong>Detox</strong> for React Native apps that need native-level gray-box testing. <strong>BrowserStack</strong> for cloud device farm access to thousands of real devices. <strong>GitHub Actions</strong> for CI/CD pipeline orchestration that triggers on every push and pull request. <strong>Playwright</strong> for testing web views and hybrid app components. Our <a href="/cloud">cloud infrastructure team</a> configures the entire stack to scale automatically based on your testing volume.</p>
+
+          <!-- WHY CUSTOM BUILD VS OFF-THE-SHELF -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Why Custom Build vs Off-the-Shelf</h2>
+
+          <p>Off-the-shelf mobile testing platforms give you a generic framework that requires your team to configure everything from scratch. Custom QA automation built by <strong>AIM Tech AI</strong> is designed around your specific app architecture, your deployment targets, your performance requirements, and your release cadence. We integrate directly with your existing CI/CD pipeline, your monitoring tools, and your team's workflow so that automated testing is invisible to developers. It just works on every push. Generic tools create more work. Custom systems eliminate it. Our <a href="/consulting">consulting team</a> can assess your current testing gaps and build a roadmap to full automation.</p>
+
+          <!-- CTA -->
+          <div style="background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(139,92,246,0.10));border:1px solid rgba(99,102,241,0.3);border-radius:12px;padding:2rem;margin:2rem 0;text-align:center;">
+            <p style="font-size:1.1rem;color:var(--clr-text);font-weight:500;margin-bottom:1rem;">Ready to automate your mobile app testing?</p>
+            <p style="margin-bottom:1.5rem;">AIM Tech AI builds automated QA pipelines that catch bugs before your users do. Stop shipping broken builds. Start releasing with confidence.</p>
+            <a href="/#contact" style="display:inline-block;padding:0.8rem 2rem;background:var(--clr-accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:500;">Get in Touch</a>
+          </div>
+
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+
+          <!-- FAQ -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Frequently Asked Questions</h2>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">How long does it take to set up mobile QA automation?</h3>
+          <p>A basic automated testing pipeline for a mobile app can be operational within two to four weeks. This includes unit test frameworks, CI/CD integration, and initial device farm configuration. More comprehensive setups with full regression suites and performance benchmarks typically take six to eight weeks. AIM Tech AI structures the rollout in phases so your team sees results quickly while the full system is built out.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">Can automated tests handle both iOS and Android from the same codebase?</h3>
+          <p>Yes. Tools like Appium allow you to write cross-platform test scripts that run on both iOS and Android devices. For React Native apps, Detox provides native-level testing from a single test suite. AIM Tech AI designs test architectures that maximize code reuse across platforms while still covering platform-specific behaviors.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">What is device farm testing and why does it matter?</h3>
+          <p>Device farm testing runs your automated tests across hundreds of real device and OS combinations in the cloud. Services like BrowserStack provide access to thousands of real devices without your team maintaining physical hardware. This is critical because device fragmentation is the number one source of mobile bugs that reach production. AIM Tech AI integrates device farm testing into every mobile QA pipeline we build.</p>
+
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+
+          <!-- RELATED SOLUTIONS -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Related Solutions and Resources</h2>
+
+          <p>Explore more from AIM Tech AI:</p>
+          <ul style="list-style:none;padding:0;">
+            <li style="margin-bottom:0.5rem;"><a href="/qa" style="color:var(--clr-accent);text-decoration:none;">QA &amp; Testing Services</a></li>
+            <li style="margin-bottom:0.5rem;"><a href="/ai" style="color:var(--clr-accent);text-decoration:none;">AI &amp; Machine Learning</a></li>
+            <li style="margin-bottom:0.5rem;"><a href="/blog/testing-strategy-modern-apps" style="color:var(--clr-accent);text-decoration:none;">Testing Strategy for Modern Apps</a></li>
+            <li style="margin-bottom:0.5rem;"><a href="/consulting" style="color:var(--clr-accent);text-decoration:none;">Consulting Services</a></li>
+            <li style="margin-bottom:0.5rem;"><a href="/cloud" style="color:var(--clr-accent);text-decoration:none;">Cloud Infrastructure</a></li>
+          </ul>
+
+        </article>
+      </div>
+    </section>
+
+    <div class="glow-divider"></div>
+
+  </div>
+
+  <!-- FOOTER -->
+    </div><!-- .content -->
+
+  <!-- FOOTER -->
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script>if(location.hostname!=="localhost"&&!location.hostname.startsWith("127.")){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";document.head.appendChild(s);}</script>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initParallaxVideoBg } from '/js/parallax-video-bg.js';
+    // import { initVideoBackground } from '/js/video-bg.js'; // HIDDEN
+    import { initRouter } from '/js/router.js';
+    // const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // initVideoBackground({ reducedMotion }).catch(err => console.warn('[video-bg]', err));
+    initParallaxVideoBg();
+    initUI();
+    initRouter();
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

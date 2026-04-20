@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>AI Chatbots vs AI Agents: What Businesses Need to Know | AIM Tech AI</title>
+  <meta name="description" content="Understand the key differences between AI chatbots and AI agents. Learn when to use each, how they evolve, and which is right for your business operations.">
+  <link rel="canonical" href="https://aimtechai.com/blog/ai-chatbots-vs-agents">
+  <meta property="og:title" content="AI Chatbots vs AI Agents: What Businesses Need to Know | AIM Tech AI">
+  <meta property="og:description" content="Understand the key differences between AI chatbots and AI agents. Learn when to use each, how they evolve, and which is right for your business operations.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aimtechai.com/blog/ai-chatbots-vs-agents">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Chatbots vs AI Agents: What Businesses Need to Know | AIM Tech AI">
+  <meta name="twitter:description" content="Understand the key differences between AI chatbots and AI agents. Learn when to use each, how they evolve, and which is right for your business operations.">
+  <meta name="keywords" content="chatbot vs AI agent, AI agents, conversational AI, AI chatbots, business AI, AIM Tech AI">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "AI Chatbots vs AI Agents: What Businesses Need to Know",
+    "datePublished": "2026-04-11",
+    "author": {
+      "@type": "Organization",
+      "name": "AIM Tech AI"
+    },
+    "description": "Understand the key differences between AI chatbots and AI agents. Learn when to use each, how they evolve, and which is right for your business operations.",
+    "keywords": ["chatbot vs AI agent", "AI agents", "conversational AI", "AI chatbots", "business AI", "AIM Tech AI"],
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIM Tech AI"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aimtechai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aimtechai.com/blog" },
+      { "@type": "ListItem", "position": 3, "name": "AI Chatbots vs AI Agents: What Businesses Need to Know" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Can an AI chatbot become an AI agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Many businesses start with a conversational chatbot and gradually add capabilities like system integrations, workflow triggers, and autonomous decision-making that transform it into an agent. This evolutionary approach is often the most practical path because it allows teams to validate conversational accuracy before adding execution capabilities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which is better for customer support: a chatbot or an AI agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on the complexity of your support workflows. A chatbot is sufficient for answering FAQs and routing inquiries to the right team. An AI agent is better when support involves multi-step actions like processing returns, updating accounts, or troubleshooting issues that require accessing multiple systems. Most modern support implementations use a hybrid approach."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are AI agents safe for business-critical operations?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI agents can be safe for business-critical operations when built with proper guardrails, including human-in-the-loop approval for high-stakes actions, audit logging, rollback capabilities, and confidence thresholds that trigger escalation. The key is designing the agent's autonomy boundaries carefully and implementing robust monitoring from day one."
+        }
+      }
+    ]
+  }
+  </script>
+<script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#values" data-scramble>Values</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+
+  <div class="content">
+  <div class="content blog-article-page">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/blog">Blog</a> &rsaquo; AI Chatbots vs AI Agents</div>
+      <h1>AI Chatbots vs AI Agents: What Businesses Need to Know</h1>
+      <p class="hero-sub" style="opacity:1;transform:none;">April 11, 2026 &bull; 8 min read</p>
+    </div>
+
+    <div class="glow-divider"></div>
+
+    <!-- ARTICLE -->
+    <section style="max-width:1300px;margin:0 auto;">
+      <a href="/blog" style="color:var(--clr-accent);text-decoration:none;font-size:0.9rem;display:inline-block;margin-bottom:2rem;">&larr; Back to Blog</a>
+
+      <div style="max-width:800px;margin:0 auto;background:linear-gradient(135deg,rgba(255,255,255,0.18),rgba(255,255,255,0.08));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:3rem;box-shadow:0 8px 32px rgba(0,0,0,0.25);">
+
+        <article style="color:var(--clr-text-dim);font-weight:300;font-size:0.95rem;line-height:1.8;">
+
+          <!-- Quick Answer AEO Block -->
+          <div style="background:linear-gradient(135deg,rgba(99,102,241,0.12),rgba(139,92,246,0.08));border-left:4px solid var(--clr-accent);border-radius:0 12px 12px 0;padding:1.5rem;margin-bottom:2rem;">
+            <p style="font-weight:600;color:var(--clr-text);margin-bottom:0.5rem;">Quick Answer</p>
+            <p>AI chatbots respond to questions in a conversational interface. AI agents take autonomous action across systems, executing multi-step workflows, making decisions, and completing tasks without human intervention at each step. Chatbots are conversational; agents are operational. Most businesses need both, and the smartest approach is starting with a chatbot and evolving it into an agent.</p>
+          </div>
+
+          <p>The terms "chatbot" and "AI agent" are used interchangeably across the industry, and that confusion is costing businesses real money. Companies deploy chatbots expecting agent-level results, or invest in complex agent frameworks when a well-built chatbot would have solved the problem in half the time and at a fraction of the cost. Understanding the distinction is not academic. It directly determines the architecture, timeline, budget, and outcomes of your AI initiative.</p>
+
+          <p>At <a href="/ai">AIM Tech AI</a>, we build both chatbots and agents for enterprise clients. The right choice depends on what you need the system to do, how much autonomy it requires, and what systems it needs to access. This article breaks down the differences, explains when to use each, and maps the evolution path from chatbot to agent.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">What Is an AI Chatbot?</h2>
+
+          <p>An <strong>AI chatbot</strong> is a conversational interface powered by a language model that responds to user queries. Modern chatbots built on large language models are far more capable than the rule-based chatbots of the past. They understand natural language, maintain context across a conversation, and generate human-quality responses. However, their core function is reactive: a user asks, the chatbot answers.</p>
+
+          <p>Chatbots excel at answering frequently asked questions, guiding users through simple processes, providing information from a knowledge base, and routing conversations to the right human team member. They operate within a single conversation window and typically do not access external systems or take actions beyond generating text.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">What Is an AI Agent?</h2>
+
+          <p>An <strong>AI agent</strong> is an autonomous system that can plan, decide, and execute multi-step tasks across multiple systems. Where a chatbot waits for a prompt and responds, an agent receives a goal and figures out how to achieve it. Agents can access databases, call APIs, trigger workflows, monitor conditions, and chain together complex sequences of actions to complete a task end to end.</p>
+
+          <p>For example, a chatbot might tell a customer "Your return has been submitted." An agent would actually process the return: verify the purchase, check return eligibility, generate the shipping label, initiate the refund, update the inventory system, and notify the warehouse. For a comprehensive overview, read our <a href="/blog/ai-agents-guide">complete guide to AI agents</a>.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Key Differences: Conversation vs Execution</h2>
+
+          <p><strong>Scope of action.</strong> Chatbots generate responses. Agents execute workflows. A chatbot can tell you what needs to happen; an agent makes it happen.</p>
+
+          <p><strong>System access.</strong> Chatbots typically access a knowledge base or documentation. Agents connect to live systems: CRMs, ERPs, payment processors, shipping platforms, and internal tools. This is why agents require significantly more <a href="/consulting">strategic planning and architecture</a> than chatbots.</p>
+
+          <p><strong>Autonomy level.</strong> Chatbots operate in a request-response loop. Agents can operate independently, monitoring conditions, making decisions based on predefined rules and learned patterns, and taking action without requiring a human prompt at each step.</p>
+
+          <p><strong>Complexity and cost.</strong> Chatbots can be deployed in weeks with a modest budget. Agents require more extensive system integration, security review, testing, and monitoring infrastructure. The investment is higher, but so is the return when applied to the right use cases.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">When to Use a Chatbot vs an Agent</h2>
+
+          <h3 style="color:var(--clr-text);margin-top:1.5rem;">Use a Chatbot When:</h3>
+          <p>Your primary need is answering questions, providing information, or guiding users through simple decision trees. Chatbots are ideal for FAQ pages, first-line customer support, internal knowledge search, and lead qualification. If the system only needs to talk, a chatbot is the right choice. See how chatbots compare in <a href="/blog/ai-customer-support">AI-powered customer support</a> scenarios.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.5rem;">Use an Agent When:</h3>
+          <p>Your process involves multi-step actions across multiple systems. Agents are the right choice for order processing, returns management, employee onboarding workflows, automated reporting, and any scenario where the AI needs to do, not just say. AIM Tech AI builds agents that operate within carefully defined guardrails, ensuring they act reliably and escalate appropriately.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">The Evolution Path: From Chatbot to Agent</h2>
+
+          <p>The smartest approach for most businesses is not to choose between a chatbot and an agent. It is to start with a chatbot and evolve it into an agent over time. Here is how that path typically works:</p>
+
+          <p><strong>Phase 1: Conversational chatbot.</strong> Deploy a chatbot that answers questions from a knowledge base. Validate that users trust it and that response accuracy meets your standards.</p>
+
+          <p><strong>Phase 2: Connected chatbot.</strong> Integrate the chatbot with live data sources so it can answer real-time questions like order status, account balances, or system health. The chatbot still only talks, but it talks with live data.</p>
+
+          <p><strong>Phase 3: Action-enabled assistant.</strong> Add workflow triggers so the chatbot can take simple actions: create a ticket, schedule a meeting, submit an approval request. The user still initiates every action.</p>
+
+          <p><strong>Phase 4: Autonomous agent.</strong> Grant the system the ability to monitor conditions, make decisions, and execute multi-step workflows independently. Human oversight shifts from approving every action to reviewing outcomes and handling exceptions.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Common Mistakes in Chatbot and Agent Projects</h2>
+
+          <p><strong>Building an agent when a chatbot would suffice.</strong> Over-engineering is expensive. If your users just need answers, do not build a system that processes transactions.</p>
+
+          <p><strong>Deploying an agent without guardrails.</strong> Agents that can take actions must have clear boundaries, approval workflows for high-risk actions, and comprehensive audit logging. AIM Tech AI designs every agent with a defined autonomy boundary and escalation path.</p>
+
+          <p><strong>Not planning for the evolution.</strong> If you build a chatbot with no thought to future agent capabilities, you will likely need to rebuild from scratch when you are ready to add actions. Designing the architecture with evolution in mind from day one saves significant time and cost.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Choose the Right AI for Your Business</h2>
+
+          <p>The chatbot versus agent decision is not about which technology is better. It is about which capability matches your current needs and where you want to go next. At <strong>AIM Tech AI</strong>, we help businesses make this decision with clarity, build the right system for today, and architect it to evolve into what they need tomorrow.</p>
+
+          <p>Whether you need a conversational chatbot, a fully autonomous agent, or a phased strategy that starts with one and grows into the other, our <a href="/ai">AI engineering team</a> and <a href="/consulting">strategic consultants</a> deliver systems that work in production.</p>
+
+          <div style="background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(139,92,246,0.10));border:1px solid rgba(99,102,241,0.3);border-radius:12px;padding:2rem;margin:2rem 0;text-align:center;">
+            <p style="font-size:1.1rem;color:var(--clr-text);font-weight:500;margin-bottom:1rem;">Not sure if you need a chatbot or an agent?</p>
+            <p style="margin-bottom:1.5rem;">Talk to AIM Tech AI. We will help you choose the right approach and build it right the first time.</p>
+            <a href="/#contact" style="display:inline-block;padding:0.8rem 2rem;background:var(--clr-accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:500;">Get in Touch</a>
+          </div>
+
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Frequently Asked Questions About AI Chatbots vs AI Agents</h2>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">Can an AI chatbot become an AI agent?</h3>
+          <p>Yes. Many businesses start with a conversational chatbot and gradually add capabilities like system integrations, workflow triggers, and autonomous decision-making that transform it into an agent. This evolutionary approach is often the most practical path because it allows teams to validate conversational accuracy before adding execution capabilities.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">Which is better for customer support: a chatbot or an AI agent?</h3>
+          <p>It depends on the complexity of your support workflows. A chatbot is sufficient for answering FAQs and routing inquiries to the right team. An AI agent is better when support involves multi-step actions like processing returns, updating accounts, or troubleshooting issues that require accessing multiple systems. Most modern support implementations use a hybrid approach.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">Are AI agents safe for business-critical operations?</h3>
+          <p>AI agents can be safe for business-critical operations when built with proper guardrails, including human-in-the-loop approval for high-stakes actions, audit logging, rollback capabilities, and confidence thresholds that trigger escalation. The key is designing the agent's autonomy boundaries carefully and implementing robust monitoring from day one.</p>
+
+        
+<style>
+.blog-article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 3rem 0 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.blog-article-nav a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-decoration: none;
+  max-width: 45%;
+  transition: opacity 0.3s;
+}
+.blog-article-nav a:hover { opacity: 0.7; }
+.blog-article-nav .nav-label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--clr-primary);
+  font-weight: 500;
+}
+.blog-article-nav .nav-title {
+  font-size: 0.9rem;
+  color: var(--clr-text);
+  font-weight: 500;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.blog-article-nav .next { text-align: right; margin-left: auto; }
+[data-theme="light"] .blog-article-nav { border-top-color: rgba(0,0,0,0.08); }
+@media (max-width: 600px) {
+  .blog-article-nav { flex-direction: column; gap: 1.5rem; }
+  .blog-article-nav a { max-width: 100%; }
+  .blog-article-nav .next { text-align: left; }
+}
+</style>
+<div class="blog-article-nav"><a href="/blog/ai-automation-vs-rpa" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">AI Automation vs RPA: What's the Real Difference?</span></a><a href="/blog/ai-customer-support" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Automating Customer Support with AI Agents in 2026</span></a></div>
+
+          <!-- strong-cta-v1 -->
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+          <section class="cta-block" style="margin-top:2.2rem;padding:2rem 1.8rem;background:linear-gradient(135deg,rgba(15,193,183,0.18),rgba(42,53,75,0.25));border:1px solid rgba(15,193,183,0.35);border-radius:16px;text-align:center;">
+            <h2 style="color:var(--clr-text);margin-top:0;font-size:1.5rem;">Build Systems, Not Experiments</h2>
+            <p style="color:var(--clr-text);margin:0.6rem 0 1.3rem;">AIM Tech AI designs and ships AI, cloud, and custom software systems for companies ready to turn technology into real business advantage.</p>
+            <a href="/book" style="display:inline-block;padding:0.95rem 2rem;background:var(--clr-primary);color:#0a0608;border-radius:12px;font-weight:700;text-decoration:none;text-shadow:none;letter-spacing:0.3px;">Book a Strategy Call &rarr;</a>
+            <div style="margin-top:0.9rem;font-size:0.82rem;color:var(--clr-text-dim);">Free 30-min consultation &bull; No obligation</div>
+          </section>
+</article>
+      </div>
+    </section>
+
+    <div class="glow-divider"></div>
+
+  </div>
+
+  <!-- FOOTER -->
+    <!-- FOOTER -->
+  </div><!-- .content -->
+
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <a href="/blog" class="back-link">&larr; Blog</a>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script>if(location.hostname!=="localhost"&&!location.hostname.startsWith("127.")){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";document.head.appendChild(s);}</script>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initBlogVideoBg } from '/js/blog-video-bg.js';
+    // import { initVideoBackground } from '/js/video-bg.js'; // HIDDEN
+    import { initRouter } from '/js/router.js';
+    // const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // initVideoBackground({ reducedMotion }).catch(err => console.warn('[video-bg]', err));
+    initBlogVideoBg();
+    initUI();
+    initRouter();
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

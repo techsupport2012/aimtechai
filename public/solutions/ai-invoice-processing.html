@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>AI Agents for Invoice Processing | AIM Tech AI</title>
+  <meta name="description" content="Automate invoice processing with AI agents that extract data, validate entries, route approvals, and sync with your ERP. Built by AIM Tech AI for high-volume operations.">
+  <link rel="canonical" href="https://aimtechai.com/solutions/ai-invoice-processing">
+  <meta property="og:title" content="AI Agents for Invoice Processing | AIM Tech AI">
+  <meta property="og:description" content="Automate invoice processing with AI agents that extract data, validate entries, route approvals, and sync with your ERP. Built by AIM Tech AI for high-volume operations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aimtechai.com/solutions/ai-invoice-processing">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Agents for Invoice Processing | AIM Tech AI">
+  <meta name="twitter:description" content="Automate invoice processing with AI agents that extract data, validate entries, route approvals, and sync with your ERP. Built by AIM Tech AI for high-volume operations.">
+  <meta name="keywords" content="AI invoice processing, automated invoicing, AI accounts payable, invoice automation, AIM Tech AI">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI Agents for Invoice Processing",
+    "provider": {
+      "@type": "Organization",
+      "name": "AIM Tech AI",
+      "url": "https://aimtechai.com"
+    },
+    "description": "AI-powered invoice processing systems that use OCR extraction, intelligent validation, and automated approval routing to eliminate manual data entry for healthcare clinics, accounting firms, and enterprises.",
+    "serviceType": "AI Invoice Processing Automation",
+    "areaServed": "Worldwide"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aimtechai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://aimtechai.com/solutions" },
+      { "@type": "ListItem", "position": 3, "name": "AI Agents for Invoice Processing" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What types of invoices can AI agents process?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI invoice processing agents built by AIM Tech AI handle virtually any format: PDF invoices, scanned paper documents, email attachments, and electronic invoices from supplier portals. The OCR and language model layers extract data regardless of layout, language, or formatting inconsistencies, achieving over 95 percent accuracy on first pass."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does AI invoice processing integrate with our existing ERP?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AIM Tech AI builds custom API integrations that connect directly to your ERP system, whether you use SAP, NetSuite, QuickBooks, or Xero. Validated invoice data flows directly into your accounting system without manual re-entry. The integration includes field mapping, validation rules specific to your chart of accounts, and error handling for exceptions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens when the AI encounters an invoice it cannot process?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "When the AI agent encounters an invoice with low confidence extraction, missing fields, or data that does not match existing records, it flags the invoice for human review with a detailed explanation of what triggered the exception. The human reviewer resolves the issue, and the system learns from that correction to handle similar cases automatically in the future."
+        }
+      }
+    ]
+  }
+  </script>
+<script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#values" data-scramble>Values</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="content">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/solutions">Solutions</a> &rsaquo; AI Invoice Processing</div>
+      <h1>AI Agents for Invoice Processing</h1>
+      <p class="hero-sub" style="opacity:1;transform:none;">Extract, validate, and approve invoices without manual data entry</p>
+    </div>
+
+    <div class="glow-divider"></div>
+
+    <!-- ARTICLE -->
+    <section style="max-width:1300px;margin:0 auto;">
+
+      <div style="max-width:800px;margin:0 auto;background:linear-gradient(135deg,rgba(255,255,255,0.18),rgba(255,255,255,0.08));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:3rem;box-shadow:0 8px 32px rgba(0,0,0,0.25);">
+
+        <article style="color:var(--clr-text-dim);font-weight:300;font-size:0.95rem;line-height:1.8;">
+
+          <!-- QUICK ANSWER (AEO) -->
+          <div style="background:linear-gradient(135deg,rgba(99,102,241,0.12),rgba(139,92,246,0.08));border:1px solid rgba(99,102,241,0.25);border-radius:12px;padding:1.5rem;margin-bottom:2rem;">
+            <p style="font-size:0.75rem;font-family:var(--font-mono);letter-spacing:2px;text-transform:uppercase;color:var(--clr-accent);margin-bottom:0.5rem;">Quick Answer</p>
+            <p style="color:var(--clr-text);font-weight:400;"><strong>AI invoice processing agents</strong> use OCR and language models to extract data from any invoice format, validate line items against purchase orders, route approvals automatically, and sync directly with your ERP. <strong>AIM Tech AI</strong> builds these systems for organizations processing 500 or more invoices per month, reducing manual data entry by over 90 percent and cutting processing time from days to minutes.</p>
+          </div>
+
+          <!-- WHO THIS IS FOR -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Who This Is For</h2>
+          <p>This solution is built for healthcare clinics managing complex billing from multiple vendors, accounting firms processing invoices on behalf of clients, and enterprises handling 500 or more invoices per month across departments. If your accounts payable team is buried in manual data entry, chasing approvals, or dealing with errors that create compliance risk, <strong>AIM Tech AI</strong> has a proven system to eliminate those problems.</p>
+
+          <!-- PROBLEMS THIS SOLVES -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Problems This Solves</h2>
+          <p><strong>Manual data entry errors.</strong> Humans mistype numbers, transpose digits, and miss line items. AI extraction achieves over 95 percent accuracy on first pass and flags anything uncertain for review rather than guessing.</p>
+          <p><strong>Slow processing.</strong> When invoices sit in email inboxes waiting to be opened, entered, and routed, payment timelines stretch and vendor relationships suffer. AI agents process invoices within minutes of receipt.</p>
+          <p><strong>Compliance risk.</strong> Missing audit trails, inconsistent coding, and unapproved payments create regulatory exposure. The AI system maintains a complete, searchable audit log of every action taken on every invoice.</p>
+          <p><strong>Lost invoices.</strong> Paper invoices get misplaced. Email attachments get buried. An AI agent captures every invoice from every channel into a single system of record, ensuring nothing falls through the cracks.</p>
+
+          <!-- HOW THE WORKFLOW WORKS -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">How The Workflow Works</h2>
+          <p>The invoice processing system designed by <a href="/ai">AIM Tech AI's AI and ML team</a> follows a five-step automated pipeline:</p>
+          <p><strong>Step 1: Invoice Received.</strong> Invoices arrive via email, supplier portal, or scan. The system monitors all channels and captures documents automatically into a processing queue.</p>
+          <p><strong>Step 2: OCR Extraction.</strong> AWS Textract or similar OCR technology reads the document, extracting vendor name, invoice number, line items, amounts, tax, and payment terms regardless of format or layout.</p>
+          <p><strong>Step 3: Validation.</strong> Claude analyzes the extracted data, cross-references it against purchase orders and vendor records, checks for duplicates, and flags discrepancies. Clean invoices pass through. Exceptions are queued for human review with specific notes on what needs attention.</p>
+          <p><strong>Step 4: Approval Routing.</strong> Based on amount thresholds and department rules, the invoice is automatically routed to the right approver. Reminders are sent if approvals stall, keeping the process moving.</p>
+          <p><strong>Step 5: ERP Sync.</strong> Approved invoices are posted directly to your accounting system with correct GL coding, department tags, and payment scheduling. No manual re-entry required.</p>
+
+          <!-- RECOMMENDED TECH STACK -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Recommended Tech Stack</h2>
+          <p><strong>OCR Engine:</strong> AWS Textract for reliable document extraction across formats, with fallback processing for low-quality scans.</p>
+          <p><strong>AI Classification:</strong> Claude for intelligent document understanding, data validation, anomaly detection, and decision-making on routing rules.</p>
+          <p><strong>Workflow Engine:</strong> n8n or custom orchestration layer managing the processing pipeline, approval chains, and exception handling.</p>
+          <p><strong>ERP Integration:</strong> Direct API connections to SAP, NetSuite, QuickBooks, Xero, or your existing accounting platform. Our <a href="/cloud">cloud team</a> ensures secure, reliable data flow between systems.</p>
+
+          <!-- WHY CUSTOM BUILD -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Why Custom Build vs Off-the-Shelf</h2>
+          <p>Generic invoice automation tools force you to adapt your process to their software. They offer rigid templates, limited ERP integrations, and charge per-document fees that scale poorly. A custom system built by <strong>AIM Tech AI</strong> matches your exact approval hierarchy, handles your specific vendor formats, integrates natively with your ERP, and costs a fixed amount regardless of volume. As described in our <a href="/blog/ai-agents-guide">complete guide to AI agents</a>, the value of custom systems compounds over time as the AI learns your specific patterns.</p>
+
+          <!-- CTA -->
+          <div style="background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(139,92,246,0.10));border:1px solid rgba(99,102,241,0.3);border-radius:12px;padding:2rem;margin:2rem 0;text-align:center;">
+            <p style="font-size:1.1rem;color:var(--clr-text);font-weight:500;margin-bottom:1rem;">Ready to eliminate manual invoice processing?</p>
+            <p style="margin-bottom:1.5rem;">AIM Tech AI builds AI invoice agents that extract, validate, and approve invoices automatically. Stop losing time and money to manual data entry.</p>
+            <a href="/book" style="display:inline-block;padding:0.8rem 2rem;background:var(--clr-accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:500;">Book a Consultation</a>
+          </div>
+
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+
+          <!-- FAQ -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Frequently Asked Questions</h2>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">What types of invoices can AI agents process?</h3>
+          <p>AI invoice processing agents built by AIM Tech AI handle virtually any format: PDF invoices, scanned paper documents, email attachments, and electronic invoices from supplier portals. The OCR and language model layers extract data regardless of layout, language, or formatting inconsistencies, achieving over 95 percent accuracy on first pass.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">How does AI invoice processing integrate with our existing ERP?</h3>
+          <p><a href="/consulting">AIM Tech AI's consulting team</a> builds custom API integrations that connect directly to your ERP system, whether you use SAP, NetSuite, QuickBooks, or Xero. Validated invoice data flows directly into your accounting system without manual re-entry. The integration includes field mapping, validation rules specific to your chart of accounts, and error handling for exceptions.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">What happens when the AI encounters an invoice it cannot process?</h3>
+          <p>When the AI agent encounters an invoice with low confidence extraction, missing fields, or data that does not match existing records, it flags the invoice for human review with a detailed explanation of what triggered the exception. The human reviewer resolves the issue, and the system learns from that correction to handle similar cases automatically in the future. Read more about how these systems improve over time in our <a href="/blog/ai-use-cases-business">AI use cases for business</a> guide.</p>
+
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+
+          <!-- RELATED SOLUTIONS -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Related Solutions</h2>
+          <ul style="list-style:none;padding:0;">
+            <li style="margin-bottom:0.8rem;"><a href="/solutions/accounts-payable-automation" style="color:var(--clr-accent);text-decoration:none;">Accounts Payable Automation System</a> &mdash; End-to-end AP workflow with 3-way matching</li>
+            <li style="margin-bottom:0.8rem;"><a href="/solutions/ai-customer-support" style="color:var(--clr-accent);text-decoration:none;">AI Agents for Customer Support</a> &mdash; Automate ticket resolution and escalation</li>
+            <li style="margin-bottom:0.8rem;"><a href="/blog/ai-agents-guide" style="color:var(--clr-accent);text-decoration:none;">What Are AI Agents? Complete Guide</a> &mdash; Understand the technology powering these solutions</li>
+            <li style="margin-bottom:0.8rem;"><a href="/blog/ai-use-cases-business" style="color:var(--clr-accent);text-decoration:none;">AI Use Cases for Business</a> &mdash; Discover more automation opportunities</li>
+          </ul>
+
+        </article>
+      </div>
+    </section>
+
+    <div class="glow-divider"></div>
+
+  </div>
+
+  <!-- FOOTER -->
+    </div><!-- .content -->
+
+  <!-- FOOTER -->
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script>if(location.hostname!=="localhost"&&!location.hostname.startsWith("127.")){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";document.head.appendChild(s);}</script>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initParallaxVideoBg } from '/js/parallax-video-bg.js';
+    // import { initVideoBackground } from '/js/video-bg.js'; // HIDDEN
+    import { initRouter } from '/js/router.js';
+    // const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // initVideoBackground({ reducedMotion }).catch(err => console.warn('[video-bg]', err));
+    initParallaxVideoBg();
+    initUI();
+    initRouter();
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

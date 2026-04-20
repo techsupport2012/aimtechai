@@ -1,0 +1,7 @@
+{
+  "watch": ["server.js", "admin/", "db/", "lib/", "config/", "middleware/"],
+  "ext": "js,json",
+  "ignore": ["node_modules/", "data/", "public/"],
+  "delay": 1000,
+  "legacyWatch": true
+}

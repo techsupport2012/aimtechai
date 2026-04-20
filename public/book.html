@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>Book a Consultation | AIM Tech AI</title>
+  <meta name="description" content="Book a free AI systems consultation with AIM Tech AI. Map your AI integration, custom software, or cloud architecture project on a 30-minute call. Beverly Hills, CA.">
+  <meta name="keywords" content="book consultation AIM Tech AI, AI strategy call, custom software consultation, schedule AI systems call">
+  <link rel="canonical" href="https://aimtechai.com/book">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Book a Consultation | AIM Tech AI">
+  <meta property="og:description" content="Schedule a free 30-minute AI systems strategy call with AIM Tech AI.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aimtechai.com/book">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/" } }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI Systems Consultation",
+    "provider": { "@type": "Organization", "name": "AIM Tech AI", "url": "https://aimtechai.com" },
+    "areaServed": "Worldwide",
+    "description": "Free 30-minute strategy call to map your AI, custom software, or cloud architecture project."
+  }
+  </script>
+  <style>
+    :root {
+      --book-radius: 20px;
+      --book-border: rgba(15,193,183,0.25);
+      --book-border-strong: rgba(15,193,183,0.6);
+    }
+    .book-shell {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 1.6rem 1.8rem;
+      background: #000 !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border: 1px solid rgba(255,255,255,0.12) !important;
+      border-radius: var(--book-radius);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    [data-theme="light"] .book-shell {
+      background: #fff !important;
+      border: 1px solid rgba(0,0,0,0.1) !important;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    .book-logo { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase; color: var(--clr-primary); text-align: center; text-shadow: none; margin-bottom: 0.35rem; }
+    .book-title { font-size: clamp(1.3rem, 2.4vw, 1.7rem); font-weight: 800; text-align: center; letter-spacing: -0.5px; margin-bottom: 0.25rem; }
+    .book-sub { text-align: center; color: var(--clr-text-dim); font-size: 0.85rem; margin-bottom: 1.1rem; line-height: 1.5; }
+
+    .steps { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.3rem; }
+    .step { display: flex; flex-direction: column; align-items: center; gap: 0.45rem; opacity: 0.4; transition: opacity .3s; }
+    .step.active, .step.done { opacity: 1; }
+    .step-dot { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; background: rgba(255,255,255,0.08); border: 1px solid var(--clr-border); color: var(--clr-text); text-shadow: none; }
+    .step.active .step-dot { background: var(--clr-primary); border-color: var(--clr-primary); color: #fff; }
+    .step.done .step-dot { background: rgba(15,193,183,0.25); border-color: var(--book-border-strong); color: var(--clr-primary); }
+    .step-label { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--clr-text-dim); font-family: var(--font-mono); text-shadow: none; }
+
+    .view { display: none !important; }
+    .view.active { display: block !important; animation: fadeIn .3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+    .cal-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+    .cal-nav-btn { background: rgba(255,255,255,0.06); border: 1px solid var(--clr-border); color: var(--clr-text); width: 36px; height: 36px; border-radius: 50%; font-size: 1.3rem; cursor: pointer; transition: all .2s; text-shadow: none; }
+    .cal-nav-btn:hover { background: var(--clr-primary); border-color: var(--clr-primary); color: #fff; }
+    .cal-month { font-weight: 700; font-size: 1.1rem; letter-spacing: -0.3px; }
+    .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.4rem; }
+    .cal-header { text-align: center; font-family: var(--font-mono); font-size: 0.7rem; color: var(--clr-text-dim); letter-spacing: 2px; padding: 0.5rem 0; text-shadow: none; }
+    .cal-day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border-radius: 10px; font-weight: 500; font-size: 0.9rem; border: 1px solid transparent; cursor: default; }
+    .cal-day.empty { visibility: hidden; }
+    .cal-day.past, .cal-day.unavail { color: rgba(255,255,255,0.2); }
+    [data-theme="light"] .cal-day.past, [data-theme="light"] .cal-day.unavail { color: rgba(0,0,0,0.22); }
+    .cal-day.avail { cursor: pointer; background: rgba(15,193,183,0.08); border-color: var(--book-border); transition: all .2s; }
+    .cal-day.avail:hover { background: rgba(15,193,183,0.25); border-color: var(--book-border-strong); transform: translateY(-1px); }
+    .cal-day.selected { background: var(--clr-primary) !important; border-color: var(--clr-primary) !important; color: #fff; }
+    .cal-day.today { border-color: var(--clr-accent); font-weight: 700; }
+
+    .slot-heading { text-align: center; font-weight: 600; font-size: 1.05rem; margin-bottom: 1.2rem; letter-spacing: -0.3px; }
+    .slots-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 0.6rem; margin-bottom: 1.5rem; }
+    .slot-btn { background: rgba(15,193,183,0.08); border: 1px solid var(--book-border); color: var(--clr-text); padding: 0.85rem 0.4rem; border-radius: 12px; font-weight: 500; font-family: var(--font-display); font-size: 0.95rem; cursor: pointer; transition: all .2s; text-shadow: none; }
+    .slot-btn:hover:not(.taken) { background: rgba(15,193,183,0.2); border-color: var(--book-border-strong); }
+    .slot-btn.selected { background: var(--clr-primary); border-color: var(--clr-primary); color: #fff; }
+    .slot-btn.taken { opacity: 0.35; cursor: not-allowed; text-decoration: line-through; }
+    .slots-empty { text-align: center; color: var(--clr-text-dim); padding: 2rem; font-size: 0.95rem; text-shadow: none; }
+
+    .form-group { margin-bottom: 1.1rem; }
+    .form-group label { display: block; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--clr-text-dim); margin-bottom: 0.5rem; text-shadow: none; }
+    .form-group .req { color: var(--clr-primary); }
+    .form-group input, .form-group textarea { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid var(--clr-border); color: var(--clr-text); padding: 0.85rem 1rem; border-radius: 10px; font-family: var(--font-display); font-size: 0.95rem; transition: border-color .2s, background .2s; }
+    [data-theme="light"] .form-group input, [data-theme="light"] .form-group textarea { background: rgba(255,255,255,0.6); border-color: rgba(0,0,0,0.12); color: #1A1A1A; }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--clr-primary); background: rgba(15,193,183,0.06); }
+    .form-group textarea { resize: vertical; min-height: 96px; font-family: inherit; }
+
+    .selection-bar { display: flex; justify-content: space-around; gap: 1rem; background: rgba(15,193,183,0.1); border: 1px solid var(--book-border); border-radius: 12px; padding: 0.8rem 1rem; margin-bottom: 1.2rem; flex-wrap: wrap; font-size: 0.9rem; }
+    .selection-bar strong { color: var(--clr-primary); text-shadow: none; }
+
+    .btn-row { display: flex; gap: 0.8rem; margin-top: 1.2rem; }
+    .btn-teal, .btn-ghost { flex: 1; padding: 0.95rem 1.5rem; border-radius: 12px; font-weight: 600; font-family: var(--font-display); font-size: 0.95rem; letter-spacing: 0.3px; cursor: pointer; transition: all .25s; text-shadow: none; }
+    .btn-teal { background: var(--clr-primary); border: 1px solid var(--clr-primary); color: #fff; }
+    .btn-teal:hover:not(:disabled) { background: var(--clr-accent2); border-color: var(--clr-accent2); transform: translateY(-1px); }
+    .btn-teal:disabled { opacity: 0.55; cursor: not-allowed; }
+    .btn-ghost { background: transparent; border: 1px solid var(--clr-border); color: var(--clr-text); }
+    .btn-ghost:hover { border-color: var(--clr-primary); color: var(--clr-primary); }
+
+    .err-msg { color: #ff6a6a; background: rgba(255,50,50,0.08); border: 1px solid rgba(255,106,106,0.3); padding: 0.7rem 1rem; border-radius: 10px; font-size: 0.88rem; margin-top: 0.8rem; display: none; text-shadow: none; }
+    .err-msg.show { display: block; }
+
+    .confirm-icon { width: 68px; height: 68px; margin: 0 auto 1rem; border-radius: 50%; background: rgba(15,193,183,0.2); border: 2px solid var(--clr-primary); display: flex; align-items: center; justify-content: center; font-size: 2rem; color: var(--clr-primary); text-shadow: none; }
+    .confirm-title { text-align: center; font-size: 1.6rem; font-weight: 800; margin-bottom: 0.4rem; letter-spacing: -0.5px; }
+    .confirm-sub { text-align: center; color: var(--clr-text-dim); font-size: 0.95rem; margin-bottom: 1.4rem; line-height: 1.6; }
+    .confirm-details { background: rgba(15,193,183,0.06); border: 1px solid var(--book-border); border-radius: 12px; padding: 1.1rem 1.3rem; margin-bottom: 1.4rem; }
+    .confirm-row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.55rem 0; border-bottom: 1px solid var(--clr-border); }
+    .confirm-row:last-child { border-bottom: none; }
+    .confirm-row label { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--clr-text-dim); text-shadow: none; }
+    .confirm-row p { font-weight: 600; }
+
+    @media (max-width: 640px) {
+      .book-shell { padding: 1.6rem; }
+      .steps { gap: 1.2rem; }
+      .btn-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle"><span></span><span></span><span></span></div>
+  </nav>
+
+  <div class="content">
+
+
+    <div class="glow-divider"></div>
+
+    <section style="padding: 10rem 2rem 4rem;">
+      <div class="book-shell">
+        <div class="book-logo" id="page-logo">// SCHEDULE</div>
+        <h2 class="book-title" id="page-title">Book a Consultation</h2>
+        <p class="book-sub" id="page-sub">Choose a date and time that works for you</p>
+
+        <div class="steps">
+          <div class="step active" id="step-1"><div class="step-dot">1</div><div class="step-label">Date</div></div>
+          <div class="step" id="step-2"><div class="step-dot">2</div><div class="step-label">Time</div></div>
+          <div class="step" id="step-3"><div class="step-dot">3</div><div class="step-label">Details</div></div>
+        </div>
+
+        <div class="view active" id="view-cal">
+          <div class="cal-nav">
+            <button class="cal-nav-btn" id="cal-prev" aria-label="Previous month">&#8249;</button>
+            <div class="cal-month" id="cal-month-label"></div>
+            <button class="cal-nav-btn" id="cal-next" aria-label="Next month">&#8250;</button>
+          </div>
+          <div class="cal-grid" id="cal-grid"></div>
+          <div class="err-msg" id="err-cal" hidden>Please select an available date.</div>
+        </div>
+
+        <div class="view" id="view-time" hidden>
+          <div class="slot-heading" id="slot-date-label"></div>
+          <div class="slots-grid" id="slots-grid"></div>
+          <div class="err-msg" id="err-slot" hidden>Please select a time slot.</div>
+          <div class="btn-row">
+            <button class="btn-ghost" onclick="goStep(1)">&#8592; Back</button>
+            <button class="btn-teal" onclick="goStep(3)">Continue &#8594;</button>
+          </div>
+        </div>
+
+        <div class="view" id="view-form" hidden>
+          <div class="selection-bar" id="selection-bar"></div>
+          <div class="form-group">
+            <label>Your Name <span class="req">*</span></label>
+            <input type="text" id="f-name" placeholder="Full name" maxlength="100" />
+          </div>
+          <div class="form-group">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" id="f-email" placeholder="you@company.com" maxlength="200" />
+          </div>
+          <div class="form-group">
+            <label>Notes <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label>
+            <textarea id="f-notes" placeholder="What are you looking to build? Any specific goals or constraints?" maxlength="500"></textarea>
+          </div>
+          <label style="display:flex;gap:0.6rem;align-items:flex-start;font-size:0.85rem;color:var(--clr-text-dim);margin:0.6rem 0 0.4rem;cursor:pointer;">
+            <input type="checkbox" id="f-consent" style="margin-top:0.25rem;flex-shrink:0;" required>
+            <span>I agree to the <a href="/terms" style="color:var(--clr-primary);">Terms of Use</a> and <a href="/privacy" style="color:var(--clr-primary);">Privacy Policy</a>.</span>
+          </label>
+          <div class="err-msg" id="err-form" hidden></div>
+          <div class="btn-row">
+            <button class="btn-ghost" onclick="goStep(2)">&#8592; Back</button>
+            <button class="btn-teal" id="btn-submit" onclick="submitBooking()">Confirm Booking</button>
+          </div>
+        </div>
+
+        <div class="view" id="view-done" hidden>
+          <div class="confirm-icon">&#10003;</div>
+          <div class="confirm-title">You're booked!</div>
+          <p class="confirm-sub">Your consultation request has been received. We'll confirm by email within 1 business day.</p>
+          <div class="confirm-details" id="confirm-details"></div>
+          <div style="text-align:center;"><a href="/" style="display:inline-block;margin-top:0.5rem;font-size:0.9rem;color:var(--clr-primary);text-decoration:none;text-shadow:none;">&#8592; Back to Home</a></div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- .content -->
+
+  <!-- FOOTER -->
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initParallaxVideoBg } from '/js/parallax-video-bg.js';
+    import { initRouter } from '/js/router.js';
+    initParallaxVideoBg();
+    initUI();
+    initRouter();
+  </script>
+
+  <script>
+    window.initBookingPage = function initBookingPage(){
+    if (!document.getElementById('cal-grid')) return;
+    if (document.getElementById('cal-grid').dataset.bookingInitialized === '1') return;
+    document.getElementById('cal-grid').dataset.bookingInitialized = '1';
+    // ── Timezone utilities ──
+    const clientTz = (()=>{ try { return Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC'; } catch { return 'UTC'; } })();
+
+    function padZ(n){ return n < 10 ? '0'+n : ''+n; }
+    function dateStr(y,m,d){ return y+'-'+padZ(m+1)+'-'+padZ(d); }
+    function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+    function adminLocalToUTC(dateStr, timeStr, tz) {
+      const d = new Date(dateStr + 'T' + timeStr + ':00Z');
+      const fmt = new Intl.DateTimeFormat('en-CA', { timeZone: tz, year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', second:'2-digit', hour12: false });
+      const parts = fmt.formatToParts(d), p = {};
+      parts.forEach(x => { p[x.type] = x.value; });
+      const h = p.hour === '24' ? '00' : p.hour;
+      const localAsUTC = new Date(p.year+'-'+p.month+'-'+p.day+'T'+h+':'+p.minute+':'+p.second+'Z');
+      return new Date(d.getTime() + (d.getTime() - localAsUTC.getTime()));
+    }
+    function tzDateStr(utcDate, tz) { return utcDate.toLocaleDateString('en-CA', { timeZone: tz }); }
+    function tzTimeStr(utcDate, tz) { return utcDate.toLocaleTimeString('en-US', { timeZone: tz, hour:'numeric', minute:'2-digit', hour12: true }); }
+    function tzAbbr(tz) { try { return new Intl.DateTimeFormat('en-US',{timeZone:tz,timeZoneName:'short'}).formatToParts(new Date()).find(p=>p.type==='timeZoneName').value; } catch { return tz; } }
+
+    // ── State ──
+    let settings = null;
+    let bookedSlots = [];
+    let allSlots = [];
+    let selectedDate = null;
+    let selectedSlot = null;
+    let calYear, calMonth;
+
+    // ── Init ──
+    (function init(){
+      const now = new Date().toLocaleDateString('en-CA', { timeZone: clientTz }).split('-');
+      calYear = parseInt(now[0]); calMonth = parseInt(now[1]) - 1;
+      fetch('/api/schedule/availability')
+        .then(r => r.json())
+        .then(d => {
+          settings = d.settings;
+          bookedSlots = d.bookedSlots || [];
+          if (settings.title) document.getElementById('page-title').textContent = settings.title;
+          if (settings.subtitle) document.getElementById('page-sub').textContent = settings.subtitle;
+          allSlots = buildAllSlots(settings, bookedSlots);
+          renderCal();
+        })
+        .catch(() => renderCal());
+    })();
+
+    function buildAllSlots(s, booked) {
+      const adminTz = (s && s.timezone) || 'UTC';
+      const wdays = (s && s.workingDays) || [1,2,3,4,5];
+      const startH = (s && s.startHour != null) ? s.startHour : 9;
+      const endH = (s && s.endHour != null) ? s.endHour : 17;
+      const slotM = (s && s.slotMinutes != null) ? s.slotMinutes : 30;
+      const maxPer = (s && s.maxPerSlot != null) ? s.maxPerSlot : 1;
+      const advance = (s && s.advanceDays != null) ? s.advanceDays : 60;
+      const blocked = (s && s.blockedDates) || [];
+      const now = new Date();
+      const results = [];
+      const adminTodayParts = now.toLocaleDateString('en-CA', { timeZone: adminTz }).split('-');
+      const ay = parseInt(adminTodayParts[0]), am = parseInt(adminTodayParts[1])-1, ad = parseInt(adminTodayParts[2]);
+      for (let di = 0; di < advance; di++) {
+        const adminDt = new Date(Date.UTC(ay, am, ad + di));
+        const adminDateStr = adminDt.toISOString().slice(0, 10);
+        const dow = adminDt.getUTCDay();
+        if (wdays.indexOf(dow) === -1) continue;
+        if (blocked.indexOf(adminDateStr) !== -1) continue;
+        const totalSlots = Math.floor((endH - startH) * 60 / slotM);
+        for (let si = 0; si < totalSlots; si++) {
+          const mins = startH * 60 + si * slotM;
+          const adminTimeStr = padZ(Math.floor(mins/60)) + ':' + padZ(mins%60);
+          const utcDate = adminLocalToUTC(adminDateStr, adminTimeStr, adminTz);
+          if (utcDate <= now) continue;
+          const takenCount = booked.filter(b => b.date === adminDateStr && b.time === adminTimeStr).length;
+          results.push({
+            adminDate: adminDateStr, adminTime: adminTimeStr,
+            clientDate: tzDateStr(utcDate, clientTz),
+            clientTime: tzTimeStr(utcDate, clientTz),
+            utcMs: utcDate.getTime(),
+            taken: takenCount >= maxPer,
+          });
+        }
+      }
+      return results;
+    }
+
+    const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const DAYS = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+
+    // Paint skeleton immediately so the grid isn't blank during the availability fetch
+    if (calYear != null && calMonth != null) {
+      if (!settings) {
+        settings = { timezone: clientTz, workingDays: [1,2,3,4,5], startHour: 9, endHour: 17, slotMinutes: 30, maxPerSlot: 1, advanceDays: 60, blockedDates: [] };
+        allSlots = buildAllSlots(settings, []);
+      }
+      renderCal();
+    }
+
+    document.getElementById('cal-prev').addEventListener('click', () => { calMonth--; if(calMonth<0){calMonth=11;calYear--;} renderCal(); });
+    document.getElementById('cal-next').addEventListener('click', () => { calMonth++; if(calMonth>11){calMonth=0;calYear++;} renderCal(); });
+
+    function renderCal() {
+      document.getElementById('cal-month-label').textContent = MONTHS[calMonth] + ' ' + calYear;
+      const grid = document.getElementById('cal-grid');
+      grid.innerHTML = '';
+      DAYS.forEach(d => { const h=document.createElement('div'); h.className='cal-header'; h.textContent=d; grid.appendChild(h); });
+      const availDates = {};
+      allSlots.forEach(s => { if(!s.taken) availDates[s.clientDate] = true; });
+      const todayStr = new Date().toLocaleDateString('en-CA', { timeZone: clientTz });
+      const firstDay = new Date(calYear, calMonth, 1).getDay();
+      const daysInMonth = new Date(calYear, calMonth+1, 0).getDate();
+      for(let i=0; i<firstDay; i++){ const e=document.createElement('div'); e.className='cal-day empty'; grid.appendChild(e); }
+      for(let day=1; day<=daysInMonth; day++){
+        const cell = document.createElement('div');
+        cell.className = 'cal-day'; cell.textContent = day;
+        const ds = dateStr(calYear, calMonth, day);
+        if(ds === todayStr) cell.classList.add('today');
+        if(availDates[ds]){
+          cell.classList.add('avail');
+          if(ds === selectedDate) cell.classList.add('selected');
+          cell.addEventListener('click', () => pickDate(ds));
+        } else {
+          cell.classList.add(ds < todayStr ? 'past' : 'unavail');
+        }
+        grid.appendChild(cell);
+      }
+    }
+
+    function pickDate(ds){ selectedDate = ds; selectedSlot = null; renderCal(); goStep(2); }
+
+    function renderSlots(){
+      if(!selectedDate) return;
+      const p = selectedDate.split('-');
+      const d = new Date(parseInt(p[0]), parseInt(p[1])-1, parseInt(p[2]));
+      document.getElementById('slot-date-label').innerHTML =
+        DAYS[d.getDay()] + ', ' + MONTHS[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear() +
+        ' &nbsp;<span style="font-size:0.72em;font-weight:600;opacity:0.6;background:rgba(15,193,183,0.15);padding:0.15em 0.55em;border-radius:6px;color:var(--clr-primary);">' + tzAbbr(clientTz) + '</span>';
+      const grid = document.getElementById('slots-grid');
+      grid.innerHTML = '';
+      const daySlots = allSlots.filter(s => s.clientDate === selectedDate);
+      daySlots.sort((a,b) => a.utcMs - b.utcMs);
+      if(!daySlots.length){
+        const empty = document.createElement('p'); empty.className = 'slots-empty';
+        empty.textContent = 'No time slots available for this day.';
+        grid.appendChild(empty); return;
+      }
+      daySlots.forEach(slot => {
+        const btn = document.createElement('button');
+        btn.className = 'slot-btn'; btn.textContent = slot.clientTime;
+        if(slot.taken) btn.classList.add('taken');
+        if(selectedSlot && selectedSlot.adminDate === slot.adminDate && selectedSlot.adminTime === slot.adminTime) btn.classList.add('selected');
+        if(!slot.taken){
+          btn.addEventListener('click', () => {
+            selectedSlot = slot;
+            document.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+          });
+        }
+        grid.appendChild(btn);
+      });
+    }
+
+    function goStep(n){
+      if(n===2 && !selectedDate){ document.getElementById('err-cal').classList.add('show'); document.getElementById('err-cal').removeAttribute('hidden'); return; }
+      document.getElementById('err-cal').classList.remove('show'); document.getElementById('err-cal').setAttribute('hidden','');
+      if(n===3 && !selectedSlot){ document.getElementById('err-slot').classList.add('show'); document.getElementById('err-slot').removeAttribute('hidden'); return; }
+      document.getElementById('err-slot').classList.remove('show'); document.getElementById('err-slot').setAttribute('hidden','');
+      document.querySelectorAll('.view').forEach(v => { v.classList.remove('active'); v.setAttribute('hidden', ''); });
+      document.querySelectorAll('.step').forEach((s,i) => { s.classList.remove('active','done'); if(i+1<n) s.classList.add('done'); if(i+1===n) s.classList.add('active'); });
+      const views = ['view-cal','view-time','view-form','view-done'];
+      const nv = document.getElementById(views[n-1]); nv.classList.add('active'); nv.removeAttribute('hidden');
+      if(n===2) renderSlots();
+      if(n===3) renderSelectionBar();
+    }
+    window.goStep = goStep;
+
+    function renderSelectionBar(){
+      const bar = document.getElementById('selection-bar');
+      if(!selectedSlot){ bar.style.display = 'none'; return; }
+      const p = selectedDate.split('-');
+      const d = new Date(parseInt(p[0]), parseInt(p[1])-1, parseInt(p[2]));
+      bar.innerHTML =
+        '<span>Date: <strong>' + MONTHS[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear() + '</strong></span>' +
+        '<span>Time: <strong>' + selectedSlot.clientTime + '</strong> <span style="opacity:0.6;font-size:0.82em;">' + tzAbbr(clientTz) + '</span></span>';
+      bar.style.display = '';
+    }
+
+    function submitBooking(){
+      const name = document.getElementById('f-name').value.trim();
+      const email = document.getElementById('f-email').value.trim();
+      const notes = document.getElementById('f-notes').value.trim();
+      const errEl = document.getElementById('err-form');
+      if(!name){ errEl.textContent = 'Please enter your name.'; errEl.classList.add('show'); errEl.removeAttribute('hidden'); errEl.removeAttribute('hidden'); return; }
+      if(!email || !/^[^@]+@[^@]+\.[^@]+$/.test(email)){ errEl.textContent = 'Please enter a valid email address.'; errEl.classList.add('show'); errEl.removeAttribute('hidden'); errEl.removeAttribute('hidden'); return; }
+      const consent = document.getElementById('f-consent');
+      if(consent && !consent.checked){ errEl.textContent = 'Please agree to the Terms and Privacy Policy.'; errEl.classList.add('show'); errEl.removeAttribute('hidden'); errEl.removeAttribute('hidden'); return; }
+      errEl.classList.remove('show'); errEl.setAttribute('hidden',''); errEl.setAttribute('hidden','');
+      const btn = document.getElementById('btn-submit');
+      btn.disabled = true; btn.textContent = 'Checking availability…';
+      fetch('/api/schedule/availability')
+        .then(r => r.json())
+        .then(fresh => {
+          const freshBooked = fresh.bookedSlots || [];
+          const maxPer = (settings && settings.maxPerSlot) || 1;
+          const takenNow = freshBooked.filter(b => b.date === selectedSlot.adminDate && b.time === selectedSlot.adminTime).length;
+          if(takenNow >= maxPer){
+            errEl.textContent = 'This slot was just taken. Please choose another time.';
+            errEl.classList.add('show'); errEl.removeAttribute('hidden'); errEl.removeAttribute('hidden');
+            btn.disabled = false; btn.textContent = 'Confirm Booking';
+            bookedSlots = freshBooked; allSlots = buildAllSlots(settings, bookedSlots);
+            selectedSlot = null; goStep(2); return;
+          }
+          doSubmit(name, email, notes, btn, errEl);
+        })
+        .catch(() => doSubmit(name, email, notes, btn, errEl));
+    }
+    window.submitBooking = submitBooking;
+
+    function doSubmit(name, email, notes, btn, errEl){
+      btn.textContent = 'Submitting…';
+      fetch('/api/schedule/book', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          date: selectedSlot.adminDate, time: selectedSlot.adminTime,
+          name, email, notes, clientTimezone: clientTz,
+          clientDate: selectedSlot.clientDate, clientTime: selectedSlot.clientTime,
+        })
+      })
+      .then(r => r.json().then(d => ({ ok: r.ok, data: d })))
+      .then(res => {
+        if(!res.ok){
+          errEl.textContent = res.data.error || 'Submission failed. Please try again.';
+          errEl.classList.add('show'); errEl.removeAttribute('hidden'); errEl.removeAttribute('hidden'); btn.disabled = false; btn.textContent = 'Confirm Booking'; return;
+        }
+        showConfirmation(name, email);
+      })
+      .catch(() => {
+        errEl.textContent = 'Network error. Please try again.';
+        errEl.classList.add('show'); errEl.removeAttribute('hidden'); errEl.removeAttribute('hidden'); btn.disabled = false; btn.textContent = 'Confirm Booking';
+      });
+    }
+
+    function showConfirmation(name, email){
+      const p = selectedDate.split('-');
+      const d = new Date(parseInt(p[0]), parseInt(p[1])-1, parseInt(p[2]));
+      document.getElementById('confirm-details').innerHTML =
+        '<div class="confirm-row"><label>Name</label><p>' + esc(name) + '</p></div>' +
+        '<div class="confirm-row"><label>Email</label><p>' + esc(email) + '</p></div>' +
+        '<div class="confirm-row"><label>Date</label><p>' + esc(MONTHS[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear()) + '</p></div>' +
+        '<div class="confirm-row"><label>Time</label><p>' + esc(selectedSlot.clientTime) + ' <span style="opacity:0.6;font-size:0.9em;">(' + esc(tzAbbr(clientTz)) + ')</span></p></div>';
+      document.querySelectorAll('.view').forEach(v => { v.classList.remove('active'); v.setAttribute('hidden', ''); });
+      document.querySelectorAll('.step').forEach(s => { s.classList.remove('active'); s.classList.add('done'); });
+      { const vd = document.getElementById('view-done'); vd.classList.add('active'); vd.removeAttribute('hidden'); }
+      document.querySelector('.steps').style.display = 'none';
+    }
+  };
+  window.initBookingPage();
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>.NET Development Services | AIM Tech AI</title>
+  <meta name="description" content="Enterprise .NET development services including C#, ASP.NET Core, Azure integration, and microservices architecture. AIM Tech AI delivers robust, scalable .NET solutions.">
+  <link rel="canonical" href="https://aimtechai.com/technologies/dotnet">
+  <meta property="og:title" content=".NET Development Services | AIM Tech AI">
+  <meta property="og:description" content="Enterprise .NET development services including C#, ASP.NET Core, Azure integration, and microservices architecture. AIM Tech AI delivers robust, scalable .NET solutions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aimtechai.com/technologies/dotnet">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content=".NET Development Services | AIM Tech AI">
+  <meta name="twitter:description" content="Enterprise .NET development services including C#, ASP.NET Core, Azure integration, and microservices architecture. AIM Tech AI delivers robust, scalable .NET solutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#values" data-scramble>Values</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="content">
+
+  <!-- HERO -->
+  <section style="max-width:1300px;margin:0 auto;padding:8rem 2rem 4rem;">
+    <div class="reveal">
+      <span class="section-label">Technology</span>
+      <h1 class="section-title" style="font-size:clamp(2.2rem,5vw,3.8rem);">.NET Development</h1>
+      <p style="max-width:720px;margin:1.5rem auto 0;color:var(--clr-text-dim);font-size:1.1rem;line-height:1.8;text-align:center;">
+        We build enterprise-grade applications on the Microsoft .NET platform -- from high-performance APIs and cloud-native microservices
+        to full-stack web applications that power Fortune 500 operations.
+      </p>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- WHY .NET -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem;">
+    <div class="reveal">
+      <span class="section-label">Advantages</span>
+      <h2 class="section-title">Why .NET?</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem;margin-top:3rem;">
+      <div class="glass-card reveal" style="padding:2.5rem;">
+        <h3 style="color:var(--clr-primary);font-size:1.25rem;margin-bottom:1rem;">Enterprise-Grade Performance</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.8;">.NET consistently ranks among the fastest server-side frameworks. Its JIT compilation, async-first design, and minimal memory footprint deliver the throughput that enterprise workloads demand.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2.5rem;">
+        <h3 style="color:var(--clr-primary);font-size:1.25rem;margin-bottom:1rem;">Azure-Native Integration</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.8;">As Microsoft's flagship development platform, .NET offers first-class Azure integration -- from Azure Functions and App Service to Cosmos DB and Active Directory -- enabling seamless cloud-native architectures.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2.5rem;">
+        <h3 style="color:var(--clr-primary);font-size:1.25rem;margin-bottom:1rem;">Cross-Platform &amp; Open Source</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.8;">Modern .NET is fully open source and runs on Windows, Linux, and macOS. Build web, desktop, mobile, IoT, and gaming applications from a single codebase with a unified development experience.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- OUR .NET SERVICES -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem;">
+    <div class="reveal">
+      <span class="section-label">Capabilities</span>
+      <h2 class="section-title">Our .NET Services</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem;">
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg></div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Enterprise Applications</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Mission-critical LOB applications, ERP integrations, CRM platforms, and workflow engines built with ASP.NET Core and Blazor for maximum reliability.</p>
+        <span class="service-tag" style="margin-top:1rem;display:inline-block;">ASP.NET Core</span>
+        <span class="service-tag">Blazor</span>
+        <span class="service-tag">Entity Framework</span>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Cloud &amp; Microservices</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Scalable microservices architectures using Azure Service Bus, Docker containers, Kubernetes orchestration, and event-driven design patterns.</p>
+        <span class="service-tag" style="margin-top:1rem;display:inline-block;">Azure</span>
+        <span class="service-tag">Docker</span>
+        <span class="service-tag">Kubernetes</span>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">API Development</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">High-performance RESTful and gRPC APIs with comprehensive authentication, rate limiting, versioning, and OpenAPI documentation.</p>
+        <span class="service-tag" style="margin-top:1rem;display:inline-block;">REST</span>
+        <span class="service-tag">gRPC</span>
+        <span class="service-tag">SignalR</span>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Legacy Modernization</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Migrate .NET Framework applications to .NET 8+, refactor monoliths into microservices, and modernize legacy codebases without disrupting operations.</p>
+        <span class="service-tag" style="margin-top:1rem;display:inline-block;">.NET 8</span>
+        <span class="service-tag">Migration</span>
+        <span class="service-tag">Refactoring</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- OUR PROCESS -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem;">
+    <div class="reveal">
+      <span class="section-label">Methodology</span>
+      <h2 class="section-title">Our Process</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-top:3rem;">
+      <div class="glass-card reveal" style="padding:2rem;">
+        <div style="font-family:var(--font-mono);font-size:2rem;color:var(--clr-primary);margin-bottom:1rem;">01</div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Requirements &amp; Planning</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">We map your business processes, define integration points, and design a solution architecture aligned with your Azure or hybrid cloud strategy.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;">
+        <div style="font-family:var(--font-mono);font-size:2rem;color:var(--clr-primary);margin-bottom:1rem;">02</div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Iterative Development</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Sprint-based delivery with Azure DevOps pipelines, automated testing, and continuous stakeholder feedback to keep the project on track.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;">
+        <div style="font-family:var(--font-mono);font-size:2rem;color:var(--clr-primary);margin-bottom:1rem;">03</div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Security &amp; Compliance</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Enterprise security best practices including Identity Server, role-based access control, data encryption, and compliance with SOC 2, HIPAA, and GDPR.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;">
+        <div style="font-family:var(--font-mono);font-size:2rem;color:var(--clr-primary);margin-bottom:1rem;">04</div>
+        <h3 style="font-size:1.1rem;margin-bottom:0.75rem;">Launch &amp; Evolution</h3>
+        <p style="color:var(--clr-text-dim);font-size:0.95rem;line-height:1.7;">Zero-downtime deployments, Application Insights monitoring, and ongoing feature development to keep your .NET investment evolving with your business.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- CTA -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem 6rem;text-align:center;">
+    <div class="reveal">
+      <h2 class="section-title">Ready to Build?</h2>
+      <p style="color:var(--clr-text-dim);max-width:600px;margin:1rem auto 2rem;line-height:1.8;">Let our .NET specialists architect and deliver enterprise solutions that scale with your business. Schedule a free consultation today.</p>
+      <a href="/book" class="gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+  </section>
+
+  </div>
+
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <a href="/" class="back-link">&larr; Home</a>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script>if(location.hostname!=="localhost"&&!location.hostname.startsWith("127.")){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";document.head.appendChild(s);}</script>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initParallaxVideoBg } from '/js/parallax-video-bg.js';
+    import { initRouter } from '/js/router.js';
+    initParallaxVideoBg();
+    initUI();
+    initRouter();
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

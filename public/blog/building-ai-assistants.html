@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>Building AI Assistants for Business Operations in 2026 | AIM Tech AI</title>
+  <meta name="description" content="Learn how to build AI assistants for business operations. Discover how AI copilots handle reporting, queries, and automation triggers to streamline internal workflows.">
+  <link rel="canonical" href="https://aimtechai.com/blog/building-ai-assistants">
+  <meta property="og:title" content="Building AI Assistants for Business Operations in 2026 | AIM Tech AI">
+  <meta property="og:description" content="Learn how to build AI assistants for business operations. Discover how AI copilots handle reporting, queries, and automation triggers to streamline internal workflows.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aimtechai.com/blog/building-ai-assistants">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Building AI Assistants for Business Operations in 2026 | AIM Tech AI">
+  <meta name="twitter:description" content="Learn how to build AI assistants for business operations. Discover how AI copilots handle reporting, queries, and automation triggers to streamline internal workflows.">
+  <meta name="keywords" content="AI assistants, business AI tools, AI copilots, internal AI tools, AIM Tech AI">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Building AI Assistants for Business Operations in 2026",
+    "datePublished": "2026-04-12",
+    "author": {
+      "@type": "Organization",
+      "name": "AIM Tech AI"
+    },
+    "description": "Learn how to build AI assistants for business operations. Discover how AI copilots handle reporting, queries, and automation triggers to streamline internal workflows.",
+    "keywords": ["AI assistants", "business AI tools", "AI copilots", "internal AI tools", "AIM Tech AI"],
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIM Tech AI"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aimtechai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aimtechai.com/blog" },
+      { "@type": "ListItem", "position": 3, "name": "Building AI Assistants for Business Operations in 2026" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the difference between an AI assistant and an AI agent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An AI assistant responds to user requests in a conversational interface, helping with tasks like generating reports, answering questions, and surfacing data. An AI agent operates more autonomously, executing multi-step workflows, making decisions, and taking actions across systems without waiting for user input at each step. Many modern business tools combine both capabilities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to build a custom AI assistant for business?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A focused AI assistant for a single business function can be built and deployed in 4 to 8 weeks. More complex assistants that integrate multiple data sources and handle cross-departmental queries typically take 8 to 14 weeks. Starting with a narrow scope and expanding capabilities over time is the most reliable approach."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do AI assistants replace employees?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. AI assistants are designed to augment employees, not replace them. They handle repetitive queries, automate report generation, and surface information faster so that employees can focus on strategic work, relationship building, and decisions that require human judgment. Companies that deploy AI assistants typically see increased employee productivity and satisfaction, not headcount reduction."
+        }
+      }
+    ]
+  }
+  </script>
+<script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#values" data-scramble>Values</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+
+  <div class="content">
+  <div class="content blog-article-page">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/blog">Blog</a> &rsaquo; Building AI Assistants</div>
+      <h1>Building AI Assistants for Business Operations in 2026</h1>
+      <p class="hero-sub" style="opacity:1;transform:none;">April 12, 2026 &bull; 8 min read</p>
+    </div>
+
+    <div class="glow-divider"></div>
+
+    <!-- ARTICLE -->
+    <section style="max-width:1300px;margin:0 auto;">
+      <a href="/blog" style="color:var(--clr-accent);text-decoration:none;font-size:0.9rem;display:inline-block;margin-bottom:2rem;">&larr; Back to Blog</a>
+
+      <div style="max-width:800px;margin:0 auto;background:linear-gradient(135deg,rgba(255,255,255,0.18),rgba(255,255,255,0.08));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:3rem;box-shadow:0 8px 32px rgba(0,0,0,0.25);">
+
+        <article style="color:var(--clr-text-dim);font-weight:300;font-size:0.95rem;line-height:1.8;">
+
+          <!-- Quick Answer AEO Block -->
+          <div style="background:linear-gradient(135deg,rgba(99,102,241,0.12),rgba(139,92,246,0.08));border-left:4px solid var(--clr-accent);border-radius:0 12px 12px 0;padding:1.5rem;margin-bottom:2rem;">
+            <p style="font-weight:600;color:var(--clr-text);margin-bottom:0.5rem;">Quick Answer</p>
+            <p>AI assistants for business operations are internal tools that handle reporting, answer natural language queries against company data, and trigger automated workflows. Built correctly, they reduce response times from hours to seconds and free employees to focus on strategic work instead of data retrieval.</p>
+          </div>
+
+          <p>Every company has the same problem: employees spend too much time looking for information and not enough time acting on it. Sales teams wait for finance to pull revenue numbers. Managers email HR to check PTO balances. Operations asks engineering for system status updates. These are not complex tasks, but they consume hours every week across every department because the information is locked inside systems that people cannot query directly.</p>
+
+          <p>AI assistants solve this by giving every employee a conversational interface to company data and workflows. At <a href="/ai">AIM Tech AI</a>, we build custom AI assistants that connect to internal systems, understand natural language queries, and either return answers instantly or trigger the right workflow automatically. This article explains how to build one, what they can do, and where most companies go wrong.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">What Is a Business AI Assistant?</h2>
+
+          <p>A <strong>business AI assistant</strong> is an internal tool, typically accessible through Slack, Teams, a web interface, or an internal portal, that uses large language models and retrieval-augmented generation to answer employee questions, generate reports, and trigger business processes. Unlike consumer chatbots that handle general conversation, business AI assistants are connected to company-specific data sources: CRMs, ERPs, data warehouses, project management tools, and internal documentation.</p>
+
+          <p>The assistant understands context. When a sales manager asks "What were our top 10 accounts by revenue last quarter?", it queries the CRM and data warehouse, formats the results, and returns them in seconds. When an HR coordinator asks "How many open positions do we have in engineering?", it pulls from the ATS in real time. For a deeper look at how these assistants relate to fully autonomous systems, read our <a href="/blog/ai-agents-guide">complete guide to AI agents</a>.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">How to Build an AI Assistant for Your Business: A Step-by-Step Process</h2>
+
+          <p><strong>Step 1: Define the scope.</strong> Start with one department or one category of questions. Trying to build an assistant that knows everything about your entire company on day one is the fastest path to failure. Pick the use case with the highest volume of repetitive queries.</p>
+
+          <p><strong>Step 2: Connect your data sources.</strong> The assistant is only as useful as the data it can access. Integrate with your core systems through APIs and build a retrieval layer that indexes internal documentation, policies, and knowledge bases. AIM Tech AI uses retrieval-augmented generation to ensure answers are grounded in actual company data, not hallucinated.</p>
+
+          <p><strong>Step 3: Design the conversation interface.</strong> The interface matters more than most teams realize. Employees will not adopt a tool that feels clunky or untrustworthy. Work with experienced designers to build an interface that communicates clearly what the assistant can and cannot do, shows its sources, and makes it easy to escalate to a human when needed.</p>
+
+          <p><strong>Step 4: Add workflow triggers.</strong> The real power of AI assistants emerges when they can take action, not just answer questions. Connect the assistant to workflow systems so it can create tickets, schedule meetings, submit approvals, and trigger automated processes based on conversational commands. Understanding the difference between <a href="/blog/ai-chatbots-vs-agents">chatbots and agents</a> is critical at this stage.</p>
+
+          <p><strong>Step 5: Test, deploy, and iterate.</strong> Launch to a pilot group, collect feedback aggressively, and improve weekly. The assistant will get better as it encounters more real-world queries and as you expand its data access and action capabilities.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Use Cases: Where AI Assistants Deliver the Most Value</h2>
+
+          <h3 style="color:var(--clr-text);margin-top:1.5rem;">Instant Report Generation</h3>
+          <p>Instead of requesting reports through a BI team and waiting days, employees ask the assistant directly. "Generate a summary of Q1 marketing spend by channel" returns a formatted answer in seconds, pulling from the data warehouse and presenting it in natural language with supporting tables.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.5rem;">Internal Knowledge Search</h3>
+          <p>Policy questions, process documentation, and institutional knowledge that would normally require emailing three people and waiting for responses are answered instantly. The assistant searches internal wikis, handbooks, and shared drives to surface the exact information needed.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.5rem;">Automated Triage and Routing</h3>
+          <p>IT support requests, customer escalations, and internal approvals are triaged by the assistant, categorized by urgency and type, and routed to the correct person or team without manual sorting. <a href="/consulting">AIM Tech AI consulting engagements</a> frequently reveal that triage and routing alone can save 15 to 20 hours per week per team.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Common Mistakes When Building AI Assistants</h2>
+
+          <p><strong>Launching without guardrails.</strong> An assistant that confidently returns wrong answers is worse than no assistant at all. Build in source citations, confidence indicators, and clear boundaries for what the assistant should and should not attempt to answer.</p>
+
+          <p><strong>Ignoring data quality.</strong> The assistant surfaces whatever data it can access. If your internal documentation is outdated or your CRM data is messy, the assistant will reflect that. Data cleanup is a prerequisite, not an afterthought.</p>
+
+          <p><strong>Over-scoping the first version.</strong> Teams that try to build an assistant that handles everything across every department end up with a tool that handles nothing well. Start narrow, prove value, then expand. AIM Tech AI recommends launching with a single department and expanding after the first 30 days of validated use.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">AI Assistants Are the New Internal Infrastructure</h2>
+
+          <p>In 2026, the companies with the best internal AI assistants are the ones where employees spend less time searching and more time executing. These tools are not novelties. They are becoming as essential as email and messaging platforms, and the organizations that build them well gain a compounding advantage in speed, accuracy, and employee satisfaction.</p>
+
+          <p><strong>AIM Tech AI</strong> builds custom AI assistants that connect to your systems, understand your business context, and deliver answers and actions in real time. From <a href="/ai">AI engineering</a> to <a href="/consulting">strategic consulting</a>, we handle every stage of the build. Let us show you what is possible.</p>
+
+          <div style="background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(139,92,246,0.10));border:1px solid rgba(99,102,241,0.3);border-radius:12px;padding:2rem;margin:2rem 0;text-align:center;">
+            <p style="font-size:1.1rem;color:var(--clr-text);font-weight:500;margin-bottom:1rem;">Ready to build an AI assistant for your team?</p>
+            <p style="margin-bottom:1.5rem;">AIM Tech AI designs and builds internal AI tools that your employees will actually use.</p>
+            <a href="/#contact" style="display:inline-block;padding:0.8rem 2rem;background:var(--clr-accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:500;">Get in Touch</a>
+          </div>
+
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Frequently Asked Questions About AI Assistants for Business</h2>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">What is the difference between an AI assistant and an AI agent?</h3>
+          <p>An AI assistant responds to user requests in a conversational interface, helping with tasks like generating reports, answering questions, and surfacing data. An AI agent operates more autonomously, executing multi-step workflows, making decisions, and taking actions across systems without waiting for user input at each step. Many modern business tools combine both capabilities.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">How long does it take to build a custom AI assistant for business?</h3>
+          <p>A focused AI assistant for a single business function can be built and deployed in 4 to 8 weeks. More complex assistants that integrate multiple data sources and handle cross-departmental queries typically take 8 to 14 weeks. Starting with a narrow scope and expanding capabilities over time is the most reliable approach.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">Do AI assistants replace employees?</h3>
+          <p>No. AI assistants are designed to augment employees, not replace them. They handle repetitive queries, automate report generation, and surface information faster so that employees can focus on strategic work, relationship building, and decisions that require human judgment. Companies that deploy AI assistants typically see increased employee productivity and satisfaction, not headcount reduction.</p>
+
+        
+<style>
+.blog-article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 3rem 0 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.blog-article-nav a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-decoration: none;
+  max-width: 45%;
+  transition: opacity 0.3s;
+}
+.blog-article-nav a:hover { opacity: 0.7; }
+.blog-article-nav .nav-label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--clr-primary);
+  font-weight: 500;
+}
+.blog-article-nav .nav-title {
+  font-size: 0.9rem;
+  color: var(--clr-text);
+  font-weight: 500;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.blog-article-nav .next { text-align: right; margin-left: auto; }
+[data-theme="light"] .blog-article-nav { border-top-color: rgba(0,0,0,0.08); }
+@media (max-width: 600px) {
+  .blog-article-nav { flex-direction: column; gap: 1.5rem; }
+  .blog-article-nav a { max-width: 100%; }
+  .blog-article-nav .next { text-align: left; }
+}
+</style>
+<div class="blog-article-nav"><a href="/blog/beverly-hills-tech-scene" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Why We Built a Software Company in Beverly Hills</span></a><a href="/blog/cloud-cost-optimization" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">Cloud Cost Optimization: 5 Strategies That Actually Work</span></a></div>
+
+          <!-- strong-cta-v1 -->
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+          <section class="cta-block" style="margin-top:2.2rem;padding:2rem 1.8rem;background:linear-gradient(135deg,rgba(15,193,183,0.18),rgba(42,53,75,0.25));border:1px solid rgba(15,193,183,0.35);border-radius:16px;text-align:center;">
+            <h2 style="color:var(--clr-text);margin-top:0;font-size:1.5rem;">Build Systems, Not Experiments</h2>
+            <p style="color:var(--clr-text);margin:0.6rem 0 1.3rem;">AIM Tech AI designs and ships AI, cloud, and custom software systems for companies ready to turn technology into real business advantage.</p>
+            <a href="/book" style="display:inline-block;padding:0.95rem 2rem;background:var(--clr-primary);color:#0a0608;border-radius:12px;font-weight:700;text-decoration:none;text-shadow:none;letter-spacing:0.3px;">Book a Strategy Call &rarr;</a>
+            <div style="margin-top:0.9rem;font-size:0.82rem;color:var(--clr-text-dim);">Free 30-min consultation &bull; No obligation</div>
+          </section>
+</article>
+      </div>
+    </section>
+
+    <div class="glow-divider"></div>
+
+  </div>
+
+  <!-- FOOTER -->
+    <!-- FOOTER -->
+  </div><!-- .content -->
+
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <a href="/blog" class="back-link">&larr; Blog</a>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script>if(location.hostname!=="localhost"&&!location.hostname.startsWith("127.")){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";document.head.appendChild(s);}</script>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initBlogVideoBg } from '/js/blog-video-bg.js';
+    // import { initVideoBackground } from '/js/video-bg.js'; // HIDDEN
+    import { initRouter } from '/js/router.js';
+    // const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // initVideoBackground({ reducedMotion }).catch(err => console.warn('[video-bg]', err));
+    initBlogVideoBg();
+    initUI();
+    initRouter();
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

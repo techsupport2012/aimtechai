@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <!-- SEO: Primary meta -->
+  <title>Blog | AIM Tech AI — Expert Insights on AI, Software Engineering & Cloud Architecture</title>
+  <meta name="description" content="AIM Tech AI blog: expert articles on AI agents, LLM fine-tuning, cloud cost optimization, design systems, and custom software engineering. Written by Beverly Hills engineers shipping production AI.">
+  <meta name="keywords" content="AI blog, software & AI development insights, cloud architecture articles, machine learning tutorials, LLM fine-tuning, AI agents, custom software Beverly Hills, AIM Tech AI blog, generative AI, enterprise automation">
+  <link rel="canonical" href="https://aimtechai.com/blog">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <!-- AEO: Structured answer signals -->
+  <meta name="subject" content="Technology Blog — AI, Software Engineering, Cloud">
+  <meta name="topic" content="Artificial Intelligence, Software & AI Development, Cloud Computing">
+  <meta name="coverage" content="Worldwide">
+  <meta name="language" content="en">
+
+  <!-- GEO/AIEO: Entity + authority signals for AI engines -->
+  <meta name="author" content="AIM Tech AI">
+  <meta name="publisher" content="AIM Tech AI, Beverly Hills, CA">
+  <meta name="classification" content="Technology, Software Engineering, Artificial Intelligence">
+  <meta name="category" content="Technology Blog">
+
+  <!-- SMO: Open Graph (Facebook, LinkedIn, Discord) -->
+  <meta property="og:title" content="Blog | AIM Tech AI — AI, Software & Cloud Insights">
+  <meta property="og:description" content="Expert perspectives on AI agents, cloud architecture, design systems, and modern software engineering from a Beverly Hills AI company.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aimtechai.com/blog">
+  <meta property="og:site_name" content="AIM Tech AI">
+  <meta property="og:locale" content="en_US">
+
+  <!-- SMO: Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog | AIM Tech AI">
+  <meta name="twitter:description" content="Expert insights on AI, software & AI development, cloud, and emerging technology.">
+  <meta name="twitter:site" content="@aimtechai">
+
+  <!-- VSO: Speakable for voice assistants -->
+  <meta name="speakable" content="Expert insights on AI development, cloud architecture, and custom software engineering from AIM Tech AI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+  <!-- SEO + AIEO + LLMO: Structured Data (multi-schema for search + AI engines) -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "@id": "https://aimtechai.com/blog#blog",
+      "name": "AIM Tech AI Blog",
+      "description": "Expert insights on AI development, cloud architecture, custom software engineering, UI/UX design, and quality assurance. Written by engineers who ship production AI systems.",
+      "url": "https://aimtechai.com/blog",
+      "inLanguage": "en-US",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://aimtechai.com#org",
+        "name": "AIM Tech AI",
+        "url": "https://aimtechai.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Beverly Hills",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/aimtechai",
+          "https://twitter.com/aimtechai"
+        ]
+      },
+      "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "headline": "How AI Agents Are Transforming Enterprise Workflows",
+          "description": "From automated customer support to intelligent document processing, AI agents are reshaping how businesses operate at scale.",
+          "url": "https://aimtechai.com/blog/ai-agents-enterprise",
+          "datePublished": "2026-04-17",
+          "author": {"@type": "Organization", "name": "AIM Tech AI"},
+          "keywords": ["AI Agents", "Automation", "Enterprise"],
+          "articleSection": "AI & ML"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Cloud Cost Optimization: 5 Strategies That Actually Work",
+          "description": "Practical approaches to reducing your cloud spend by 30-50% without sacrificing performance or reliability.",
+          "url": "https://aimtechai.com/blog/cloud-cost-optimization",
+          "datePublished": "2026-04-15",
+          "author": {"@type": "Organization", "name": "AIM Tech AI"},
+          "keywords": ["AWS", "Cost Optimization", "DevOps"],
+          "articleSection": "Cloud"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Building a Design System That Scales With Your Product",
+          "description": "How to create reusable components, tokens, and guidelines that keep your product consistent as your team grows.",
+          "url": "https://aimtechai.com/blog/design-systems-2026",
+          "datePublished": "2026-04-12",
+          "author": {"@type": "Organization", "name": "AIM Tech AI"},
+          "keywords": ["UI/UX", "Design System", "React"],
+          "articleSection": "Design"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "The Testing Strategy Every Modern App Needs",
+          "description": "Unit tests alone aren't enough. Here's how to layer integration, e2e, and observability into a reliable test pyramid.",
+          "url": "https://aimtechai.com/blog/testing-strategy-modern-apps",
+          "datePublished": "2026-04-10",
+          "author": {"@type": "Organization", "name": "AIM Tech AI"},
+          "keywords": ["QA", "Testing", "CI/CD"],
+          "articleSection": "Engineering"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "A Practical Guide to Fine-Tuning LLMs for Your Business",
+          "description": "When to fine-tune vs. prompt engineer, how to prepare training data, and what infrastructure you actually need.",
+          "url": "https://aimtechai.com/blog/llm-fine-tuning-guide",
+          "datePublished": "2026-04-08",
+          "author": {"@type": "Organization", "name": "AIM Tech AI"},
+          "keywords": ["LLM", "Fine-tuning", "GPT"],
+          "articleSection": "AI & ML"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Why We Built a Software Company in Beverly Hills",
+          "description": "The surprising advantages of building a tech company at the intersection of entertainment, finance, and luxury brands.",
+          "url": "https://aimtechai.com/blog/beverly-hills-tech-scene",
+          "datePublished": "2026-04-05",
+          "author": {"@type": "Organization", "name": "AIM Tech AI"},
+          "keywords": ["Culture", "Beverly Hills", "Startups"],
+          "articleSection": "Company"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://aimtechai.com#website",
+      "name": "AIM Tech AI",
+      "url": "https://aimtechai.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://aimtechai.com/blog?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://aimtechai.com"},
+        {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aimtechai.com/blog"}
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does AIM Tech AI specialize in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AIM Tech AI specializes in custom software & AI development, AI solutions including LLM fine-tuning and AI agents, cloud architecture (AWS, Azure, GCP), UI/UX design systems, and quality assurance. Based in Beverly Hills, CA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What topics does the AIM Tech AI blog cover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The blog covers AI and machine learning (agents, LLMs, fine-tuning), cloud computing (cost optimization, DevOps, Kubernetes), software engineering (testing strategies, CI/CD), UI/UX design (design systems, accessibility), and company culture."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can AI agents transform enterprise workflows?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI agents automate repetitive tasks like customer support, document processing, and data analysis. They can reduce operational costs by 40-60% while improving accuracy and response times. AIM Tech AI builds custom AI agent solutions for enterprises."
+          }
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Blog Categories",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "AI & Machine Learning"},
+        {"@type": "ListItem", "position": 2, "name": "Cloud Architecture"},
+        {"@type": "ListItem", "position": 3, "name": "Software Engineering"},
+        {"@type": "ListItem", "position": 4, "name": "UI/UX Design"},
+        {"@type": "ListItem", "position": 5, "name": "Company & Culture"}
+      ]
+    }
+  ]
+  </script>
+
+  <!-- MEO: Speakable structured data for voice + multimodal AI -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [".section-title", ".section-desc", ".blog-card-body h3"]
+    },
+    "url": "https://aimtechai.com/blog"
+  }
+  </script>
+  <style>
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      grid-auto-rows: 1fr;
+      gap: 2rem;
+      width: 100%;
+    }
+    .blog-grid article {
+      display: flex;
+      min-width: 0;
+      height: 100%;
+    }
+    .blog-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.05);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      min-width: 0;
+    }
+    .blog-card:hover {
+      background: rgba(255,255,255,0.16);
+      border-color: rgba(15,193,183,0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    .blog-card-image {
+      display: none;
+    }
+    .blog-card-body {
+      padding: 1.8rem 2rem 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.8);
+      text-shadow: none;
+    }
+    .blog-card-category {
+      background: rgba(15,193,183,0.25);
+      color: #0FC1B7;
+      padding: 0.25rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-shadow: none;
+      letter-spacing: 0.3px;
+    }
+    .blog-card-body h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.3px;
+      line-height: 1.35;
+      color: #FFFFFF;
+      text-align: center;
+      /* Fixed height for 2 lines — all cards same */
+      height: 3.5em;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .blog-card-body p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1rem;
+      line-height: 1.65;
+      font-weight: 300;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      /* Fixed height for 3 lines */
+      height: 4.95em;
+    }
+    .blog-card-body .read-more {
+      font-size: 0.8rem;
+      color: var(--clr-primary);
+      font-weight: 500;
+      margin-top: 0.8rem;
+      opacity: 0.8;
+    }
+    .blog-card:hover .read-more {
+      opacity: 1;
+    }
+    .blog-card-footer {
+      padding: 0 2rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      overflow: hidden;
+      max-height: 2.5rem;
+    }
+    .blog-tag {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.55rem;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 12px;
+      white-space: nowrap;
+      color: rgba(255,255,255,0.7);
+      text-shadow: none;
+    }
+    .blog-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .blog-filter-btn {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.85);
+      padding: 0.55rem 1.4rem;
+      border-radius: 30px;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-shadow: none;
+    }
+    .blog-filter-btn:hover {
+      background: rgba(15,193,183,0.2);
+      border-color: rgba(15,193,183,0.4);
+      color: #fff;
+    }
+    .blog-filter-btn.active {
+      background: var(--clr-primary);
+      color: #fff;
+      border-color: var(--clr-primary);
+      font-weight: 600;
+    }
+    .blog-empty {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--clr-text-dim);
+      font-size: 1.1rem;
+    }
+    /* Light mode: blog cards match nav/footer style */
+    [data-theme="light"] .blog-card {
+      background: rgba(0,0,0,0.08);
+      border-color: rgba(0,0,0,0.12);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08), inset 0 1px 0 rgba(0,0,0,0.03);
+    }
+    [data-theme="light"] .blog-card:hover {
+      background: rgba(0,0,0,0.12);
+      border-color: rgba(15,193,183,0.3);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12), inset 0 1px 0 rgba(0,0,0,0.05);
+    }
+    [data-theme="light"] .blog-card-body h3 {
+      color: #1A1A1A;
+    }
+    [data-theme="light"] .blog-card-body p {
+      color: #1A1A1A;
+    }
+    [data-theme="light"] .blog-card-meta {
+      color: #1A1A1A;
+    }
+    [data-theme="light"] .blog-card-category {
+      background: rgba(15,193,183,0.12);
+      color: #0A9B92;
+    }
+    [data-theme="light"] .blog-tag {
+      border-color: rgba(0,0,0,0.15);
+      color: #1A1A1A;
+    }
+    [data-theme="light"] .blog-filter-btn {
+      background: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.12);
+      color: #1A1A1A;
+    }
+    [data-theme="light"] .blog-filter-btn:hover {
+      background: rgba(15,193,183,0.1);
+      border-color: rgba(15,193,183,0.3);
+      color: #1A1A1A;
+    }
+    [data-theme="light"] .blog-filter-btn.active {
+      background: var(--clr-primary);
+      color: #fff;
+      border-color: var(--clr-primary);
+    }
+    /* =============================================
+       MODERN BLOG — Clean white/black backgrounds
+       ============================================= */
+
+    /* Blog page — uses global body/nav/footer styles, no overrides */
+    #office-bg { display: none !important; }
+    .page-hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem) !important;
+      font-weight: 800 !important;
+      text-transform: uppercase !important;
+      letter-spacing: -2px !important;
+    }
+
+    /* Modern blog cards — dark mode */
+    .blog-card {
+      background: rgba(255,255,255,0.1) !important;
+      backdrop-filter: blur(0) !important;
+      -webkit-backdrop-filter: blur(0) !important;
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      border-radius: 16px !important;
+      box-shadow: none !important;
+      transition: all 0.3s ease !important;
+    }
+    .blog-card:hover {
+      background: rgba(255,255,255,0.16) !important;
+      border-color: var(--clr-primary) !important;
+      transform: translateY(-4px) !important;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.2) !important;
+    }
+    .blog-card-body h3 {
+      color: #f0f0f0 !important;
+      font-size: 1.15rem !important;
+      text-align: center !important;
+      height: 3.1em !important;
+      display: -webkit-box !important;
+      -webkit-line-clamp: 2 !important;
+      -webkit-box-orient: vertical !important;
+      overflow: hidden !important;
+    }
+    .blog-card-body p {
+      color: #2A354B;
+      font-size: 0.92rem !important;
+      line-height: 1.7 !important;
+      display: -webkit-box !important;
+      -webkit-line-clamp: 3 !important;
+      -webkit-box-orient: vertical !important;
+      overflow: hidden !important;
+      height: 4.7em !important;
+    }
+    .blog-card-meta {
+      color: #1A1A1A;
+      font-size: 0.82rem !important;
+    }
+    .blog-card-category {
+      background: rgba(107,130,255,0.12) !important;
+      color: #6b82ff !important;
+      font-size: 0.75rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.5px !important;
+    }
+    .blog-tag {
+      border-color: rgba(255,255,255,0.1) !important;
+      color: #1A1A1A;
+      font-size: 0.72rem !important;
+    }
+
+    /* Filter buttons — modern */
+    .blog-filter-btn {
+      background: transparent !important;
+      border: 1px solid rgba(255,255,255,0.1) !important;
+      color: #fff !important;
+      font-size: 0.82rem !important;
+      padding: 0.5rem 1.2rem !important;
+      border-radius: 8px !important;
+      font-weight: 400 !important;
+    }
+    [data-theme="light"] .blog-filter-btn {
+      color: #1a1a1a !important;
+    }
+    .blog-filter-btn:hover {
+      border-color: rgba(107,130,255,0.4) !important;
+      color: #fff !important;
+      background: rgba(107,130,255,0.08) !important;
+    }
+    .blog-filter-btn.active {
+      background: var(--clr-primary) !important;
+      border-color: var(--clr-primary) !important;
+      color: #fff !important;
+      font-weight: 600 !important;
+    }
+
+    /* Section titles on blog */
+    .section-title {
+      color: #f0f0f0 !important;
+    }
+    .section-desc {
+      color: #2A354B;
+    }
+    .section-label {
+      color: var(--clr-primary) !important;
+    }
+
+    /* Nav + footer — uses global styles, no overrides */
+
+    /* =============================================
+       LIGHT MODE — Pure white background
+       ============================================= */
+    /* Light mode body — uses global styles */
+    [data-theme="light"] .blog-card {
+      background: rgba(0,0,0,0.08) !important;
+      border: 1px solid rgba(0,0,0,0.1) !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06) !important;
+    }
+    [data-theme="light"] .blog-card:hover {
+      background: rgba(0,0,0,0.12) !important;
+      border-color: var(--clr-primary) !important;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1) !important;
+    }
+    [data-theme="light"] .blog-card-body h3 {
+      color: #1a1a1a !important;
+    }
+    [data-theme="light"] .blog-card-body p {
+      color: #1A1A1A;
+    }
+    [data-theme="light"] .blog-card-meta {
+      color: #2A354B;
+    }
+    [data-theme="light"] .blog-card-category {
+      background: rgba(58,79,212,0.08) !important;
+      color: #3a4fd4 !important;
+    }
+    [data-theme="light"] .blog-tag {
+      border-color: rgba(0,0,0,0.15);
+      color: #2A354B;
+    }
+    [data-theme="light"] .blog-filter-btn {
+      background: transparent !important;
+      border: 1px solid #e0e0e0 !important;
+      color: #1A1A1A;
+    }
+    [data-theme="light"] .blog-filter-btn:hover {
+      border-color: var(--clr-primary) !important;
+      color: #1a1a1a !important;
+      background: rgba(58,79,212,0.04) !important;
+    }
+    [data-theme="light"] .blog-filter-btn.active {
+      background: var(--clr-primary) !important;
+      border-color: var(--clr-primary) !important;
+      color: #fff !important;
+    }
+    [data-theme="light"] .section-title {
+      color: #1a1a1a !important;
+    }
+    [data-theme="light"] .section-desc {
+      color: #1A1A1A;
+    }
+    /* Light mode nav + footer — uses global styles */
+
+    /* Filters row — space between tags and view toggle */
+    .blog-filters {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .blog-filter-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    /* View toggle buttons */
+    .blog-view-toggle {
+      display: flex;
+      gap: 0.3rem;
+      flex-shrink: 0;
+    }
+    .blog-view-btn {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: transparent;
+      color: #1A1A1A;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .blog-view-btn:hover {
+      border-color: rgba(107,130,255,0.4);
+      color: #fff;
+    }
+    .blog-view-btn.active {
+      background: var(--clr-primary);
+      border-color: var(--clr-primary);
+      color: #fff;
+    }
+    [data-theme="light"] .blog-view-btn {
+      border-color: #e0e0e0;
+      color: #2A354B;
+    }
+    [data-theme="light"] .blog-view-btn:hover {
+      border-color: var(--clr-primary);
+      color: #1a1a1a;
+    }
+    [data-theme="light"] .blog-view-btn.active {
+      background: var(--clr-primary);
+      border-color: var(--clr-primary);
+      color: #fff;
+    }
+
+    /* LIST VIEW */
+    .blog-grid.list-view {
+      grid-template-columns: 1fr !important;
+      gap: 0.8rem !important;
+    }
+    .blog-grid.list-view article {
+      display: block;
+    }
+    .blog-grid.list-view .blog-card {
+      display: grid !important;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto;
+      align-items: center !important;
+      border-radius: 12px !important;
+      padding: 0 !important;
+    }
+    .blog-grid.list-view .blog-card-body {
+      padding: 1rem 1.5rem !important;
+      grid-column: 1;
+    }
+    .blog-grid.list-view .blog-card-body h3 {
+      font-size: 1rem !important;
+      margin-bottom: 0.2rem !important;
+      text-align: left !important;
+      text-wrap: unset !important;
+    }
+    .blog-grid.list-view .blog-card-body p {
+      font-size: 0.82rem !important;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin: 0 !important;
+    }
+    .blog-grid.list-view .blog-card-footer {
+      padding: 0 1.5rem !important;
+      grid-column: 2;
+      grid-row: 1;
+    }
+    .blog-grid.list-view .blog-card-meta {
+      margin-bottom: 0.3rem !important;
+      font-size: 0.75rem !important;
+    }
+    .blog-grid.list-view .blog-card-image {
+      display: none !important;
+    }
+
+    /* Hidden cards (filtered out) — hide the article wrapper */
+    article.hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 768px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .blog-filters { flex-direction: column; align-items: flex-start; }
+      .blog-grid.list-view .blog-card { flex-direction: column !important; }
+    }
+  </style>
+<script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#values" data-scramble>Values</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="content">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="/">Home</a> &rsaquo; Blog</div>
+      <h1>Our Blog</h1>
+      <p class="hero-sub" style="opacity:1;transform:none;">Expert perspectives on AI, software engineering, cloud architecture, and the future of technology.</p>
+    </div>
+
+    <!-- CATEGORY FILTERS (above divider) -->
+    <section style="padding:1.5rem 4rem 0;margin:0 auto;">
+      <div class="blog-filter-tags" style="display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:center;">
+        <button class="blog-filter-btn active" data-filter="all">All</button>
+        <button class="blog-filter-btn" data-filter="ai">AI &amp; ML</button>
+        <button class="blog-filter-btn" data-filter="engineering">Engineering</button>
+        <button class="blog-filter-btn" data-filter="cloud">Cloud</button>
+        <button class="blog-filter-btn" data-filter="design">Design</button>
+        <button class="blog-filter-btn" data-filter="company">Company</button>
+        <button class="blog-filter-btn" data-filter="security">Security</button>
+        <button class="blog-filter-btn" data-filter="data">Data</button>
+        <button class="blog-filter-btn" data-filter="devops">DevOps</button>
+        <button class="blog-filter-btn" data-filter="business">Business</button>
+      </div>
+    </section>
+
+    <div class="glow-divider"></div>
+
+    <!-- VIEW TOGGLE (below divider, right-aligned) -->
+    <section style="padding:1rem 4rem 0;margin:0 auto;">
+      <div class="blog-view-toggle" style="display:flex;gap:0.3rem;justify-content:flex-end;">
+        <button class="blog-view-btn active" data-view="grid" aria-label="Grid view" title="Grid view">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </button>
+        <button class="blog-view-btn" data-view="list" aria-label="List view" title="List view">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="1" fill="currentColor"/><circle cx="4" cy="12" r="1" fill="currentColor"/><circle cx="4" cy="18" r="1" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- BLOG GRID -->
+    <section style="padding:0 4rem 6rem;">
+      <div class="blog-grid" id="blog-grid">
+
+        <!-- SAMPLE POST 1 -->
+        <article>
+        <a href="/blog/ai-agents-enterprise" class="blog-card reveal" data-category="ai" aria-label="Read: How AI Agents Are Transforming Enterprise Workflows">
+          <div class="blog-card-image" role="img" aria-label="AI agents illustration">&#129302;</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">AI &amp; ML</span>
+              <time datetime="2026-04-17">Apr 17, 2026</time>
+              <span>8 min read</span>
+            </div>
+            <h3>How AI Agents Are Transforming Enterprise Workflows</h3>
+            <p>From automated customer support to intelligent document processing, AI agents are reshaping how businesses operate at scale.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">AI Agents</span>
+            <span class="blog-tag">Automation</span>
+            <span class="blog-tag">Enterprise</span>
+          </div>
+        </a>
+        </article>
+
+        <!-- SAMPLE POST 2 -->
+        <article>
+        <a href="/blog/cloud-cost-optimization" class="blog-card reveal" data-category="cloud" aria-label="Read: Cloud Cost Optimization Strategies">
+          <div class="blog-card-image" role="img" aria-label="Cloud computing illustration">&#9729;&#65039;</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">Cloud</span>
+              <time datetime="2026-04-15">Apr 15, 2026</time>
+              <span>6 min read</span>
+            </div>
+            <h3>Cloud Cost Optimization: 5 Strategies That Actually Work</h3>
+            <p>Practical approaches to reducing your cloud spend by 30-50% without sacrificing performance or reliability.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">AWS</span>
+            <span class="blog-tag">Cost</span>
+            <span class="blog-tag">DevOps</span>
+          </div>
+        </a>
+        </article>
+
+        <!-- SAMPLE POST 3 -->
+        <article>
+        <a href="/blog/design-systems-2026" class="blog-card reveal" data-category="design" aria-label="Read: Building a Design System That Scales">
+          <div class="blog-card-image" role="img" aria-label="Design illustration">&#127912;</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">Design</span>
+              <time datetime="2026-04-12">Apr 12, 2026</time>
+              <span>5 min read</span>
+            </div>
+            <h3>Building a Design System That Scales With Your Product</h3>
+            <p>How to create reusable components, tokens, and guidelines that keep your product consistent as your team grows.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">UI/UX</span>
+            <span class="blog-tag">Design System</span>
+            <span class="blog-tag">React</span>
+          </div>
+        </a>
+        </article>
+
+        <!-- SAMPLE POST 4 -->
+        <article>
+        <a href="/blog/testing-strategy-modern-apps" class="blog-card reveal" data-category="engineering" aria-label="Read: The Testing Strategy Every Modern App Needs">
+          <div class="blog-card-image" role="img" aria-label="Engineering tools illustration">&#128736;&#65039;</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">Engineering</span>
+              <time datetime="2026-04-10">Apr 10, 2026</time>
+              <span>7 min read</span>
+            </div>
+            <h3>The Testing Strategy Every Modern App Needs</h3>
+            <p>Unit tests alone aren't enough. Here's how to layer integration, e2e, and observability into a reliable test pyramid.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">QA</span>
+            <span class="blog-tag">Testing</span>
+            <span class="blog-tag">CI/CD</span>
+          </div>
+        </a>
+        </article>
+
+        <!-- SAMPLE POST 5 -->
+        <article>
+        <a href="/blog/llm-fine-tuning-guide" class="blog-card reveal" data-category="ai" aria-label="Read: A Practical Guide to Fine-Tuning LLMs">
+          <div class="blog-card-image" role="img" aria-label="AI brain illustration">&#129504;</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">AI &amp; ML</span>
+              <time datetime="2026-04-08">Apr 8, 2026</time>
+              <span>10 min read</span>
+            </div>
+            <h3>A Practical Guide to Fine-Tuning LLMs for Your Business</h3>
+            <p>When to fine-tune vs. prompt engineer, how to prepare training data, and what infrastructure you actually need.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">LLM</span>
+            <span class="blog-tag">Fine-tuning</span>
+            <span class="blog-tag">GPT</span>
+          </div>
+        </a>
+        </article>
+
+        <!-- SAMPLE POST 6 -->
+        <article>
+        <a href="/blog/beverly-hills-tech-scene" class="blog-card reveal" data-category="company" aria-label="Read: Why We Built a Software Company in Beverly Hills">
+          <div class="blog-card-image" role="img" aria-label="Palm tree illustration">&#127796;</div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">Company</span>
+              <time datetime="2026-04-05">Apr 5, 2026</time>
+              <span>4 min read</span>
+            </div>
+            <h3>Why We Built a Software Company in Beverly Hills</h3>
+            <p>The surprising advantages of building a tech company at the intersection of entertainment, finance, and luxury brands.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">Culture</span>
+            <span class="blog-tag">Beverly Hills</span>
+            <span class="blog-tag">Startups</span>
+          </div>
+        </a>
+        </article>
+
+        <!-- === AI AGENTS PILLAR === -->
+        <article><a href="/blog/ai-agents-guide" class="blog-card reveal" data-category="ai"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">AI &amp; ML</span><time datetime="2026-04-18">Apr 18, 2026</time><span>15 min</span></div><h3>What Are AI Agents? How Businesses Are Replacing Entire Teams</h3><p>The complete guide to AI agents — autonomous systems that understand, decide, act, and learn.</p>
+            <span class="read-more">...(Read More)</span>
+          </div><div class="blog-card-footer"><span class="blog-tag">AI Agents</span><span class="blog-tag">Pillar</span></div></a></article>
+
+        <!-- === AI AUTOMATION CLUSTER === -->
+        <article><a href="/blog/what-is-ai-automation" class="blog-card reveal" data-category="ai"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">AI &amp; ML</span><time datetime="2026-04-17">Apr 17</time><span>6 min</span></div><h3>What is AI Automation? Replacing Manual Work in 2026</h3><p>Intelligent systems executing repetitive and decision-based tasks automatically.</p>
+            <span class="read-more">...(Read More)</span>
+          </div><div class="blog-card-footer"><span class="blog-tag">Automation</span></div></a></article>
+        <article><a href="/blog/ai-automation-vs-rpa" class="blog-card reveal" data-category="ai"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">AI &amp; ML</span><time datetime="2026-04-16">Apr 16</time><span>6 min</span></div><h3>AI Automation vs RPA: The Real Difference</h3><p>RPA follows rules. AI adapts and learns. Full comparison.</p>
+            <span class="read-more">...(Read More)</span>
+          </div><div class="blog-card-footer"><span class="blog-tag">RPA</span><span class="blog-tag">Comparison</span></div></a></article>
+        <article><a href="/blog/ai-customer-support" class="blog-card reveal" data-category="ai"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">AI &amp; ML</span><time datetime="2026-04-15">Apr 15</time><span>6 min</span></div><h3>Automating Customer Support with AI Agents</h3><p>24/7 responses, lower costs, faster resolution.</p>
+            <span class="read-more">...(Read More)</span>
+          </div><div class="blog-card-footer"><span class="blog-tag">Support</span><span class="blog-tag">AI Agents</span></div></a></article>
+        <article><a href="/blog/ai-sales-funnels" class="blog-card reveal" data-category="ai"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">AI &amp; ML</span><time datetime="2026-04-14">Apr 14</time><span>6 min</span></div><h3>AI for Sales Funnels: Close More Deals Automatically</h3><p>Qualify leads, follow up, convert — all on autopilot.</p>
+            <span class="read-more">...(Read More)</span>
+          </div><div class="blog-card-footer"><span class="blog-tag">Sales</span><span class="blog-tag">Leads</span></div></a></article>
+        <article><a href="/blog/ai-workflow-automation" class="blog-card reveal" data-category="ai"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">AI &amp; ML</span><time datetime="2026-04-13">Apr 13</time><span>6 min</span></div><h3>AI Workflow Automation for Enterprises</h3><p>Connect operations, finance, HR with intelligent automation.</p>
+            <span class="read-more">...(Read More)</span>
+          </div><div class="blog-card-footer"><span class="blog-tag">Enterprise</span></div></a></article>
+        <article><a href="/blog/building-ai-assistants" class="blog-card reveal" data-category="ai"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">AI &amp; ML</span><time datetime="2026-04-12">Apr 12</time><span>6 min</span></div><h3>Building AI Assistants for Business Operations</h3><p>Reporting, queries, automation triggers — AI leverage for teams.</p>
+            <span class="read-more">...(Read More)</span>
+          </div><div class="blog-card-footer"><span class="blog-tag">Assistants</span><span class="blog-tag">Copilots</span></div></a></article>
+        <article><a href="/blog/ai-chatbots-vs-agents" class="blog-card reveal" data-category="ai"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">AI &amp; ML</span><time datetime="2026-04-11">Apr 11</time><span>6 min</span></div><h3>AI Chatbots vs AI Agents: What You Need to Know</h3><p>Chatbots respond. Agents act. Build execution systems.</p>
+            <span class="read-more">...(Read More)</span>
+          </div><div class="blog-card-footer"><span class="blog-tag">Chatbots</span><span class="blog-tag">Agents</span></div></a></article>
+        <article><a href="/blog/internal-ai-tools" class="blog-card reveal" data-category="ai"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">AI &amp; ML</span><time datetime="2026-04-10">Apr 10</time><span>6 min</span></div><h3>Internal AI Tools for Companies: 2026 Guide</h3><p>Dashboards, copilots, automation — tools competitors don't have.</p>
+            <span class="read-more">...(Read More)</span>
+          </div><div class="blog-card-footer"><span class="blog-tag">Internal Tools</span></div></a></article>
+        <article><a href="/blog/ai-productivity-systems" class="blog-card reveal" data-category="ai"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">AI &amp; ML</span><time datetime="2026-04-09">Apr 9</time><span>6 min</span></div><h3>AI Productivity Systems: Teams Working 10x Faster</h3><p>Fewer errors, faster output, better decisions.</p>
+            <span class="read-more">...(Read More)</span>
+          </div><div class="blog-card-footer"><span class="blog-tag">Productivity</span><span class="blog-tag">10x</span></div></a></article>
+        <article><a href="/blog/ai-automation-roi" class="blog-card reveal" data-category="ai"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">AI &amp; ML</span><time datetime="2026-04-08">Apr 8</time><span>6 min</span></div><h3>AI Automation ROI: Why It Pays Off Fast</h3><p>ROI within months. Systems not salaries.</p>
+            <span class="read-more">...(Read More)</span>
+          </div><div class="blog-card-footer"><span class="blog-tag">ROI</span><span class="blog-tag">Business Case</span></div></a></article>
+
+        <!-- === PILLAR ARTICLES === -->
+
+        <article>
+        <a href="/blog/ai-integration-2026" class="blog-card reveal" data-category="ai" aria-label="Read: AI Integration in 2026">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">AI &amp; ML</span>
+              <time datetime="2026-04-17">Apr 17, 2026</time>
+              <span>12 min read</span>
+            </div>
+            <h3>AI Integration in 2026: How Businesses Are Replacing Entire Workflows</h3>
+            <p>AI is becoming the core operating layer. This guide explains how AI integration works, what it replaces, and how to implement it.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">AI Integration</span>
+            <span class="blog-tag">Pillar</span>
+            <span class="blog-tag">Workflows</span>
+          </div>
+        </a>
+        </article>
+
+        <article>
+        <a href="/blog/custom-software-vs-saas" class="blog-card reveal" data-category="engineering" aria-label="Read: Custom Software vs SaaS">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">Engineering</span>
+              <time datetime="2026-04-16">Apr 16, 2026</time>
+              <span>10 min read</span>
+            </div>
+            <h3>Custom Software & AI Development vs SaaS: Which One Actually Wins in 2026?</h3>
+            <p>Most businesses start with SaaS. But the companies that scale? They outgrow it. Full breakdown with real cost comparison.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">Custom Software</span>
+            <span class="blog-tag">SaaS</span>
+            <span class="blog-tag">Scaling</span>
+          </div>
+        </a>
+        </article>
+
+        <article>
+        <a href="/blog/ai-security-risks" class="blog-card reveal" data-category="ai" aria-label="Read: AI Security Risks">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">AI &amp; ML</span>
+              <time datetime="2026-04-15">Apr 15, 2026</time>
+              <span>9 min read</span>
+            </div>
+            <h3>Why AI Without Security is the Biggest Risk in Modern Software</h3>
+            <p>AI systems are powerful but dangerous when poorly implemented. Data exposure, prompt exploits, and uncontrolled decisions.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">Security</span>
+            <span class="blog-tag">AI Risk</span>
+            <span class="blog-tag">Data Privacy</span>
+          </div>
+        </a>
+        </article>
+
+        <!-- === AI INTEGRATION CLUSTER (10) === -->
+
+        <article>
+        <a href="/blog/ai-integration-guide" class="blog-card reveal" data-category="ai" aria-label="Read: What is AI Integration">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">AI &amp; ML</span>
+              <time datetime="2026-04-14">Apr 14, 2026</time>
+              <span>7 min read</span>
+            </div>
+            <h3>What is AI Integration? Complete Guide for Businesses in 2026</h3>
+            <p>AI integration connects machine learning, automation, and data pipelines into existing software systems.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">Guide</span>
+            <span class="blog-tag">AI Integration</span>
+          </div>
+        </a>
+        </article>
+
+        <article>
+        <a href="/blog/ai-vs-automation" class="blog-card reveal" data-category="ai" aria-label="Read: AI vs Automation">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">AI &amp; ML</span>
+              <time datetime="2026-04-13">Apr 13, 2026</time>
+              <span>6 min read</span>
+            </div>
+            <h3>AI Integration vs Automation: What's the Real Difference?</h3>
+            <p>Automation follows rules. AI adapts, learns, and improves decisions. Here's when to use each.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">AI</span>
+            <span class="blog-tag">Automation</span>
+            <span class="blog-tag">Comparison</span>
+          </div>
+        </a>
+        </article>
+
+        <article>
+        <a href="/blog/ai-integration-cost" class="blog-card reveal" data-category="ai" aria-label="Read: AI Integration Cost">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">AI &amp; ML</span>
+              <time datetime="2026-04-12">Apr 12, 2026</time>
+              <span>7 min read</span>
+            </div>
+            <h3>AI Integration Cost Breakdown: Real Pricing Guide for 2026</h3>
+            <p>AI integration costs range from $5,000 to $150,000+. Here's what determines the price and how to budget.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">Pricing</span>
+            <span class="blog-tag">Budget</span>
+            <span class="blog-tag">ROI</span>
+          </div>
+        </a>
+        </article>
+
+        <article>
+        <a href="/blog/ai-use-cases-business" class="blog-card reveal" data-category="ai" aria-label="Read: AI Use Cases">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">AI &amp; ML</span>
+              <time datetime="2026-04-11">Apr 11, 2026</time>
+              <span>6 min read</span>
+            </div>
+            <h3>Top AI Use Cases in Business (2026 Edition)</h3>
+            <p>Customer support, predictive analytics, fraud detection, workflow automation — where AI delivers real value.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">Use Cases</span>
+            <span class="blog-tag">Business</span>
+          </div>
+        </a>
+        </article>
+
+        <article>
+        <a href="/blog/ai-legacy-systems" class="blog-card reveal" data-category="engineering" aria-label="Read: AI and Legacy Systems">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">Engineering</span>
+              <time datetime="2026-04-10">Apr 10, 2026</time>
+              <span>6 min read</span>
+            </div>
+            <h3>How to Integrate AI Into Legacy Systems</h3>
+            <p>Use APIs, middleware, and modular architecture to bring AI into older systems without a full rewrite.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">Legacy</span>
+            <span class="blog-tag">Migration</span>
+            <span class="blog-tag">APIs</span>
+          </div>
+        </a>
+        </article>
+
+        <article>
+        <a href="/blog/ai-api-vs-custom-models" class="blog-card reveal" data-category="ai" aria-label="Read: AI API vs Custom Models">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">AI &amp; ML</span>
+              <time datetime="2026-04-09">Apr 9, 2026</time>
+              <span>6 min read</span>
+            </div>
+            <h3>AI API vs Custom AI Models: Which is Better for Your Business?</h3>
+            <p>APIs are faster to deploy. Custom models offer full control. Choose based on your growth stage.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">API</span>
+            <span class="blog-tag">Custom AI</span>
+            <span class="blog-tag">Build vs Buy</span>
+          </div>
+        </a>
+        </article>
+
+        <article>
+        <a href="/blog/ai-integration-mistakes" class="blog-card reveal" data-category="ai" aria-label="Read: AI Integration Mistakes">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">AI &amp; ML</span>
+              <time datetime="2026-04-08">Apr 8, 2026</time>
+              <span>7 min read</span>
+            </div>
+            <h3>7 Common AI Integration Mistakes (And How to Avoid Them)</h3>
+            <p>No clear use case, poor data, weak security — the mistakes that kill AI projects and how to fix them.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">Mistakes</span>
+            <span class="blog-tag">Best Practices</span>
+          </div>
+        </a>
+        </article>
+
+        <article>
+        <a href="/blog/ai-integration-architecture" class="blog-card reveal" data-category="engineering" aria-label="Read: AI Architecture">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">Engineering</span>
+              <time datetime="2026-04-07">Apr 7, 2026</time>
+              <span>6 min read</span>
+            </div>
+            <h3>AI Integration Architecture Explained: A Simple Guide</h3>
+            <p>Frontend, backend, AI layer, data pipeline — how the four layers work together to build intelligent systems.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">Architecture</span>
+            <span class="blog-tag">System Design</span>
+          </div>
+        </a>
+        </article>
+
+        <article>
+        <a href="/blog/ai-replacing-departments" class="blog-card reveal" data-category="ai" aria-label="Read: AI Replacing Departments">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">AI &amp; ML</span>
+              <time datetime="2026-04-06">Apr 6, 2026</time>
+              <span>6 min read</span>
+            </div>
+            <h3>How AI Automation is Replacing Entire Departments in 2026</h3>
+            <p>Companies aren't replacing people — they're replacing inefficiency. How AI transforms support, analysis, and operations.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">AI Automation</span>
+            <span class="blog-tag">Workforce</span>
+          </div>
+        </a>
+        </article>
+
+        <article>
+        <a href="/blog/secure-ai-future" class="blog-card reveal" data-category="ai" aria-label="Read: Secure AI Future">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span class="blog-card-category">AI &amp; ML</span>
+              <time datetime="2026-04-05">Apr 5, 2026</time>
+              <span>6 min read</span>
+            </div>
+            <h3>Why Secure AI Systems Are the Future of Software & AI Development</h3>
+            <p>AI without security creates risk, not value. Authentication, monitoring, and control layers are now mandatory.</p>
+            <span class="read-more">...(Read More)</span>
+          </div>
+          <div class="blog-card-footer">
+            <span class="blog-tag">Security</span>
+            <span class="blog-tag">AI Future</span>
+          </div>
+        </a>
+        </article>
+
+        <article><a href="/blog/microservices-vs-monolith-2026" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-07">Apr 7</time><span>9 min</span></div><h3>Microservices vs Monolith in 2026: When Each Actually Wins</h3><p>Microservices are not automatically better than monoliths. Learn when each architecture wins, the hidden costs.</p></div></a></article>
+        <article><a href="/blog/api-design-best-practices" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-06">Apr 6</time><span>8 min</span></div><h3>API Design Best Practices: Building Interfaces That Last</h3><p>Great APIs survive a decade without breaking changes. Learn the design, versioning, and error-handling pattern.</p></div></a></article>
+        <article><a href="/blog/database-architecture-scale" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-05">Apr 5</time><span>10 min</span></div><h3>Database Architecture at Scale: Patterns That Survive Growth</h3><p>Your database will become the bottleneck. Learn the patterns — partitioning, replicas, CQRS — that carry syste.</p></div></a></article>
+        <article><a href="/blog/devops-pipeline-2026" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-04">Apr 4</time><span>8 min</span></div><h3>Building a Modern DevOps Pipeline: From Commit to Production</h3><p>A great DevOps pipeline ships dozens of times per day with confidence. Learn the tooling and practices behind.</p></div></a></article>
+        <article><a href="/blog/code-review-culture" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-03">Apr 3</time><span>7 min</span></div><h3>Code Review Culture That Ships Faster (Not Slower)</h3><p>Bad code review slows teams and breeds resentment. Good code review catches bugs, spreads knowledge, and accel.</p></div></a></article>
+        <article><a href="/blog/technical-debt-management" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-02">Apr 2</time><span>7 min</span></div><h3>Managing Technical Debt: When to Fix, When to Live With It</h3><p>Not all technical debt is equal. Learn the framework for deciding what to pay down, what to tolerate, and what.</p></div></a></article>
+        <article><a href="/blog/testing-pyramid-real-world" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-01">Apr 1</time><span>8 min</span></div><h3>The Testing Pyramid in Practice: What to Actually Write</h3><p>The classic testing pyramid oversimplifies. Here is a practical guide to what tests to write, in what proporti.</p></div></a></article>
+        <article><a href="/blog/event-driven-architecture" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-11">Apr 11</time><span>9 min</span></div><h3>Event-Driven Architecture: Patterns That Scale</h3><p>Event-driven systems decouple services and enable real-time reactions. Learn the patterns — streams, queues, e.</p></div></a></article>
+        <article><a href="/blog/feature-flags-guide" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-09">Apr 9</time><span>6 min</span></div><h3>Feature Flags Done Right: Beyond the Simple On/Off</h3><p>Feature flags unlock continuous deployment, progressive rollouts, and fast experimentation. Here is how to use.</p></div></a></article>
+        <article><a href="/blog/scaling-engineering-team" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-08">Apr 8</time><span>8 min</span></div><h3>Scaling an Engineering Team: 10 to 50 to 200</h3><p>Each phase of engineering growth requires different structures, rituals, and leadership patterns. Here is what.</p></div></a></article>
+        <article><a href="/blog/technical-interviewing" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-07">Apr 7</time><span>7 min</span></div><h3>Technical Interviewing That Actually Predicts Performance</h3><p>Most technical interviews measure interview skills, not job skills. Here is how to design interviews that corr.</p></div></a></article>
+        <article><a href="/blog/monorepo-vs-polyrepo" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-06">Apr 6</time><span>7 min</span></div><h3>Monorepo vs Polyrepo: The Real Trade-offs</h3><p>Monorepos enable cross-cutting changes and shared tooling. Polyrepos enable team autonomy and independent depl.</p></div></a></article>
+        <article><a href="/blog/writing-production-ready-code" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-05">Apr 5</time><span>6 min</span></div><h3>Writing Production-Ready Code: The Checklist</h3><p>Production-ready is not the same as 'it works on my machine.' Here is the checklist every piece of code should.</p></div></a></article>
+        <article><a href="/blog/system-design-interview-prep" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-04">Apr 4</time><span>8 min</span></div><h3>System Design That Ships: Beyond the Interview</h3><p>System design interviews focus on abstractions. Real system design is 80% trade-offs and 20% diagrams. Here is.</p></div></a></article>
+        <article><a href="/blog/technical-writing-engineers" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-03">Apr 3</time><span>6 min</span></div><h3>Technical Writing for Engineers: Docs That People Read</h3><p>Most engineering documentation goes unread. The docs that do get read follow a handful of principles. Here the.</p></div></a></article>
+        <article><a href="/blog/open-source-contribution" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-02">Apr 2</time><span>7 min</span></div><h3>Open Source for Businesses: Strategy That Works</h3><p>Open source is a business strategy, not just engineering altruism. Here is how companies extract value while c.</p></div></a></article>
+        <article><a href="/blog/performance-optimization-web" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-01">Apr 1</time><span>7 min</span></div><h3>Web Performance Optimization: What Actually Moves Metrics</h3><p>Most web performance advice is folklore. Here is what actually moves Core Web Vitals and business metrics in 2.</p></div></a></article>
+        <article><a href="/blog/incident-response-playbook" class="blog-card reveal" data-category="engineering"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Engineering</span><time datetime="2026-04-12">Apr 12</time><span>7 min</span></div><h3>Incident Response Playbook: Building a Calm Oncall Culture</h3><p>Incidents happen. What separates mature teams is how they respond, not whether they have incidents. Here is th.</p></div></a></article>
+        <article><a href="/blog/multi-cloud-strategy" class="blog-card reveal" data-category="cloud"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Cloud</span><time datetime="2026-04-06">Apr 6</time><span>8 min</span></div><h3>Multi-Cloud Strategy: When It's Worth the Complexity</h3><p>Multi-cloud sounds good in boardrooms and gets painful in engineering. Learn when it actually makes sense.</p></div></a></article>
+        <article><a href="/blog/kubernetes-production-guide" class="blog-card reveal" data-category="cloud"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Cloud</span><time datetime="2026-04-04">Apr 4</time><span>10 min</span></div><h3>Kubernetes in Production: What Actually Matters</h3><p>A practical guide to Kubernetes in production — the real operational decisions that separate healthy clusters.</p></div></a></article>
+        <article><a href="/blog/serverless-architecture-2026" class="blog-card reveal" data-category="cloud"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Cloud</span><time datetime="2026-04-02">Apr 2</time><span>8 min</span></div><h3>Serverless Architecture in 2026: The Real Trade-offs</h3><p>Serverless promised to eliminate infrastructure. In practice, you trade one set of problems for another.</p></div></a></article>
+        <article><a href="/blog/cloud-security-checklist" class="blog-card reveal" data-category="cloud"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Cloud</span><time datetime="2026-04-01">Apr 1</time><span>9 min</span></div><h3>The Cloud Security Checklist Every Team Should Follow</h3><p>A practical cloud security checklist covering identity, network, data, and monitoring — the fundamentals that.</p></div></a></article>
+        <article><a href="/blog/disaster-recovery-playbook" class="blog-card reveal" data-category="cloud"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Cloud</span><time datetime="2026-04-11">Apr 11</time><span>8 min</span></div><h3>Cloud Disaster Recovery Playbook: RPO, RTO, and Real Testing</h3><p>DR plans that live in PDFs fail when needed. Here is how to build DR capability you have actually tested.</p></div></a></article>
+        <article><a href="/blog/iac-terraform-guide" class="blog-card reveal" data-category="cloud"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Cloud</span><time datetime="2026-04-10">Apr 10</time><span>8 min</span></div><h3>Infrastructure as Code: Terraform Patterns That Scale</h3><p>Terraform starts simple and gets complicated fast. Here are the patterns that keep IaC maintainable across lar.</p></div></a></article>
+        <article><a href="/blog/cost-governance-framework" class="blog-card reveal" data-category="cloud"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Cloud</span><time datetime="2026-04-09">Apr 9</time><span>7 min</span></div><h3>Cloud Cost Governance: A Framework That Actually Works</h3><p>Cost governance fails when it is top-down mandates. It works when engineers see their own costs and own optimi.</p></div></a></article>
+        <article><a href="/blog/container-strategy-2026" class="blog-card reveal" data-category="cloud"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Cloud</span><time datetime="2026-04-08">Apr 8</time><span>7 min</span></div><h3>Container Strategy in 2026: When to Use What</h3><p>Docker, Kubernetes, ECS, Cloud Run, Fargate — the container landscape has converged. Here is when to reach for.</p></div></a></article>
+        <article><a href="/blog/cloud-migration-playbook" class="blog-card reveal" data-category="cloud"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Cloud</span><time datetime="2026-04-07">Apr 7</time><span>9 min</span></div><h3>The Cloud Migration Playbook: Strategy, Sequencing, and Survival</h3><p>Cloud migrations succeed or fail in planning. Here is the playbook we use for complex enterprise migrations.</p></div></a></article>
+        <article><a href="/blog/edge-computing-2026" class="blog-card reveal" data-category="cloud"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Cloud</span><time datetime="2026-04-05">Apr 5</time><span>7 min</span></div><h3>Edge Computing in 2026: CDN, Compute, and the Tier Below</h3><p>The edge is where performance work happens in 2026. Here is how to think about edge architecture.</p></div></a></article>
+        <article><a href="/blog/observability-stack" class="blog-card reveal" data-category="cloud"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Cloud</span><time datetime="2026-04-04">Apr 4</time><span>8 min</span></div><h3>Building an Observability Stack That Actually Helps</h3><p>Logs, metrics, traces — the three pillars are well-known. Assembling them into a stack that helps during incid.</p></div></a></article>
+        <article><a href="/blog/cloud-native-data-architecture" class="blog-card reveal" data-category="cloud"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Cloud</span><time datetime="2026-04-03">Apr 3</time><span>8 min</span></div><h3>Cloud-Native Data Architecture: Lakes, Warehouses, and the Lakehouse</h3><p>Data architecture has consolidated around the lakehouse. Here is the current shape and how to design for it.</p></div></a></article>
+        <article><a href="/blog/aws-vs-azure-vs-gcp-2026" class="blog-card reveal" data-category="cloud"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Cloud</span><time datetime="2026-04-02">Apr 2</time><span>9 min</span></div><h3>AWS vs Azure vs GCP in 2026: A Pragmatic Comparison</h3><p>The big three have converged on core services. The differences are about ecosystem, pricing, and enterprise fi.</p></div></a></article>
+        <article><a href="/blog/ui-ux-trends-2026" class="blog-card reveal" data-category="design"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Design</span><time datetime="2026-04-08">Apr 8</time><span>7 min</span></div><h3>UI/UX Trends That Matter in 2026 (and Those That Don't)</h3><p>Cutting through the noise on 2026 design trends. What actually improves products, what is decorative.</p></div></a></article>
+        <article><a href="/blog/accessibility-first-design" class="blog-card reveal" data-category="design"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Design</span><time datetime="2026-04-03">Apr 3</time><span>8 min</span></div><h3>Accessibility-First Design: Building Products Everyone Can Use</h3><p>Accessibility is not a compliance checkbox. It is a design discipline that produces better products for all us.</p></div></a></article>
+        <article><a href="/blog/dark-mode-best-practices" class="blog-card reveal" data-category="design"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Design</span><time datetime="2026-04-01">Apr 1</time><span>7 min</span></div><h3>Dark Mode Best Practices: More Than Inverting Colors</h3><p>Dark mode that actually works is not white-on-black. Learn the surface, elevation, and contrast principles.</p></div></a></article>
+        <article><a href="/blog/design-system-tokens" class="blog-card reveal" data-category="design"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Design</span><time datetime="2026-04-11">Apr 11</time><span>7 min</span></div><h3>Design System Tokens: The Foundation of Scalable Design</h3><p>Tokens are the primitives under your design system. Get them right and everything else gets easier.</p></div></a></article>
+        <article><a href="/blog/figma-production-workflow" class="blog-card reveal" data-category="design"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Design</span><time datetime="2026-04-10">Apr 10</time><span>7 min</span></div><h3>Figma to Production: The Workflow That Actually Works</h3><p>The handoff from Figma to code is where most design systems break. Here is the workflow that keeps them in syn.</p></div></a></article>
+        <article><a href="/blog/mobile-first-design-principles" class="blog-card reveal" data-category="design"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Design</span><time datetime="2026-04-09">Apr 9</time><span>7 min</span></div><h3>Mobile-First Design in 2026: Beyond Responsive</h3><p>Mobile-first is not about screen size. It is about constraints: small screens, touch targets, limited attentio.</p></div></a></article>
+        <article><a href="/blog/microcopy-that-converts" class="blog-card reveal" data-category="design"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Design</span><time datetime="2026-04-08">Apr 8</time><span>6 min</span></div><h3>Microcopy That Converts: Words as Product Design</h3><p>Microcopy is the words in your UI. Buttons, errors, empty states, confirmations. Get them right and conversion.</p></div></a></article>
+        <article><a href="/blog/visual-hierarchy-principles" class="blog-card reveal" data-category="design"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Design</span><time datetime="2026-04-07">Apr 7</time><span>6 min</span></div><h3>Visual Hierarchy: Making Users See the Right Thing First</h3><p>Visual hierarchy guides the eye. When it is working, users notice the important things without being told.</p></div></a></article>
+        <article><a href="/blog/forms-that-convert" class="blog-card reveal" data-category="design"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Design</span><time datetime="2026-04-06">Apr 6</time><span>6 min</span></div><h3>Forms That Convert: The Design Patterns That Move Metrics</h3><p>Forms are where intent meets friction. Good form design preserves intent; bad design kills it.</p></div></a></article>
+        <article><a href="/blog/data-visualization-dashboards" class="blog-card reveal" data-category="design"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Design</span><time datetime="2026-04-05">Apr 5</time><span>7 min</span></div><h3>Designing Data Dashboards That Users Actually Use</h3><p>Most dashboards are built once and abandoned. The ones that stick follow a different set of design principles.</p></div></a></article>
+        <article><a href="/blog/onboarding-flows-that-stick" class="blog-card reveal" data-category="design"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Design</span><time datetime="2026-04-04">Apr 4</time><span>7 min</span></div><h3>Onboarding Flows That Keep Users Past Day 7</h3><p>Onboarding is where most products lose users. The flows that keep them are about activation, not tutorials.</p></div></a></article>
+        <article><a href="/blog/notification-design" class="blog-card reveal" data-category="design"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Design</span><time datetime="2026-04-03">Apr 3</time><span>6 min</span></div><h3>Notification Design: Useful Without Being Annoying</h3><p>Notifications are a tax on user attention. Good notifications earn the tax; bad ones get muted.</p></div></a></article>
+        <article><a href="/blog/search-ux-patterns" class="blog-card reveal" data-category="design"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Design</span><time datetime="2026-04-02">Apr 2</time><span>7 min</span></div><h3>Search UX: Patterns That Feel Instant and Accurate</h3><p>Search is often where users find your product works or doesn't. Small UX choices make huge differences in perc.</p></div></a></article>
+        <article><a href="/blog/animation-purpose" class="blog-card reveal" data-category="design"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Design</span><time datetime="2026-04-01">Apr 1</time><span>6 min</span></div><h3>Purposeful Animation: When Motion Improves UX</h3><p>Animation that serves a purpose is invisible to users — they just feel it works. Animation for decoration anno.</p></div></a></article>
+        <article><a href="/blog/our-engineering-philosophy" class="blog-card reveal" data-category="company"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Company</span><time datetime="2026-04-10">Apr 10</time><span>6 min</span></div><h3>Our Engineering Philosophy: How We Build Software That Lasts</h3><p>The principles behind AIM Tech AI's engineering — why we write less code, invest in tooling, and treat boring.</p></div></a></article>
+        <article><a href="/blog/client-onboarding-process" class="blog-card reveal" data-category="company"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Company</span><time datetime="2026-04-05">Apr 5</time><span>6 min</span></div><h3>How We Onboard Clients: The First 30 Days</h3><p>A transparent walkthrough of AIM Tech AI's onboarding — from signed contract to first production release.</p></div></a></article>
+        <article><a href="/blog/beverly-hills-tech" class="blog-card reveal" data-category="company"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Company</span><time datetime="2026-04-03">Apr 3</time><span>5 min</span></div><h3>Why Beverly Hills for a Software Company?</h3><p>Most engineering firms are in the Valley or remote. Here is why our team built in Beverly Hills.</p></div></a></article>
+        <article><a href="/blog/how-we-scope-projects" class="blog-card reveal" data-category="company"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Company</span><time datetime="2026-04-09">Apr 9</time><span>6 min</span></div><h3>How We Scope Projects: Fixed Price vs Time and Materials</h3><p>Every engagement model has trade-offs. Here is how we structure ours and which fits which client.</p></div></a></article>
+        <article><a href="/blog/values-that-drive-us" class="blog-card reveal" data-category="company"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Company</span><time datetime="2026-04-07">Apr 7</time><span>5 min</span></div><h3>The Values That Drive Us: Transparency, Integrity, Partnership</h3><p>Our stated values are not wall decoration. Here is how they show up in actual client work.</p></div></a></article>
+        <article><a href="/blog/our-team-hiring-philosophy" class="blog-card reveal" data-category="company"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Company</span><time datetime="2026-04-06">Apr 6</time><span>6 min</span></div><h3>How We Hire: Our Team-Building Philosophy</h3><p>Hiring defines the firm. Here is how we think about hiring, and what we look for beyond resumes.</p></div></a></article>
+        <article><a href="/blog/aim-tech-ai-origin" class="blog-card reveal" data-category="company"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Company</span><time datetime="2026-04-04">Apr 4</time><span>6 min</span></div><h3>AIM Tech AI: The Origin Story</h3><p>How AIM Tech AI started, why we focused on AI integration, and what we've built since.</p></div></a></article>
+        <article><a href="/blog/why-we-publish-blog" class="blog-card reveal" data-category="company"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Company</span><time datetime="2026-04-02">Apr 2</time><span>4 min</span></div><h3>Why We Publish This Blog (and What We Publish)</h3><p>A working engineering firm that blogs regularly is rarer than it should be. Here is why we do it and what we f.</p></div></a></article>
+        <article><a href="/blog/our-tech-stack-choices" class="blog-card reveal" data-category="company"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Company</span><time datetime="2026-04-01">Apr 1</time><span>6 min</span></div><h3>The Tech Stack We Build With (and Why)</h3><p>Our default stack is opinionated. Here's what we reach for and why — not because it's trendy, but because it w.</p></div></a></article>
+        <article><a href="/blog/application-security-checklist" class="blog-card reveal" data-category="security"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Security</span><time datetime="2026-04-12">Apr 12</time><span>9 min</span></div><h3>Application Security Checklist: The Fundamentals</h3><p>Most application breaches come from a small set of well-known mistakes. Here is the checklist every applicatio.</p></div></a></article>
+        <article><a href="/blog/zero-trust-architecture" class="blog-card reveal" data-category="security"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Security</span><time datetime="2026-04-11">Apr 11</time><span>8 min</span></div><h3>Zero Trust Architecture: Past the Marketing</h3><p>Zero Trust has become a marketing term. Here is the actual architecture behind it and what it takes to impleme.</p></div></a></article>
+        <article><a href="/blog/secure-sdlc" class="blog-card reveal" data-category="security"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Security</span><time datetime="2026-04-10">Apr 10</time><span>7 min</span></div><h3>Secure SDLC: Building Security Into the Development Lifecycle</h3><p>Security bolted on after build is expensive and incomplete. Secure SDLC integrates security into every phase.</p></div></a></article>
+        <article><a href="/blog/incident-response-security" class="blog-card reveal" data-category="security"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Security</span><time datetime="2026-04-09">Apr 9</time><span>8 min</span></div><h3>Security Incident Response: Detection to Recovery</h3><p>Security incidents are different from availability incidents. Here is the response model.</p></div></a></article>
+        <article><a href="/blog/api-security-guide" class="blog-card reveal" data-category="security"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Security</span><time datetime="2026-04-08">Apr 8</time><span>8 min</span></div><h3>API Security: OWASP API Top 10 in Practice</h3><p>API security has its own Top 10. Here is what each item means in practice and how to prevent it.</p></div></a></article>
+        <article><a href="/blog/threat-modeling-practical" class="blog-card reveal" data-category="security"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Security</span><time datetime="2026-04-07">Apr 7</time><span>6 min</span></div><h3>Threat Modeling: A Practical Guide</h3><p>Threat modeling sounds heavy. Done right it is a 30-minute meeting that prevents months of remediation.</p></div></a></article>
+        <article><a href="/blog/supply-chain-security" class="blog-card reveal" data-category="security"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Security</span><time datetime="2026-04-06">Apr 6</time><span>8 min</span></div><h3>Software Supply Chain Security: After SolarWinds</h3><p>Your dependencies have dependencies. Supply chain attacks exploit that. Here is how to defend.</p></div></a></article>
+        <article><a href="/blog/secrets-management" class="blog-card reveal" data-category="security"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Security</span><time datetime="2026-04-05">Apr 5</time><span>7 min</span></div><h3>Secrets Management: From Environment Variables to Vault</h3><p>Secrets sprawled across env vars, CI configs, and Slack messages is how breaches happen. Here is what proper s.</p></div></a></article>
+        <article><a href="/blog/compliance-soc2-hipaa" class="blog-card reveal" data-category="security"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Security</span><time datetime="2026-04-04">Apr 4</time><span>9 min</span></div><h3>Compliance for Engineers: SOC 2, HIPAA, and What They Actually Require</h3><p>Compliance is translation from legal/business to engineering. Here is what the common frameworks mean for code.</p></div></a></article>
+        <article><a href="/blog/devsecops-culture" class="blog-card reveal" data-category="security"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Security</span><time datetime="2026-04-03">Apr 3</time><span>6 min</span></div><h3>DevSecOps Culture: Shifting Security Left Without Shifting Burden</h3><p>DevSecOps works when security enables engineering, not slows it. Here is the culture that makes that real.</p></div></a></article>
+        <article><a href="/blog/penetration-testing-guide" class="blog-card reveal" data-category="security"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Security</span><time datetime="2026-04-02">Apr 2</time><span>7 min</span></div><h3>Penetration Testing: How to Buy It, How to Act on It</h3><p>Pen tests are often bought as a compliance checkbox. Done well they are genuinely valuable. Here is how to mak.</p></div></a></article>
+        <article><a href="/blog/identity-access-management" class="blog-card reveal" data-category="security"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Security</span><time datetime="2026-04-01">Apr 1</time><span>7 min</span></div><h3>Identity and Access Management: IAM That Scales</h3><p>Most IAM systems are a mess by year three. Here is the model that avoids that.</p></div></a></article>
+        <article><a href="/blog/modern-data-stack-2026" class="blog-card reveal" data-category="data"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Data</span><time datetime="2026-04-12">Apr 12</time><span>8 min</span></div><h3>The Modern Data Stack in 2026: What's In, What's Out</h3><p>The modern data stack has consolidated. Here is the current shape and where it is headed.</p></div></a></article>
+        <article><a href="/blog/dbt-best-practices" class="blog-card reveal" data-category="data"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Data</span><time datetime="2026-04-11">Apr 11</time><span>7 min</span></div><h3>dbt Best Practices: Writing Models That Scale</h3><p>dbt starts easy and gets complex. Here are the practices that keep dbt projects maintainable.</p></div></a></article>
+        <article><a href="/blog/data-governance-framework" class="blog-card reveal" data-category="data"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Data</span><time datetime="2026-04-10">Apr 10</time><span>7 min</span></div><h3>Data Governance That Engineers Will Actually Follow</h3><p>Data governance dies in thick policy docs. It lives in tooling and habits. Here is a governance model that wor.</p></div></a></article>
+        <article><a href="/blog/analytics-engineering-discipline" class="blog-card reveal" data-category="data"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Data</span><time datetime="2026-04-09">Apr 9</time><span>6 min</span></div><h3>Analytics Engineering: The Role That Changed Data</h3><p>Analytics engineering is the practice that made the modern data stack work. Here is what analytics engineers a.</p></div></a></article>
+        <article><a href="/blog/feature-store-guide" class="blog-card reveal" data-category="data"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Data</span><time datetime="2026-04-08">Apr 8</time><span>8 min</span></div><h3>Feature Stores: The Missing Piece of Production ML</h3><p>Feature stores bridge data engineering and ML. Here is when you need one and how to implement.</p></div></a></article>
+        <article><a href="/blog/data-quality-monitoring" class="blog-card reveal" data-category="data"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Data</span><time datetime="2026-04-07">Apr 7</time><span>7 min</span></div><h3>Data Quality Monitoring: From Reactive to Proactive</h3><p>Bad data breaks products silently. Data quality monitoring catches it before users notice.</p></div></a></article>
+        <article><a href="/blog/streaming-analytics-patterns" class="blog-card reveal" data-category="data"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Data</span><time datetime="2026-04-06">Apr 6</time><span>8 min</span></div><h3>Streaming Analytics: Patterns for Real-Time Data</h3><p>Streaming is expensive to operate. Here is when it is worth the cost and the patterns to use.</p></div></a></article>
+        <article><a href="/blog/data-team-structure" class="blog-card reveal" data-category="data"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Data</span><time datetime="2026-04-05">Apr 5</time><span>6 min</span></div><h3>How to Structure a Data Team</h3><p>Data team structure shapes what gets built and how fast. Here are the patterns and when each fits.</p></div></a></article>
+        <article><a href="/blog/metrics-layer-semantic" class="blog-card reveal" data-category="data"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Data</span><time datetime="2026-04-04">Apr 4</time><span>6 min</span></div><h3>The Metrics Layer: Single Source of Truth for Definitions</h3><p>Different teams define the same metric differently. The metrics layer solves it.</p></div></a></article>
+        <article><a href="/blog/data-contracts" class="blog-card reveal" data-category="data"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Data</span><time datetime="2026-04-03">Apr 3</time><span>7 min</span></div><h3>Data Contracts: APIs for the Data World</h3><p>Data pipelines break because upstream schemas change silently. Data contracts formalize the interface.</p></div></a></article>
+        <article><a href="/blog/build-vs-buy-framework" class="blog-card reveal" data-category="business"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Business</span><time datetime="2026-04-12">Apr 12</time><span>7 min</span></div><h3>Build vs Buy: A Framework for the Decision</h3><p>Build or buy is the most common strategic tech question. Here is the framework that gets it right.</p></div></a></article>
+        <article><a href="/blog/ai-strategy-non-tech-leader" class="blog-card reveal" data-category="business"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Business</span><time datetime="2026-04-11">Apr 11</time><span>6 min</span></div><h3>AI Strategy for Non-Technical Leaders</h3><p>Every business leader is being asked about AI strategy. Here is a framework that does not require being techni.</p></div></a></article>
+        <article><a href="/blog/engineering-roadmap-planning" class="blog-card reveal" data-category="business"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Business</span><time datetime="2026-04-10">Apr 10</time><span>7 min</span></div><h3>Engineering Roadmap Planning That Delivers</h3><p>Engineering roadmaps slip. Here is the planning approach that actually delivers what it promises.</p></div></a></article>
+        <article><a href="/blog/working-with-offshore-teams" class="blog-card reveal" data-category="business"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Business</span><time datetime="2026-04-09">Apr 9</time><span>7 min</span></div><h3>Working With Offshore Engineering Teams: The Real Playbook</h3><p>Offshore engineering works or fails on process, not on talent. Here is what distinguishes the successful partn.</p></div></a></article>
+        <article><a href="/blog/startup-cto-first-100-days" class="blog-card reveal" data-category="business"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Business</span><time datetime="2026-04-08">Apr 8</time><span>7 min</span></div><h3>The Startup CTO's First 100 Days</h3><p>Your first 100 days as startup CTO set the trajectory. Here is the playbook.</p></div></a></article>
+        <article><a href="/blog/software-estimation-reality" class="blog-card reveal" data-category="business"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Business</span><time datetime="2026-04-07">Apr 7</time><span>7 min</span></div><h3>Software Estimation: Why It's Hard and What Works Anyway</h3><p>Software estimates are wrong because software is research. Here is what actually works despite that.</p></div></a></article>
+        <article><a href="/blog/measuring-engineering-productivity" class="blog-card reveal" data-category="business"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Business</span><time datetime="2026-04-06">Apr 6</time><span>7 min</span></div><h3>Measuring Engineering Productivity: Metrics That Mean Something</h3><p>Lines of code are a joke. PRs merged is gameable. Here are the metrics that correlate with actual productivity.</p></div></a></article>
+        <article><a href="/blog/technology-vendor-selection" class="blog-card reveal" data-category="business"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">Business</span><time datetime="2026-04-05">Apr 5</time><span>6 min</span></div><h3>Technology Vendor Selection: The Evaluation Framework</h3><p>Vendor selection is often political. Here is a framework that makes it rational.</p></div></a></article>
+        <article><a href="/blog/sre-from-scratch" class="blog-card reveal" data-category="devops"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">DevOps</span><time datetime="2026-04-12">Apr 12</time><span>7 min</span></div><h3>Starting an SRE Practice From Scratch</h3><p>You don't need a full SRE team to adopt SRE practices. Here is what to start with and what to defer.</p></div></a></article>
+        <article><a href="/blog/chaos-engineering-practical" class="blog-card reveal" data-category="devops"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">DevOps</span><time datetime="2026-04-11">Apr 11</time><span>6 min</span></div><h3>Chaos Engineering: Practical Adoption for Normal Teams</h3><p>Chaos engineering is not just Netflix. Small teams can adopt it usefully. Here is how.</p></div></a></article>
+        <article><a href="/blog/platform-engineering-2026" class="blog-card reveal" data-category="devops"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">DevOps</span><time datetime="2026-04-10">Apr 10</time><span>7 min</span></div><h3>Platform Engineering: The Internal Developer Platform Pattern</h3><p>Platform engineering has emerged as the evolution of DevOps. Here is what it means and how to build one.</p></div></a></article>
+        <article><a href="/blog/gitops-deployment-patterns" class="blog-card reveal" data-category="devops"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">DevOps</span><time datetime="2026-04-09">Apr 9</time><span>7 min</span></div><h3>GitOps Deployment Patterns That Scale</h3><p>GitOps treats git as the source of truth for infrastructure and deployments. Here are the patterns that work.</p></div></a></article>
+        <article><a href="/blog/monitoring-slo-based" class="blog-card reveal" data-category="devops"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">DevOps</span><time datetime="2026-04-08">Apr 8</time><span>6 min</span></div><h3>SLO-Based Monitoring: Better Alerts, Less Fatigue</h3><p>SLO-based alerts are a quieter, more actionable alternative to threshold-based. Here is how to implement them.</p></div></a></article>
+        <article><a href="/blog/progressive-delivery-2026" class="blog-card reveal" data-category="devops"><div class="blog-card-body"><div class="blog-card-meta"><span class="blog-card-category">DevOps</span><time datetime="2026-04-07">Apr 7</time><span>6 min</span></div><h3>Progressive Delivery: Canary, Blue-Green, Feature Flags</h3><p>Progressive delivery separates deploy from release. Here is how the modern patterns fit together.</p></div></a></article>
+
+      </div>
+    </section>
+
+  </div><!-- .content -->
+
+  <!-- FOOTER -->
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initBlogVideoBg } from '/js/blog-video-bg.js';
+    initBlogVideoBg();
+    initUI();
+
+    // Blog category filter — auto reflow grid, no blanks
+    function filterBlog(filter) {
+      document.querySelectorAll('#blog-grid .blog-card').forEach(card => {
+        const article = card.closest('article') || card.parentElement;
+        const match = filter === 'all' || card.dataset.category === filter;
+        article.classList.toggle('hidden', !match);
+      });
+    }
+
+    document.querySelectorAll('.blog-filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterBlog(btn.dataset.filter);
+      });
+    });
+
+    // Grid / List view toggle
+    document.querySelectorAll('.blog-view-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.blog-view-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const grid = document.getElementById('blog-grid');
+        if (btn.dataset.view === 'list') {
+          grid.classList.add('list-view');
+        } else {
+          grid.classList.remove('list-view');
+        }
+        // Save preference
+        localStorage.setItem('blog-view', btn.dataset.view);
+      });
+    });
+
+    // Restore saved view preference
+    const savedView = localStorage.getItem('blog-view');
+    if (savedView === 'list') {
+      document.getElementById('blog-grid')?.classList.add('list-view');
+      document.querySelectorAll('.blog-view-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.view === 'list');
+      });
+    }
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

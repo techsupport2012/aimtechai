@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>AI API vs Custom AI Models: Which is Better for Your Business? | AIM Tech AI</title>
+  <meta name="description" content="Compare AI APIs like OpenAI with custom-built AI models. Learn when to build vs buy AI solutions based on your business stage, budget, and long-term strategy.">
+  <link rel="canonical" href="https://aimtechai.com/blog/ai-api-vs-custom-models">
+  <meta property="og:title" content="AI API vs Custom AI Models: Which is Better for Your Business? | AIM Tech AI">
+  <meta property="og:description" content="Compare AI APIs like OpenAI with custom-built AI models. Learn when to build vs buy AI solutions based on your business stage, budget, and long-term strategy.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aimtechai.com/blog/ai-api-vs-custom-models">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI API vs Custom AI Models: Which is Better for Your Business? | AIM Tech AI">
+  <meta name="twitter:description" content="Compare AI APIs like OpenAI with custom-built AI models. Learn when to build vs buy AI solutions based on your business stage, budget, and long-term strategy.">
+  <meta name="keywords" content="AI API vs custom models, OpenAI API, custom AI, build vs buy AI">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "AI API vs Custom AI Models: Which is Better for Your Business?",
+    "datePublished": "2026-04-09",
+    "author": {
+      "@type": "Organization",
+      "name": "AIM Tech AI"
+    },
+    "description": "Compare AI APIs like OpenAI with custom-built AI models. Learn when to build vs buy AI solutions based on your business stage, budget, and long-term strategy.",
+    "keywords": ["AI API vs custom models", "OpenAI API", "custom AI", "build vs buy AI"],
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIM Tech AI"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aimtechai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aimtechai.com/blog" },
+      { "@type": "ListItem", "position": 3, "name": "AI API vs Custom AI Models: Which is Better for Your Business?" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the difference between an AI API and a custom AI model?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An AI API is a pre-built service from providers like OpenAI or Google that you access through HTTP requests. A custom AI model is trained specifically on your data and deployed within your own infrastructure. APIs offer speed and simplicity; custom models offer full control over data, performance tuning, and long-term cost efficiency."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should a business choose an AI API over a custom model?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Choose an AI API when you need to move fast, have limited ML expertise in-house, or your use case aligns well with general-purpose models. APIs are ideal for prototyping, early-stage products, and standard tasks like text generation, summarization, or image recognition."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does it cost to build a custom AI model?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Custom AI model development typically ranges from $50,000 to $500,000 or more depending on complexity, data requirements, and infrastructure needs. Ongoing costs include compute for training and inference, data pipeline maintenance, and ML engineering salaries. However, at scale the per-query cost is often significantly lower than API pricing."
+        }
+      }
+    ]
+  }
+  </script>
+<script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#values" data-scramble>Values</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+
+  <div class="content">
+  <div class="content blog-article-page">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/blog">Blog</a> &rsaquo; AI API vs Custom Models</div>
+      <h1>AI API vs Custom AI Models: Which is Better for Your Business?</h1>
+      <p class="hero-sub" style="opacity:1;transform:none;">April 9, 2026 &bull; 6 min read</p>
+    </div>
+
+    <div class="glow-divider"></div>
+
+    <!-- ARTICLE -->
+    <section style="max-width:1300px;margin:0 auto;">
+      <a href="/blog" style="color:var(--clr-accent);text-decoration:none;font-size:0.9rem;display:inline-block;margin-bottom:2rem;">&larr; Back to Blog</a>
+
+      <div style="max-width:800px;margin:0 auto;background:linear-gradient(135deg,rgba(255,255,255,0.18),rgba(255,255,255,0.08));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:3rem;box-shadow:0 8px 32px rgba(0,0,0,0.25);">
+
+        <article style="color:var(--clr-text-dim);font-weight:300;font-size:0.95rem;line-height:1.8;">
+
+                    <!-- quick-answer-v1 -->
+          <aside class="quick-answer" style="background:rgba(15,193,183,0.08);border-left:4px solid var(--clr-primary);border-radius:12px;padding:1.4rem 1.6rem;margin-bottom:1.8rem;">
+            <div style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-primary);margin-bottom:0.6rem;text-shadow:none;">Quick Answer</div>
+            <p class="speakable-intro" style="margin:0;color:var(--clr-text);">Every company adopting artificial intelligence faces the same fundamental question: should we use a third-party AI API or invest in building a custom model? The answer is not one-size-fits-all.</p>
+          </aside>
+
+          <p>Every company adopting artificial intelligence faces the same fundamental question: should we use a third-party AI API or invest in building a custom model? The answer is not one-size-fits-all. It depends on your data, your budget, your timeline, and where your business sits on the growth curve. At <a href="/ai">AIM Tech AI</a>, we help organizations navigate this decision every week, and the right choice often surprises people.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">What is an AI API vs a Custom AI Model?</h2>
+
+          <p>An AI API is a pre-trained model hosted by a provider like OpenAI, Google, or Anthropic. You send data to their servers via HTTP requests and receive predictions or generated content in return. A custom AI model, by contrast, is trained on your proprietary data and deployed on infrastructure you control. APIs trade control for convenience; custom models trade speed-to-market for precision and ownership.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">The Case for AI APIs</h2>
+
+          <p>APIs win when speed matters most. You can integrate an OpenAI API endpoint into a product in days, not months. There is no need to hire ML engineers, build training pipelines, or manage GPU clusters. For startups validating a concept or enterprises running a pilot, APIs are the fastest path to a working prototype. Our <a href="/consulting">consulting practice</a> frequently recommends APIs for early-stage projects where the goal is learning, not perfection.</p>
+
+          <p>The cost structure also favors APIs at low volume. Pay-per-request pricing means you only spend money when the system is actually being used. There are no idle compute costs, no data engineering overhead, and no model retraining cycles to manage.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">The Case for Custom Models</h2>
+
+          <p>Custom models become the better choice when your use case demands domain-specific accuracy, when data privacy is non-negotiable, or when API costs at scale become prohibitive. A healthcare company processing millions of clinical notes cannot afford the latency or data exposure of sending patient records to a third-party endpoint. A financial services firm needs models tuned to its specific risk frameworks, not generic predictions.</p>
+
+          <p>At AIM Tech AI, we have built custom models for clients where the per-query cost dropped by 80% compared to API pricing once volume exceeded a critical threshold. The upfront investment is higher, but the long-term economics are compelling for high-volume applications. Proper <a href="/cloud">cloud infrastructure</a> design is essential to keep training and inference costs predictable.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Side-by-Side Comparison</h2>
+
+          <table style="width:100%;border-collapse:collapse;margin:1rem 0;font-size:0.9rem;">
+            <thead>
+              <tr style="border-bottom:2px solid var(--clr-border);">
+                <th style="text-align:left;padding:0.6rem;color:var(--clr-text);">Factor</th>
+                <th style="text-align:left;padding:0.6rem;color:var(--clr-text);">AI API</th>
+                <th style="text-align:left;padding:0.6rem;color:var(--clr-text);">Custom Model</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--clr-border);"><td style="padding:0.6rem;">Time to deploy</td><td style="padding:0.6rem;">Days to weeks</td><td style="padding:0.6rem;">Months</td></tr>
+              <tr style="border-bottom:1px solid var(--clr-border);"><td style="padding:0.6rem;">Upfront cost</td><td style="padding:0.6rem;">Low</td><td style="padding:0.6rem;">High</td></tr>
+              <tr style="border-bottom:1px solid var(--clr-border);"><td style="padding:0.6rem;">Cost at scale</td><td style="padding:0.6rem;">High</td><td style="padding:0.6rem;">Low</td></tr>
+              <tr style="border-bottom:1px solid var(--clr-border);"><td style="padding:0.6rem;">Data privacy</td><td style="padding:0.6rem;">Limited</td><td style="padding:0.6rem;">Full control</td></tr>
+              <tr style="border-bottom:1px solid var(--clr-border);"><td style="padding:0.6rem;">Customization</td><td style="padding:0.6rem;">Prompt-level</td><td style="padding:0.6rem;">Architecture-level</td></tr>
+              <tr style="border-bottom:1px solid var(--clr-border);"><td style="padding:0.6rem;">Maintenance</td><td style="padding:0.6rem;">Provider-managed</td><td style="padding:0.6rem;">In-house team</td></tr>
+            </tbody>
+          </table>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Growth Stage Matters</h2>
+
+          <p>The smartest approach is often hybrid. Start with APIs to validate the use case, then migrate to custom models as volume and requirements justify the investment. AIM Tech AI designs architectures with this transition in mind, building abstraction layers that let you swap the underlying model without rewriting your application. Our <a href="/ui-ux">UI/UX team</a> ensures the end-user experience remains seamless regardless of what powers the backend.</p>
+
+          <p>The critical mistake is treating this as a permanent, binary decision. Your AI strategy should evolve with your business. What works at 1,000 requests per day will not work at 1,000,000. Companies that plan for this transition from the beginning, with proper <a href="/qa">testing and quality assurance</a> at every stage, consistently outperform those that lock into a single approach.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Making the Right Choice</h2>
+
+          <p>If you are early stage, resource-constrained, or exploring a new AI use case, start with APIs. If you have proprietary data that creates competitive advantage, strict compliance requirements, or high-volume workloads, invest in custom models. And if you are somewhere in between, a phased approach with clear migration triggers is the best path forward. Explore our <a href="/portfolio">portfolio</a> to see how we have helped companies at every stage, or read more on our <a href="/blog">blog</a> about AI strategy. Ready to figure out which approach fits your business? <a href="/#contact">Contact AIM Tech AI</a> for a free consultation.</p>
+
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Frequently Asked Questions</h2>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">What is the difference between an AI API and a custom AI model?</h3>
+          <p>An AI API is a pre-built service from providers like OpenAI or Google that you access through HTTP requests. A custom AI model is trained specifically on your data and deployed within your own infrastructure. APIs offer speed and simplicity; custom models offer full control over data, performance tuning, and long-term cost efficiency.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">When should a business choose an AI API over a custom model?</h3>
+          <p>Choose an AI API when you need to move fast, have limited ML expertise in-house, or your use case aligns well with general-purpose models. APIs are ideal for prototyping, early-stage products, and standard tasks like text generation, summarization, or image recognition.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">How much does it cost to build a custom AI model?</h3>
+          <p>Custom AI model development typically ranges from $50,000 to $500,000 or more depending on complexity, data requirements, and infrastructure needs. Ongoing costs include compute for training and inference, data pipeline maintenance, and ML engineering salaries. However, at scale the per-query cost is often significantly lower than API pricing.</p>
+
+        
+<style>
+.blog-article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 3rem 0 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.blog-article-nav a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-decoration: none;
+  max-width: 45%;
+  transition: opacity 0.3s;
+}
+.blog-article-nav a:hover { opacity: 0.7; }
+.blog-article-nav .nav-label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--clr-primary);
+  font-weight: 500;
+}
+.blog-article-nav .nav-title {
+  font-size: 0.9rem;
+  color: var(--clr-text);
+  font-weight: 500;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.blog-article-nav .next { text-align: right; margin-left: auto; }
+[data-theme="light"] .blog-article-nav { border-top-color: rgba(0,0,0,0.08); }
+@media (max-width: 600px) {
+  .blog-article-nav { flex-direction: column; gap: 1.5rem; }
+  .blog-article-nav a { max-width: 100%; }
+  .blog-article-nav .next { text-align: left; }
+}
+</style>
+<div class="blog-article-nav"><a href="/blog/ai-agents-guide" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">What Are AI Agents? How Businesses Are Replacing Entire Teams in 2026</span></a><a href="/blog/ai-automation-roi" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">AI Automation ROI Explained: Why It Pays Off Fast</span></a></div>
+
+          <!-- strong-cta-v1 -->
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+          <section class="cta-block" style="margin-top:2.2rem;padding:2rem 1.8rem;background:linear-gradient(135deg,rgba(15,193,183,0.18),rgba(42,53,75,0.25));border:1px solid rgba(15,193,183,0.35);border-radius:16px;text-align:center;">
+            <h2 style="color:var(--clr-text);margin-top:0;font-size:1.5rem;">Build Systems, Not Experiments</h2>
+            <p style="color:var(--clr-text);margin:0.6rem 0 1.3rem;">AIM Tech AI designs and ships AI, cloud, and custom software systems for companies ready to turn technology into real business advantage.</p>
+            <a href="/book" style="display:inline-block;padding:0.95rem 2rem;background:var(--clr-primary);color:#0a0608;border-radius:12px;font-weight:700;text-decoration:none;text-shadow:none;letter-spacing:0.3px;">Book a Strategy Call &rarr;</a>
+            <div style="margin-top:0.9rem;font-size:0.82rem;color:var(--clr-text-dim);">Free 30-min consultation &bull; No obligation</div>
+          </section>
+</article>
+      </div>
+    </section>
+
+    <div class="glow-divider"></div>
+
+  </div>
+
+  <!-- FOOTER -->
+    <!-- FOOTER -->
+  </div><!-- .content -->
+
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <a href="/blog" class="back-link">&larr; Blog</a>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script>if(location.hostname!=="localhost"&&!location.hostname.startsWith("127.")){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";document.head.appendChild(s);}</script>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initBlogVideoBg } from '/js/blog-video-bg.js';
+    // import { initVideoBackground } from '/js/video-bg.js'; // HIDDEN
+    import { initRouter } from '/js/router.js';
+    // const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // initVideoBackground({ reducedMotion }).catch(err => console.warn('[video-bg]', err));
+    initBlogVideoBg();
+    initUI();
+    initRouter();
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

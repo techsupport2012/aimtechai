@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>The Testing Strategy Every Modern App Needs | AIM Tech AI Blog</title>
+  <meta name="description" content="Learn the essential testing strategy for modern applications: test pyramid, CI/CD pipelines, observability, and automated QA practices that ensure software quality.">
+  <link rel="canonical" href="https://aimtechai.com/blog/testing-strategy-modern-apps">
+  <meta property="og:title" content="The Testing Strategy Every Modern App Needs | AIM Tech AI">
+  <meta property="og:description" content="Learn the essential testing strategy for modern applications: test pyramid, CI/CD pipelines, observability, and automated QA practices that ensure software quality.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aimtechai.com/blog/testing-strategy-modern-apps">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Testing Strategy Every Modern App Needs | AIM Tech AI">
+  <meta name="twitter:description" content="Learn the essential testing strategy for modern applications: test pyramid, CI/CD pipelines, observability, and automated QA practices that ensure software quality.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The Testing Strategy Every Modern App Needs",
+    "datePublished": "2026-04-10",
+    "author": {
+      "@type": "Organization",
+      "name": "AIM Tech AI",
+      "url": "https://aimtechai.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIM Tech AI",
+      "url": "https://aimtechai.com"
+    },
+    "description": "Learn the essential testing strategy for modern applications: test pyramid, CI/CD pipelines, observability, and automated QA practices that ensure software quality.",
+    "keywords": ["testing strategy", "QA", "CI/CD", "test automation", "software quality"],
+    "mainEntityOfPage": "https://aimtechai.com/blog/testing-strategy-modern-apps"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aimtechai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aimtechai.com/blog" },
+      { "@type": "ListItem", "position": 3, "name": "The Testing Strategy Every Modern App Needs", "item": "https://aimtechai.com/blog/testing-strategy-modern-apps" }
+    ]
+  }
+  </script>
+<script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#values" data-scramble>Values</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+
+  <div class="content">
+  <div class="content blog-article-page">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/blog">Blog</a> &rsaquo; Testing Strategy</div>
+      <h1>The Testing Strategy Every Modern App Needs</h1>
+      <p class="hero-sub" style="opacity:1;transform:none;">Published April 10, 2026 &middot; 7 min read</p>
+    </div>
+
+    <div class="glow-divider"></div>
+
+    <!-- ARTICLE -->
+    <section style="max-width:1300px;margin:0 auto;">
+      <p style="margin-bottom:2rem;"><a href="/blog" style="color:var(--clr-accent);text-decoration:none;">&larr; Back to Blog</a></p>
+
+      <div style="max-width:800px;margin:0 auto;background:linear-gradient(135deg,rgba(255,255,255,0.18),rgba(255,255,255,0.08));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:3rem;box-shadow:0 8px 32px rgba(0,0,0,0.25);">
+
+        <article style="color:var(--clr-text-dim);font-weight:300;font-size:0.95rem;line-height:1.8;">
+
+                    <!-- quick-answer-v1 -->
+          <aside class="quick-answer" style="background:rgba(15,193,183,0.08);border-left:4px solid var(--clr-primary);border-radius:12px;padding:1.4rem 1.6rem;margin-bottom:1.8rem;">
+            <div style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-primary);margin-bottom:0.6rem;text-shadow:none;">Quick Answer</div>
+            <p class="speakable-intro" style="margin:0;color:var(--clr-text);">Shipping software without a solid testing strategy is like driving at night with the headlights off. You might make it for a while, but eventually you are going to hit something.</p>
+          </aside>
+
+          <p>Shipping software without a solid testing strategy is like driving at night with the headlights off. You might make it for a while, but eventually you are going to hit something. At <a href="/qa">AIM Tech AI's QA and Testing practice</a>, we have seen firsthand how the right testing approach separates resilient products from fragile ones. This guide breaks down the testing strategy that every modern application needs to thrive in production.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Understanding the Test Pyramid</h2>
+
+          <p>The test pyramid remains the most practical mental model for structuring your test suite. Coined by Mike Cohn over a decade ago, it still holds up because it balances speed, cost, and confidence in a way that scales.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.5rem;">Unit Tests: The Foundation</h3>
+
+          <p>Unit tests form the base of the pyramid, and for good reason. They are fast, cheap to write, and pinpoint exactly where a failure occurs. A well-structured codebase should have hundreds or thousands of unit tests that run in seconds. These tests verify individual functions, methods, and classes in isolation. When our <a href="/consulting">consulting teams</a> audit a client's codebase, insufficient unit test coverage is one of the most common findings. We typically recommend targeting 80% code coverage at the unit level, focusing on business logic and edge cases rather than chasing vanity metrics.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.5rem;">Integration Tests: The Middle Layer</h3>
+
+          <p>Integration tests verify that components work together correctly. This includes testing API endpoints against real databases, verifying service-to-service communication, and ensuring third-party integrations behave as expected. These tests are slower than unit tests but catch an entirely different class of bugs: misconfigured connections, serialization mismatches, and timing issues that unit tests simply cannot detect. In modern microservice architectures, integration tests are arguably more important than ever. When your application spans dozens of services deployed to <a href="/cloud">cloud infrastructure</a>, the contract between services becomes the most fragile point in the system.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.5rem;">End-to-End Tests: The Peak</h3>
+
+          <p>End-to-end tests sit at the top of the pyramid. They simulate real user workflows through the entire stack, from the browser down to the database and back. These tests provide the highest confidence that your application works as users expect, but they come with trade-offs: they are slow, flaky, and expensive to maintain. The key is to be selective. Cover your critical user paths (sign-up, checkout, core workflows) and resist the temptation to write E2E tests for everything. A focused suite of 50 reliable E2E tests delivers more value than 500 flaky ones that your team learns to ignore.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">CI/CD: Making Testing Automatic</h2>
+
+          <p>A testing strategy only works if it actually runs. Continuous integration and continuous delivery pipelines are the mechanism that turns your test suite from a safety net into a gate. Every pull request should trigger the full unit and integration test suite. E2E tests can run on merge to the main branch or on a scheduled cadence, depending on how long they take. The goal is fast feedback. If a developer has to wait 45 minutes to find out their change broke something, they have already moved on to the next task. Pipeline optimization matters. Parallelize test execution, cache dependencies, and invest in fast infrastructure. At AIM Tech AI, we design CI/CD pipelines that give developers feedback in under ten minutes for the core test suite.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Observability: Testing in Production</h2>
+
+          <p>No matter how thorough your pre-production testing is, production will always surprise you. Observability (the combination of logging, metrics, and distributed tracing) is your testing strategy for the real world. Structured logging lets you search and filter production events. Metrics give you dashboards and alerts for key health indicators. Distributed tracing lets you follow a single request across every service it touches. Together, these tools let you detect problems before users report them. Our <a href="/ai">AI and machine learning teams</a> are increasingly applying anomaly detection to observability data, automatically flagging unusual patterns that would take a human analyst hours to spot.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">The Human Side of QA</h2>
+
+          <p>Automation handles the repetitive, deterministic checks. But there are aspects of quality that require human judgment: usability, accessibility, visual polish, and the overall experience of using your product. Exploratory testing sessions, where a skilled tester uses the application without a script, consistently uncover bugs that automated tests miss. These sessions are especially valuable before major releases. Code reviews are another human layer. When a second pair of eyes examines not just correctness but maintainability, security, and performance, the quality bar rises for the entire team. You can explore our <a href="/portfolio">portfolio</a> to see the quality standards we hold ourselves to across real-world projects.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Putting It All Together</h2>
+
+          <p>A modern testing strategy is not a single tool or practice. It is a layered system: a broad base of fast unit tests, a solid middle of integration tests, a focused peak of E2E tests, automated pipelines that enforce the whole thing, and observability that extends your quality assurance into production. The investment pays for itself. Teams that test well ship faster, not slower, because they spend less time debugging production issues and more time building features.</p>
+
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Frequently Asked Questions</h2>
+
+          <h3 style="color:var(--clr-text);margin-top:1.5rem;">How much of my budget should go toward testing?</h3>
+          <p>A common benchmark is 20-30% of total development effort. This sounds like a lot, but teams that under-invest in testing typically spend even more on bug fixes, hotfixes, and firefighting in production. The exact ratio depends on your industry and risk tolerance. Healthcare and financial applications often justify 40% or more.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.5rem;">Can AI replace human testers?</h3>
+          <p>AI is excellent at generating test cases, identifying flaky tests, and analyzing production logs for anomalies. But it cannot replace the judgment, creativity, and domain knowledge that human testers bring. The most effective approach combines both: use AI to handle the volume and repetition, and free up human testers for exploratory testing and strategic quality decisions.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.5rem;">What tools do you recommend for test automation?</h3>
+          <p>The best tool depends on your stack. For JavaScript projects, Jest and Playwright are strong choices. For Python, pytest combined with Selenium or Playwright covers most needs. For API testing, tools like Postman or REST-assured work well. The tool matters less than the strategy behind it. Consistent execution, fast feedback, and clear reporting are what make a test suite valuable.</p>
+
+        
+<style>
+.blog-article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 3rem 0 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.blog-article-nav a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-decoration: none;
+  max-width: 45%;
+  transition: opacity 0.3s;
+}
+.blog-article-nav a:hover { opacity: 0.7; }
+.blog-article-nav .nav-label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--clr-primary);
+  font-weight: 500;
+}
+.blog-article-nav .nav-title {
+  font-size: 0.9rem;
+  color: var(--clr-text);
+  font-weight: 500;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.blog-article-nav .next { text-align: right; margin-left: auto; }
+[data-theme="light"] .blog-article-nav { border-top-color: rgba(0,0,0,0.08); }
+@media (max-width: 600px) {
+  .blog-article-nav { flex-direction: column; gap: 1.5rem; }
+  .blog-article-nav a { max-width: 100%; }
+  .blog-article-nav .next { text-align: left; }
+}
+</style>
+<div class="blog-article-nav"><a href="/blog/secure-ai-future" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">Why Secure AI Systems Are the Future of Software & AI Development</span></a><a href="/blog/what-is-ai-automation" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">What is AI Automation? How It's Replacing Manual Work in 2026</span></a></div>
+
+          <!-- strong-cta-v1 -->
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+          <section class="cta-block" style="margin-top:2.2rem;padding:2rem 1.8rem;background:linear-gradient(135deg,rgba(15,193,183,0.18),rgba(42,53,75,0.25));border:1px solid rgba(15,193,183,0.35);border-radius:16px;text-align:center;">
+            <h2 style="color:var(--clr-text);margin-top:0;font-size:1.5rem;">Build Systems, Not Experiments</h2>
+            <p style="color:var(--clr-text);margin:0.6rem 0 1.3rem;">AIM Tech AI designs and ships AI, cloud, and custom software systems for companies ready to turn technology into real business advantage.</p>
+            <a href="/book" style="display:inline-block;padding:0.95rem 2rem;background:var(--clr-primary);color:#0a0608;border-radius:12px;font-weight:700;text-decoration:none;text-shadow:none;letter-spacing:0.3px;">Book a Strategy Call &rarr;</a>
+            <div style="margin-top:0.9rem;font-size:0.82rem;color:var(--clr-text-dim);">Free 30-min consultation &bull; No obligation</div>
+          </section>
+</article>
+
+      </div>
+    </section>
+
+    <div class="glow-divider"></div>
+
+    <!-- CONTACT -->
+    <section style="max-width:1100px;margin:0 auto;text-align:center;">
+      <div class="contact-card reveal">
+        <h2>Need a Testing Strategy for Your Application?</h2>
+        <p>Our QA experts can audit your current approach and build a testing framework that scales.</p>
+        <a href="/book" class="btn-primary">Contact Us &rarr;</a>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+    <!-- FOOTER -->
+  </div><!-- .content -->
+
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <a href="/blog" class="back-link">&larr; Blog</a>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script>if(location.hostname!=="localhost"&&!location.hostname.startsWith("127.")){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";document.head.appendChild(s);}</script>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initBlogVideoBg } from '/js/blog-video-bg.js';
+    // import { initVideoBackground } from '/js/video-bg.js'; // HIDDEN
+    import { initRouter } from '/js/router.js';
+    // const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // initVideoBackground({ reducedMotion }).catch(err => console.warn('[video-bg]', err));
+    initBlogVideoBg();
+    initUI();
+    initRouter();
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

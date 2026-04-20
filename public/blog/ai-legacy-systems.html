@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>How to Integrate AI Into Legacy Systems | AIM Tech AI</title>
+  <meta name="description" content="Learn how to integrate AI into legacy systems using APIs, middleware, and modular architecture. A practical step-by-step guide from AIM Tech AI.">
+  <link rel="canonical" href="https://aimtechai.com/blog/ai-legacy-systems">
+  <meta name="keywords" content="AI legacy systems, modernize legacy software, AI migration, legacy system integration, API layer AI">
+  <meta property="og:title" content="How to Integrate AI Into Legacy Systems | AIM Tech AI">
+  <meta property="og:description" content="Learn how to integrate AI into legacy systems using APIs, middleware, and modular architecture. A practical step-by-step guide from AIM Tech AI.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aimtechai.com/blog/ai-legacy-systems">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Integrate AI Into Legacy Systems | AIM Tech AI">
+  <meta name="twitter:description" content="Learn how to integrate AI into legacy systems using APIs, middleware, and modular architecture. A practical step-by-step guide from AIM Tech AI.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to Integrate AI Into Legacy Systems",
+    "datePublished": "2026-04-10",
+    "author": {
+      "@type": "Organization",
+      "name": "AIM Tech AI"
+    },
+    "description": "Learn how to integrate AI into legacy systems using APIs, middleware, and modular architecture. A practical step-by-step guide from AIM Tech AI.",
+    "keywords": ["AI legacy systems", "modernize legacy software", "AI migration", "legacy system integration"],
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIM Tech AI"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aimtechai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aimtechai.com/blog" },
+      { "@type": "ListItem", "position": 3, "name": "How to Integrate AI Into Legacy Systems" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the best way to add AI to legacy systems?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The most effective approach is to add an API layer between the legacy system and the AI service. This avoids modifying the legacy codebase directly, reduces risk, and allows the AI capabilities to be updated independently. Middleware and message queues can handle data translation between old and new formats."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to replace my legacy system to use AI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. In most cases, AI can be integrated alongside legacy systems without replacing them. Using APIs, middleware, and modular architecture, AI capabilities are added as a layer on top of existing infrastructure. This preserves your current investment while unlocking new capabilities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the biggest challenges of integrating AI with legacy systems?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Common challenges include limited or non-existent APIs on the legacy side, data stored in outdated formats, lack of documentation for legacy code, performance constraints when adding real-time AI processing, and organizational resistance to change. Each challenge has proven solutions when approached with the right methodology."
+        }
+      }
+    ]
+  }
+  </script>
+<script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#values" data-scramble>Values</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+
+  <div class="content">
+  <div class="content blog-article-page">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/blog">Blog</a> &rsaquo; AI and Legacy Systems</div>
+      <h1>How to Integrate AI Into Legacy Systems</h1>
+      <p class="hero-sub" style="opacity:1;transform:none;">April 10, 2026 &bull; 6 min read</p>
+    </div>
+
+    <div class="glow-divider"></div>
+
+    <!-- ARTICLE -->
+    <section style="max-width:1300px;margin:0 auto;">
+      <a href="/blog" style="color:var(--clr-accent);text-decoration:none;font-size:0.9rem;display:inline-block;margin-bottom:2rem;">&larr; Back to Blog</a>
+
+      <div style="max-width:800px;margin:0 auto;background:linear-gradient(135deg,rgba(255,255,255,0.18),rgba(255,255,255,0.08));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:3rem;box-shadow:0 8px 32px rgba(0,0,0,0.25);">
+
+        <article style="color:var(--clr-text-dim);font-weight:300;font-size:0.95rem;line-height:1.8;">
+
+          <h2 style="color:var(--clr-text);margin-top:0;">What Does It Mean to Integrate AI Into Legacy Systems?</h2>
+
+          <p>Most businesses do not operate on clean, modern technology stacks. They run on legacy systems, software built years or even decades ago that still powers critical operations. These systems work, but they were not designed for artificial intelligence. The challenge is adding AI capabilities without disrupting the infrastructure your business depends on every day.</p>
+
+          <p>At <a href="/ai">AIM Tech AI</a>, we specialize in exactly this problem. Integrating AI into legacy systems does not mean tearing everything down and starting over. It means strategically layering intelligent capabilities on top of existing infrastructure using APIs, middleware, and modular architecture. The legacy system continues to do what it does well while AI handles what it cannot.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">The Architecture: APIs, Middleware, and Modular Design</h2>
+
+          <p><strong>API layers.</strong> The most common approach is to expose legacy system data and functions through a modern API layer. If the legacy system does not have APIs, we build adapters that translate between the legacy interface (whether that is a database, file export, or screen scrape) and a RESTful or GraphQL API. This API becomes the bridge that AI services use to read data and write results back.</p>
+
+          <p><strong>Middleware.</strong> For systems with complex data formats or real-time requirements, middleware acts as the translation and orchestration layer. Message queues like RabbitMQ or Apache Kafka decouple the legacy system from the AI processing pipeline, ensuring that neither side blocks the other. Our <a href="/cloud">cloud infrastructure team</a> designs these pipelines for reliability and scale.</p>
+
+          <p><strong>Modular architecture.</strong> Rather than building a monolithic AI solution, we deploy AI as independent microservices. Each service handles a specific capability, such as document classification, sentiment analysis, or anomaly detection, and communicates with the legacy system through the API layer. This approach makes it easy to update, replace, or scale individual AI capabilities without touching the legacy code.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Step-by-Step: How AIM Tech AI Approaches Legacy Integration</h2>
+
+          <p><strong>Step 1: System Audit.</strong> Our <a href="/consulting">consulting team</a> begins with a thorough audit of the existing system. We map data flows, document interfaces, identify integration points, and assess data quality. This audit reveals both opportunities and risks before any code is written.</p>
+
+          <p><strong>Step 2: Identify Integration Points.</strong> Not every part of a legacy system benefits from AI. We prioritize the specific workflows where AI delivers the most value, such as automating manual data entry, adding intelligent search, or enabling predictive maintenance alerts. Focus beats breadth.</p>
+
+          <p><strong>Step 3: Build the API Layer.</strong> We create a clean API that abstracts the legacy system's complexity. This layer handles authentication, data transformation, rate limiting, and error handling. It becomes the stable contract between old and new.</p>
+
+          <p><strong>Step 4: Integrate AI Services.</strong> With the API layer in place, we connect AI models and services. These might be pre-trained models for common tasks or custom models trained on your specific data. Each AI service is deployed as an independent module with its own monitoring, logging, and <a href="/qa">quality assurance</a> checks.</p>
+
+          <p><strong>Step 5: Test, Deploy, and Monitor.</strong> We run the AI integration in parallel with existing processes before cutting over. This shadow mode lets us validate accuracy, measure performance, and build stakeholder confidence. Post-deployment monitoring ensures the system continues to perform as expected.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Common Challenges and Solutions</h2>
+
+          <p><strong>No existing APIs.</strong> Many legacy systems were built before API-first design was standard. We solve this by building adapter services that interface with whatever the system does expose, whether that is a database connection, file exports, or even screen automation.</p>
+
+          <p><strong>Data quality issues.</strong> Legacy systems often contain inconsistent, incomplete, or outdated data. We include a data cleaning and normalization phase in every project because AI models are only as good as the data they process.</p>
+
+          <p><strong>Performance constraints.</strong> Adding real-time AI processing to a system designed for batch operations requires careful architecture. Asynchronous processing, caching, and <a href="/ui-ux">well-designed user interfaces</a> that set appropriate expectations help bridge this gap.</p>
+
+          <p><strong>Organizational resistance.</strong> People who have worked with a legacy system for years can be skeptical of changes. Clear communication, phased rollouts, and visible wins early in the process help build buy-in across the organization.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Start the Conversation</h2>
+
+          <p>Legacy systems are not obstacles to AI adoption. They are the foundation you build on. AIM Tech AI has helped organizations across healthcare, finance, logistics, and manufacturing add AI capabilities to systems ranging from mainframes to early-generation web applications. Visit our <a href="/about">about page</a> to learn more about our team, explore our <a href="/portfolio">portfolio</a> for examples, or <a href="/#contact">contact us</a> to discuss your legacy integration challenge.</p>
+
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Frequently Asked Questions</h2>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">What is the best way to add AI to legacy systems?</h3>
+          <p>The most effective approach is to add an API layer between the legacy system and the AI service. This avoids modifying the legacy codebase directly, reduces risk, and allows the AI capabilities to be updated independently. Middleware and message queues can handle data translation between old and new formats.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">Do I need to replace my legacy system to use AI?</h3>
+          <p>No. In most cases, AI can be integrated alongside legacy systems without replacing them. Using APIs, middleware, and modular architecture, AI capabilities are added as a layer on top of existing infrastructure. This preserves your current investment while unlocking new capabilities.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">What are the biggest challenges of integrating AI with legacy systems?</h3>
+          <p>Common challenges include limited or non-existent APIs on the legacy side, data stored in outdated formats, lack of documentation for legacy code, performance constraints when adding real-time AI processing, and organizational resistance to change. Each challenge has proven solutions when approached with the right methodology, which is why partnering with an experienced team like <a href="/blog">AIM Tech AI</a> makes a measurable difference.</p>
+
+        
+<style>
+.blog-article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 3rem 0 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.blog-article-nav a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-decoration: none;
+  max-width: 45%;
+  transition: opacity 0.3s;
+}
+.blog-article-nav a:hover { opacity: 0.7; }
+.blog-article-nav .nav-label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--clr-primary);
+  font-weight: 500;
+}
+.blog-article-nav .nav-title {
+  font-size: 0.9rem;
+  color: var(--clr-text);
+  font-weight: 500;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.blog-article-nav .next { text-align: right; margin-left: auto; }
+[data-theme="light"] .blog-article-nav { border-top-color: rgba(0,0,0,0.08); }
+@media (max-width: 600px) {
+  .blog-article-nav { flex-direction: column; gap: 1.5rem; }
+  .blog-article-nav a { max-width: 100%; }
+  .blog-article-nav .next { text-align: left; }
+}
+</style>
+<div class="blog-article-nav"><a href="/blog/ai-integration-mistakes" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">7 Common AI Integration Mistakes (And How to Avoid Them)</span></a><a href="/blog/ai-productivity-systems" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">AI Productivity Systems: How Teams Are Working 10x Faster</span></a></div>
+
+          <!-- strong-cta-v1 -->
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+          <section class="cta-block" style="margin-top:2.2rem;padding:2rem 1.8rem;background:linear-gradient(135deg,rgba(15,193,183,0.18),rgba(42,53,75,0.25));border:1px solid rgba(15,193,183,0.35);border-radius:16px;text-align:center;">
+            <h2 style="color:var(--clr-text);margin-top:0;font-size:1.5rem;">Build Systems, Not Experiments</h2>
+            <p style="color:var(--clr-text);margin:0.6rem 0 1.3rem;">AIM Tech AI designs and ships AI, cloud, and custom software systems for companies ready to turn technology into real business advantage.</p>
+            <a href="/book" style="display:inline-block;padding:0.95rem 2rem;background:var(--clr-primary);color:#0a0608;border-radius:12px;font-weight:700;text-decoration:none;text-shadow:none;letter-spacing:0.3px;">Book a Strategy Call &rarr;</a>
+            <div style="margin-top:0.9rem;font-size:0.82rem;color:var(--clr-text-dim);">Free 30-min consultation &bull; No obligation</div>
+          </section>
+</article>
+      </div>
+    </section>
+
+    <div class="glow-divider"></div>
+
+  </div>
+
+  <!-- FOOTER -->
+    <!-- FOOTER -->
+  </div><!-- .content -->
+
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <a href="/blog" class="back-link">&larr; Blog</a>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script>if(location.hostname!=="localhost"&&!location.hostname.startsWith("127.")){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";document.head.appendChild(s);}</script>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initBlogVideoBg } from '/js/blog-video-bg.js';
+    // import { initVideoBackground } from '/js/video-bg.js'; // HIDDEN
+    import { initRouter } from '/js/router.js';
+    // const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // initVideoBackground({ reducedMotion }).catch(err => console.warn('[video-bg]', err));
+    initBlogVideoBg();
+    initUI();
+    initRouter();
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

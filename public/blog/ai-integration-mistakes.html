@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>7 Common AI Integration Mistakes (And How to Avoid Them) | AIM Tech AI</title>
+  <meta name="description" content="Avoid the most common AI integration mistakes that cause project failures. Learn how to fix issues with use cases, data quality, UX, security, testing, architecture, and monitoring.">
+  <link rel="canonical" href="https://aimtechai.com/blog/ai-integration-mistakes">
+  <meta property="og:title" content="7 Common AI Integration Mistakes (And How to Avoid Them) | AIM Tech AI">
+  <meta property="og:description" content="Avoid the most common AI integration mistakes that cause project failures. Learn how to fix issues with use cases, data quality, UX, security, testing, architecture, and monitoring.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aimtechai.com/blog/ai-integration-mistakes">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="7 Common AI Integration Mistakes (And How to Avoid Them) | AIM Tech AI">
+  <meta name="twitter:description" content="Avoid the most common AI integration mistakes that cause project failures. Learn how to fix issues with use cases, data quality, UX, security, testing, architecture, and monitoring.">
+  <meta name="keywords" content="AI mistakes, AI integration errors, AI project failure">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "7 Common AI Integration Mistakes (And How to Avoid Them)",
+    "datePublished": "2026-04-08",
+    "author": {
+      "@type": "Organization",
+      "name": "AIM Tech AI"
+    },
+    "description": "Avoid the most common AI integration mistakes that cause project failures. Learn how to fix issues with use cases, data quality, UX, security, testing, architecture, and monitoring.",
+    "keywords": ["AI mistakes", "AI integration errors", "AI project failure"],
+    "publisher": {
+      "@type": "Organization",
+      "name": "AIM Tech AI"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aimtechai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aimtechai.com/blog" },
+      { "@type": "ListItem", "position": 3, "name": "7 Common AI Integration Mistakes (And How to Avoid Them)" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the most common reason AI projects fail?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The most common reason AI projects fail is the lack of a clear, measurable use case. Teams often adopt AI because it sounds innovative without defining what specific problem it solves, how success will be measured, or whether AI is even the right tool for the job."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can businesses avoid AI integration mistakes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Businesses can avoid AI integration mistakes by starting with a well-defined problem, investing in data quality before model development, involving UX designers from day one, building security into the architecture, implementing comprehensive testing, choosing the right technical architecture, and setting up monitoring and alerting for production systems."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does data quality matter so much for AI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI models learn patterns from data. If the training data is incomplete, biased, poorly labeled, or inconsistent, the model will produce unreliable outputs. No amount of architectural sophistication can compensate for fundamentally flawed data. Data quality is the single biggest determinant of AI system performance."
+        }
+      }
+    ]
+  }
+  </script>
+<script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#values" data-scramble>Values</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+
+  <div class="content">
+  <div class="content blog-article-page">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/blog">Blog</a> &rsaquo; AI Integration Mistakes</div>
+      <h1>7 Common AI Integration Mistakes (And How to Avoid Them)</h1>
+      <p class="hero-sub" style="opacity:1;transform:none;">April 8, 2026 &bull; 6 min read</p>
+    </div>
+
+    <div class="glow-divider"></div>
+
+    <!-- ARTICLE -->
+    <section style="max-width:1300px;margin:0 auto;">
+      <a href="/blog" style="color:var(--clr-accent);text-decoration:none;font-size:0.9rem;display:inline-block;margin-bottom:2rem;">&larr; Back to Blog</a>
+
+      <div style="max-width:800px;margin:0 auto;background:linear-gradient(135deg,rgba(255,255,255,0.18),rgba(255,255,255,0.08));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:3rem;box-shadow:0 8px 32px rgba(0,0,0,0.25);">
+
+        <article style="color:var(--clr-text-dim);font-weight:300;font-size:0.95rem;line-height:1.8;">
+
+                    <!-- quick-answer-v1 -->
+          <aside class="quick-answer" style="background:rgba(15,193,183,0.08);border-left:4px solid var(--clr-primary);border-radius:12px;padding:1.4rem 1.6rem;margin-bottom:1.8rem;">
+            <div style="font-family:var(--font-mono);font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-primary);margin-bottom:0.6rem;text-shadow:none;">Quick Answer</div>
+            <p class="speakable-intro" style="margin:0;color:var(--clr-text);">Most AI projects do not fail because the technology is immature. They fail because of avoidable mistakes in planning, execution, and deployment.</p>
+          </aside>
+
+          <p>Most AI projects do not fail because the technology is immature. They fail because of avoidable mistakes in planning, execution, and deployment. After delivering dozens of AI integrations across industries, the team at <a href="/ai">AIM Tech AI</a> has seen the same patterns repeat. Here are the seven most common AI integration mistakes and concrete steps to avoid each one.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">What is an AI Integration Mistake?</h2>
+
+          <p>An AI integration mistake is any decision or oversight during the planning, development, or deployment of an AI system that leads to underperformance, wasted resources, or outright project failure. These mistakes are not technical edge cases. They are systemic errors that can be prevented with the right process and expertise.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">1. No Clear Use Case</h2>
+
+          <p>The most expensive mistake is building AI without a specific problem to solve. "We need AI" is not a use case. A use case sounds like: "We need to reduce customer support response time from 4 hours to 15 minutes for tier-1 tickets." Without this clarity, teams build impressive demos that never reach production. AIM Tech AI starts every engagement with use case definition workshops that force specificity before a single line of code is written.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">2. Poor Data Quality</h2>
+
+          <p>AI models are only as good as the data they learn from. Incomplete records, inconsistent labeling, duplicate entries, and biased samples all degrade model performance. Before investing in model development, invest in a data audit. Our <a href="/consulting">consulting team</a> typically spends the first two weeks of any engagement assessing data readiness, because no architecture can compensate for bad data.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">3. Ignoring UX</h2>
+
+          <p>An AI system that works perfectly but frustrates users is a failed product. We have seen brilliant models buried behind confusing interfaces that no one wants to use. The <a href="/ui-ux">UI/UX design</a> of an AI-powered application is not a cosmetic layer; it determines whether users trust the system, understand its outputs, and actually adopt it into their daily workflow.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">4. Weak Security</h2>
+
+          <p>AI systems often handle sensitive data: customer information, financial records, healthcare data. Bolting on security after deployment is like installing a lock on an already-broken door. Authentication, encryption, access controls, and audit logging must be designed into the system from day one. AIM Tech AI builds every AI integration with security as a foundational layer, not an afterthought.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">5. Insufficient Testing</h2>
+
+          <p>Traditional software testing checks whether code produces expected outputs. AI testing is fundamentally different because outputs are probabilistic. You need evaluation frameworks that measure accuracy, latency, edge case handling, and regression over time. Our <a href="/qa">QA and testing practice</a> has developed specialized testing protocols for AI systems that go far beyond unit tests and integration tests.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">6. Wrong Architecture</h2>
+
+          <p>Choosing the wrong technical architecture creates problems that compound over time. Monolithic designs that cannot scale, tightly coupled components that cannot be updated independently, and missing abstraction layers that lock you into a single model provider are all common pitfalls. Proper <a href="/cloud">cloud architecture</a> planning ensures your AI system can grow, adapt, and evolve without requiring a complete rebuild.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">7. No Production Monitoring</h2>
+
+          <p>Deploying an AI model without monitoring is like flying blind. Models degrade over time as data distributions shift. Without real-time monitoring of prediction quality, latency, error rates, and user feedback, you will not know your system is underperforming until customers start complaining. Every production AI system needs dashboards, alerts, and automated retraining triggers.</p>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Getting It Right</h2>
+
+          <p>The common thread across all seven mistakes is the same: treating AI as a technology problem instead of a product problem. Successful AI integration requires cross-functional thinking that spans data engineering, software architecture, UX design, security, and ongoing operations. Explore our <a href="/about">approach</a> and <a href="/portfolio">past work</a> to see how we help companies avoid these pitfalls, or browse more insights on our <a href="/blog">blog</a>. If your AI project is struggling or you want to start one the right way, <a href="/#contact">talk to AIM Tech AI today</a>.</p>
+
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Frequently Asked Questions</h2>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">What is the most common reason AI projects fail?</h3>
+          <p>The most common reason AI projects fail is the lack of a clear, measurable use case. Teams often adopt AI because it sounds innovative without defining what specific problem it solves, how success will be measured, or whether AI is even the right tool for the job.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">How can businesses avoid AI integration mistakes?</h3>
+          <p>Businesses can avoid AI integration mistakes by starting with a well-defined problem, investing in data quality before model development, involving UX designers from day one, building security into the architecture, implementing comprehensive testing, choosing the right technical architecture, and setting up monitoring and alerting for production systems.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">Why does data quality matter so much for AI?</h3>
+          <p>AI models learn patterns from data. If the training data is incomplete, biased, poorly labeled, or inconsistent, the model will produce unreliable outputs. No amount of architectural sophistication can compensate for fundamentally flawed data. Data quality is the single biggest determinant of AI system performance.</p>
+
+        
+<style>
+.blog-article-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 3rem 0 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.blog-article-nav a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  text-decoration: none;
+  max-width: 45%;
+  transition: opacity 0.3s;
+}
+.blog-article-nav a:hover { opacity: 0.7; }
+.blog-article-nav .nav-label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--clr-primary);
+  font-weight: 500;
+}
+.blog-article-nav .nav-title {
+  font-size: 0.9rem;
+  color: var(--clr-text);
+  font-weight: 500;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.blog-article-nav .next { text-align: right; margin-left: auto; }
+[data-theme="light"] .blog-article-nav { border-top-color: rgba(0,0,0,0.08); }
+@media (max-width: 600px) {
+  .blog-article-nav { flex-direction: column; gap: 1.5rem; }
+  .blog-article-nav a { max-width: 100%; }
+  .blog-article-nav .next { text-align: left; }
+}
+</style>
+<div class="blog-article-nav"><a href="/blog/ai-integration-guide" class="prev"><span class="nav-label">&larr; Previous</span><span class="nav-title">What is AI Integration? Complete Guide for Businesses in 2026</span></a><a href="/blog/ai-legacy-systems" class="next"><span class="nav-label">Next &rarr;</span><span class="nav-title">How to Integrate AI Into Legacy Systems</span></a></div>
+
+          <!-- strong-cta-v1 -->
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+          <section class="cta-block" style="margin-top:2.2rem;padding:2rem 1.8rem;background:linear-gradient(135deg,rgba(15,193,183,0.18),rgba(42,53,75,0.25));border:1px solid rgba(15,193,183,0.35);border-radius:16px;text-align:center;">
+            <h2 style="color:var(--clr-text);margin-top:0;font-size:1.5rem;">Build Systems, Not Experiments</h2>
+            <p style="color:var(--clr-text);margin:0.6rem 0 1.3rem;">AIM Tech AI designs and ships AI, cloud, and custom software systems for companies ready to turn technology into real business advantage.</p>
+            <a href="/book" style="display:inline-block;padding:0.95rem 2rem;background:var(--clr-primary);color:#0a0608;border-radius:12px;font-weight:700;text-decoration:none;text-shadow:none;letter-spacing:0.3px;">Book a Strategy Call &rarr;</a>
+            <div style="margin-top:0.9rem;font-size:0.82rem;color:var(--clr-text-dim);">Free 30-min consultation &bull; No obligation</div>
+          </section>
+</article>
+      </div>
+    </section>
+
+    <div class="glow-divider"></div>
+
+  </div>
+
+  <!-- FOOTER -->
+    <!-- FOOTER -->
+  </div><!-- .content -->
+
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <a href="/blog" class="back-link">&larr; Blog</a>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script>if(location.hostname!=="localhost"&&!location.hostname.startsWith("127.")){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";document.head.appendChild(s);}</script>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initBlogVideoBg } from '/js/blog-video-bg.js';
+    // import { initVideoBackground } from '/js/video-bg.js'; // HIDDEN
+    import { initRouter } from '/js/router.js';
+    // const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // initVideoBackground({ reducedMotion }).catch(err => console.warn('[video-bg]', err));
+    initBlogVideoBg();
+    initUI();
+    initRouter();
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

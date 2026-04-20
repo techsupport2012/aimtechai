@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>Unity Development | AIM Tech AI</title>
+  <meta name="description" content="Professional Unity development services — game development, AR/VR experiences, 3D visualization, and interactive simulations powered by C# and the Unity engine.">
+  <link rel="canonical" href="https://aimtechai.com/technologies/unity">
+  <meta property="og:title" content="Unity Development | AIM Tech AI">
+  <meta property="og:description" content="Professional Unity development services — game development, AR/VR experiences, 3D visualization, and interactive simulations powered by C# and the Unity engine.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aimtechai.com/technologies/unity">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Unity Development | AIM Tech AI">
+  <meta name="twitter:description" content="Professional Unity development services — game development, AR/VR experiences, 3D visualization, and interactive simulations powered by C# and the Unity engine.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#values" data-scramble>Values</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="content">
+
+  <!-- HERO -->
+  <section style="max-width:1300px;margin:0 auto;padding:8rem 2rem 4rem;">
+    <div class="reveal">
+      <span class="section-label">Technology</span>
+      <h1 class="section-title" style="font-size:clamp(2.4rem,5vw,4rem);">Unity Development</h1>
+      <p style="max-width:720px;font-size:1.15rem;color:var(--clr-text-dim);line-height:1.8;margin-top:1rem;">
+        Create immersive games, AR/VR experiences, and real-time 3D applications with the world's leading cross-platform engine.
+        From concept art to shipped product, our Unity engineers bring interactive worlds to life.
+      </p>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- WHY UNITY -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem;">
+    <div class="reveal">
+      <span class="section-label">Advantages</span>
+      <h2 class="section-title">Why Unity?</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2.5rem;">
+      <div class="glass-card reveal" style="padding:2rem;">
+        <h3 style="color:var(--clr-primary);margin-bottom:0.75rem;">Cross-Platform Reach</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.7;">Deploy to iOS, Android, Windows, Mac, consoles, WebGL, and XR headsets from a single codebase. Unity's build pipeline targets 20+ platforms without rewriting a line of code.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;">
+        <h3 style="color:var(--clr-primary);margin-bottom:0.75rem;">Real-Time 3D Power</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.7;">Unity's render pipelines (URP, HDRP) deliver stunning visuals for any hardware tier. Shader Graph, VFX Graph, and real-time global illumination let your project look and feel premium.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;">
+        <h3 style="color:var(--clr-primary);margin-bottom:0.75rem;">Vast Ecosystem</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.7;">The Unity Asset Store, package manager, and thriving community mean faster development. Pre-built systems for networking, physics, animation, and AI accelerate every project phase.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- SERVICES -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem;">
+    <div class="reveal">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Our Unity Services</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2.5rem;">
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/><rect x="2" y="6" width="20" height="12" rx="2"/></svg></div>
+        <h3 style="margin-bottom:0.5rem;">Game Development</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.7;font-size:0.95rem;">End-to-end game creation — from gameplay mechanics and level design to multiplayer networking, monetization systems, and platform certification.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3 style="margin-bottom:0.5rem;">AR / VR Experiences</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.7;font-size:0.95rem;">Immersive applications for Meta Quest, Apple Vision Pro, and ARKit/ARCore. Training simulations, virtual showrooms, and spatial computing interfaces.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+        <h3 style="margin-bottom:0.5rem;">3D Visualization</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.7;font-size:0.95rem;">Interactive product configurators, architectural walkthroughs, and data visualization dashboards rendered in real-time 3D for web or native platforms.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;text-align:center;">
+        <div style="width:48px;height:48px;margin-bottom:1rem;color:var(--clr-primary);"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3 style="margin-bottom:0.5rem;">C# Scripting &amp; Tools</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.7;font-size:0.95rem;">Custom editor tools, plugin development, performance profiling, and architecture consulting to keep your Unity project clean, fast, and maintainable.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- PROCESS -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem;">
+    <div class="reveal">
+      <span class="section-label">How We Work</span>
+      <h2 class="section-title">Our Process</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-top:2.5rem;">
+      <div class="glass-card reveal" style="padding:2rem;">
+        <span class="service-tag" style="margin-bottom:1rem;display:inline-block;">01</span>
+        <h3 style="margin-bottom:0.5rem;">Concept &amp; Prototyping</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.7;font-size:0.95rem;">We translate your vision into playable prototypes — blocking out mechanics, art direction, and user flow before committing to full production.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;">
+        <span class="service-tag" style="margin-bottom:1rem;display:inline-block;">02</span>
+        <h3 style="margin-bottom:0.5rem;">Production Sprints</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.7;font-size:0.95rem;">Agile development with bi-weekly builds. Art, code, and audio pipelines run in parallel with continuous integration and automated testing.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;">
+        <span class="service-tag" style="margin-bottom:1rem;display:inline-block;">03</span>
+        <h3 style="margin-bottom:0.5rem;">Polish &amp; Optimization</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.7;font-size:0.95rem;">Frame-rate profiling, memory optimization, draw-call batching, and platform-specific tuning to ensure smooth performance on target devices.</p>
+      </div>
+      <div class="glass-card reveal" style="padding:2rem;">
+        <span class="service-tag" style="margin-bottom:1rem;display:inline-block;">04</span>
+        <h3 style="margin-bottom:0.5rem;">Launch &amp; Live Ops</h3>
+        <p style="color:var(--clr-text-dim);line-height:1.7;font-size:0.95rem;">Store submission, certification handling, analytics integration, and post-launch content updates to keep your audience engaged long after release.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="glow-divider"></div>
+
+  <!-- CTA -->
+  <section style="max-width:1300px;margin:0 auto;padding:4rem 2rem 6rem;text-align:center;">
+    <div class="reveal">
+      <h2 class="section-title">Ready to Build?</h2>
+      <p style="color:var(--clr-text-dim);max-width:600px;margin:1rem auto 2rem;line-height:1.7;">Let's bring your interactive experience to life with Unity — from initial prototype to multi-platform launch.</p>
+      <a href="/book" class="gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;display:inline-flex;padding:0.9rem 2.4rem;font-size:1rem;">
+        <span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span>
+      </a>
+    </div>
+  </section>
+
+  </div>
+
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <a href="/" class="back-link">&larr; Home</a>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script>if(location.hostname!=="localhost"&&!location.hostname.startsWith("127.")){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";document.head.appendChild(s);}</script>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initParallaxVideoBg } from '/js/parallax-video-bg.js';
+    import { initRouter } from '/js/router.js';
+    initParallaxVideoBg();
+    initUI();
+    initRouter();
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

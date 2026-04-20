@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>About Us | AIM Tech AI</title>
+  <meta name="description" content="Learn about AIM Tech AI — advanced software & AI development driven by subject matter experts from diverse industries. Based in Beverly Hills, CA since 2022.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+<script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#values" data-scramble>Values</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="content">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="/">Home</a> &rsaquo; About</div>
+      <h1>About AIM Tech AI</h1>
+      <p class="hero-sub" style="opacity:1;transform:none;">Advanced software & AI development driven by subject matter experts from diverse industries in CA.</p>
+    </div>
+
+    <div class="glow-divider"></div>
+
+    <!-- COMPANY VIDEOS -->
+    <section style="max-width:1300px;margin:0 auto;padding-top:0;">
+      <span class="section-label">A Very Important Message From</span>
+      <h2 class="section-title">Our CEO Yasmine Kavandi</h2>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem;align-items:stretch;">
+        <!-- Company Video -->
+        <div class="glass-card video-thumb" data-video="/assets/company-video.mp4" data-title="Company Overview" style="padding:0;overflow:hidden;border-radius:20px;cursor:pointer;position:relative;display:flex;flex-direction:column;">
+          <div style="position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:20px 20px 0 0;background:#000;">
+            <video muted playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;">
+              <source src="/assets/company-video.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-play-overlay" style="position:absolute;top:0;left:0;right:0;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.25);transition:background 0.3s;border-radius:20px 20px 0 0;">
+            <div style="width:70px;height:70px;border-radius:50%;background:var(--clr-primary);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(15,193,183,0.5);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div style="padding:1.2rem 1.5rem;">
+            <h4 style="margin:0 0 0.4rem;color:var(--clr-text);font-size:1.1rem;">Company Overview</h4>
+            <p style="margin:0;color:var(--clr-text-dim);font-size:0.9rem;line-height:1.6;">Learn about AIM Tech AI — our mission, our team, and how we deliver cutting-edge solutions.</p>
+          </div>
+        </div>
+
+        <!-- Personal Video -->
+        <div class="glass-card video-thumb" data-video="/assets/personal-video.mp4" data-title="A Personal Message" style="padding:0;overflow:hidden;border-radius:20px;cursor:pointer;position:relative;display:flex;flex-direction:column;">
+          <div style="position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:20px 20px 0 0;background:#000;">
+            <video muted playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;">
+              <source src="/assets/personal-video.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-play-overlay" style="position:absolute;top:0;left:0;right:0;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.25);transition:background 0.3s;border-radius:20px 20px 0 0;">
+            <div style="width:70px;height:70px;border-radius:50%;background:var(--clr-primary);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(15,193,183,0.5);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+          </div>
+          <div style="padding:1.2rem 1.5rem;">
+            <h4 style="margin:0 0 0.4rem;color:var(--clr-text);font-size:1.1rem;">A Personal Message</h4>
+            <p style="margin:0;color:var(--clr-text-dim);font-size:0.9rem;line-height:1.6;">Hear directly from our leadership about the vision and values driving AIM Tech AI forward.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="glow-divider"></div>
+
+    <!-- Video Modal -->
+    <div id="video-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);z-index:10000;align-items:center;justify-content:center;padding:2rem;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);">
+      <div style="position:relative;max-width:1100px;width:100%;max-height:90vh;">
+        <button id="video-modal-close" aria-label="Close" style="position:absolute;top:-3rem;right:0;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <h3 id="video-modal-title" style="color:#fff;margin:0 0 1rem;font-size:1.3rem;font-weight:600;text-align:center;"></h3>
+        <video id="video-modal-player" controls playsinline style="width:100%;max-height:80vh;border-radius:16px;box-shadow:0 24px 80px rgba(0,0,0,0.6);background:#000;">
+          <source src="" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <script>
+      (function(){
+        var modal = document.getElementById('video-modal');
+        var player = document.getElementById('video-modal-player');
+        var source = player.querySelector('source');
+        var titleEl = document.getElementById('video-modal-title');
+        var closeBtn = document.getElementById('video-modal-close');
+
+        function openModal(videoSrc, title) {
+          source.src = videoSrc;
+          titleEl.textContent = title;
+          player.load();
+          modal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+          player.play().catch(function(){});
+        }
+        function closeModal() {
+          player.pause();
+          source.src = '';
+          player.load();
+          modal.style.display = 'none';
+          document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.video-thumb').forEach(function(thumb){
+          thumb.addEventListener('click', function(){
+            openModal(thumb.dataset.video, thumb.dataset.title);
+          });
+        });
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', function(e){
+          if (e.target === modal) closeModal();
+        });
+        document.addEventListener('keydown', function(e){
+          if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
+        });
+      })();
+    </script>
+
+    <!-- OUR STORY -->
+    <section style="max-width:1300px;margin:0 auto;">
+      <span class="section-label">Who We Are</span>
+      <h2 class="section-title">Our Story</h2>
+
+      <div class="glass-card" style="width:100%;padding:2.5rem 2.8rem;">
+        <p style="color:var(--clr-text-dim);font-weight:300;font-size:1rem;line-height:1.9;margin:0 0 1.4rem;">AIM Tech AI specializes in advanced software & AI development, offering tailored solutions to enhance existing applications or construct new, custom applications from the ground up. We integrate artificial intelligence to drive efficiency, precision, and innovation across every solution we build.</p>
+        <p style="color:var(--clr-text-dim);font-weight:300;font-size:1rem;line-height:1.9;margin:0 0 1.4rem;">We've rapidly grown to a team of 100+ professionals. Led by a fierce female technology leader with over 10 years of experience managing diverse software & AI development teams, we combine deep domain expertise with cutting-edge innovation.</p>
+        <p style="color:var(--clr-text-dim);font-weight:300;font-size:1rem;line-height:1.9;margin:0;">Our mission is to deliver future-ready tools that empower businesses to achieve more. We work with top talent in the US to build custom AI, Software, and Mobile applications with a 100% guarantee of our work.</p>
+      </div>
+
+      <div style="display:none;">
+        <img src="/assets/ceo-yasmine-kavandi.png" alt="Yasmin Kavandi — CEO & Founder, AIM Tech AI">
+        <video id="ceo-video-dark" autoplay loop muted playsinline><source src="/assets/Black%20Background%20Model%20CEO.mp4" type="video/mp4"></video>
+        <video id="ceo-video-light" autoplay loop muted playsinline><source src="/assets/White%20Background%20Model%20CEO.mp4" type="video/mp4"></video>
+      </div>
+    </section>
+
+
+    <!-- STATS -->
+    <section style="max-width:1100px;margin:0 auto;padding-top:0;">
+      <div class="stats-bar reveal" style="grid-template-columns:repeat(3,minmax(0,220px));justify-content:center;">
+        <div class="stat-item">
+          <div class="stat-number" data-target="100" data-suffix="+">0</div>
+          <div class="stat-label">Employees</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="10" data-suffix="+">0</div>
+          <div class="stat-label">Years Leadership</div>
+        </div>
+        <div class="stat-item" style="display:none;">
+          <div class="stat-number" data-target="2022">0</div>
+          <div class="stat-label">Established</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-states="true">CA</div>
+          <div class="stat-label">Headquarters</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="glow-divider"></div>
+
+    <!-- LEADERSHIP -->
+    <section style="max-width:1300px;margin:0 auto;display:none;">
+      <span class="section-label">Our Team</span>
+      <h2 class="section-title">Leadership</h2>
+
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="avatar">&#128105;&#8205;&#128188;</div>
+          <h4>Yasmin Kavandi</h4>
+          <p class="role">CEO &amp; Founder</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">&#128104;&#8205;&#128187;</div>
+          <h4>Asim Noor</h4>
+          <p class="role">Engineering Lead</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">&#128105;&#8205;&#128187;</div>
+          <h4>Jhoanna Victorio</h4>
+          <p class="role">Project Manager</p>
+        </div>
+        <div class="team-card reveal">
+          <div class="avatar">&#128104;&#8205;&#128187;</div>
+          <h4>Sammy Kipngetich</h4>
+          <p class="role">Senior Developer</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="glow-divider"></div>
+
+    <!-- WHY CHOOSE US -->
+    <section style="max-width:1300px;margin:0 auto;">
+      <span class="section-label">Our Advantage</span>
+      <h2 class="section-title">Why Choose Us</h2>
+
+      <style>
+        .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        @media (max-width: 1100px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .why-grid { grid-template-columns: 1fr; } }
+      </style>
+      <div class="why-grid">
+        <div class="feature-card reveal">
+          <h3>Subject Matter Experts</h3>
+          <p>Teams drawn from diverse industries bring real domain knowledge to every engagement.</p>
+        </div>
+        <div class="feature-card reveal">
+          <h3>100% Work Guarantee</h3>
+          <p>We stand behind every line of code. If it's not right, we make it right.</p>
+        </div>
+        <div class="feature-card reveal">
+          <h3>Partnership Approach</h3>
+          <p>We don't just deliver code — we become your long-term technical partners.</p>
+        </div>
+        <div class="feature-card reveal">
+          <h3>On-Time &amp; Under Budget</h3>
+          <p>Our track record speaks for itself. Clients consistently praise our delivery reliability.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="glow-divider"></div>
+
+    <!-- CERTIFICATIONS & RECOGNITION -->
+    <section id="testimonial" style="max-width:900px;margin:0 auto;text-align:center;">
+      <span class="section-label">Recognition</span>
+      <h2 class="section-title">Certifications &amp; Recognition</h2>
+
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text" style="font-style:normal;font-size:1.1rem;">5.0 / 5.0 Clutch Rating</p>
+        <div style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:1.5rem;">
+          <div class="testimonial-rating-badge">Quality 5.0</div>
+          <div class="testimonial-rating-badge">Schedule 5.0</div>
+          <div class="testimonial-rating-badge">Cost 5.0</div>
+          <div class="testimonial-rating-badge">Willing to Refer 5.0</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="glow-divider"></div>
+
+    <!-- CONTACT -->
+    <section style="max-width:1100px;margin:0 auto;text-align:center;">
+      <div class="contact-card reveal">
+        <h2>Get In Touch</h2>
+        <p>Ready to start your next project? We'd love to hear from you.</p>
+        <a href="/book" class="btn-primary">Contact Us &rarr;</a>
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-item-icon">&#128205;</div>
+            <div class="contact-item-text">
+              <small>Location</small>
+              <p>Beverly Hills, California</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">&#128222;</div>
+            <div class="contact-item-text">
+              <small>Phone</small>
+              <p>(310) 870-5066</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+    </div><!-- .content -->
+
+  <!-- FOOTER -->
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <a href="/" class="back-link">&larr; Home</a>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script>if(location.hostname!=="localhost"&&!location.hostname.startsWith("127.")){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";document.head.appendChild(s);}</script>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initParallaxVideoBg } from '/js/parallax-video-bg.js';
+    import { initRouter } from '/js/router.js';
+    // import { initVideoBackground } from '/js/video-bg.js'; // HIDDEN
+    // const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // initVideoBackground({ reducedMotion }).catch(err => console.warn('[video-bg]', err));
+    initParallaxVideoBg();
+    initUI();
+    initRouter();
+    // CEO video dark/light swap is handled globally in ui.js (initCeoVideoSwitch)
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>

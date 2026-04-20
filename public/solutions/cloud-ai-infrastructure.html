@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/assets/aim_transparent_logo.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="/assets/black_aim_transparent_logo.png">
+  <title>Cloud Infrastructure for AI Applications | AIM Tech AI</title>
+  <meta name="description" content="Design and deploy cloud infrastructure optimized for AI applications. AIM Tech AI builds scalable GPU compute, container orchestration, and cost-optimized AI deployment architectures.">
+  <link rel="canonical" href="https://aimtechai.com/solutions/cloud-ai-infrastructure">
+  <meta property="og:title" content="Cloud Infrastructure for AI Applications | AIM Tech AI">
+  <meta property="og:description" content="Design and deploy cloud infrastructure optimized for AI applications. AIM Tech AI builds scalable GPU compute, container orchestration, and cost-optimized AI deployment architectures.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aimtechai.com/solutions/cloud-ai-infrastructure">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cloud Infrastructure for AI Applications | AIM Tech AI">
+  <meta name="twitter:description" content="Design and deploy cloud infrastructure optimized for AI applications. AIM Tech AI builds scalable GPU compute, container orchestration, and cost-optimized AI deployment architectures.">
+  <meta name="keywords" content="cloud infrastructure AI, AI cloud architecture, GPU cloud setup, AI deployment infrastructure, AIM Tech AI">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Cloud Infrastructure for AI Applications",
+    "provider": {
+      "@type": "Organization",
+      "name": "AIM Tech AI",
+      "url": "https://aimtechai.com"
+    },
+    "description": "Cloud architecture design and deployment for AI applications including GPU compute provisioning, container orchestration, auto-scaling, monitoring, and cost optimization on AWS, GCP, and Azure.",
+    "serviceType": "Cloud AI Infrastructure",
+    "areaServed": "Worldwide"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aimtechai.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Solutions", "item": "https://aimtechai.com/solutions" },
+      { "@type": "ListItem", "position": 3, "name": "Cloud Infrastructure for AI Applications" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How much does cloud infrastructure for AI applications cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cloud AI infrastructure costs vary based on model size, traffic volume, and GPU requirements. A small-scale deployment serving a single AI model can run on a few hundred dollars per month. Enterprise deployments with multiple models, high availability, and GPU clusters can range from several thousand to tens of thousands monthly. AIM Tech AI designs architectures that minimize waste through auto-scaling, spot instances, and intelligent resource scheduling, typically reducing cloud spend by 30 to 50 percent compared to unoptimized setups."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Which cloud provider is best for AI workloads?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The best cloud provider depends on your specific requirements. AWS offers the broadest GPU instance selection and most mature ecosystem. GCP provides strong pricing on TPUs and tight integration with TensorFlow. Azure excels in enterprise environments with existing Microsoft infrastructure. AIM Tech AI evaluates your workload characteristics, compliance requirements, and existing tech stack to recommend the optimal provider or multi-cloud approach."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you handle cold start latency for AI models?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cold start latency is managed through several strategies: keeping minimum warm instances for critical models, using model caching at the container level, implementing predictive scaling that provisions resources before demand spikes, and optimizing model loading with techniques like model sharding and lazy loading. AIM Tech AI designs the specific combination of strategies that matches your latency requirements and budget constraints."
+        }
+      }
+    ]
+  }
+  </script>
+<script>/* theme-init */const t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t);</script>
+</head>
+<body>
+  <div class="noise-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="/" class="nav-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:38px;width:auto;display:none;"></a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/#services" data-scramble>Services</a></li>
+      <li><a href="/about" data-scramble>About</a></li>
+      <li><a href="/portfolio" data-scramble>Portfolio</a></li>
+      <li><a href="/blog" data-scramble>Blog</a></li>
+      <li><a href="/#values" data-scramble>Values</a></li>
+      <li><a href="/#contact" data-scramble>Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Select language">
+          <span class="lang-flag" id="lang-flag" data-country="US"></span>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <div class="lang-option" data-lang="en" data-variant="US" data-country="US"><span class="lang-flag" data-country="US"></span> English (US)</div>
+          <div class="lang-option" data-lang="en" data-variant="GB" data-country="GB"><span class="lang-flag" data-country="GB"></span> English (UK)</div>
+          <div class="lang-option" data-lang="zh-CN" data-country="CN"><span class="lang-flag" data-country="CN"></span> &#x4E2D;&#x6587; (&#x7B80;&#x4F53;)</div>
+          <div class="lang-option" data-lang="zh-TW" data-country="HK"><span class="lang-flag" data-country="HK"></span> &#x4E2D;&#x6587; (&#x7E41;&#x9AD4;)</div>
+          <div class="lang-option" data-lang="es" data-country="ES"><span class="lang-flag" data-country="ES"></span> Espa&#xF1;ol</div>
+          <div class="lang-option" data-lang="fr" data-country="FR"><span class="lang-flag" data-country="FR"></span> Fran&#xE7;ais</div>
+          <div class="lang-option" data-lang="de" data-country="DE"><span class="lang-flag" data-country="DE"></span> Deutsch</div>
+          <div class="lang-option" data-lang="ja" data-country="JP"><span class="lang-flag" data-country="JP"></span> &#x65E5;&#x672C;&#x8A9E;</div>
+          <div class="lang-option" data-lang="ko" data-country="KR"><span class="lang-flag" data-country="KR"></span> &#xD55C;&#xAD6D;&#xC5B4;</div>
+          <div class="lang-option" data-lang="ar" data-country="SA"><span class="lang-flag" data-country="SA"></span> &#x0627;&#x0644;&#x0639;&#x0631;&#x0628;&#x064A;&#x0629;</div>
+          <div class="lang-option" data-lang="hi" data-country="IN"><span class="lang-flag" data-country="IN"></span> &#x0939;&#x093F;&#x0928;&#x094D;&#x0926;&#x0940;</div>
+          <div class="lang-option" data-lang="pt" data-country="BR"><span class="lang-flag" data-country="BR"></span> Portugu&#xEA;s</div>
+          <div class="lang-option" data-lang="ru" data-country="RU"><span class="lang-flag" data-country="RU"></span> &#x0420;&#x0443;&#x0441;&#x0441;&#x043A;&#x0438;&#x0439;</div>
+          <div class="lang-option" data-lang="tl" data-country="PH"><span class="lang-flag" data-country="PH"></span> Filipino</div>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+        <span class="theme-toggle-icon" id="theme-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+      </button>
+      <a href="/book" class="nav-cta gradient-btn" style="--gfrom:#0FC1B7;--gto:#0A9B92;" aria-label="Book a Call"><span class="gbtn-glow"></span><span class="gbtn-bg"></span><span class="gbtn-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span class="gbtn-label">Book a Call</span></a>
+    </div>
+    <div class="mobile-toggle" id="mobile-toggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="content">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="breadcrumb"><a href="/">Home</a> &rsaquo; <a href="/solutions">Solutions</a> &rsaquo; Cloud AI Infrastructure</div>
+      <h1>Cloud Infrastructure for AI Applications</h1>
+      <p class="hero-sub" style="opacity:1;transform:none;">Scalable, cost-optimized cloud architecture for AI model deployment and operations</p>
+    </div>
+
+    <div class="glow-divider"></div>
+
+    <!-- ARTICLE -->
+    <section style="max-width:1300px;margin:0 auto;">
+
+      <div style="max-width:800px;margin:0 auto;background:linear-gradient(135deg,rgba(255,255,255,0.18),rgba(255,255,255,0.08));backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.22);border-radius:20px;padding:3rem;box-shadow:0 8px 32px rgba(0,0,0,0.25);">
+
+        <article style="color:var(--clr-text-dim);font-weight:300;font-size:0.95rem;line-height:1.8;">
+
+          <!-- QUICK ANSWER (AEO) -->
+          <div style="background:linear-gradient(135deg,rgba(99,102,241,0.12),rgba(139,92,246,0.08));border:1px solid rgba(99,102,241,0.25);border-radius:12px;padding:1.5rem;margin-bottom:2rem;">
+            <p style="font-size:0.75rem;font-family:var(--font-mono);letter-spacing:2px;text-transform:uppercase;color:var(--clr-accent);margin-bottom:0.5rem;">Quick Answer</p>
+            <p style="color:var(--clr-text);font-weight:400;"><strong>Cloud infrastructure for AI applications</strong> requires specialized architecture that handles GPU compute provisioning, model containerization, auto-scaling, and cost management. <strong>AIM Tech AI</strong> designs and deploys AI-optimized cloud environments on AWS, GCP, or Azure that scale automatically with demand, minimize cold start latency, and reduce cloud spend by 30 to 50 percent through intelligent resource management.</p>
+          </div>
+
+          <!-- WHO THIS IS FOR -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Who This Is For</h2>
+          <p>This solution is designed for companies deploying AI models into production that need reliable, scalable infrastructure. It serves startups scaling their first ML models beyond prototyping, enterprises with GPU compute requirements for inference or training, and any organization where unpredictable AI workload costs are a concern. If you are running AI models on provisioned hardware that sits idle half the time, or struggling with scaling bottlenecks during peak demand, <strong>AIM Tech AI</strong> builds the infrastructure that solves both problems.</p>
+
+          <!-- PROBLEMS THIS SOLVES -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Problems This Solves</h2>
+          <p><strong>Unpredictable costs.</strong> GPU instances are expensive. Without proper architecture, AI cloud bills spiral out of control. Intelligent auto-scaling and spot instance strategies keep costs predictable and proportional to actual usage.</p>
+          <p><strong>Scaling bottlenecks.</strong> When traffic spikes, poorly architected systems either crash or queue requests until users abandon them. Proper orchestration scales compute up in seconds, not minutes.</p>
+          <p><strong>Cold start latency.</strong> AI models take time to load into memory. Users waiting 10 to 30 seconds for a first response will not wait. Warm instance pooling and predictive scaling eliminate this problem.</p>
+          <p><strong>Security compliance.</strong> AI applications handling sensitive data need infrastructure that meets SOC 2, HIPAA, or GDPR requirements. The architecture must enforce encryption, access controls, and audit logging from the ground up.</p>
+
+          <!-- HOW THE WORKFLOW WORKS -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">How The Workflow Works</h2>
+          <p>The <a href="/cloud">cloud infrastructure</a> pipeline built by AIM Tech AI follows six stages from development to production:</p>
+          <p><strong>Step 1: Model Development.</strong> Your data science team develops and trains models in a managed development environment with access to GPU compute, experiment tracking via MLflow, and version-controlled model artifacts.</p>
+          <p><strong>Step 2: Containerization.</strong> Models are packaged into Docker containers with all dependencies, ensuring identical behavior from development through staging to production. Container images are stored in a private registry with vulnerability scanning.</p>
+          <p><strong>Step 3: Orchestration.</strong> Kubernetes manages container deployment, scheduling, health checking, and rolling updates. GPU resources are allocated efficiently across workloads using node pools and resource quotas.</p>
+          <p><strong>Step 4: Auto-Scaling.</strong> Horizontal pod autoscaling adjusts capacity based on request volume, queue depth, and GPU utilization. Cluster autoscaling provisions and deprovisions nodes to match demand, using spot instances where appropriate to reduce costs.</p>
+          <p><strong>Step 5: Monitoring.</strong> Prometheus and Grafana provide real-time visibility into model performance, infrastructure health, latency percentiles, error rates, and resource utilization. Alerts fire before issues impact users.</p>
+          <p><strong>Step 6: Cost Optimization.</strong> Continuous analysis of usage patterns identifies opportunities to right-size instances, increase spot instance usage, schedule non-critical workloads for off-peak hours, and eliminate idle resources. Read our guide on <a href="/blog/cloud-cost-optimization">cloud cost optimization</a> for the strategies we apply.</p>
+
+          <!-- RECOMMENDED TECH STACK -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Recommended Tech Stack</h2>
+          <p><strong>Cloud Providers:</strong> AWS, GCP, or Azure selected based on your specific workload, compliance needs, and existing infrastructure. Multi-cloud architectures are available for redundancy or cost optimization.</p>
+          <p><strong>Container Orchestration:</strong> Kubernetes (EKS, GKE, or AKS) with GPU-aware scheduling, node auto-provisioning, and rolling deployment strategies.</p>
+          <p><strong>Containerization:</strong> Docker with multi-stage builds optimized for AI model serving, including CUDA runtime layers and model weight caching.</p>
+          <p><strong>GPU Instances:</strong> Right-sized GPU compute selected for your inference or training workload, from cost-effective T4 instances for inference to A100 clusters for training.</p>
+          <p><strong>ML Operations:</strong> MLflow for experiment tracking and model registry, integrated with CI/CD pipelines for automated model deployment.</p>
+          <p><strong>Monitoring:</strong> Prometheus and Grafana for infrastructure and model metrics, with custom dashboards for AI-specific KPIs like inference latency and throughput. Our <a href="/ai">AI team</a> designs monitoring that catches model degradation before it impacts results.</p>
+
+          <!-- WHY CUSTOM BUILD -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Why Custom Build vs Off-the-Shelf</h2>
+          <p>Managed ML platforms like SageMaker or Vertex AI simplify deployment but charge significant premiums, limit customization, and create vendor lock-in. A custom infrastructure built by <strong>AIM Tech AI</strong> gives you full control over architecture decisions, allows optimization for your specific workload characteristics, and avoids the platform markup. For teams running inference at scale, the cost difference between managed platforms and optimized custom infrastructure is substantial. See our analysis of <a href="/blog/ai-integration-architecture">AI integration architecture</a> for a deeper comparison of approaches.</p>
+
+          <!-- CTA -->
+          <div style="background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(139,92,246,0.10));border:1px solid rgba(99,102,241,0.3);border-radius:12px;padding:2rem;margin:2rem 0;text-align:center;">
+            <p style="font-size:1.1rem;color:var(--clr-text);font-weight:500;margin-bottom:1rem;">Ready to build production-grade AI infrastructure?</p>
+            <p style="margin-bottom:1.5rem;">AIM Tech AI designs and deploys cloud architectures optimized for AI workloads. Stop overpaying for compute and start scaling with confidence.</p>
+            <a href="/book" style="display:inline-block;padding:0.8rem 2rem;background:var(--clr-accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:500;">Book a Consultation</a>
+          </div>
+
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+
+          <!-- FAQ -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Frequently Asked Questions</h2>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">How much does cloud infrastructure for AI applications cost?</h3>
+          <p>Cloud AI infrastructure costs vary based on model size, traffic volume, and GPU requirements. A small-scale deployment serving a single AI model can run on a few hundred dollars per month. Enterprise deployments with multiple models, high availability, and GPU clusters can range from several thousand to tens of thousands monthly. AIM Tech AI designs architectures that minimize waste through auto-scaling, spot instances, and intelligent resource scheduling, typically reducing cloud spend by 30 to 50 percent compared to unoptimized setups.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">Which cloud provider is best for AI workloads?</h3>
+          <p>The best cloud provider depends on your specific requirements. AWS offers the broadest GPU instance selection and most mature ecosystem. GCP provides strong pricing on TPUs and tight integration with TensorFlow. Azure excels in enterprise environments with existing Microsoft infrastructure. <a href="/consulting">AIM Tech AI's consulting team</a> evaluates your workload characteristics, compliance requirements, and existing tech stack to recommend the optimal provider or multi-cloud approach.</p>
+
+          <h3 style="color:var(--clr-text);margin-top:1.2rem;">How do you handle cold start latency for AI models?</h3>
+          <p>Cold start latency is managed through several strategies: keeping minimum warm instances for critical models, using model caching at the container level, implementing predictive scaling that provisions resources before demand spikes, and optimizing model loading with techniques like model sharding and lazy loading. AIM Tech AI designs the specific combination of strategies that matches your latency requirements and budget constraints. View our <a href="/portfolio">portfolio</a> to see infrastructure projects we have delivered.</p>
+
+          <div class="glow-divider" style="margin:2rem 0;"></div>
+
+          <!-- RELATED SOLUTIONS -->
+          <h2 style="color:var(--clr-text);margin-top:2rem;">Related Solutions</h2>
+          <ul style="list-style:none;padding:0;">
+            <li style="margin-bottom:0.8rem;"><a href="/solutions/ai-customer-support" style="color:var(--clr-accent);text-decoration:none;">AI Agents for Customer Support</a> &mdash; AI applications that need reliable infrastructure</li>
+            <li style="margin-bottom:0.8rem;"><a href="/solutions/ai-lead-qualification" style="color:var(--clr-accent);text-decoration:none;">AI Lead Qualification Automation</a> &mdash; Real-time AI that demands low-latency infrastructure</li>
+            <li style="margin-bottom:0.8rem;"><a href="/blog/cloud-cost-optimization" style="color:var(--clr-accent);text-decoration:none;">Cloud Cost Optimization Guide</a> &mdash; Strategies for reducing AI cloud spend</li>
+            <li style="margin-bottom:0.8rem;"><a href="/blog/ai-integration-architecture" style="color:var(--clr-accent);text-decoration:none;">AI Integration Architecture</a> &mdash; How to design systems that scale</li>
+          </ul>
+
+        </article>
+      </div>
+    </section>
+
+    <div class="glow-divider"></div>
+
+  </div>
+
+  <!-- FOOTER -->
+    </div><!-- .content -->
+
+  <!-- FOOTER -->
+  <footer id="footer" style="padding-top:4rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:4rem;text-align:left;padding:0 2rem;">
+      <div>
+        <div class="footer-logo"><img class="logo-dark" src="/assets/aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:block;"><img class="logo-light" src="/assets/black_aim_transparent_logo.png" alt="AIM Tech AI" style="height:44px;width:auto;display:none;"></div>
+        <p style="color:var(--clr-text-dim);font-size:0.85rem;font-weight:300;line-height:1.8;margin-top:1rem;">
+          Enhancing the efficiency of software & AI development through transparency, integrity, and partnership.
+        </p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;">
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Services</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/ai">AI &amp; ML</a></li>
+            <li><a href="/consulting">Consulting</a></li>
+            <li><a href="/ui-ux">UI/UX Design</a></li>
+            <li><a href="/cloud">Cloud</a></li>
+            <li><a href="/qa">QA &amp; Testing</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Technologies</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/technologies/python">Python</a></li>
+            <li><a href="/technologies/react">React.JS</a></li>
+            <li><a href="/technologies/dotnet">.NET</a></li>
+            <li><a href="/technologies/swift">Swift</a></li>
+            <li><a href="/technologies/kotlin">Kotlin</a></li>
+            <li><a href="/technologies/unity">Unity</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Company</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/about">About</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/#values">Values</a></li>
+            <li><a href="/careers">Careers</a></li>
+            <li><a href="/faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Legal</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Use</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li><a href="/ai-policy">AI Policy</a></li>
+            <li><a href="/security">Security</a></li>
+          </ul>
+        </div>
+        <div>
+          <small style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--clr-text-dim);">Contact</small>
+          <ul class="footer-links" style="flex-direction:column;justify-content:flex-start;gap:0.8rem;margin-top:1rem;">
+            <li><a href="tel:+13104218638">(310) 421-8638</a></li>
+            <li><a href="/#contact">Get in Touch</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--clr-border);margin-top:3rem;padding-top:2rem;text-align:center;">
+      <p>&copy; 2026 AIM Tech AI LLC. All rights reserved. Beverly Hills, California.</p>
+    </div>
+  </footer>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+    }
+  </script>
+  <script>if(location.hostname!=="localhost"&&!location.hostname.startsWith("127.")){var s=document.createElement("script");s.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";document.head.appendChild(s);}</script>
+
+  <script type="module">
+    import { initUI } from '/js/ui.js';
+    import { initParallaxVideoBg } from '/js/parallax-video-bg.js';
+    // import { initVideoBackground } from '/js/video-bg.js'; // HIDDEN
+    import { initRouter } from '/js/router.js';
+    // const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // initVideoBackground({ reducedMotion }).catch(err => console.warn('[video-bg]', err));
+    initParallaxVideoBg();
+    initUI();
+    initRouter();
+  </script>
+  <script src="/js/cookie-consent.js" defer></script>
+  <script src="/js/tracker.js" defer></script>
+</body>
+</html>
