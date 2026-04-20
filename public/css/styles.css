@@ -2592,9 +2592,23 @@ footer .footer-links a:hover { color: var(--clr-primary); }
   .scroll-indicator { display: none !important; }
 }
 
+/* Nav padding on mobile */
+@media (max-width: 768px) {
+  nav#navbar { padding: 0.8rem 1rem !important; gap: 0.5rem; }
+  nav#navbar.scrolled { padding: 0.6rem 1rem !important; }
+  .nav-actions { gap: 0.4rem !important; }
+  /* Hide language selector on mobile to save room — accessible via menu instead */
+  .lang-selector { display: none !important; }
+  .nav-cta { display: none !important; }
+}
 /* Logo size on mobile */
 @media (max-width: 600px) {
-  .nav-logo img { height: 30px !important; }
+  .nav-logo img { height: 28px !important; }
+  nav#navbar { padding: 0.7rem 0.8rem !important; }
+}
+@media (max-width: 380px) {
+  .nav-logo img { height: 24px !important; }
+  nav#navbar { padding: 0.6rem 0.6rem !important; }
 }
 
 /* Hero AI chat on mobile */

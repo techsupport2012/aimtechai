@@ -184,6 +184,7 @@ function adminLayout({ title, page, user, csrfToken, unreadCount = 0, content = 
   </form>
 
   <script src="/admin/assets/admin.js"></script>
+  <script src="/js/dev-indicator.js" defer></script>
 </body>
 </html>`;
 }

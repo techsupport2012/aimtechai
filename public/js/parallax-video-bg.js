@@ -10,8 +10,7 @@ export function initParallaxVideoBg() {
   // Don't load if blog video bg already exists
   if (document.getElementById('blog-video-bg')) return;
 
-  const isMobile = /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent);
-  if (isMobile) return;
+  // Allow video bg on mobile — preload="metadata" keeps initial cost low
 
   const container = document.createElement('div');
   container.id = 'parallax-video-bg';

@@ -8,8 +8,7 @@ import { createScrollSpring } from '/js/scroll-spring.js';
 export function initBlogVideoBg() {
   if (document.getElementById('blog-video-bg')) return;
 
-  const isMobile = /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent);
-  if (isMobile) return;
+  // Allow video bg on mobile — preload="auto" loads lazily
 
   const container = document.createElement('div');
   container.id = 'blog-video-bg';
