@@ -10,7 +10,11 @@ export function initParallaxVideoBg() {
   // Don't load if blog video bg already exists
   if (document.getElementById('blog-video-bg')) return;
 
-  // Allow video bg on mobile — preload="metadata" keeps initial cost low
+  // Detect mobile / small viewport — use simple looping playback there.
+  // Scroll-scrubbing seeks the video frame on every scroll event which is
+  // GPU-expensive on mobile and causes severe lag.
+  const isMobile = window.matchMedia('(max-width: 768px)').matches ||
+                   /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent);
 
   const container = document.createElement('div');
   container.id = 'parallax-video-bg';
@@ -20,13 +24,26 @@ export function initParallaxVideoBg() {
   video.src = '/assets/parallax-bg-1080p.mp4';
   video.muted = true;
   video.playsInline = true;
-  video.preload = 'auto';
-  video.loop = false;
-  video.autoplay = false;
+  video.preload = isMobile ? 'metadata' : 'auto';
+  video.loop = isMobile;
+  video.autoplay = isMobile;
   video.style.cssText = 'width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.5s ease;';
 
   container.appendChild(video);
   document.body.prepend(container);
+
+  // Mobile path — simple loop, no scroll scrub
+  if (isMobile) {
+    const showVideo = () => {
+      video.style.opacity = '1';
+      const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+      video.style.filter = isDark ? 'brightness(0.45)' : 'brightness(1)';
+      video.style.opacity = isDark ? '1' : '0.7';
+    };
+    video.addEventListener('loadeddata', showVideo, { once: true });
+    video.play().then(showVideo).catch(() => { showVideo(); });
+    return;
+  }
 
   const metadataReady = new Promise((resolve, reject) => {
     if (video.readyState >= 1) resolve();
