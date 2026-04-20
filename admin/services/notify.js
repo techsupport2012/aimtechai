@@ -12,8 +12,8 @@ const { get } = require('../../db/db');
 // ---------------------------------------------------------------------------
 // Helper: read a single setting from the DB
 // ---------------------------------------------------------------------------
-function getSetting(key) {
-  const row = get('SELECT value FROM settings WHERE key = ?', [key]);
+async function getSetting(key) {
+  const row = await get('SELECT value FROM settings WHERE key = ?', [key]);
   return row ? row.value : '';
 }
 
@@ -40,9 +40,9 @@ function request(url, options, body) {
 // Channel: Telegram
 // ---------------------------------------------------------------------------
 async function sendTelegram(title, message) {
-  const enabled = getSetting('notif_telegram_enabled');
-  const token = getSetting('notif_telegram_bot_token');
-  const chatId = getSetting('notif_telegram_chat_id');
+  const enabled = await getSetting('notif_telegram_enabled');
+  const token = await getSetting('notif_telegram_bot_token');
+  const chatId = await getSetting('notif_telegram_chat_id');
 
   if (enabled !== '1' || !token || !chatId) return;
 
@@ -64,8 +64,8 @@ async function sendTelegram(title, message) {
 // Channel: Discord
 // ---------------------------------------------------------------------------
 async function sendDiscord(title, message) {
-  const enabled = getSetting('notif_discord_enabled');
-  const webhookUrl = getSetting('notif_discord_webhook_url');
+  const enabled = await getSetting('notif_discord_enabled');
+  const webhookUrl = await getSetting('notif_discord_webhook_url');
 
   if (enabled !== '1' || !webhookUrl) return;
 
@@ -86,9 +86,9 @@ async function sendDiscord(title, message) {
 // Channel: WhatsApp (CallMeBot)
 // ---------------------------------------------------------------------------
 async function sendWhatsApp(title, message) {
-  const enabled = getSetting('notif_whatsapp_enabled');
-  const phone = getSetting('notif_whatsapp_phone');
-  const apiKey = getSetting('notif_whatsapp_api_key');
+  const enabled = await getSetting('notif_whatsapp_enabled');
+  const phone = await getSetting('notif_whatsapp_phone');
+  const apiKey = await getSetting('notif_whatsapp_api_key');
 
   if (enabled !== '1' || !phone || !apiKey) return;
 
@@ -107,17 +107,17 @@ async function sendWhatsApp(title, message) {
 // Channel: Email (SMTP via nodemailer)
 // ---------------------------------------------------------------------------
 async function sendEmail(title, message) {
-  const enabled = getSetting('notif_email_enabled');
-  const to = getSetting('notif_email_to');
-  const host = getSetting('notif_email_smtp_host');
-  const port = getSetting('notif_email_smtp_port') || '587';
-  const user = getSetting('notif_email_smtp_user');
-  const pass = getSetting('notif_email_smtp_pass');
-  const fromNotif   = getSetting('notif_email_from');
-  const fromDefault = getSetting('email_default_from');
+  const enabled = await getSetting('notif_email_enabled');
+  const to = await getSetting('notif_email_to');
+  const host = await getSetting('notif_email_smtp_host');
+  const port = (await getSetting('notif_email_smtp_port')) || '587';
+  const user = await getSetting('notif_email_smtp_user');
+  const pass = await getSetting('notif_email_smtp_pass');
+  const fromNotif   = await getSetting('notif_email_from');
+  const fromDefault = await getSetting('email_default_from');
   const from        = fromNotif || fromDefault;
-  const replyTo     = getSetting('email_default_reply_to');
-  const footerText  = getSetting('email_footer_text', 'Sent by AIM Tech AI Admin Panel');
+  const replyTo     = await getSetting('email_default_reply_to');
+  const footerText  = (await getSetting('email_footer_text')) || 'Sent by AIM Tech AI Admin Panel';
 
   if (enabled !== '1' || !to || !host || !user || !pass || !from) return;
 
@@ -150,14 +150,14 @@ async function sendEmail(title, message) {
 // SMS (Twilio / Vonage / Plivo)
 // ---------------------------------------------------------------------------
 async function sendSms(title, message) {
-  const enabled = getSetting('notif_sms_enabled');
+  const enabled = await getSetting('notif_sms_enabled');
   if (enabled !== '1') return;
 
-  const provider = getSetting('notif_sms_provider') || 'twilio';
-  const to = getSetting('notif_sms_to');
-  const sid = getSetting('notif_sms_twilio_sid');
-  const token = getSetting('notif_sms_twilio_token');
-  const from = getSetting('notif_sms_twilio_from');
+  const provider = await getSetting('notif_sms_provider') || 'twilio';
+  const to = await getSetting('notif_sms_to');
+  const sid = await getSetting('notif_sms_twilio_sid');
+  const token = await getSetting('notif_sms_twilio_token');
+  const from = await getSetting('notif_sms_twilio_from');
   if (!to || !sid || !token || !from) return;
 
   const body = `${title}\n${message}`;
@@ -209,10 +209,10 @@ async function sendSms(title, message) {
 //   value: '["chat_query","agent_run"]'
 // Default = empty array = all enabled.
 // ---------------------------------------------------------------------------
-function isTriggerEnabled(type) {
+async function isTriggerEnabled(type) {
   if (!type) return true;
   try {
-    const raw = getSetting('notification_triggers_disabled');
+    const raw = await getSetting('notification_triggers_disabled');
     if (!raw) return true;
     const disabled = JSON.parse(raw);
     if (!Array.isArray(disabled)) return true;
@@ -227,7 +227,7 @@ function isTriggerEnabled(type) {
 // ---------------------------------------------------------------------------
 async function dispatchNotification(title, message, type) {
   try {
-    if (!isTriggerEnabled(type)) return; // disabled trigger — skip channels
+    if (!(await isTriggerEnabled(type))) return; // disabled trigger — skip channels
     await Promise.allSettled([
       sendTelegram(title, message).catch(err => console.error('[notify:telegram]', err.message)),
       sendDiscord(title, message).catch(err => console.error('[notify:discord]', err.message)),

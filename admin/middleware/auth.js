@@ -29,19 +29,19 @@ const CSRF_SECRET = (function loadCsrfSecret() {
 // ---------------------------------------------------------------------------
 // DB settings — read fresh on each call (SQLite local reads are sub-ms)
 // ---------------------------------------------------------------------------
-function getSecSettings() {
-  const readSetting = (key, fallback) => {
-    const row = get('SELECT value FROM settings WHERE key = ?', [key]);
+async function getSecSettings() {
+  const readSetting = async (key, fallback) => {
+    const row = await get('SELECT value FROM settings WHERE key = ?', [key]);
     return (row && row.value != null) ? row.value : fallback;
   };
   const result = {
-    maxAttempts:    parseInt(readSetting('sec_login_max_attempts', '5'), 10)  || 5,
-    lockoutMin:     parseInt(readSetting('sec_login_lockout_min',  '15'), 10) || 15,
-    sessionExpHrs:  parseInt(readSetting('sec_session_expire_hrs', '24'), 10) || 24,
-    forceHttps:     readSetting('sec_force_https',   '0') === '1',
-    ipWhitelist:    readSetting('sec_ip_whitelist',  '').split(',').map(s => s.trim()).filter(Boolean),
-    ipBlacklist:    readSetting('sec_ip_blacklist',  '').split(',').map(s => s.trim()).filter(Boolean),
-    rateLimitRpm:   parseInt(readSetting('sec_rate_limit_rpm', '100'), 10) || 100,
+    maxAttempts:    parseInt(await readSetting('sec_login_max_attempts', '5'), 10)  || 5,
+    lockoutMin:     parseInt(await readSetting('sec_login_lockout_min',  '15'), 10) || 15,
+    sessionExpHrs:  parseInt(await readSetting('sec_session_expire_hrs', '24'), 10) || 24,
+    forceHttps:     (await readSetting('sec_force_https',   '0')) === '1',
+    ipWhitelist:    (await readSetting('sec_ip_whitelist',  '')).split(',').map(s => s.trim()).filter(Boolean),
+    ipBlacklist:    (await readSetting('sec_ip_blacklist',  '')).split(',').map(s => s.trim()).filter(Boolean),
+    rateLimitRpm:   parseInt(await readSetting('sec_rate_limit_rpm', '100'), 10) || 100,
   };
   return result;
 }
@@ -54,11 +54,11 @@ const loginAttempts = new Map(); // ip -> { count, resetAt }
 // ---------------------------------------------------------------------------
 // Middleware: requireAuth
 // ---------------------------------------------------------------------------
-function requireAuth(req, res, next) {
+async function requireAuth(req, res, next) {
   const token = req.cookies && req.cookies.admin_session;
   if (!token) return res.redirect('/admin/login');
 
-  const session = get(
+  const session = await get(
     `SELECT s.token, s.expires_at, u.id, u.username, u.email, u.role
      FROM sessions s JOIN users u ON s.user_id = u.id
      WHERE s.token = ? AND s.expires_at > datetime('now')`,
@@ -122,8 +122,8 @@ function validateCsrf(req, res, next) {
 // ---------------------------------------------------------------------------
 // Middleware: loginLimiter
 // ---------------------------------------------------------------------------
-function loginLimiter(req, res, next) {
-  const { maxAttempts, lockoutMin } = getSecSettings();
+async function loginLimiter(req, res, next) {
+  const { maxAttempts, lockoutMin } = await getSecSettings();
   const windowMs = lockoutMin * 60 * 1000;
   const ip = req.ip || req.connection.remoteAddress;
   const now = Date.now();
@@ -149,37 +149,41 @@ function loginLimiter(req, res, next) {
 // ---------------------------------------------------------------------------
 // createSession(userId) -> token string
 // ---------------------------------------------------------------------------
-function createSession(userId) {
-  const { sessionExpHrs } = getSecSettings();
+async function createSession(userId) {
+  const { sessionExpHrs } = await getSecSettings();
   const token = crypto.randomBytes(64).toString('hex');
-  run(
+  await run(
     `INSERT INTO sessions (user_id, token, expires_at)
      VALUES (?, ?, datetime('now', '+' || ? || ' hours'))`,
     [userId, token, sessionExpHrs]
   );
-  run(`UPDATE users SET last_login = datetime('now') WHERE id = ?`, [userId]);
+  await run(`UPDATE users SET last_login = datetime('now') WHERE id = ?`, [userId]);
   return token;
 }
 
 // ---------------------------------------------------------------------------
 // destroySession(token)
 // ---------------------------------------------------------------------------
-function destroySession(token) {
-  run(`DELETE FROM sessions WHERE token = ?`, [token]);
+async function destroySession(token) {
+  await run(`DELETE FROM sessions WHERE token = ?`, [token]);
 }
 
 // ---------------------------------------------------------------------------
 // Periodic cleanup of expired sessions (every hour)
 // ---------------------------------------------------------------------------
-setInterval(() => {
-  run(`DELETE FROM sessions WHERE expires_at <= datetime('now')`);
+setInterval(async () => {
+  try {
+    await run(`DELETE FROM sessions WHERE expires_at <= datetime('now')`);
+  } catch (err) {
+    console.error('[auth] session cleanup error:', err.message);
+  }
 }, 60 * 60 * 1000);
 
 // ---------------------------------------------------------------------------
 // Middleware: ipFilter — blocks blacklisted IPs, restricts to whitelist if set
 // ---------------------------------------------------------------------------
-function ipFilter(req, res, next) {
-  const { ipWhitelist, ipBlacklist } = getSecSettings();
+async function ipFilter(req, res, next) {
+  const { ipWhitelist, ipBlacklist } = await getSecSettings();
   const ip = req.ip || req.connection.remoteAddress;
 
   if (ipBlacklist.length && ipBlacklist.includes(ip)) {

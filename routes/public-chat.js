@@ -15,9 +15,9 @@ const router = express.Router();
 // ---------------------------------------------------------------------------
 // Reads a stored (possibly encrypted) API key from the settings table.
 // Falls back to the raw value if decrypt fails (handles unencrypted-stored keys).
-function readStoredKey(settingKey) {
+async function readStoredKey(settingKey) {
   try {
-    const row = get('SELECT value FROM settings WHERE key = ?', [settingKey]);
+    const row = await get('SELECT value FROM settings WHERE key = ?', [settingKey]);
     if (!row || !row.value) return '';
     try {
       return decrypt(row.value);
@@ -183,9 +183,10 @@ const PROVIDERS = [
 // is configured or all of them fail.
 async function askAvailableProviders(question, contextBlocks) {
   const userMessage = buildUserMessage(question, contextBlocks);
-  const active = PROVIDERS
-    .map((p) => ({ ...p, apiKey: readStoredKey(p.key) }))
-    .filter((p) => p.apiKey);
+  const resolved = await Promise.all(
+    PROVIDERS.map(async (p) => ({ ...p, apiKey: await readStoredKey(p.key) }))
+  );
+  const active = resolved.filter((p) => p.apiKey);
 
   if (active.length === 0) return null;
 
@@ -702,7 +703,7 @@ router.post('/chat', async (req, res) => {
 
   // 1) KB entries — admin-curated, weighted highest.
   try {
-    const kb = all(
+    const kb = await all(
       'SELECT id, question, answer, keywords, link, weight FROM kb_entries WHERE is_active = 1',
     );
     for (const row of kb) {
@@ -727,7 +728,7 @@ router.post('/chat', async (req, res) => {
 
   // 2) Pages.
   try {
-    const pages = all(
+    const pages = await all(
       "SELECT slug, title, meta_description, content_html FROM pages WHERE status = 'published'",
     );
     for (const row of pages) {
@@ -752,7 +753,7 @@ router.post('/chat', async (req, res) => {
 
   // 3) Blog posts.
   try {
-    const posts = all(
+    const posts = await all(
       "SELECT slug, title, excerpt, content_html FROM blog_posts WHERE status = 'published'",
     );
     for (const row of posts) {
@@ -838,7 +839,7 @@ router.post('/chat', async (req, res) => {
 
   // 6) Log the query for admin review.
   try {
-    insert('chat_queries', {
+    await insert('chat_queries', {
       query: query.slice(0, 500),
       matched_source: aiProvider || source,
       matched_id: top && typeof top.id === 'number' ? top.id : null,

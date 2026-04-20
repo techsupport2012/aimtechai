@@ -162,6 +162,17 @@ function initThemeToggle() {
 
 // --- Custom Cursor ---
 function initCursor() {
+  // Skip on touch / mobile / tablet — the custom cursor only makes sense
+  // when there's a real mouse pointer hovering over things.
+  const isTouch = window.matchMedia('(pointer: coarse)').matches ||
+                  window.matchMedia('(max-width: 900px)').matches ||
+                  /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent);
+  if (isTouch) {
+    document.getElementById('cursor-dot')?.remove();
+    document.getElementById('cursor-ring')?.remove();
+    return;
+  }
+
   let dot = document.getElementById('cursor-dot');
   let ring = document.getElementById('cursor-ring');
   if (!dot) {

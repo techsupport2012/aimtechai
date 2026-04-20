@@ -113,10 +113,38 @@ export function initHeroAiChat() {
   const inputRow = el('div', { class: 'chat-input-row' }, [input, sendBtn]);
 
   root.innerHTML = '';
+  // Close button (only visible in fullscreen mode via CSS)
+  const closeBtn = el('button', {
+    type: 'button',
+    class: 'chat-fs-close',
+    'aria-label': 'Exit fullscreen',
+    title: 'Close',
+    html: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
+  });
+
+  root.appendChild(closeBtn);
   root.appendChild(header);
   root.appendChild(messages);
   root.appendChild(quickPrompts);
   root.appendChild(inputRow);
+
+  /* ---- fullscreen toggle ---- */
+  function enterFullscreen() {
+    if (root.classList.contains('is-fullscreen')) return;
+    root.classList.add('is-fullscreen');
+    document.body.classList.add('chat-fs-open');
+    setTimeout(scrollToBottom, 50);
+  }
+  function exitFullscreen() {
+    root.classList.remove('is-fullscreen');
+    document.body.classList.remove('chat-fs-open');
+    input.blur();
+  }
+  input.addEventListener('focus', enterFullscreen);
+  closeBtn.addEventListener('click', exitFullscreen);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && root.classList.contains('is-fullscreen')) exitFullscreen();
+  });
 
   /* ---- restore prior conversation (persists across SPA navigation,
      resets on real browser refresh because window state is fresh) ---- */

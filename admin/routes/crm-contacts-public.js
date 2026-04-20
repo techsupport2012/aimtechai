@@ -26,7 +26,7 @@ async function submitLimiter(req, res, next) {
 // POST /api/admin/contacts-public
 // Unauthenticated contact/newsletter submit. Creates a row in `contacts` and
 // dispatches an admin notification.
-router.post('/contacts-public', submitLimiter, (req, res) => {
+router.post('/contacts-public', submitLimiter, async (req, res) => {
   try {
     const {
       name = '',
@@ -49,7 +49,7 @@ router.post('/contacts-public', submitLimiter, (req, res) => {
     const safeNotes = (notes + '').slice(0, 5000);
 
     const now = new Date().toISOString();
-    const result = insert('contacts', {
+    const result = await insert('contacts', {
       name: safeName,
       email: safeEmail,
       phone: safePhone,

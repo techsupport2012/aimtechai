@@ -22,10 +22,10 @@ const COOKIE_OPTIONS = {
 // ---------------------------------------------------------------------------
 // GET /admin/login
 // ---------------------------------------------------------------------------
-router.get('/admin/login', (req, res) => {
+router.get('/admin/login', async (req, res) => {
   const token = req.cookies && req.cookies.admin_session;
   if (token) {
-    const session = get(
+    const session = await get(
       `SELECT id FROM sessions WHERE token = ? AND expires_at > datetime('now')`,
       [token]
     );
@@ -37,8 +37,8 @@ router.get('/admin/login', (req, res) => {
 // ---------------------------------------------------------------------------
 // GET /admin/setup
 // ---------------------------------------------------------------------------
-router.get('/admin/setup', (req, res) => {
-  const existing = get(`SELECT id FROM users LIMIT 1`);
+router.get('/admin/setup', async (req, res) => {
+  const existing = await get(`SELECT id FROM users LIMIT 1`);
   if (existing) return res.redirect('/admin/login');
   res.sendFile(path.join(VIEWS_DIR, 'setup.html'));
 });
@@ -49,7 +49,7 @@ router.get('/admin/setup', (req, res) => {
 router.post('/admin/setup', async (req, res) => {
   try {
     // Block if users already exist
-    const existing = get(`SELECT id FROM users LIMIT 1`);
+    const existing = await get(`SELECT id FROM users LIMIT 1`);
     if (existing) {
       return res.status(403).json({ error: 'Setup already completed' });
     }
@@ -70,23 +70,23 @@ router.post('/admin/setup', async (req, res) => {
 
     const passwordHash = await bcrypt.hash(password, 12);
 
-    insert('users', {
+    await insert('users', {
       username,
       email,
       password_hash: passwordHash,
       role: 'admin'
     });
 
-    const user = get(`SELECT id FROM users WHERE username = ?`, [username]);
+    const user = await get(`SELECT id FROM users WHERE username = ?`, [username]);
 
     // Notification
-    insert('notifications', {
+    await insert('notifications', {
       type: 'system',
       title: 'Admin panel setup complete',
       message: `Admin account "${username}" was created.`
     });
 
-    const token = createSession(user.id);
+    const token = await createSession(user.id);
     res.cookie('admin_session', token, COOKIE_OPTIONS);
     res.json({ ok: true, redirect: '/admin' });
   } catch (err) {
@@ -109,7 +109,7 @@ router.post('/admin/login', loginLimiter, async (req, res) => {
     }
 
     // Find user by username OR email
-    const user = get(
+    const user = await get(
       `SELECT id, username, email, role, password_hash
        FROM users WHERE username = ? OR email = ?`,
       [username, username]
@@ -118,7 +118,7 @@ router.post('/admin/login', loginLimiter, async (req, res) => {
     if (!user) {
       try {
         const ip = (req.headers['x-forwarded-for'] || req.ip || '').toString().split(',')[0].trim();
-        insert('notifications', { type: 'login_failed', title: 'Failed login attempt', message: `Unknown user "${username}" from ${ip}.`, is_read: 0 });
+        await insert('notifications', { type: 'login_failed', title: 'Failed login attempt', message: `Unknown user "${username}" from ${ip}.`, is_read: 0 });
         require('../services/notify').dispatchNotification('Failed login attempt', `Unknown user "${username}" from ${ip}.`, 'login_failed');
       } catch {}
       return res.status(401).json({ error: 'Invalid credentials' });
@@ -128,35 +128,35 @@ router.post('/admin/login', loginLimiter, async (req, res) => {
     if (!match) {
       try {
         const ip = (req.headers['x-forwarded-for'] || req.ip || '').toString().split(',')[0].trim();
-        insert('notifications', { type: 'login_failed', title: 'Failed login attempt', message: `Wrong password for "${user.email}" from ${ip}.`, is_read: 0 });
+        await insert('notifications', { type: 'login_failed', title: 'Failed login attempt', message: `Wrong password for "${user.email}" from ${ip}.`, is_read: 0 });
         require('../services/notify').dispatchNotification('Failed login attempt', `Wrong password for "${user.email}" from ${ip}.`, 'login_failed');
       } catch {}
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    const token = createSession(user.id);
+    const token = await createSession(user.id);
     res.cookie('admin_session', token, COOKIE_OPTIONS);
 
     // Notifications: successful login + new-IP detection
     try {
       const ip = (req.headers['x-forwarded-for'] || req.ip || '').toString().split(',')[0].trim();
       const { dispatchNotification } = require('../services/notify');
-      const seen = get(`SELECT 1 FROM notifications WHERE type IN ('login','login_new_ip') AND message LIKE ? LIMIT 1`, [`%${ip}%`]);
+      const seen = await get(`SELECT 1 FROM notifications WHERE type IN ('login','login_new_ip') AND message LIKE ? LIMIT 1`, [`%${ip}%`]);
       const isNewIp = !seen;
       if (isNewIp) {
         const title = 'Login from new IP';
         const message = `${user.email} signed in from a new IP: ${ip}.`;
-        insert('notifications', { type: 'login_new_ip', title, message, is_read: 0 });
+        await insert('notifications', { type: 'login_new_ip', title, message, is_read: 0 });
         dispatchNotification(title, message, 'login_new_ip');
       } else {
         const title = 'Admin login';
         const message = `${user.email} signed in from ${ip}.`;
-        insert('notifications', { type: 'login', title, message, is_read: 0 });
+        await insert('notifications', { type: 'login', title, message, is_read: 0 });
         dispatchNotification(title, message, 'login');
       }
     } catch {}
 
-    run(`UPDATE users SET last_login = datetime('now') WHERE id = ?`, [user.id]);
+    await run(`UPDATE users SET last_login = datetime('now') WHERE id = ?`, [user.id]);
 
     res.json({
       ok: true,
@@ -202,12 +202,12 @@ router.post('/admin/emergency-login', loginLimiter, async (req, res) => {
 
     let user = null;
     if (target_email) {
-      user = get(
+      user = await get(
         `SELECT id, username, email, role FROM users WHERE (email = ? OR username = ?) AND role = 'admin'`,
         [target_email, target_email]
       );
     } else {
-      user = get(`SELECT id, username, email, role FROM users WHERE role = 'admin' ORDER BY id ASC LIMIT 1`);
+      user = await get(`SELECT id, username, email, role FROM users WHERE role = 'admin' ORDER BY id ASC LIMIT 1`);
     }
 
     if (!user) return res.status(401).json(generic);
@@ -218,11 +218,11 @@ router.post('/admin/emergency-login', loginLimiter, async (req, res) => {
     try {
       const title = 'Emergency login used';
       const message = `Recovery token used to log in as ${user.email} (id=${user.id}) from ${ip}.`;
-      insert('notifications', { type: 'emergency_login_used', title, message, is_read: 0 });
+      await insert('notifications', { type: 'emergency_login_used', title, message, is_read: 0 });
       require('../services/notify').dispatchNotification(title, message, 'emergency_login_used');
     } catch {}
 
-    const sessionToken = createSession(user.id);
+    const sessionToken = await createSession(user.id);
     res.cookie('admin_session', sessionToken, COOKIE_OPTIONS);
     return res.json({ ok: true, redirect: '/admin' });
   } catch (err) {
@@ -234,9 +234,9 @@ router.post('/admin/emergency-login', loginLimiter, async (req, res) => {
 // ---------------------------------------------------------------------------
 // POST /admin/logout
 // ---------------------------------------------------------------------------
-router.post('/admin/logout', (req, res) => {
+router.post('/admin/logout', async (req, res) => {
   const token = req.cookies && req.cookies.admin_session;
-  if (token) destroySession(token);
+  if (token) await destroySession(token);
   res.clearCookie('admin_session');
   res.redirect('/admin/login');
 });

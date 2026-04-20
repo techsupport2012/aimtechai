@@ -8,9 +8,15 @@ import { createScrollSpring } from '/js/scroll-spring.js';
 export function initBlogVideoBg() {
   if (document.getElementById('blog-video-bg')) return;
 
-  // Mobile gets simple loop playback — scroll-scrub causes severe lag.
-  const isMobile = window.matchMedia('(max-width: 768px)').matches ||
+  // Mobile / tablet: skip the heavy video and render connected-dots animation
+  const isMobile = window.matchMedia('(max-width: 900px)').matches ||
                    /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent);
+  if (isMobile) {
+    import('/js/mobile-dots-bg.js').then(m => m.initMobileDotsBg()).catch(err => {
+      console.warn('[mobile-dots-bg] load failed:', err);
+    });
+    return;
+  }
 
   const container = document.createElement('div');
   container.id = 'blog-video-bg';
@@ -20,20 +26,13 @@ export function initBlogVideoBg() {
   video.src = '/assets/server-bg-1080p.mp4';
   video.muted = true;
   video.playsInline = true;
-  video.preload = isMobile ? 'metadata' : 'auto';
-  video.loop = isMobile;
-  video.autoplay = isMobile;
+  video.preload = 'auto';
+  video.loop = false;
+  video.autoplay = false;
   video.style.cssText = 'width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.5s ease;';
 
   container.appendChild(video);
   document.body.prepend(container);
-
-  if (isMobile) {
-    const showVideo = () => { video.style.opacity = '1'; };
-    video.addEventListener('loadeddata', showVideo, { once: true });
-    video.play().then(showVideo).catch(() => { showVideo(); });
-    return;
-  }
 
   const metadataReady = new Promise((resolve, reject) => {
     if (video.readyState >= 1) resolve();

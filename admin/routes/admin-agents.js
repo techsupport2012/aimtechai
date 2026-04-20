@@ -35,15 +35,15 @@ function statusBadge(status) {
 // ---------------------------------------------------------------------------
 // GET / — Agent list page
 // ---------------------------------------------------------------------------
-router.get('/', requireAuth, (req, res) => {
-  const unreadCount = (get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
-  const agents = all(`SELECT * FROM agents ORDER BY created_at DESC`);
+router.get('/', requireAuth, async (req, res) => {
+  const unreadCount = (await get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
+  const agents = await all(`SELECT * FROM agents ORDER BY created_at DESC`);
 
   const today = new Date().toISOString().slice(0, 10);
 
-  const rows = agents.map(a => {
-    const lastRun = get(`SELECT started_at FROM agent_runs WHERE agent_id = ? ORDER BY started_at DESC LIMIT 1`, [a.id]);
-    const runsToday = (get(`SELECT COUNT(*) AS c FROM agent_runs WHERE agent_id = ? AND started_at >= ?`, [a.id, today]) || {}).c || 0;
+  const rows = (await Promise.all(agents.map(async a => {
+    const lastRun = await get(`SELECT started_at FROM agent_runs WHERE agent_id = ? ORDER BY started_at DESC LIMIT 1`, [a.id]);
+    const runsToday = (await get(`SELECT COUNT(*) AS c FROM agent_runs WHERE agent_id = ? AND started_at >= ?`, [a.id, today]) || {}).c || 0;
     const desc = (a.description || '').length > 60 ? a.description.slice(0, 60) + '...' : (a.description || '');
     return `
     <tr onclick="location.href='/admin/agents/${a.id}'" style="cursor:pointer">
@@ -59,7 +59,7 @@ router.get('/', requireAuth, (req, res) => {
       <td>${lastRun ? esc(lastRun.started_at) : '<span style="color:var(--muted)">Never</span>'}</td>
       <td>${runsToday}</td>
     </tr>`;
-  }).join('');
+  }))).join('');
 
   const content = `
     <style>
@@ -114,29 +114,29 @@ router.get('/', requireAuth, (req, res) => {
 // ---------------------------------------------------------------------------
 // GET /new — New agent form
 // ---------------------------------------------------------------------------
-router.get('/new', requireAuth, (req, res) => {
-  const unreadCount = (get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
+router.get('/new', requireAuth, async (req, res) => {
+  const unreadCount = (await get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
   res.send(adminLayout({
     title: 'New Agent',
     page: 'agents',
     user: req.user,
     csrfToken: req.csrfToken,
     unreadCount,
-    content: agentFormHtml(null, req.csrfToken)
+    content: await agentFormHtml(null, req.csrfToken)
   }));
 });
 
 // ---------------------------------------------------------------------------
 // GET /:id — Edit agent form + run history
 // ---------------------------------------------------------------------------
-router.get('/:id', requireAuth, (req, res) => {
+router.get('/:id', requireAuth, async (req, res) => {
   if (['api', 'new'].includes(req.params.id)) return;
 
-  const agent = get(`SELECT * FROM agents WHERE id = ?`, [req.params.id]);
+  const agent = await get(`SELECT * FROM agents WHERE id = ?`, [req.params.id]);
   if (!agent) return res.status(404).send('Agent not found');
 
-  const unreadCount = (get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
-  const runs = all(`SELECT * FROM agent_runs WHERE agent_id = ? ORDER BY started_at DESC LIMIT 20`, [agent.id]);
+  const unreadCount = (await get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
+  const runs = await all(`SELECT * FROM agent_runs WHERE agent_id = ? ORDER BY started_at DESC LIMIT 20`, [agent.id]);
 
   const runRows = runs.map(r => {
     const duration = r.completed_at && r.started_at
@@ -176,52 +176,52 @@ router.get('/:id', requireAuth, (req, res) => {
     user: req.user,
     csrfToken: req.csrfToken,
     unreadCount,
-    content: agentFormHtml(agent, req.csrfToken) + runHistory
+    content: (await agentFormHtml(agent, req.csrfToken)) + runHistory
   }));
 });
 
 // ---------------------------------------------------------------------------
 // Agent form HTML builder
 // ---------------------------------------------------------------------------
-function agentFormHtml(agent, csrfToken) {
+async function agentFormHtml(agent, csrfToken) {
   const isEdit = !!agent;
   const a = agent || { name: '', description: '', system_prompt: '', trigger_type: 'manual', trigger_config: '', is_active: 1, provider: 'claude', model: '' };
-  const gs = (k) => { const r = get('SELECT value FROM settings WHERE key = ?', [k]); return !!(r && r.value); };
+  const gs = async (k) => { const r = await get('SELECT value FROM settings WHERE key = ?', [k]); return !!(r && r.value); };
   const availableProviders = [
-    { id: 'claude', label: 'Anthropic (Claude)', hasKey: gs('claude_api_key'), models: [
+    { id: 'claude', label: 'Anthropic (Claude)', hasKey: await gs('claude_api_key'), models: [
       { v: 'claude-sonnet-4-20250514', l: 'Claude Sonnet 4' },
       { v: 'claude-opus-4-20250514', l: 'Claude Opus 4' },
       { v: 'claude-haiku-4-20250506', l: 'Claude Haiku 4' },
     ]},
-    { id: 'openai', label: 'OpenAI (GPT)', hasKey: gs('openai_api_key'), models: [
+    { id: 'openai', label: 'OpenAI (GPT)', hasKey: await gs('openai_api_key'), models: [
       { v: 'gpt-4o', l: 'GPT-4o' },
       { v: 'gpt-4o-mini', l: 'GPT-4o Mini' },
       { v: 'gpt-4.1', l: 'GPT-4.1' },
       { v: 'o3-mini', l: 'o3-mini' },
     ]},
-    { id: 'google', label: 'Google (Gemini)', hasKey: gs('google_api_key'), models: [
+    { id: 'google', label: 'Google (Gemini)', hasKey: await gs('google_api_key'), models: [
       { v: 'gemini-2.5-flash', l: 'Gemini 2.5 Flash' },
       { v: 'gemini-2.5-pro', l: 'Gemini 2.5 Pro' },
     ]},
-    { id: 'mistral', label: 'Mistral AI', hasKey: gs('mistral_api_key'), models: [
+    { id: 'mistral', label: 'Mistral AI', hasKey: await gs('mistral_api_key'), models: [
       { v: 'mistral-large-latest', l: 'Mistral Large' },
       { v: 'mistral-small-latest', l: 'Mistral Small' },
     ]},
-    { id: 'groq', label: 'Groq', hasKey: gs('groq_api_key'), models: [
+    { id: 'groq', label: 'Groq', hasKey: await gs('groq_api_key'), models: [
       { v: 'llama-3.3-70b-versatile', l: 'Llama 3.3 70B' },
       { v: 'mixtral-8x7b-32768', l: 'Mixtral 8x7B' },
     ]},
-    { id: 'perplexity', label: 'Perplexity', hasKey: gs('perplexity_api_key'), models: [
+    { id: 'perplexity', label: 'Perplexity', hasKey: await gs('perplexity_api_key'), models: [
       { v: 'sonar-pro', l: 'Sonar Pro' },
       { v: 'sonar', l: 'Sonar' },
     ]},
-    { id: 'deepseek', label: 'DeepSeek', hasKey: gs('deepseek_api_key'), models: [
+    { id: 'deepseek', label: 'DeepSeek', hasKey: await gs('deepseek_api_key'), models: [
       { v: 'deepseek-chat', l: 'DeepSeek Chat' },
       { v: 'deepseek-reasoner', l: 'DeepSeek Reasoner' },
     ]},
   ];
   const providerModelsJson = JSON.stringify(availableProviders.map(p => ({ id: p.id, models: p.models })));
-  const maxTokensRow = get(`SELECT value FROM settings WHERE key = 'agent_max_tokens'`);
+  const maxTokensRow = await get(`SELECT value FROM settings WHERE key = 'agent_max_tokens'`);
   const defaultMaxTokens = (maxTokensRow && maxTokensRow.value) || '4096';
 
   return `
@@ -482,7 +482,7 @@ function agentFormHtml(agent, csrfToken) {
 // ---------------------------------------------------------------------------
 // POST /api — Create agent
 // ---------------------------------------------------------------------------
-router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, (req, res) => {
+router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, async (req, res) => {
   try {
     const { name, description, system_prompt, trigger_type, trigger_config, is_active, provider, model } = req.body;
     if (!name || !name.trim()) return res.status(400).json({ error: 'Name is required' });
@@ -491,7 +491,7 @@ router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, (
     const validTriggers = ['manual', 'scheduled', 'on_event'];
     const tType = validTriggers.includes(trigger_type) ? trigger_type : 'manual';
 
-    const result = insert('agents', {
+    const result = await insert('agents', {
       name: name.trim(),
       description: (description || '').trim(),
       system_prompt: system_prompt.trim(),
@@ -513,9 +513,9 @@ router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, (
 // ---------------------------------------------------------------------------
 // PUT /api/:id — Update agent
 // ---------------------------------------------------------------------------
-router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf, (req, res) => {
+router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf, async (req, res) => {
   try {
-    const agent = get(`SELECT id FROM agents WHERE id = ?`, [req.params.id]);
+    const agent = await get(`SELECT id FROM agents WHERE id = ?`, [req.params.id]);
     if (!agent) return res.status(404).json({ error: 'Agent not found' });
 
     const { name, description, system_prompt, trigger_type, trigger_config, is_active, provider, model } = req.body;
@@ -533,7 +533,7 @@ router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf
     if (is_active !== undefined) updates.is_active = is_active ? 1 : 0;
 
     if (Object.keys(updates).length > 0) {
-      update('agents', agent.id, updates);
+      await update('agents', agent.id, updates);
     }
 
     res.json({ success: true });
@@ -546,13 +546,13 @@ router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf
 // ---------------------------------------------------------------------------
 // DELETE /api/:id — Delete agent + runs
 // ---------------------------------------------------------------------------
-router.delete('/api/:id', requireAuth, requireRole('admin'), validateCsrf, (req, res) => {
+router.delete('/api/:id', requireAuth, requireRole('admin'), validateCsrf, async (req, res) => {
   try {
-    const agent = get(`SELECT id FROM agents WHERE id = ?`, [req.params.id]);
+    const agent = await get(`SELECT id FROM agents WHERE id = ?`, [req.params.id]);
     if (!agent) return res.status(404).json({ error: 'Agent not found' });
 
-    run(`DELETE FROM agent_runs WHERE agent_id = ?`, [agent.id]);
-    run(`DELETE FROM agents WHERE id = ?`, [agent.id]);
+    await run(`DELETE FROM agent_runs WHERE agent_id = ?`, [agent.id]);
+    await run(`DELETE FROM agents WHERE id = ?`, [agent.id]);
 
     res.json({ success: true });
   } catch (err) {
@@ -564,8 +564,8 @@ router.delete('/api/:id', requireAuth, requireRole('admin'), validateCsrf, (req,
 // ---------------------------------------------------------------------------
 // Helper: get and decrypt an API key from settings
 // ---------------------------------------------------------------------------
-function getApiKey(settingKey) {
-  const row = get(`SELECT value FROM settings WHERE key = ?`, [settingKey]);
+async function getApiKey(settingKey) {
+  const row = await get(`SELECT value FROM settings WHERE key = ?`, [settingKey]);
   if (!row || !row.value) return null;
   try { return decrypt(row.value); } catch { return null; }
 }
@@ -663,7 +663,7 @@ router.post('/api/:id/run', requireAuth, validateCsrf, async (req, res) => {
   let runId = null;
   try {
     // 1. Get agent
-    const agent = get(`SELECT * FROM agents WHERE id = ?`, [req.params.id]);
+    const agent = await get(`SELECT * FROM agents WHERE id = ?`, [req.params.id]);
     if (!agent) return res.status(404).json({ error: 'Agent not found' });
 
     const provider = agent.provider || 'claude';
@@ -672,30 +672,30 @@ router.post('/api/:id/run', requireAuth, validateCsrf, async (req, res) => {
 
     // 2. Get API key for this provider
     if (!keyName) return res.status(400).json({ error: 'Unknown provider: ' + provider });
-    const apiKey = getApiKey(keyName);
+    const apiKey = await getApiKey(keyName);
     if (!apiKey) return res.status(400).json({ error: 'Add ' + provider + ' API key in Settings > API Keys' });
 
     // 3. Get max tokens from settings
-    const maxTokensRow = get(`SELECT value FROM settings WHERE key = 'agent_max_tokens'`);
+    const maxTokensRow = await get(`SELECT value FROM settings WHERE key = 'agent_max_tokens'`);
     const maxTokens = parseInt((maxTokensRow && maxTokensRow.value) || '4096', 10) || 4096;
 
     // 3b. Enforce rate limits
-    const maxRunsHourRow = get(`SELECT value FROM settings WHERE key = 'agent_max_runs_hour'`);
+    const maxRunsHourRow = await get(`SELECT value FROM settings WHERE key = 'agent_max_runs_hour'`);
     const maxRunsHour = parseInt((maxRunsHourRow && maxRunsHourRow.value) || '10', 10) || 10;
-    const maxRunsDayRow = get(`SELECT value FROM settings WHERE key = 'agent_max_runs_day'`);
+    const maxRunsDayRow = await get(`SELECT value FROM settings WHERE key = 'agent_max_runs_day'`);
     const maxRunsDay = parseInt((maxRunsDayRow && maxRunsDayRow.value) || '100', 10) || 100;
 
-    const hourCount = get(`SELECT COUNT(*) AS c FROM agent_runs WHERE started_at >= datetime('now', '-1 hour')`);
+    const hourCount = await get(`SELECT COUNT(*) AS c FROM agent_runs WHERE started_at >= datetime('now', '-1 hour')`);
     if ((hourCount && hourCount.c) >= maxRunsHour) {
       return res.status(429).json({ error: `Hourly agent run limit reached (${maxRunsHour}/hour). Try again later.` });
     }
-    const dayCount = get(`SELECT COUNT(*) AS c FROM agent_runs WHERE started_at >= date('now')`);
+    const dayCount = await get(`SELECT COUNT(*) AS c FROM agent_runs WHERE started_at >= date('now')`);
     if ((dayCount && dayCount.c) >= maxRunsDay) {
       return res.status(429).json({ error: `Daily agent run limit reached (${maxRunsDay}/day). Try again tomorrow.` });
     }
 
     // 4. Create agent_run row
-    const runResult = insert('agent_runs', {
+    const runResult = await insert('agent_runs', {
       agent_id: agent.id,
       status: 'running',
       input: 'Execute your task.',
@@ -707,13 +707,13 @@ router.post('/api/:id/run', requireAuth, validateCsrf, async (req, res) => {
     const { output, tokensUsed } = await callProvider(provider, model, apiKey, agent.system_prompt, maxTokens);
 
     // 6. Update run as completed
-    run(`UPDATE agent_runs SET status = 'completed', output = ?, tokens_used = ?, completed_at = ? WHERE id = ?`,
+    await run(`UPDATE agent_runs SET status = 'completed', output = ?, tokens_used = ?, completed_at = ? WHERE id = ?`,
       [output, tokensUsed, new Date().toISOString(), runId]);
 
     // Create notification
     const completedTitle = 'Agent Completed';
     const completedMessage = `Agent "${agent.name}" completed successfully (${tokensUsed} tokens)`;
-    insert('notifications', {
+    await insert('notifications', {
       type: 'system',
       title: completedTitle,
       message: completedMessage,
@@ -727,16 +727,16 @@ router.post('/api/:id/run', requireAuth, validateCsrf, async (req, res) => {
 
     // Update run as failed if we created one
     if (runId) {
-      run(`UPDATE agent_runs SET status = 'failed', error = ?, completed_at = ? WHERE id = ?`,
+      await run(`UPDATE agent_runs SET status = 'failed', error = ?, completed_at = ? WHERE id = ?`,
         [err.message || 'Unknown error', new Date().toISOString(), runId]);
     }
 
     // Get agent name for notification
-    const agent = get(`SELECT name FROM agents WHERE id = ?`, [req.params.id]);
+    const agent = await get(`SELECT name FROM agents WHERE id = ?`, [req.params.id]);
     const agentName = agent ? agent.name : `#${req.params.id}`;
     const failedTitle = 'Agent Failed';
     const failedMessage = `Agent "${agentName}" failed: ${(err.message || 'Unknown error').slice(0, 200)}`;
-    insert('notifications', {
+    await insert('notifications', {
       type: 'system',
       title: failedTitle,
       message: failedMessage,
@@ -751,9 +751,9 @@ router.post('/api/:id/run', requireAuth, validateCsrf, async (req, res) => {
 // ---------------------------------------------------------------------------
 // GET /api/:id/runs — List runs for agent
 // ---------------------------------------------------------------------------
-router.get('/api/:id/runs', requireAuth, (req, res) => {
+router.get('/api/:id/runs', requireAuth, async (req, res) => {
   try {
-    const runs = all(`SELECT * FROM agent_runs WHERE agent_id = ? ORDER BY started_at DESC LIMIT 20`, [req.params.id]);
+    const runs = await all(`SELECT * FROM agent_runs WHERE agent_id = ? ORDER BY started_at DESC LIMIT 20`, [req.params.id]);
     res.json({ success: true, runs });
   } catch (err) {
     console.error('GET /api/admin/agents/api/:id/runs error:', err);

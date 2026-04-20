@@ -42,19 +42,19 @@ function opts(values, selected) {
 // ---------------------------------------------------------------------------
 // GET / — Contacts list page
 // ---------------------------------------------------------------------------
-router.get('/', requireAuth, (req, res) => {
+router.get('/', requireAuth, async (req, res) => {
   const search = (req.query.q || '').trim();
-  const unreadCount = (get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
+  const unreadCount = (await get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
 
   let contacts;
   if (search) {
     const like = `%${search}%`;
-    contacts = all(
+    contacts = await all(
       `SELECT * FROM contacts WHERE name LIKE ? OR email LIKE ? OR company LIKE ? ORDER BY created_at DESC`,
       [like, like, like]
     );
   } else {
-    contacts = all('SELECT * FROM contacts ORDER BY created_at DESC');
+    contacts = await all('SELECT * FROM contacts ORDER BY created_at DESC');
   }
 
   const rows = contacts.map(c => {
@@ -219,13 +219,13 @@ router.get('/', requireAuth, (req, res) => {
 // ---------------------------------------------------------------------------
 // GET /:id — Contact detail page (skip if id === 'api')
 // ---------------------------------------------------------------------------
-router.get('/:id', requireAuth, (req, res, next) => {
+router.get('/:id', requireAuth, async (req, res, next) => {
   if (req.params.id === 'api') return next();
 
-  const contact = get('SELECT * FROM contacts WHERE id = ?', [req.params.id]);
+  const contact = await get('SELECT * FROM contacts WHERE id = ?', [req.params.id]);
   if (!contact) return res.status(404).send('Contact not found');
 
-  const unreadCount = (get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
+  const unreadCount = (await get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
   const isAdmin = req.user && req.user.role === 'admin';
 
   // Parse notes JSON
@@ -403,7 +403,7 @@ router.get('/:id', requireAuth, (req, res, next) => {
 // ---------------------------------------------------------------------------
 // POST /api — Create contact
 // ---------------------------------------------------------------------------
-router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, (req, res) => {
+router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, async (req, res) => {
   const { name, email, phone, company, source, status } = req.body || {};
 
   if (!name || !name.trim()) return res.status(400).json({ error: 'Name is required' });
@@ -411,7 +411,7 @@ router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, (
   const contactStatus = STATUSES.includes(status) ? status : 'new';
   const contactSource = SOURCES.includes(source) ? source : 'manual';
 
-  const result = insert('contacts', {
+  const result = await insert('contacts', {
     name: String(name).trim().slice(0, 100),
     email: String(email || '').trim().slice(0, 200),
     phone: String(phone || '').trim().slice(0, 30),
@@ -428,8 +428,8 @@ router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, (
 // ---------------------------------------------------------------------------
 // PUT /api/:id — Update contact
 // ---------------------------------------------------------------------------
-router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf, (req, res) => {
-  const contact = get('SELECT * FROM contacts WHERE id = ?', [req.params.id]);
+router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf, async (req, res) => {
+  const contact = await get('SELECT * FROM contacts WHERE id = ?', [req.params.id]);
   if (!contact) return res.status(404).json({ error: 'Contact not found' });
 
   const { name, email, phone, company, source, status } = req.body || {};
@@ -439,7 +439,7 @@ router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf
   const contactStatus = STATUSES.includes(status) ? status : contact.status;
   const contactSource = SOURCES.includes(source) ? source : contact.source;
 
-  update('contacts', contact.id, {
+  await update('contacts', contact.id, {
     name: String(name).trim().slice(0, 100),
     email: String(email || '').trim().slice(0, 200),
     phone: String(phone || '').trim().slice(0, 30),
@@ -455,11 +455,11 @@ router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf
 // ---------------------------------------------------------------------------
 // DELETE /api/:id — Delete contact (admin only)
 // ---------------------------------------------------------------------------
-router.delete('/api/:id', requireAuth, requireRole('admin'), validateCsrf, (req, res) => {
-  const contact = get('SELECT * FROM contacts WHERE id = ?', [req.params.id]);
+router.delete('/api/:id', requireAuth, requireRole('admin'), validateCsrf, async (req, res) => {
+  const contact = await get('SELECT * FROM contacts WHERE id = ?', [req.params.id]);
   if (!contact) return res.status(404).json({ error: 'Contact not found' });
 
-  run('DELETE FROM contacts WHERE id = ?', [contact.id]);
+  await run('DELETE FROM contacts WHERE id = ?', [contact.id]);
 
   res.json({ ok: true, message: 'Contact deleted' });
 });
@@ -467,8 +467,8 @@ router.delete('/api/:id', requireAuth, requireRole('admin'), validateCsrf, (req,
 // ---------------------------------------------------------------------------
 // POST /api/:id/notes — Add note to contact
 // ---------------------------------------------------------------------------
-router.post('/api/:id/notes', requireAuth, validateCsrf, (req, res) => {
-  const contact = get('SELECT * FROM contacts WHERE id = ?', [req.params.id]);
+router.post('/api/:id/notes', requireAuth, validateCsrf, async (req, res) => {
+  const contact = await get('SELECT * FROM contacts WHERE id = ?', [req.params.id]);
   if (!contact) return res.status(404).json({ error: 'Contact not found' });
 
   const { text } = req.body || {};
@@ -479,7 +479,7 @@ router.post('/api/:id/notes', requireAuth, validateCsrf, (req, res) => {
 
   notes.unshift({ text: String(text).trim().slice(0, 2000), date: new Date().toISOString() });
 
-  update('contacts', contact.id, {
+  await update('contacts', contact.id, {
     notes: JSON.stringify(notes),
     updated_at: new Date().toISOString()
   });

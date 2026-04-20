@@ -33,17 +33,17 @@ function daysSince(dateStr) {
 // ---------------------------------------------------------------------------
 // GET / — Kanban board page
 // ---------------------------------------------------------------------------
-router.get('/', requireAuth, (req, res) => {
-  const unreadCount = (get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
+router.get('/', requireAuth, async (req, res) => {
+  const unreadCount = (await get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
 
-  const stages = all('SELECT * FROM pipeline_stages ORDER BY position ASC');
-  const deals = all(
+  const stages = await all('SELECT * FROM pipeline_stages ORDER BY position ASC');
+  const deals = await all(
     `SELECT d.*, c.name AS contact_name
      FROM deals d
      LEFT JOIN contacts c ON d.contact_id = c.id
      ORDER BY d.updated_at DESC`
   );
-  const contacts = all('SELECT id, name FROM contacts ORDER BY name ASC');
+  const contacts = await all('SELECT id, name FROM contacts ORDER BY name ASC');
 
   // Group deals by stage
   const dealsByStage = {};
@@ -435,7 +435,7 @@ router.get('/', requireAuth, (req, res) => {
 // ---------------------------------------------------------------------------
 // POST /api — Create deal
 // ---------------------------------------------------------------------------
-router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, (req, res) => {
+router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, async (req, res) => {
   const { title, contact_id, stage_id, value, notes } = req.body || {};
 
   if (!title || !String(title).trim()) {
@@ -445,11 +445,11 @@ router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, (
   // Default to first stage if none specified
   let finalStageId = stage_id ? parseInt(stage_id) : null;
   if (!finalStageId) {
-    const firstStage = get('SELECT id FROM pipeline_stages ORDER BY position ASC LIMIT 1');
+    const firstStage = await get('SELECT id FROM pipeline_stages ORDER BY position ASC LIMIT 1');
     finalStageId = firstStage ? firstStage.id : null;
   }
 
-  const result = insert('deals', {
+  const result = await insert('deals', {
     title: String(title).trim().slice(0, 200),
     contact_id: contact_id ? parseInt(contact_id) : null,
     stage_id: finalStageId,
@@ -464,10 +464,10 @@ router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, (
 // ---------------------------------------------------------------------------
 // PUT /api/:id — Update deal
 // ---------------------------------------------------------------------------
-router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf, (req, res) => {
+router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf, async (req, res) => {
   if (req.params.id === 'undefined') return res.status(400).json({ error: 'Invalid deal ID' });
 
-  const deal = get('SELECT * FROM deals WHERE id = ?', [req.params.id]);
+  const deal = await get('SELECT * FROM deals WHERE id = ?', [req.params.id]);
   if (!deal) return res.status(404).json({ error: 'Deal not found' });
 
   const { title, contact_id, stage_id, value, notes } = req.body || {};
@@ -476,7 +476,7 @@ router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf
     return res.status(400).json({ error: 'Title is required' });
   }
 
-  update('deals', deal.id, {
+  await update('deals', deal.id, {
     title: String(title).trim().slice(0, 200),
     contact_id: contact_id ? parseInt(contact_id) : null,
     stage_id: stage_id ? parseInt(stage_id) : deal.stage_id,
@@ -491,18 +491,18 @@ router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf
 // ---------------------------------------------------------------------------
 // PATCH /api/:id/stage — Move deal to new stage (drag-drop)
 // ---------------------------------------------------------------------------
-router.patch('/api/:id/stage', requireAuth, requireRole('admin', 'editor'), validateCsrf, (req, res) => {
-  const deal = get('SELECT * FROM deals WHERE id = ?', [req.params.id]);
+router.patch('/api/:id/stage', requireAuth, requireRole('admin', 'editor'), validateCsrf, async (req, res) => {
+  const deal = await get('SELECT * FROM deals WHERE id = ?', [req.params.id]);
   if (!deal) return res.status(404).json({ error: 'Deal not found' });
 
   const { stage_id } = req.body || {};
   if (!stage_id) return res.status(400).json({ error: 'stage_id is required' });
 
   // Verify stage exists
-  const stage = get('SELECT id FROM pipeline_stages WHERE id = ?', [parseInt(stage_id)]);
+  const stage = await get('SELECT id FROM pipeline_stages WHERE id = ?', [parseInt(stage_id)]);
   if (!stage) return res.status(400).json({ error: 'Invalid stage' });
 
-  update('deals', deal.id, {
+  await update('deals', deal.id, {
     stage_id: parseInt(stage_id),
     updated_at: new Date().toISOString()
   });
@@ -513,11 +513,11 @@ router.patch('/api/:id/stage', requireAuth, requireRole('admin', 'editor'), vali
 // ---------------------------------------------------------------------------
 // DELETE /api/:id — Delete deal (admin only)
 // ---------------------------------------------------------------------------
-router.delete('/api/:id', requireAuth, requireRole('admin'), validateCsrf, (req, res) => {
-  const deal = get('SELECT * FROM deals WHERE id = ?', [req.params.id]);
+router.delete('/api/:id', requireAuth, requireRole('admin'), validateCsrf, async (req, res) => {
+  const deal = await get('SELECT * FROM deals WHERE id = ?', [req.params.id]);
   if (!deal) return res.status(404).json({ error: 'Deal not found' });
 
-  run('DELETE FROM deals WHERE id = ?', [deal.id]);
+  await run('DELETE FROM deals WHERE id = ?', [deal.id]);
 
   res.json({ ok: true, message: 'Deal deleted' });
 });

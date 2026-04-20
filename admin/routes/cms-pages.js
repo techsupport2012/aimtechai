@@ -20,9 +20,9 @@ function esc(str) {
 // ---------------------------------------------------------------------------
 // GET / — Page list
 // ---------------------------------------------------------------------------
-router.get('/', requireAuth, (req, res) => {
-  const pages = all('SELECT id, title, slug, status, updated_at FROM pages ORDER BY slug');
-  const unreadCount = (get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
+router.get('/', requireAuth, async (req, res) => {
+  const pages = await all('SELECT id, title, slug, status, updated_at FROM pages ORDER BY slug');
+  const unreadCount = (await get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
 
   const rows = pages.map(p => `
     <tr onclick="location.href='/admin/pages/${p.id}'" style="cursor:pointer">
@@ -76,11 +76,11 @@ router.get('/', requireAuth, (req, res) => {
 // ---------------------------------------------------------------------------
 // GET /:id — Edit page form
 // ---------------------------------------------------------------------------
-router.get('/:id', requireAuth, (req, res) => {
-  const page = get('SELECT * FROM pages WHERE id = ?', [req.params.id]);
+router.get('/:id', requireAuth, async (req, res) => {
+  const page = await get('SELECT * FROM pages WHERE id = ?', [req.params.id]);
   if (!page) return res.status(404).send('Page not found');
 
-  const unreadCount = (get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
+  const unreadCount = (await get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
 
   const content = `
     <style>
@@ -187,11 +187,11 @@ router.get('/:id', requireAuth, (req, res) => {
 // ---------------------------------------------------------------------------
 // PUT /api/:id — Update page
 // ---------------------------------------------------------------------------
-router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf, (req, res) => {
+router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf, async (req, res) => {
   const { title, meta_description, status } = req.body || {};
   const pageId = req.params.id;
 
-  const page = get('SELECT * FROM pages WHERE id = ?', [pageId]);
+  const page = await get('SELECT * FROM pages WHERE id = ?', [pageId]);
   if (!page) return res.status(404).json({ error: 'Page not found' });
 
   // Validate
@@ -204,7 +204,7 @@ router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf
   }
 
   // Update DB
-  update('pages', pageId, {
+  await update('pages', pageId, {
     title: title.trim(),
     meta_description: (meta_description || '').trim(),
     status,

@@ -11,7 +11,7 @@ const cookieParser = require('cookie-parser');
 // ---------------------------------------------------------------------------
 const { get, all, run, insert } = require('./db/db');
 const { dispatchNotification } = require('./admin/services/notify');
-require('./db/seed').seed();
+require('./db/seed').seed().catch(err => console.error('[seed] error:', err.message));
 
 // ---------------------------------------------------------------------------
 // Legacy migration: schedule.json → SQLite bookings

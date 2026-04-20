@@ -43,94 +43,94 @@ function esc(s) {
 // ---------------------------------------------------------------------------
 // GET /admin/settings — settings page
 // ---------------------------------------------------------------------------
-router.get('/admin/settings', requireAuth, (req, res) => {
-  const unreadCount = (get(`SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0`) || {}).c || 0;
-  const users = all(`SELECT id, username, email, role, last_login FROM users ORDER BY id`);
+router.get('/admin/settings', requireAuth, async (req, res) => {
+  const unreadCount = ((await get(`SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0`)) || {}).c || 0;
+  const users = await all(`SELECT id, username, email, role, last_login FROM users ORDER BY id`);
 
   // Check if Claude API key exists
-  const claudeKeyRow = get(`SELECT value FROM settings WHERE key = 'claude_api_key'`);
+  const claudeKeyRow = await get(`SELECT value FROM settings WHERE key = 'claude_api_key'`);
   const hasClaudeKey = !!(claudeKeyRow && claudeKeyRow.value);
 
   // Load site config settings
-  const getSetting = (key, fallback) => {
-    const row = get(`SELECT value FROM settings WHERE key = ?`, [key]);
+  const getSetting = async (key, fallback) => {
+    const row = await get(`SELECT value FROM settings WHERE key = ?`, [key]);
     return (row && row.value) || fallback || '';
   };
 
-  const companyName = getSetting('company_name', 'AIM Tech AI');
-  const phone = getSetting('phone');
-  const address = getSetting('address');
-  const timezone = getSetting('timezone', 'Asia/Manila');
+  const companyName = await getSetting('company_name', 'AIM Tech AI');
+  const phone = await getSetting('phone');
+  const address = await getSetting('address');
+  const timezone = await getSetting('timezone', 'Asia/Manila');
 
   // Notification channel settings
-  const notifTelegramEnabled = getSetting('notif_telegram_enabled', '0');
-  const notifTelegramBotToken = getSetting('notif_telegram_bot_token');
-  const notifTelegramChatId = getSetting('notif_telegram_chat_id');
-  const notifDiscordEnabled = getSetting('notif_discord_enabled', '0');
-  const notifDiscordWebhookUrl = getSetting('notif_discord_webhook_url');
-  const notifWhatsappEnabled = getSetting('notif_whatsapp_enabled', '0');
-  const notifWhatsappPhone = getSetting('notif_whatsapp_phone');
-  const notifWhatsappApiKey = getSetting('notif_whatsapp_api_key');
-  const notifEmailEnabled = getSetting('notif_email_enabled', '0');
-  const notifEmailTo = getSetting('notif_email_to');
-  const notifEmailSmtpHost = getSetting('notif_email_smtp_host');
-  const notifEmailSmtpPort = getSetting('notif_email_smtp_port', '587');
-  const notifEmailSmtpUser = getSetting('notif_email_smtp_user');
-  const notifEmailSmtpPass = getSetting('notif_email_smtp_pass');
-  const notifEmailFrom = getSetting('notif_email_from');
+  const notifTelegramEnabled = await getSetting('notif_telegram_enabled', '0');
+  const notifTelegramBotToken = await getSetting('notif_telegram_bot_token');
+  const notifTelegramChatId = await getSetting('notif_telegram_chat_id');
+  const notifDiscordEnabled = await getSetting('notif_discord_enabled', '0');
+  const notifDiscordWebhookUrl = await getSetting('notif_discord_webhook_url');
+  const notifWhatsappEnabled = await getSetting('notif_whatsapp_enabled', '0');
+  const notifWhatsappPhone = await getSetting('notif_whatsapp_phone');
+  const notifWhatsappApiKey = await getSetting('notif_whatsapp_api_key');
+  const notifEmailEnabled = await getSetting('notif_email_enabled', '0');
+  const notifEmailTo = await getSetting('notif_email_to');
+  const notifEmailSmtpHost = await getSetting('notif_email_smtp_host');
+  const notifEmailSmtpPort = await getSetting('notif_email_smtp_port', '587');
+  const notifEmailSmtpUser = await getSetting('notif_email_smtp_user');
+  const notifEmailSmtpPass = await getSetting('notif_email_smtp_pass');
+  const notifEmailFrom = await getSetting('notif_email_from');
 
   // Agent limits
-  const maxTokens = getSetting('agent_max_tokens', '4096');
-  const maxRunsHour = getSetting('agent_max_runs_hour', '10');
-  const maxRunsDay = getSetting('agent_max_runs_day', '100');
+  const maxTokens = await getSetting('agent_max_tokens', '4096');
+  const maxRunsHour = await getSetting('agent_max_runs_hour', '10');
+  const maxRunsDay = await getSetting('agent_max_runs_day', '100');
 
   // SEO settings
-  const seoTitle = getSetting('seo_default_title', 'AIM Tech AI — Custom Software & AI Integration');
-  const seoDesc = getSetting('seo_default_description', 'AIM Tech AI builds custom software, AI integrations, and cloud solutions for businesses worldwide.');
-  const seoKeywords = getSetting('seo_default_keywords', 'AI integration, custom software, cloud architecture, machine learning, Beverly Hills tech');
-  const seoOgImage = getSetting('seo_og_image', '/assets/aim_transparent_logo.png');
-  const seoCanonicalBase = getSetting('seo_canonical_base', 'https://aimtechai.com');
-  const seoRobots = getSetting('seo_robots', 'index, follow');
-  const seoGoogleVerify = getSetting('seo_google_verification', '');
-  const seoBingVerify = getSetting('seo_bing_verification', '');
-  const seoGtmId = getSetting('seo_gtm_id', '');
-  const seoGaId = getSetting('seo_ga_id', '');
-  const seoJsonLdOrg = getSetting('seo_jsonld_org', '');
-  const seoSitemap = getSetting('seo_sitemap_enabled', '1');
-  const seoTwitter = getSetting('seo_twitter_handle', '');
-  const seoFbAppId = getSetting('seo_fb_app_id', '');
+  const seoTitle = await getSetting('seo_default_title', 'AIM Tech AI — Custom Software & AI Integration');
+  const seoDesc = await getSetting('seo_default_description', 'AIM Tech AI builds custom software, AI integrations, and cloud solutions for businesses worldwide.');
+  const seoKeywords = await getSetting('seo_default_keywords', 'AI integration, custom software, cloud architecture, machine learning, Beverly Hills tech');
+  const seoOgImage = await getSetting('seo_og_image', '/assets/aim_transparent_logo.png');
+  const seoCanonicalBase = await getSetting('seo_canonical_base', 'https://aimtechai.com');
+  const seoRobots = await getSetting('seo_robots', 'index, follow');
+  const seoGoogleVerify = await getSetting('seo_google_verification', '');
+  const seoBingVerify = await getSetting('seo_bing_verification', '');
+  const seoGtmId = await getSetting('seo_gtm_id', '');
+  const seoGaId = await getSetting('seo_ga_id', '');
+  const seoJsonLdOrg = await getSetting('seo_jsonld_org', '');
+  const seoSitemap = await getSetting('seo_sitemap_enabled', '1');
+  const seoTwitter = await getSetting('seo_twitter_handle', '');
+  const seoFbAppId = await getSetting('seo_fb_app_id', '');
 
   // Security settings
-  const secLoginMaxAttempts = getSetting('sec_login_max_attempts', '5');
-  const secLoginLockoutMin = getSetting('sec_login_lockout_min', '15');
-  const secSessionExpireHrs = getSetting('sec_session_expire_hrs', '24');
-  const secForceHttps = getSetting('sec_force_https', '0');
-  const secCorsOrigins = getSetting('sec_cors_origins', '*');
-  const secRateLimitRpm = getSetting('sec_rate_limit_rpm', '100');
-  const secIpWhitelist = getSetting('sec_ip_whitelist', '');
-  const secIpBlacklist = getSetting('sec_ip_blacklist', '');
-  const sec2faEnabled = getSetting('sec_2fa_enabled', '0');
-  const secContentSecurityPolicy = getSetting('sec_csp', '');
+  const secLoginMaxAttempts = await getSetting('sec_login_max_attempts', '5');
+  const secLoginLockoutMin = await getSetting('sec_login_lockout_min', '15');
+  const secSessionExpireHrs = await getSetting('sec_session_expire_hrs', '24');
+  const secForceHttps = await getSetting('sec_force_https', '0');
+  const secCorsOrigins = await getSetting('sec_cors_origins', '*');
+  const secRateLimitRpm = await getSetting('sec_rate_limit_rpm', '100');
+  const secIpWhitelist = await getSetting('sec_ip_whitelist', '');
+  const secIpBlacklist = await getSetting('sec_ip_blacklist', '');
+  const sec2faEnabled = await getSetting('sec_2fa_enabled', '0');
+  const secContentSecurityPolicy = await getSetting('sec_csp', '');
 
   // Appearance settings
-  const appAdminTheme = getSetting('app_admin_theme', 'dark');
-  const appAccentColor = getSetting('app_accent_color', '#0FC1B7');
-  const appSidebarPosition = getSetting('app_sidebar_position', 'left');
-  const appDateFormat = getSetting('app_date_format', 'MM/DD/YYYY');
-  const appLang = getSetting('app_language', 'en');
-  const appDensity = getSetting('app_density', 'default');
+  const appAdminTheme = await getSetting('app_admin_theme', 'dark');
+  const appAccentColor = await getSetting('app_accent_color', '#0FC1B7');
+  const appSidebarPosition = await getSetting('app_sidebar_position', 'left');
+  const appDateFormat = await getSetting('app_date_format', 'MM/DD/YYYY');
+  const appLang = await getSetting('app_language', 'en');
+  const appDensity = await getSetting('app_density', 'default');
 
   // Email settings
-  const emailDefaultFrom = getSetting('email_default_from', '');
-  const emailDefaultReplyTo = getSetting('email_default_reply_to', '');
-  const emailFooterText = getSetting('email_footer_text', '© 2026 AIM Tech AI LLC. Beverly Hills, California.');
-  const emailLogoUrl = getSetting('email_logo_url', 'https://aimtechai.com/assets/aim_transparent_logo.png');
+  const emailDefaultFrom = await getSetting('email_default_from', '');
+  const emailDefaultReplyTo = await getSetting('email_default_reply_to', '');
+  const emailFooterText = await getSetting('email_footer_text', '© 2026 AIM Tech AI LLC. Beverly Hills, California.');
+  const emailLogoUrl = await getSetting('email_logo_url', 'https://aimtechai.com/assets/aim_transparent_logo.png');
 
   // Backup settings
-  const backupAutoEnabled = getSetting('backup_auto_enabled', '0');
-  const backupFrequency = getSetting('backup_frequency', 'daily');
-  const backupRetainDays = getSetting('backup_retain_days', '30');
-  const backupPath = getSetting('backup_path', './data/backups');
+  const backupAutoEnabled = await getSetting('backup_auto_enabled', '0');
+  const backupFrequency = await getSetting('backup_frequency', 'daily');
+  const backupRetainDays = await getSetting('backup_retain_days', '30');
+  const backupPath = await getSetting('backup_path', './data/backups');
 
   const isAdmin = req.user.role === 'admin';
 
@@ -150,6 +150,27 @@ router.get('/admin/settings', requireAuth, (req, res) => {
   `).join('');
 
   const _si = (d) => `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+
+  // Pre-render API key rows (async DB lookups can't run inside a template literal)
+  const apiKeyDefs = [
+    { id: 'claude_api_key', label: 'Anthropic (Claude)', icon: _si('<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>'), placeholder: 'sk-ant-...' },
+    { id: 'openai_api_key', label: 'OpenAI (GPT)', icon: _si('<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>'), placeholder: 'sk-...' },
+    { id: 'google_api_key', label: 'Google (Gemini)', icon: _si('<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>'), placeholder: 'AIza...' },
+    { id: 'mistral_api_key', label: 'Mistral AI', icon: _si('<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>'), placeholder: 'mis-...' },
+    { id: 'groq_api_key', label: 'Groq', icon: _si('<rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/><path d="M9 15h6"/>'), placeholder: 'gsk_...' },
+    { id: 'perplexity_api_key', label: 'Perplexity', icon: _si('<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>'), placeholder: 'pplx-...' },
+    { id: 'deepseek_api_key', label: 'DeepSeek', icon: _si('<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'), placeholder: 'dsk-...' },
+  ];
+  const apiKeyRowsHtml = (await Promise.all(apiKeyDefs.map(async (k) => {
+    const row = await get('SELECT value FROM settings WHERE key = ?', [k.id]);
+    const hasKey = !!(row && row.value);
+    return '<div style="display:flex;align-items:center;gap:.8rem;padding:.6rem 0;border-bottom:1px solid var(--border,#333);">' +
+      '<div style="width:1.2rem;opacity:.5;">' + k.icon + '</div>' +
+      '<div style="min-width:130px;font-weight:600;font-size:.85rem;">' + k.label + '</div>' +
+      '<div style="flex:1;"><input type="password" name="' + k.id + '" placeholder="' + (hasKey ? '********** (set)' : k.placeholder) + '" style="width:100%;padding:.4rem .6rem;background:var(--surface,rgba(255,255,255,.06));border:1px solid var(--border,#333);border-radius:6px;color:var(--text,#fff);font-size:.84rem;font-family:monospace;" /></div>' +
+      '<div style="width:50px;text-align:center;">' + (hasKey ? '<span style="color:#22c55e;font-size:.72rem;font-weight:600;">SET</span>' : '<span style="color:var(--muted,#666);font-size:.72rem;">-</span>') + '</div>' +
+    '</div>';
+  }))).join('');
 
   const content = `
     <style>
@@ -231,24 +252,7 @@ router.get('/admin/settings', requireAuth, (req, res) => {
       <div class="card">
         <p style="font-size:.78rem;color:var(--muted,#888);margin-bottom:1rem;">Agents can use any configured key. Add keys for the providers you want your agents to access.</p>
         <form id="apiKeysForm">
-          ${[
-            { id: 'claude_api_key', label: 'Anthropic (Claude)', icon: _si('<path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>'), placeholder: 'sk-ant-...' },
-            { id: 'openai_api_key', label: 'OpenAI (GPT)', icon: _si('<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>'), placeholder: 'sk-...' },
-            { id: 'google_api_key', label: 'Google (Gemini)', icon: _si('<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>'), placeholder: 'AIza...' },
-            { id: 'mistral_api_key', label: 'Mistral AI', icon: _si('<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>'), placeholder: 'mis-...' },
-            { id: 'groq_api_key', label: 'Groq', icon: _si('<rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/><path d="M9 15h6"/>'), placeholder: 'gsk_...' },
-            { id: 'perplexity_api_key', label: 'Perplexity', icon: _si('<circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>'), placeholder: 'pplx-...' },
-            { id: 'deepseek_api_key', label: 'DeepSeek', icon: _si('<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'), placeholder: 'dsk-...' },
-          ].map(k => {
-            const row = get('SELECT value FROM settings WHERE key = ?', [k.id]);
-            const hasKey = !!(row && row.value);
-            return '<div style="display:flex;align-items:center;gap:.8rem;padding:.6rem 0;border-bottom:1px solid var(--border,#333);">' +
-              '<div style="width:1.2rem;opacity:.5;">' + k.icon + '</div>' +
-              '<div style="min-width:130px;font-weight:600;font-size:.85rem;">' + k.label + '</div>' +
-              '<div style="flex:1;"><input type="password" name="' + k.id + '" placeholder="' + (hasKey ? '********** (set)' : k.placeholder) + '" style="width:100%;padding:.4rem .6rem;background:var(--surface,rgba(255,255,255,.06));border:1px solid var(--border,#333);border-radius:6px;color:var(--text,#fff);font-size:.84rem;font-family:monospace;" /></div>' +
-              '<div style="width:50px;text-align:center;">' + (hasKey ? '<span style="color:#22c55e;font-size:.72rem;font-weight:600;">SET</span>' : '<span style="color:var(--muted,#666);font-size:.72rem;">-</span>') + '</div>' +
-            '</div>';
-          }).join('')}
+          ${apiKeyRowsHtml}
           <div style="margin-top:.8rem;display:flex;align-items:center;">
             <button type="submit" class="sf-save">Save All Keys</button>
             <span class="sf-msg" id="msg-api">Saved</span>

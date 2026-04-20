@@ -5,12 +5,12 @@ const { requireAuth, validateCsrf } = require('../middleware/auth');
 const router = express.Router();
 
 // GET / — list notifications (with optional ?unread=true shortcut)
-router.get('/', requireAuth, (req, res) => {
+router.get('/', requireAuth, async (req, res) => {
   try {
     // Quick unread summary for bell dropdown
     if (req.query.unread === 'true') {
-      const unreadCount = (get(`SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0`) || {}).c || 0;
-      const recent = all(
+      const unreadCount = ((await get(`SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0`)) || {}).c || 0;
+      const recent = await all(
         `SELECT * FROM notifications WHERE is_read = 0 ORDER BY created_at DESC LIMIT 10`
       );
       return res.json({ unreadCount, recent });
@@ -28,8 +28,8 @@ router.get('/', requireAuth, (req, res) => {
       params.push(type);
     }
 
-    const total = (get(`SELECT COUNT(*) AS c FROM notifications ${where}`, params) || {}).c || 0;
-    const notifications = all(
+    const total = ((await get(`SELECT COUNT(*) AS c FROM notifications ${where}`, params)) || {}).c || 0;
+    const notifications = await all(
       `SELECT * FROM notifications ${where} ORDER BY created_at DESC LIMIT ? OFFSET ?`,
       [...params, limit, offset]
     );
@@ -42,13 +42,13 @@ router.get('/', requireAuth, (req, res) => {
 });
 
 // PATCH /:id/read — mark single notification as read
-router.patch('/:id/read', requireAuth, validateCsrf, (req, res) => {
+router.patch('/:id/read', requireAuth, validateCsrf, async (req, res) => {
   try {
     const { id } = req.params;
-    const notif = get(`SELECT id FROM notifications WHERE id = ?`, [id]);
+    const notif = await get(`SELECT id FROM notifications WHERE id = ?`, [id]);
     if (!notif) return res.status(404).json({ error: 'Notification not found' });
 
-    run(`UPDATE notifications SET is_read = 1 WHERE id = ?`, [id]);
+    await run(`UPDATE notifications SET is_read = 1 WHERE id = ?`, [id]);
     res.json({ success: true });
   } catch (err) {
     console.error('PATCH /notifications/:id/read error:', err);
@@ -57,9 +57,9 @@ router.patch('/:id/read', requireAuth, validateCsrf, (req, res) => {
 });
 
 // POST /read-all — mark all notifications as read
-router.post('/read-all', requireAuth, validateCsrf, (req, res) => {
+router.post('/read-all', requireAuth, validateCsrf, async (req, res) => {
   try {
-    run(`UPDATE notifications SET is_read = 1 WHERE is_read = 0`);
+    await run(`UPDATE notifications SET is_read = 1 WHERE is_read = 0`);
     res.json({ success: true });
   } catch (err) {
     console.error('POST /notifications/read-all error:', err);
@@ -68,13 +68,13 @@ router.post('/read-all', requireAuth, validateCsrf, (req, res) => {
 });
 
 // DELETE /:id — delete notification
-router.delete('/:id', requireAuth, validateCsrf, (req, res) => {
+router.delete('/:id', requireAuth, validateCsrf, async (req, res) => {
   try {
     const { id } = req.params;
-    const notif = get(`SELECT id FROM notifications WHERE id = ?`, [id]);
+    const notif = await get(`SELECT id FROM notifications WHERE id = ?`, [id]);
     if (!notif) return res.status(404).json({ error: 'Notification not found' });
 
-    run(`DELETE FROM notifications WHERE id = ?`, [id]);
+    await run(`DELETE FROM notifications WHERE id = ?`, [id]);
     res.json({ success: true });
   } catch (err) {
     console.error('DELETE /notifications/:id error:', err);
@@ -83,9 +83,9 @@ router.delete('/:id', requireAuth, validateCsrf, (req, res) => {
 });
 
 // POST /clear-old — delete notifications older than 30 days
-router.post('/clear-old', requireAuth, validateCsrf, (req, res) => {
+router.post('/clear-old', requireAuth, validateCsrf, async (req, res) => {
   try {
-    const result = run(`DELETE FROM notifications WHERE created_at < datetime('now', '-30 days')`);
+    const result = await run(`DELETE FROM notifications WHERE created_at < datetime('now', '-30 days')`);
     res.json({ success: true, deleted: result.changes });
   } catch (err) {
     console.error('POST /notifications/clear-old error:', err);
@@ -94,7 +94,7 @@ router.post('/clear-old', requireAuth, validateCsrf, (req, res) => {
 });
 
 // PUT /channel-settings — save notification channel settings
-router.put('/channel-settings', requireAuth, validateCsrf, (req, res) => {
+router.put('/channel-settings', requireAuth, validateCsrf, async (req, res) => {
   try {
     const allowedKeys = [
       'notif_telegram_enabled', 'notif_telegram_bot_token', 'notif_telegram_chat_id',
@@ -109,11 +109,11 @@ router.put('/channel-settings', requireAuth, validateCsrf, (req, res) => {
     for (const key of allowedKeys) {
       if (body[key] !== undefined) {
         const value = String(body[key]);
-        const existing = get('SELECT key FROM settings WHERE key = ?', [key]);
+        const existing = await get('SELECT key FROM settings WHERE key = ?', [key]);
         if (existing) {
-          run("UPDATE settings SET value = ?, updated_at = datetime('now') WHERE key = ?", [value, key]);
+          await run("UPDATE settings SET value = ?, updated_at = datetime('now') WHERE key = ?", [value, key]);
         } else {
-          run("INSERT INTO settings (key, value, updated_at) VALUES (?, ?, datetime('now'))", [key, value]);
+          await run("INSERT INTO settings (key, value, updated_at) VALUES (?, ?, datetime('now'))", [key, value]);
         }
       }
     }
@@ -125,7 +125,7 @@ router.put('/channel-settings', requireAuth, validateCsrf, (req, res) => {
 });
 
 // PUT /trigger-settings — save notification trigger enable/disable list
-router.put('/trigger-settings', requireAuth, validateCsrf, (req, res) => {
+router.put('/trigger-settings', requireAuth, validateCsrf, async (req, res) => {
   try {
     const body = req.body || {};
     const raw = Array.isArray(body.disabled) ? body.disabled : [];
@@ -167,11 +167,11 @@ router.put('/trigger-settings', requireAuth, validateCsrf, (req, res) => {
     ]);
     const disabled = [...new Set(raw.filter(k => typeof k === 'string' && VALID.has(k)))];
     const value = JSON.stringify(disabled);
-    const existing = get('SELECT key FROM settings WHERE key = ?', ['notification_triggers_disabled']);
+    const existing = await get('SELECT key FROM settings WHERE key = ?', ['notification_triggers_disabled']);
     if (existing) {
-      run("UPDATE settings SET value = ?, updated_at = datetime('now') WHERE key = ?", [value, 'notification_triggers_disabled']);
+      await run("UPDATE settings SET value = ?, updated_at = datetime('now') WHERE key = ?", [value, 'notification_triggers_disabled']);
     } else {
-      run("INSERT INTO settings (key, value, updated_at) VALUES (?, ?, datetime('now'))", ['notification_triggers_disabled', value]);
+      await run("INSERT INTO settings (key, value, updated_at) VALUES (?, ?, datetime('now'))", ['notification_triggers_disabled', value]);
     }
     res.json({ ok: true, disabled });
   } catch (err) {
@@ -191,9 +191,9 @@ router.post('/test-channel', requireAuth, validateCsrf, async (req, res) => {
     const message = 'This is a test from AIM Tech AI Admin Panel (' + new Date().toISOString() + ')';
 
     if (channel === 'telegram') {
-      const gs = (k) => { const r = get('SELECT value FROM settings WHERE key = ?', [k]); return r ? r.value : ''; };
-      const token = gs('notif_telegram_bot_token');
-      const chatId = gs('notif_telegram_chat_id');
+      const gs = async (k) => { const r = await get('SELECT value FROM settings WHERE key = ?', [k]); return r ? r.value : ''; };
+      const token = await gs('notif_telegram_bot_token');
+      const chatId = await gs('notif_telegram_chat_id');
       if (!token || !chatId) return res.json({ success: false, error: 'Bot token and chat ID are required' });
       const url = `https://api.telegram.org/bot${token}/sendMessage`;
       const body = JSON.stringify({ chat_id: chatId, text: `${title}\n${message}`, parse_mode: 'HTML' });
@@ -203,8 +203,8 @@ router.post('/test-channel', requireAuth, validateCsrf, async (req, res) => {
     }
 
     if (channel === 'discord') {
-      const gs = (k) => { const r = get('SELECT value FROM settings WHERE key = ?', [k]); return r ? r.value : ''; };
-      const webhook = gs('notif_discord_webhook_url');
+      const gs = async (k) => { const r = await get('SELECT value FROM settings WHERE key = ?', [k]); return r ? r.value : ''; };
+      const webhook = await gs('notif_discord_webhook_url');
       if (!webhook) return res.json({ success: false, error: 'Webhook URL is required' });
       const body = JSON.stringify({ content: `**${title}**\n${message}` });
       const resp = await fetch(webhook, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
@@ -213,9 +213,9 @@ router.post('/test-channel', requireAuth, validateCsrf, async (req, res) => {
     }
 
     if (channel === 'whatsapp') {
-      const gs = (k) => { const r = get('SELECT value FROM settings WHERE key = ?', [k]); return r ? r.value : ''; };
-      const phone = gs('notif_whatsapp_phone');
-      const apiKey = gs('notif_whatsapp_api_key');
+      const gs = async (k) => { const r = await get('SELECT value FROM settings WHERE key = ?', [k]); return r ? r.value : ''; };
+      const phone = await gs('notif_whatsapp_phone');
+      const apiKey = await gs('notif_whatsapp_api_key');
       if (!phone || !apiKey) return res.json({ success: false, error: 'Phone and API key are required' });
       const text = encodeURIComponent(`${title}\n${message}`);
       const url = `https://api.callmebot.com/whatsapp.php?phone=${encodeURIComponent(phone)}&text=${text}&apikey=${encodeURIComponent(apiKey)}`;
@@ -225,13 +225,13 @@ router.post('/test-channel', requireAuth, validateCsrf, async (req, res) => {
     }
 
     if (channel === 'email') {
-      const gs = (k) => { const r = get('SELECT value FROM settings WHERE key = ?', [k]); return r ? r.value : ''; };
-      const to = gs('notif_email_to');
-      const from = gs('notif_email_from');
-      const host = gs('notif_email_smtp_host');
-      const port = parseInt(gs('notif_email_smtp_port') || '587', 10);
-      const user = gs('notif_email_smtp_user');
-      const pass = gs('notif_email_smtp_pass');
+      const gs = async (k) => { const r = await get('SELECT value FROM settings WHERE key = ?', [k]); return r ? r.value : ''; };
+      const to = await gs('notif_email_to');
+      const from = await gs('notif_email_from');
+      const host = await gs('notif_email_smtp_host');
+      const port = parseInt((await gs('notif_email_smtp_port')) || '587', 10);
+      const user = await gs('notif_email_smtp_user');
+      const pass = await gs('notif_email_smtp_pass');
       if (!to || !host) return res.json({ success: false, error: 'Recipient and SMTP host are required' });
       try {
         const nodemailer = require('nodemailer');
@@ -244,12 +244,12 @@ router.post('/test-channel', requireAuth, validateCsrf, async (req, res) => {
     }
 
     if (channel === 'sms') {
-      const gs = (k) => { const r = get('SELECT value FROM settings WHERE key = ?', [k]); return r ? r.value : ''; };
-      const provider = gs('notif_sms_provider') || 'twilio';
-      const to = gs('notif_sms_to');
-      const sid = gs('notif_sms_twilio_sid');
-      const token = gs('notif_sms_twilio_token');
-      const from = gs('notif_sms_twilio_from');
+      const gs = async (k) => { const r = await get('SELECT value FROM settings WHERE key = ?', [k]); return r ? r.value : ''; };
+      const provider = (await gs('notif_sms_provider')) || 'twilio';
+      const to = await gs('notif_sms_to');
+      const sid = await gs('notif_sms_twilio_sid');
+      const token = await gs('notif_sms_twilio_token');
+      const from = await gs('notif_sms_twilio_from');
       if (!to || !sid || !token || !from) return res.json({ success: false, error: 'Phone, SID, Token, and From number are required' });
 
       const smsBody = `${title}\n${message}`;

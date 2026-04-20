@@ -18,8 +18,8 @@ const CATEGORIES = ['AI & ML', 'Engineering', 'Cloud', 'Design', 'Company', 'Sec
 // ---------------------------------------------------------------------------
 // Helper: generate static HTML file for a published post
 // ---------------------------------------------------------------------------
-function generatePostFile(slug) {
-  const post = get('SELECT * FROM blog_posts WHERE slug = ?', [slug]);
+async function generatePostFile(slug) {
+  const post = await get('SELECT * FROM blog_posts WHERE slug = ?', [slug]);
   if (!post) return;
 
   const html = blogPostTemplate({
@@ -230,8 +230,8 @@ function blogForm(post, csrfToken, isEdit) {
 // ---------------------------------------------------------------------------
 // GET / — Blog post list
 // ---------------------------------------------------------------------------
-router.get('/', requireAuth, (req, res) => {
-  const unreadCount = (get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
+router.get('/', requireAuth, async (req, res) => {
+  const unreadCount = (await get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
 
   // Search & filter params
   const q = (req.query.q || '').trim();
@@ -262,10 +262,10 @@ router.get('/', requireAuth, (req, res) => {
   if (filterTo) { where.push("date(COALESCE(published_at, created_at)) <= ?"); params.push(filterTo); }
 
   const whereClause = where.length ? 'WHERE ' + where.join(' AND ') : '';
-  const posts = all('SELECT id, title, slug, category, status, tags, published_at, created_at FROM blog_posts ' + whereClause + ' ORDER BY created_at DESC', params);
-  const totalAll = (get('SELECT COUNT(*) AS c FROM blog_posts') || {}).c || 0;
-  const totalPublished = (get("SELECT COUNT(*) AS c FROM blog_posts WHERE status='published'") || {}).c || 0;
-  const totalDraft = (get("SELECT COUNT(*) AS c FROM blog_posts WHERE status='draft'") || {}).c || 0;
+  const posts = await all('SELECT id, title, slug, category, status, tags, published_at, created_at FROM blog_posts ' + whereClause + ' ORDER BY created_at DESC', params);
+  const totalAll = (await get('SELECT COUNT(*) AS c FROM blog_posts') || {}).c || 0;
+  const totalPublished = (await get("SELECT COUNT(*) AS c FROM blog_posts WHERE status='published'") || {}).c || 0;
+  const totalDraft = (await get("SELECT COUNT(*) AS c FROM blog_posts WHERE status='draft'") || {}).c || 0;
 
   // Category options
   const catOptions = CATEGORIES.map(c =>
@@ -372,8 +372,8 @@ router.get('/', requireAuth, (req, res) => {
 // ---------------------------------------------------------------------------
 // GET /new — New post form
 // ---------------------------------------------------------------------------
-router.get('/new', requireAuth, (req, res) => {
-  const unreadCount = (get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
+router.get('/new', requireAuth, async (req, res) => {
+  const unreadCount = (await get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
 
   res.send(adminLayout({
     title: 'New Post',
@@ -388,13 +388,13 @@ router.get('/new', requireAuth, (req, res) => {
 // ---------------------------------------------------------------------------
 // GET /:id — Edit post form (skip if id === 'api')
 // ---------------------------------------------------------------------------
-router.get('/:id', requireAuth, (req, res, next) => {
+router.get('/:id', requireAuth, async (req, res, next) => {
   if (req.params.id === 'api') return next();
 
-  const post = get('SELECT * FROM blog_posts WHERE id = ?', [req.params.id]);
+  const post = await get('SELECT * FROM blog_posts WHERE id = ?', [req.params.id]);
   if (!post) return res.status(404).send('Post not found');
 
-  const unreadCount = (get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
+  const unreadCount = (await get('SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0') || {}).c || 0;
 
   res.send(adminLayout({
     title: 'Edit: ' + (post.title || post.slug),
@@ -409,7 +409,7 @@ router.get('/:id', requireAuth, (req, res, next) => {
 // ---------------------------------------------------------------------------
 // POST /api — Create post
 // ---------------------------------------------------------------------------
-router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, (req, res) => {
+router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, async (req, res) => {
   const { title, slug: rawSlug, category, tags, excerpt, content_markdown, meta_description, status } = req.body || {};
 
   if (!title || !title.trim()) return res.status(400).json({ error: 'Title is required' });
@@ -418,7 +418,7 @@ router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, (
   if (!slug) return res.status(400).json({ error: 'Could not generate a valid slug' });
 
   // Check uniqueness
-  const existing = get('SELECT id FROM blog_posts WHERE slug = ?', [slug]);
+  const existing = await get('SELECT id FROM blog_posts WHERE slug = ?', [slug]);
   if (existing) return res.status(409).json({ error: 'A post with this slug already exists' });
 
   // Convert markdown to HTML
@@ -427,7 +427,7 @@ router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, (
   const postStatus = status === 'published' ? 'published' : 'draft';
   const publishedAt = postStatus === 'published' ? new Date().toISOString() : null;
 
-  const result = insert('blog_posts', {
+  const result = await insert('blog_posts', {
     slug,
     title: title.trim(),
     excerpt: (excerpt || '').trim().slice(0, 200),
@@ -445,7 +445,7 @@ router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, (
   // Generate static HTML file if published
   if (postStatus === 'published') {
     try {
-      generatePostFile(slug);
+      await generatePostFile(slug);
     } catch (err) {
       console.error('[cms-blog] Error generating post file:', err.message);
     }
@@ -453,7 +453,7 @@ router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, (
     // Create notification
     const blogTitle = 'Blog Post Published';
     const blogMessage = `"${title.trim()}" was published`;
-    insert('notifications', {
+    await insert('notifications', {
       type: 'blog',
       title: blogTitle,
       message: blogMessage,
@@ -468,9 +468,9 @@ router.post('/api', requireAuth, requireRole('admin', 'editor'), validateCsrf, (
 // ---------------------------------------------------------------------------
 // PUT /api/:id — Update post
 // ---------------------------------------------------------------------------
-router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf, (req, res) => {
+router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf, async (req, res) => {
   const postId = req.params.id;
-  const post = get('SELECT * FROM blog_posts WHERE id = ?', [postId]);
+  const post = await get('SELECT * FROM blog_posts WHERE id = ?', [postId]);
   if (!post) return res.status(404).json({ error: 'Post not found' });
 
   const { title, slug: rawSlug, category, tags, excerpt, content_markdown, meta_description, status } = req.body || {};
@@ -481,7 +481,7 @@ router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf
 
   // Check slug uniqueness if changed
   if (slug !== post.slug) {
-    const existing = get('SELECT id FROM blog_posts WHERE slug = ? AND id != ?', [slug, postId]);
+    const existing = await get('SELECT id FROM blog_posts WHERE slug = ? AND id != ?', [slug, postId]);
     if (existing) return res.status(409).json({ error: 'A post with this slug already exists' });
   }
 
@@ -497,7 +497,7 @@ router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf
     publishedAt = new Date().toISOString();
   }
 
-  update('blog_posts', postId, {
+  await update('blog_posts', postId, {
     slug,
     title: title.trim(),
     excerpt: (excerpt || '').trim().slice(0, 200),
@@ -520,7 +520,7 @@ router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf
   // Generate / remove static file
   if (isNowPublished) {
     try {
-      generatePostFile(slug);
+      await generatePostFile(slug);
     } catch (err) {
       console.error('[cms-blog] Error generating post file:', err.message);
     }
@@ -536,9 +536,9 @@ router.put('/api/:id', requireAuth, requireRole('admin', 'editor'), validateCsrf
 // ---------------------------------------------------------------------------
 // DELETE /api/:id — Delete post
 // ---------------------------------------------------------------------------
-router.delete('/api/:id', requireAuth, requireRole('admin'), validateCsrf, (req, res) => {
+router.delete('/api/:id', requireAuth, requireRole('admin'), validateCsrf, async (req, res) => {
   const postId = req.params.id;
-  const post = get('SELECT * FROM blog_posts WHERE id = ?', [postId]);
+  const post = await get('SELECT * FROM blog_posts WHERE id = ?', [postId]);
   if (!post) return res.status(404).json({ error: 'Post not found' });
 
   // Remove HTML file
@@ -546,7 +546,7 @@ router.delete('/api/:id', requireAuth, requireRole('admin'), validateCsrf, (req,
   try { if (fs.existsSync(filePath)) fs.unlinkSync(filePath); } catch {}
 
   // Delete from DB
-  run('DELETE FROM blog_posts WHERE id = ?', [postId]);
+  await run('DELETE FROM blog_posts WHERE id = ?', [postId]);
 
   res.json({ ok: true, message: 'Post deleted' });
 });

@@ -29,26 +29,26 @@ function timeAgo(d) {
   return Math.floor(h / 24) + 'd ago';
 }
 
-router.get('/admin', requireAuth, (req, res) => {
+router.get('/admin', requireAuth, async (req, res) => {
   // Core stats
-  const contacts    = (get("SELECT COUNT(*) AS c FROM contacts") || {}).c || 0;
-  const posts       = (get("SELECT COUNT(*) AS c FROM blog_posts WHERE status='published'") || {}).c || 0;
-  const bookings    = (get("SELECT COUNT(*) AS c FROM bookings WHERE date >= date('now') AND status != 'cancelled'") || {}).c || 0;
-  const agents      = (get("SELECT COUNT(*) AS c FROM agents WHERE is_active = 1") || {}).c || 0;
-  const visitors    = (get("SELECT COUNT(DISTINCT ip_hash) AS c FROM visitors WHERE created_at >= date('now')") || {}).c || 0;
-  const unread      = (get("SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0") || {}).c || 0;
-  const recentNotifs = all("SELECT * FROM notifications ORDER BY created_at DESC LIMIT 8") || [];
+  const contacts    = (await get("SELECT COUNT(*) AS c FROM contacts") || {}).c || 0;
+  const posts       = (await get("SELECT COUNT(*) AS c FROM blog_posts WHERE status='published'") || {}).c || 0;
+  const bookings    = (await get("SELECT COUNT(*) AS c FROM bookings WHERE date >= date('now') AND status != 'cancelled'") || {}).c || 0;
+  const agents      = (await get("SELECT COUNT(*) AS c FROM agents WHERE is_active = 1") || {}).c || 0;
+  const visitors    = (await get("SELECT COUNT(DISTINCT ip_hash) AS c FROM visitors WHERE created_at >= date('now')") || {}).c || 0;
+  const unread      = (await get("SELECT COUNT(*) AS c FROM notifications WHERE is_read = 0") || {}).c || 0;
+  const recentNotifs = await all("SELECT * FROM notifications ORDER BY created_at DESC LIMIT 8") || [];
 
   // Additional stats
-  const pages       = (get("SELECT COUNT(*) AS c FROM pages") || {}).c || 0;
-  const totalDeals  = (get("SELECT COUNT(*) AS c FROM deals") || {}).c || 0;
-  const visitorsWeek = (get("SELECT COUNT(DISTINCT ip_hash) AS c FROM visitors WHERE created_at >= date('now', '-7 days')") || {}).c || 0;
-  const pendingBookings = all("SELECT * FROM bookings WHERE status = 'pending' AND date >= date('now') ORDER BY date, time LIMIT 5") || [];
-  const recentContacts = all("SELECT * FROM contacts ORDER BY created_at DESC LIMIT 5") || [];
-  const topPages = all("SELECT path AS page_url, COUNT(*) AS views FROM page_views WHERE created_at >= date('now', '-7 days') GROUP BY path ORDER BY views DESC LIMIT 5") || [];
-  const dealsByStage = all("SELECT ps.name AS stage, COUNT(d.id) AS cnt, COALESCE(SUM(d.value), 0) AS total FROM pipeline_stages ps LEFT JOIN deals d ON d.stage_id = ps.id GROUP BY ps.id ORDER BY ps.position") || [];
-  const agentRuns = (get("SELECT COUNT(*) AS c FROM agent_runs WHERE started_at >= date('now')") || {}).c || 0;
-  const contactsWeek = (get("SELECT COUNT(*) AS c FROM contacts WHERE created_at >= date('now', '-7 days')") || {}).c || 0;
+  const pages       = (await get("SELECT COUNT(*) AS c FROM pages") || {}).c || 0;
+  const totalDeals  = (await get("SELECT COUNT(*) AS c FROM deals") || {}).c || 0;
+  const visitorsWeek = (await get("SELECT COUNT(DISTINCT ip_hash) AS c FROM visitors WHERE created_at >= date('now', '-7 days')") || {}).c || 0;
+  const pendingBookings = await all("SELECT * FROM bookings WHERE status = 'pending' AND date >= date('now') ORDER BY date, time LIMIT 5") || [];
+  const recentContacts = await all("SELECT * FROM contacts ORDER BY created_at DESC LIMIT 5") || [];
+  const topPages = await all("SELECT path AS page_url, COUNT(*) AS views FROM page_views WHERE created_at >= date('now', '-7 days') GROUP BY path ORDER BY views DESC LIMIT 5") || [];
+  const dealsByStage = await all("SELECT ps.name AS stage, COUNT(d.id) AS cnt, COALESCE(SUM(d.value), 0) AS total FROM pipeline_stages ps LEFT JOIN deals d ON d.stage_id = ps.id GROUP BY ps.id ORDER BY ps.position") || [];
+  const agentRuns = (await get("SELECT COUNT(*) AS c FROM agent_runs WHERE started_at >= date('now')") || {}).c || 0;
+  const contactsWeek = (await get("SELECT COUNT(*) AS c FROM contacts WHERE created_at >= date('now', '-7 days')") || {}).c || 0;
 
   const si = (d) => `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
   const stats = [
