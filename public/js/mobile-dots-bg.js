@@ -38,6 +38,7 @@ export function initMobileDotsBg() {
     const isLight = document.documentElement.getAttribute('data-theme') === 'light';
     return isLight
       // Light mode: deeper teal dots + navy lines for contrast on white bg
+      ? { dot: 'rgba(10,155,146,0.85)',  line: 'rgba(42,53,75,',     lineOpacityMul: 0.55 }
       // Dark mode: bright teal dots + softer teal lines on dark bg
       : { dot: 'rgba(94,234,212,0.95)',  line: 'rgba(15,193,183,',   lineOpacityMul: 0.7  };
   }
