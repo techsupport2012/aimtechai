@@ -164,22 +164,41 @@
     if (!title || !content) return;
     title.textContent = 'Ask Anything';
 
-    // If hero AI chat already exists somewhere on the page, move it into the sheet.
     let chat = document.getElementById('hero-ai-chat');
+    let needsInit = false;
     if (chat && chat.parentElement !== content) {
-      // Remember its original parent so we can restore on close (nice-to-have)
       chat._origParent = chat.parentElement;
       chat._origNext = chat.nextSibling;
       content.appendChild(chat);
     } else if (!chat) {
-      // Create a fresh container and lazy-load the widget
       chat = el('div', { id: 'hero-ai-chat' });
       content.appendChild(chat);
-      import('/js/hero-ai-chat.js').then(m => {
-        try { (m.default || m.initHeroAiChat)(); } catch (e) { console.warn('[chat]', e); }
-      });
+      needsInit = true;
     }
     openSheet('chat');
+
+    // Auto-focus the input so the mobile keyboard opens immediately.
+    // Wait for sheet slide-in (~360ms) and (if needed) widget init.
+    function focusInput() {
+      const input = chat.querySelector('.chat-input');
+      if (input) {
+        try {
+          input.focus({ preventScroll: true });
+          // iOS sometimes ignores programmatic focus — trigger a tap-equivalent
+          if (typeof input.click === 'function') {
+            // No click — just focus is enough; click would re-trigger handlers
+          }
+        } catch {}
+      }
+    }
+    if (needsInit) {
+      import('/js/hero-ai-chat.js').then(m => {
+        try { (m.default || m.initHeroAiChat)(); } catch (e) { console.warn('[chat]', e); }
+        setTimeout(focusInput, 420);
+      });
+    } else {
+      setTimeout(focusInput, 420);
+    }
   }
 
   // ESC closes
@@ -206,6 +225,24 @@
     closeSheet,
     isMobile,
   };
+
+  /* ---------- mobile keyboard awareness via visualViewport ----------
+     When the on-screen keyboard appears, window.visualViewport.height
+     shrinks. We expose the offset as `--kb-bottom` on the document so the
+     fixed chat input row can lift above the keyboard.
+  */
+  function handleViewport() {
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const offset = Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
+    document.documentElement.style.setProperty('--kb-bottom', offset > 24 ? offset + 'px' : 'env(safe-area-inset-bottom, 0)');
+    document.body.classList.toggle('kb-open', offset > 24);
+  }
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', handleViewport);
+    window.visualViewport.addEventListener('scroll', handleViewport);
+    handleViewport();
+  }
 
   /* ---------- mount ---------- */
   if (document.readyState === 'loading') {
