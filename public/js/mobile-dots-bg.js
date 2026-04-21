@@ -37,8 +37,9 @@ export function initMobileDotsBg() {
   function getColors() {
     const isLight = document.documentElement.getAttribute('data-theme') === 'light';
     return isLight
-      ? { dot: 'rgba(15,193,183,0.9)',   line: 'rgba(15,193,183,', bg: 'rgba(245,246,250,0.0)' }
-      : { dot: 'rgba(15,193,183,0.95)',  line: 'rgba(15,193,183,', bg: 'rgba(8,8,10,0.0)' };
+      // Light mode: deeper teal dots + navy lines for contrast on white bg
+      // Dark mode: bright teal dots + softer teal lines on dark bg
+      : { dot: 'rgba(94,234,212,0.95)',  line: 'rgba(15,193,183,',   lineOpacityMul: 0.7  };
   }
 
   /* ---- sizing ---- */
@@ -93,6 +94,7 @@ export function initMobileDotsBg() {
 
     // Draw connecting lines
     ctx.lineWidth = 0.7;
+    const mul = colors.lineOpacityMul || 0.45;
     for (let i = 0; i < dots.length; i++) {
       for (let j = i + 1; j < dots.length; j++) {
         const a = dots[i], b = dots[j];
@@ -102,7 +104,7 @@ export function initMobileDotsBg() {
         const max2 = LINK_DIST * LINK_DIST;
         if (dist2 < max2) {
           const dist = Math.sqrt(dist2);
-          const alpha = (1 - dist / LINK_DIST) * 0.45;
+          const alpha = (1 - dist / LINK_DIST) * mul;
           ctx.strokeStyle = colors.line + alpha.toFixed(3) + ')';
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
