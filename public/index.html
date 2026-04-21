@@ -77,15 +77,17 @@
 
     <!-- ===== SECTION 01: HERO ===== -->
     <style>
-      .hero.hero-split { display: grid !important; grid-template-columns: 1.1fr 1fr !important; gap: 4rem !important; align-items: center !important; width: 100vw !important; max-width: 100vw !important; margin-left: calc(-50vw + 50%) !important; margin-right: calc(-50vw + 50%) !important; padding: 8rem 4vw 4rem !important; text-align: left !important; box-sizing: border-box !important; }
-      .hero.hero-split > .hero-text-col { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
-      .hero.hero-split .hero-sub-header,
-      .hero.hero-split h1,
-      .hero.hero-split .hero-sub { text-align: left !important; }
-      .hero.hero-split .hero-sub { margin: 0 0 1.2rem !important; max-width: 540px; }
-      .hero.hero-split .hero-buttons { justify-content: flex-start !important; margin-left: 0 !important; }
-      .hero.hero-split { position: relative !important; }
-      @media (max-width: 980px) {
+      /* Desktop only — mobile owned by /css/mobile-pro.css */
+      @media (min-width: 769px) {
+        .hero.hero-split { display: grid !important; grid-template-columns: 1.1fr 1fr !important; gap: 4rem !important; align-items: center !important; width: 100vw !important; max-width: 100vw !important; margin-left: calc(-50vw + 50%) !important; margin-right: calc(-50vw + 50%) !important; padding: 8rem 4vw 4rem !important; text-align: left !important; box-sizing: border-box !important; position: relative !important; }
+        .hero.hero-split > .hero-text-col { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
+        .hero.hero-split .hero-sub-header,
+        .hero.hero-split h1,
+        .hero.hero-split .hero-sub { text-align: left !important; }
+        .hero.hero-split .hero-sub { margin: 0 0 1.2rem !important; max-width: 540px; }
+        .hero.hero-split .hero-buttons { justify-content: flex-start !important; margin-left: 0 !important; }
+      }
+      @media (min-width: 769px) and (max-width: 980px) {
         .hero.hero-split { grid-template-columns: 1fr !important; gap: 2.5rem !important; padding: 7rem 2rem 4rem !important; }
       }
     </style>
@@ -810,5 +812,6 @@
   <script src="/js/tracker.js" defer></script>
   <script src="/js/dev-indicator.js" defer></script>
   <script src="/js/mobile-dock.js" defer></script>
+  <script src="/js/mobile-fit-titles.js" defer></script>
 </body>
 </html>
