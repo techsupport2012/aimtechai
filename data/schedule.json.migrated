@@ -1,0 +1,15 @@
+{
+  "settings": {
+    "timezone": "America/Los_Angeles",
+    "workingDays": [1, 2, 3, 4, 5],
+    "startHour": 9,
+    "endHour": 17,
+    "slotMinutes": 30,
+    "maxPerSlot": 1,
+    "advanceDays": 60,
+    "blockedDates": [],
+    "title": "Book a Consultation",
+    "subtitle": "Choose a date and time that works for you. We'll map your AI or software system on the call."
+  },
+  "bookings": []
+}
