@@ -128,8 +128,13 @@ export function initHeroAiChat() {
   root.appendChild(quickPrompts);
   root.appendChild(inputRow);
 
-  /* ---- fullscreen toggle ---- */
+  /* ---- fullscreen toggle (mobile-only — desktop stays inline) ---- */
+  function isMobileViewport() {
+    return window.matchMedia('(max-width: 768px)').matches ||
+           /Android|iPhone|iPad|iPod|webOS/i.test(navigator.userAgent);
+  }
   function enterFullscreen() {
+    if (!isMobileViewport()) return;
     if (root.classList.contains('is-fullscreen')) return;
     root.classList.add('is-fullscreen');
     document.body.classList.add('chat-fs-open');

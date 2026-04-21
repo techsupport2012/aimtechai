@@ -1,5 +1,14 @@
 require('dotenv').config();
 
+// Don't crash the process on unhandled async errors (e.g. one-off MySQL
+// connection drops on shared hosting). Log loudly instead.
+process.on('unhandledRejection', (reason) => {
+  console.error('[unhandledRejection]', (reason && (reason.code || reason.message)) || reason);
+});
+process.on('uncaughtException', (err) => {
+  console.error('[uncaughtException]', err && (err.code || err.message));
+});
+
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -343,6 +352,11 @@ app.post('/api/track/duration', adminVisitorsRoutes.durationBodyParser, adminVis
 // Explicit route for /blog (directory conflicts with blog.html)
 app.get('/blog', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'blog.html'));
+});
+
+// Developer credit redirect
+app.get('/dev', (req, res) => {
+  res.redirect(302, 'https://superva.io/johnmatthew');
 });
 
 // Silence Chrome DevTools workspace probe (returns 404 noise otherwise)

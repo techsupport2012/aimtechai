@@ -32,27 +32,64 @@ if (driver === 'mysql') {
     timezone: 'Z',
     charset: 'utf8mb4',
     namedPlaceholders: false,
-    dateStrings: true, // keep DATETIME as 'YYYY-MM-DD HH:MM:SS' strings (matches SQLite TEXT)
+    dateStrings: true,
+    // Hostinger / shared hosting kills idle connections (often 28-60s).
+    // Keep them alive so the pool doesn't hand out half-dead sockets.
+    enableKeepAlive: true,
+    keepAliveInitialDelay: 10000,
+    idleTimeout: 25000,
   });
 
-  // Translate SQLite-style placeholders / quirks → MySQL on a best-effort basis.
-  // SQLite: `datetime('now')` → MySQL: `NOW()`. Both use `?` placeholders.
+  // Swallow connection-level errors so a single dropped socket doesn't crash
+  // the whole process. The pool will reconnect on the next query.
+  pool.on('connection', (conn) => {
+    conn.on('error', (err) => console.warn('[db:mysql] conn error:', err.code || err.message));
+  });
+
+  // Translate SQLite-style SQL → MySQL on a best-effort basis.
+  // - `datetime('now')` → `NOW()`
+  // - `datetime('now', '+24 hours')` etc → `DATE_ADD(NOW(), INTERVAL ...)`
+  // - bare `key` identifier (reserved word) → backtick-quoted
   function translate(sql) {
-    return String(sql).replace(/datetime\s*\(\s*'now'\s*\)/gi, 'NOW()');
+    let s = String(sql);
+    // datetime('now', '+12 hours') / "+12 days" / "-30 days" / (no second arg)
+    s = s.replace(/datetime\s*\(\s*'now'\s*,\s*'([+-]?\d+)\s*(year|month|day|hour|minute|second)s?'\s*\)/gi,
+      (_, n, unit) => `DATE_ADD(NOW(), INTERVAL ${n} ${unit.toUpperCase()})`);
+    s = s.replace(/datetime\s*\(\s*'now'\s*,\s*'\+\s*'\s*\|\|\s*\?\s*\|\|\s*'\s*hours'\s*\)/gi, 'DATE_ADD(NOW(), INTERVAL ? HOUR)');
+    s = s.replace(/datetime\s*\(\s*'now'\s*,\s*'-(\d+)\s+days?'\s*\)/gi, (_, n) => `DATE_SUB(NOW(), INTERVAL ${n} DAY)`);
+    s = s.replace(/datetime\s*\(\s*'now'\s*\)/gi, 'NOW()');
+    // Reserved-word identifier: `key` (used in settings table). Quote bare references.
+    s = s.replace(/(?<![`\w])key(?![`\w])/g, '`key`');
+    return s;
+  }
+
+  // Retry once on transient connection errors (ECONNRESET, PROTOCOL_CONNECTION_LOST,
+  // ETIMEDOUT) — Hostinger drops idle connections aggressively.
+  const TRANSIENT = new Set(['ECONNRESET', 'PROTOCOL_CONNECTION_LOST', 'ETIMEDOUT', 'ENOTFOUND', 'EPIPE']);
+  async function execQuery(sqlIn, paramsIn) {
+    const params = Array.isArray(paramsIn) ? paramsIn : [paramsIn];
+    const sql = translate(sqlIn);
+    try {
+      return await pool.execute(sql, params);
+    } catch (e) {
+      if (TRANSIENT.has(e.code)) {
+        console.warn('[db:mysql] transient error, retrying once:', e.code);
+        return await pool.execute(sql, params);
+      }
+      throw e;
+    }
   }
 
   async function get(sql, params = []) {
-    const [rows] = await pool.execute(translate(sql), Array.isArray(params) ? params : [params]);
+    const [rows] = await execQuery(sql, params);
     return rows[0] || null;
   }
-
   async function all(sql, params = []) {
-    const [rows] = await pool.execute(translate(sql), Array.isArray(params) ? params : [params]);
+    const [rows] = await execQuery(sql, params);
     return rows;
   }
-
   async function run(sql, params = []) {
-    const [res] = await pool.execute(translate(sql), Array.isArray(params) ? params : [params]);
+    const [res] = await execQuery(sql, params);
     return { lastInsertRowid: res.insertId, changes: res.affectedRows };
   }
 

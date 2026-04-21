@@ -45,6 +45,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/mobile-pro.css">
   <link rel="stylesheet" href="/css/blog.css">
   <script type="importmap">
   {
@@ -452,25 +453,34 @@
     .blog-card-body h3 {
       color: #f0f0f0 !important;
       font-size: 1.15rem !important;
+      line-height: 1.35 !important;
       text-align: center !important;
-      height: 3.1em !important;
+      min-height: calc(1.35em * 2) !important;
+      max-height: calc(1.35em * 2) !important;
+      height: auto !important;
       display: -webkit-box !important;
       -webkit-line-clamp: 2 !important;
+      line-clamp: 2 !important;
       -webkit-box-orient: vertical !important;
       overflow: hidden !important;
+      text-overflow: ellipsis !important;
     }
     .blog-card-body p {
-      color: #2A354B;
+      color: rgba(255,255,255,0.78) !important;
       font-size: 0.92rem !important;
-      line-height: 1.7 !important;
+      line-height: 1.55 !important;
+      min-height: calc(1.55em * 3) !important;
+      max-height: calc(1.55em * 3) !important;
+      height: auto !important;
       display: -webkit-box !important;
       -webkit-line-clamp: 3 !important;
+      line-clamp: 3 !important;
       -webkit-box-orient: vertical !important;
       overflow: hidden !important;
-      height: 4.7em !important;
+      text-overflow: ellipsis !important;
     }
     .blog-card-meta {
-      color: #1A1A1A;
+      color: rgba(255,255,255,0.7) !important;
       font-size: 0.82rem !important;
     }
     .blog-card-category {
@@ -481,8 +491,8 @@
       letter-spacing: 0.5px !important;
     }
     .blog-tag {
-      border-color: rgba(255,255,255,0.1) !important;
-      color: #1A1A1A;
+      border-color: rgba(255,255,255,0.18) !important;
+      color: rgba(255,255,255,0.78) !important;
       font-size: 0.72rem !important;
     }
 
@@ -542,18 +552,18 @@
       color: #1a1a1a !important;
     }
     [data-theme="light"] .blog-card-body p {
-      color: #1A1A1A;
+      color: #1A1A1A !important;
     }
     [data-theme="light"] .blog-card-meta {
-      color: #2A354B;
+      color: #2A354B !important;
     }
     [data-theme="light"] .blog-card-category {
       background: rgba(58,79,212,0.08) !important;
       color: #3a4fd4 !important;
     }
     [data-theme="light"] .blog-tag {
-      border-color: rgba(0,0,0,0.15);
-      color: #2A354B;
+      border-color: rgba(0,0,0,0.15) !important;
+      color: #2A354B !important;
     }
     [data-theme="light"] .blog-filter-btn {
       background: transparent !important;
@@ -1422,5 +1432,6 @@
   <script src="/js/cookie-consent.js" defer></script>
   <script src="/js/tracker.js" defer></script>
   <script src="/js/dev-indicator.js" defer></script>
+  <script src="/js/mobile-dock.js" defer></script>
 </body>
 </html>
