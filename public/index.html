@@ -398,7 +398,22 @@
                 related: [], href: '/portfolio' },
             ];
 
-            const RADIUS = 310;
+            // Responsive radius — derived from actual stage size, not hardcoded.
+            // Recomputed on resize so mobile gets a small orbit, desktop big.
+            let RADIUS = computeRadius();
+            function computeRadius() {
+              const w = stage.getBoundingClientRect().width || stage.offsetWidth || 700;
+              // Leave room for the node graphic (≈half a node radius) inside the stage edge
+              return Math.round(w * 0.42);
+            }
+            window.addEventListener('resize', () => {
+              const next = computeRadius();
+              if (Math.abs(next - RADIUS) >= 2) RADIUS = next;
+            });
+            // Re-measure once fonts/CSS settle
+            setTimeout(() => { RADIUS = computeRadius(); }, 50);
+            setTimeout(() => { RADIUS = computeRadius(); }, 400);
+
             let rotation = 0;
             let autoRotate = true;
             let activeId = null;

@@ -702,16 +702,205 @@
   padding: 0; display: flex; flex-direction: column;
 }
 
+/* ============================================================
+   AI CHAT INSIDE MOBILE SHEET — professional dark theme
+   ============================================================ */
 #mobile-sheet #hero-ai-chat {
   display: flex; flex-direction: column;
   width: 100% !important; max-width: 100% !important;
-  margin: 0 !important; padding: 16px !important;
+  margin: 0 !important; padding: 16px 16px 12px !important;
   background: transparent !important; border: none !important;
   border-radius: 0 !important; box-shadow: none !important;
   backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
   height: 100%; max-height: 100%; min-height: 0; flex: 1 1 auto;
+  font-family: 'Outfit', system-ui, sans-serif !important;
 }
-#mobile-sheet #hero-ai-chat .chat-messages { flex: 1 1 auto; max-height: none; }
+
+/* Hide the in-widget header — sheet has its own header already */
+#mobile-sheet #hero-ai-chat .chat-header { display: none !important; }
+
+/* Messages area — generous breathing room */
+#mobile-sheet #hero-ai-chat .chat-messages {
+  flex: 1 1 auto !important;
+  max-height: none !important;
+  padding: 4px 2px 14px !important;
+  gap: 12px !important;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15,193,183,0.4) transparent;
+}
+
+/* Message bubbles — cleaner, professional, no glaring white */
+#mobile-sheet #hero-ai-chat .chat-message {
+  max-width: 86% !important;
+  padding: 12px 15px !important;
+  border-radius: 14px !important;
+  font-size: 14.5px !important;
+  line-height: 1.55 !important;
+  font-family: 'Outfit', system-ui, sans-serif !important;
+}
+#mobile-sheet #hero-ai-chat .chat-message.user {
+  background: linear-gradient(135deg, rgba(15,193,183,0.95), rgba(10,155,146,0.95)) !important;
+  color: #fff !important;
+  border: none !important;
+  border-bottom-right-radius: 4px !important;
+  align-self: flex-end !important;
+  box-shadow: 0 2px 10px rgba(15,193,183,0.25);
+}
+#mobile-sheet #hero-ai-chat .chat-message.ai {
+  background: rgba(255,255,255,0.04) !important;
+  color: rgba(255,255,255,0.95) !important;
+  border: 1px solid rgba(255,255,255,0.07) !important;
+  border-bottom-left-radius: 4px !important;
+  align-self: flex-start !important;
+}
+[data-theme="light"] #mobile-sheet #hero-ai-chat .chat-message.ai {
+  background: #fff !important;
+  color: #1a1a1a !important;
+  border-color: rgba(0,0,0,0.08) !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+[data-theme="light"] #mobile-sheet #hero-ai-chat .chat-message.user {
+  color: #fff !important;
+}
+
+/* Inline link button under AI replies */
+#mobile-sheet #hero-ai-chat .chat-link-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  margin-top: 10px !important;
+  padding: 7px 12px !important;
+  font-family: 'Space Mono', ui-monospace, monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.6px !important;
+  text-transform: uppercase !important;
+  color: #0FC1B7 !important;
+  background: rgba(15,193,183,0.1) !important;
+  border: 1px solid rgba(15,193,183,0.4) !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+  align-self: flex-start !important;
+}
+#mobile-sheet #hero-ai-chat .chat-link-btn:hover { background: rgba(15,193,183,0.18) !important; }
+
+/* Typing indicator */
+#mobile-sheet #hero-ai-chat .chat-typing-wrap {
+  background: rgba(255,255,255,0.04) !important;
+  border: 1px solid rgba(255,255,255,0.07) !important;
+  border-radius: 14px !important;
+  padding: 14px 18px !important;
+  align-self: flex-start !important;
+  max-width: 80px !important;
+}
+#mobile-sheet #hero-ai-chat .chat-typing span { background: #0FC1B7 !important; }
+
+/* Quick prompts — sleek chips */
+#mobile-sheet #hero-ai-chat .chat-quick-prompts {
+  padding: 12px 0 10px !important;
+  border-top: 1px solid rgba(255,255,255,0.06) !important;
+  border-bottom: none !important;
+  gap: 6px !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  scrollbar-width: none !important;
+}
+#mobile-sheet #hero-ai-chat .chat-quick-prompts::-webkit-scrollbar { display: none; }
+#mobile-sheet #hero-ai-chat .chat-quick-btn {
+  flex-shrink: 0 !important;
+  font-family: 'Space Mono', ui-monospace, monospace !important;
+  font-size: 10.5px !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  padding: 7px 12px !important;
+  border-radius: 4px !important;
+  background: rgba(15,193,183,0.06) !important;
+  border: 1px solid rgba(15,193,183,0.25) !important;
+  color: rgba(15,193,183,0.95) !important;
+}
+#mobile-sheet #hero-ai-chat .chat-quick-btn:hover {
+  background: rgba(15,193,183,0.15) !important;
+  border-color: rgba(15,193,183,0.5) !important;
+  color: #0FC1B7 !important;
+}
+[data-theme="light"] #mobile-sheet #hero-ai-chat .chat-quick-btn {
+  background: rgba(15,193,183,0.08) !important;
+  color: #0A9B92 !important;
+}
+
+/* Input row — professional dark glass */
+#mobile-sheet #hero-ai-chat .chat-input-row {
+  margin-top: 0 !important;
+  padding: 12px 14px !important;
+  background: rgba(255,255,255,0.03) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  transition: border-color .15s, background .15s !important;
+}
+#mobile-sheet #hero-ai-chat .chat-input-row:focus-within {
+  border-color: rgba(15,193,183,0.6) !important;
+  background: rgba(15,193,183,0.05) !important;
+  box-shadow: 0 0 0 3px rgba(15,193,183,0.12) !important;
+}
+[data-theme="light"] #mobile-sheet #hero-ai-chat .chat-input-row {
+  background: rgba(0,0,0,0.03) !important;
+  border-color: rgba(0,0,0,0.1) !important;
+}
+[data-theme="light"] #mobile-sheet #hero-ai-chat .chat-input-row:focus-within {
+  background: rgba(15,193,183,0.07) !important;
+  border-color: rgba(15,193,183,0.55) !important;
+}
+
+#mobile-sheet #hero-ai-chat .chat-input {
+  flex: 1 1 auto !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  font-family: 'Outfit', system-ui, sans-serif !important;
+  font-size: 16px !important;  /* prevents iOS zoom-on-focus */
+  color: #fff !important;
+  padding: 4px 2px !important;
+  min-height: 22px !important;
+}
+#mobile-sheet #hero-ai-chat .chat-input::placeholder {
+  color: rgba(255,255,255,0.4) !important;
+  font-family: 'Space Mono', ui-monospace, monospace !important;
+  font-size: 13px !important;
+  text-transform: lowercase;
+}
+[data-theme="light"] #mobile-sheet #hero-ai-chat .chat-input { color: #1a1a1a !important; }
+[data-theme="light"] #mobile-sheet #hero-ai-chat .chat-input::placeholder { color: rgba(0,0,0,0.4) !important; }
+
+/* Send button — square teal */
+#mobile-sheet #hero-ai-chat .chat-send-btn {
+  flex-shrink: 0 !important;
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 8px !important;
+  background: linear-gradient(135deg, #0FC1B7, #0A9B92) !important;
+  border: none !important;
+  color: #fff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  box-shadow: 0 2px 10px rgba(15,193,183,0.4);
+  transition: transform .12s !important;
+}
+#mobile-sheet #hero-ai-chat .chat-send-btn:active { transform: scale(0.94) !important; }
+#mobile-sheet #hero-ai-chat .chat-send-btn:disabled,
+#mobile-sheet #hero-ai-chat .chat-send-btn.is-busy {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+#mobile-sheet #hero-ai-chat .chat-send-btn svg { width: 16px !important; height: 16px !important; }
+
+/* Hide the inline fullscreen close button — the sheet's close handles it */
+#mobile-sheet #hero-ai-chat .chat-fs-close { display: none !important; }
+#mobile-sheet #hero-ai-chat.is-fullscreen { position: relative !important; inset: auto !important; }
 
 body.sheet-open { overflow: hidden; }
 
