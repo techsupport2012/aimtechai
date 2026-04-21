@@ -89,14 +89,16 @@
   .hero.hero-split {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
     /* Kill the desktop "escape from .content" trick that overflows on mobile */
     margin-left: 0 !important;
     margin-right: 0 !important;
-    padding: 96px 22px 120px !important;
+    /* Top: clear nav (~60px) + corner marker (~24px) + breathing room.
+       Use safe-area-inset-top so notched phones don't crop the title. */
+    padding: calc(140px + env(safe-area-inset-top, 0)) 22px 120px !important;
     min-height: 100vh !important;
     min-height: 100dvh !important;
     text-align: left !important;
@@ -113,7 +115,7 @@
   .hero.hero-split::before {
     content: '[ HERO // 01 ]';
     position: absolute;
-    top: 80px;
+    top: calc(96px + env(safe-area-inset-top, 0));
     left: 22px;
     font-family: 'Space Mono', ui-monospace, monospace;
     font-size: 10px;
@@ -171,27 +173,45 @@
   .hero .hero-buttons {
     display: flex !important;
     flex-direction: column !important;
-    gap: 8px !important;
+    gap: 10px !important;
     margin: 0 !important;
   }
   .hero.hero-split .hero-buttons .gradient-btn,
   .hero .hero-buttons .gradient-btn {
     width: 100% !important;
-    padding: 16px 18px !important;
+    padding: 18px 22px !important;
     font-family: 'Space Mono', ui-monospace, monospace !important;
-    font-size: 12px !important;
-    letter-spacing: 1.5px !important;
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.6px !important;
     text-transform: uppercase;
     justify-content: space-between !important;
     border-radius: 4px !important;
     background: var(--clr-primary) !important;
+    min-height: 56px !important;
+    color: #fff !important;
+  }
+  /* Always show the label — never let it collapse / hide */
+  .hero.hero-split .hero-buttons .gradient-btn .gbtn-label,
+  .hero .hero-buttons .gradient-btn .gbtn-label {
+    display: inline-flex !important;
+    align-items: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-size: 14.5px !important;
+    color: inherit !important;
+    text-shadow: none !important;
   }
   .hero.hero-split .hero-buttons .gradient-btn .gbtn-label::before {
     content: '▸ ';
+    margin-right: 4px;
   }
+  /* Hide the small icon glyphs on mobile (they're decorative arrows/stars) */
+  .hero.hero-split .hero-buttons .gradient-btn .gbtn-icon,
+  .hero .hero-buttons .gradient-btn .gbtn-icon { display: none !important; }
   .hero.hero-split .hero-buttons .gradient-btn:not(:first-child) {
     background: transparent !important;
-    border: 1px solid rgba(15,193,183,0.45) !important;
+    border: 1px solid rgba(15,193,183,0.55) !important;
     color: #0FC1B7 !important;
   }
   .hero.hero-split .hero-buttons .gradient-btn:not(:first-child) .gbtn-bg,
@@ -575,46 +595,37 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3px;
+    gap: 4px;
     padding: 6px 4px;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
-    font-family: 'Space Mono', ui-monospace, monospace;
-    font-size: 8.5px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+    /* Uniform across all dock items */
+    font-family: 'Space Mono', ui-monospace, monospace !important;
+    font-size: 9.5px !important;
+    font-weight: 500 !important;
+    letter-spacing: 1.4px !important;
+    text-transform: uppercase !important;
+    line-height: 1 !important;
     transition: color 0.2s;
     border: none;
     background: transparent;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
     border-radius: 4px;
+    position: relative;
   }
-  [data-theme="light"] .dock-item { color: rgba(20, 24, 32, 0.55); }
+  [data-theme="light"] .dock-item { color: rgba(20, 24, 32, 0.6); }
   .dock-item svg {
     width: 20px;
     height: 20px;
     stroke-width: 1.6;
   }
+  /* Chat button: NO background pill — same look as siblings, just with teal accent */
   .dock-item.is-cta {
-    color: #fff !important;
-    position: relative;
+    color: var(--clr-primary, #0FC1B7) !important;
   }
-  .dock-item.is-cta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 44px;
-    height: 44px;
-    border-radius: 6px;
-    background: linear-gradient(135deg, #0FC1B7, #0A9B92);
-    box-shadow: 0 4px 14px rgba(15, 193, 183, 0.45), 0 0 0 1px rgba(15,193,183,0.5);
-    z-index: -1;
-  }
-  .dock-item.is-cta svg { color: #fff; position: relative; }
+  .dock-item.is-cta svg { color: var(--clr-primary, #0FC1B7) !important; }
+  .dock-item.is-cta::before { display: none !important; }
   .dock-item.active {
     color: #0FC1B7;
   }
@@ -631,42 +642,34 @@
 /* ============================================================
    BOTTOM SHEET (chat)
    ============================================================ */
-#mobile-sheet-backdrop {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  z-index: 1100;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-#mobile-sheet-backdrop.open { display: block; opacity: 1; }
+/* Backdrop hidden — sheet now fills the entire viewport */
+#mobile-sheet-backdrop { display: none !important; }
 
 #mobile-sheet {
   position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 1101;
-  height: 82vh;
-  height: 82dvh;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
   background: linear-gradient(180deg, #0e1218 0%, #080b10 100%);
-  border-radius: 16px 16px 0 0;
-  border-top: 1px solid rgba(15, 193, 183, 0.4);
-  box-shadow: 0 -16px 60px rgba(0,0,0,0.6);
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
   transform: translateY(100%);
-  transition: transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
   display: flex;
   flex-direction: column;
+  padding-top: env(safe-area-inset-top, 0);
   padding-bottom: env(safe-area-inset-bottom, 0);
   overflow: hidden;
 }
 [data-theme="light"] #mobile-sheet {
   background: linear-gradient(180deg, #fafbff 0%, #eff1f7 100%);
-  border-top-color: rgba(15, 193, 183, 0.45);
 }
+/* Hide drag handle in fullscreen mode — close button is enough */
+#mobile-sheet .sheet-handle { display: none !important; }
 #mobile-sheet.open { transform: translateY(0); }
 .sheet-handle {
   display: flex; align-items: center; justify-content: center;
@@ -982,5 +985,49 @@ body.sheet-open { overflow: hidden; }
   }
   [data-theme="light"] body {
     background-color: #f4f5f8 !important;
+  }
+}
+
+/* ============================================================
+   Testimonial stack — fit mobile viewports
+   ============================================================ */
+@media (max-width: 768px) {
+  .tstack-stage {
+    width: 88vw !important;
+    max-width: 320px !important;
+    height: 380px !important;
+    margin: 1.6rem auto 0 !important;
+  }
+  .tstack-card {
+    width: 88vw !important;
+    max-width: 320px !important;
+    height: 380px !important;
+    padding: 1.4rem 1.2rem !important;
+    border-radius: 14px !important;
+    gap: .8rem !important;
+  }
+  .tstack-card .tstack-quote,
+  .tstack-card blockquote,
+  .tstack-card p {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+  }
+  .tstack-card .tstack-name,
+  .tstack-card cite {
+    font-size: 12.5px !important;
+  }
+  .tstack-card .tstack-stars,
+  .tstack-card .stars {
+    font-size: 14px !important;
+  }
+  /* Tighten stack offsets so they don't overflow the smaller stage */
+  .tstack-card.front  { transform: translate(-12px, -8px)  scale(1)    rotate(2deg)  !important; }
+  .tstack-card.middle { transform: translate(  0px,  0px)  scale(0.94) rotate(0deg)  !important; }
+  .tstack-card.back   { transform: translate( 12px,  8px)  scale(0.88) rotate(-2deg) !important; }
+
+  /* Pagination dots below the stack */
+  .tstack-dots, .tstack-pagination {
+    margin-top: 1.2rem !important;
+    gap: 7px !important;
   }
 }

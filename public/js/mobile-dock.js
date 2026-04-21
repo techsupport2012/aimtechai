@@ -141,6 +141,15 @@
     const sheet = document.getElementById('mobile-sheet');
     const backdrop = document.getElementById('mobile-sheet-backdrop');
     if (!sheet || !backdrop) return;
+    // Blur any focused input inside the sheet so iOS keyboard collapses + viewport returns
+    try {
+      const focused = sheet.querySelector('input:focus, textarea:focus');
+      if (focused) focused.blur();
+    } catch {}
+    // Wipe any residual fullscreen state from the chat widget
+    const chat = sheet.querySelector('#hero-ai-chat');
+    if (chat) chat.classList.remove('is-fullscreen');
+    document.body.classList.remove('chat-fs-open');
     sheet.classList.remove('open', 'full');
     sheet.style.transform = '';
     sheet.setAttribute('aria-hidden', 'true');
@@ -177,6 +186,19 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && document.body.classList.contains('sheet-open')) closeSheet();
   });
+
+  // SPA navigation (popstate or programmatic) — close any open sheet so it
+  // doesn't carry visual state into the next page
+  window.addEventListener('popstate', closeSheet);
+  // Also close when a dock <a> link is tapped (in-page nav)
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest && e.target.closest('a[href]');
+    if (link && document.body.classList.contains('sheet-open')) {
+      // Only close for non-anchor navigation
+      const href = link.getAttribute('href') || '';
+      if (!href.startsWith('#')) closeSheet();
+    }
+  }, true);
 
   /* ---------- public API ---------- */
   window.aimMobile = {
